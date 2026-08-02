@@ -5,7 +5,8 @@ English manuals and a searchable hardware map for:
 | Item | Value |
 |------|--------|
 | Boat | 2023 BENETEAU Flyer 8 SPACEdeck (V2 / Air Step 2) |
-| Engine | Mercury Marine Verado 300 V8 AMS — model **13000069A** |
+| Engine | Mercury Marine Verado 300 V8 AMS — model **13000069A** / **300XXL** |
+| ESN | **3B371488** (confirmed from data plate photo) |
 | Controls | Digital Throttle & Shift (DTS) |
 | Steering | AMS electro-hydraulic / electric power steering |
 | Shaft | XXL 30 in |
@@ -17,8 +18,8 @@ PDF library: [`manuals/`](manuals/) (~100 MB)
 
 ## Confirmed from your data
 
-- **Engine model `13000069A`** = Mercury **Verado 300 HP** 4.6 L V8, Cold Fusion White, **30" XXL**, SmartCraft / DTS, AMS midsection.
-- That number is a **catalog/model code**, not the unique **Engine Serial Number (ESN)**. The ESN is on the starboard transom-bracket data plate and is required for the exact Mercury O&M PDF and parts lookup.
+- **Engine model `13000069A`** / designation **300XXL** = Mercury **Verado 300 HP** (221 kW), plate weight 620 lb / 281 kg, **30" XXL**.
+- **ESN `3B371488`** confirmed from the transom data plate photo — use this on the [Mercury Owners Manual portal](https://www.mercurymarine.com/us/en/service-and-support/owners-resources/owners-manual) and for parts.
 
 ---
 
@@ -100,7 +101,7 @@ Useful when debugging “is this even installed?”
 Reply with whatever you know (photos of labels are ideal):
 
 1. **HIN** (hull ID) and delivery country / dealer?
-2. **Engine ESN** (transom plate) — full string?
+2. ~~**Engine ESN**~~ — **done: `3B371488`**
 3. **Garmin** exact model (About screen or bezel): UHD 92sv / UHD2 92sv / Ultra 122sv / other?
 4. **Trim:** Zipwake, LENCO, or none?
 5. **Windlass** brand/model on the motor plate?

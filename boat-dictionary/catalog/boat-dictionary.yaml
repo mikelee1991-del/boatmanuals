@@ -35,7 +35,12 @@ propulsion:
   manufacturer: Mercury Marine
   family: Verado V8 FourStroke AMS
   model_number: "13000069A"
+  model_designation: "300XXL"
+  serial_number_esn: "3B371488"
   horsepower: 300
+  power_kw: 221
+  dry_weight_lb: 620
+  dry_weight_kg: 281
   displacement: "4.6 L (279 cid)"
   cylinders: "V8 32-valve DOHC"
   color: Cold Fusion White
@@ -48,11 +53,12 @@ propulsion:
   steering: "Electro-hydraulic power steering (AMS)"
   midsection: Advanced MidSection (AMS)
   smartcraft: true
-  serial_number_needed: true
+  serial_number_needed: false
   serial_number_location: "Starboard transom bracket / clamp assembly data plate"
+  plate_evidence: "Photo of Mercury data plate — Model 13000069A, Serial 3B371488, 300XXL, 300 HP / 221 kW, 620 lb / 281 kg, CE 0098, CAN ICES-2/NMB-2"
   notes:
-    - "13000069A is a model/catalog number, not the unique Engine Serial Number (ESN)."
-    - "Use ESN for exact Operation/Maintenance PDF from Mercury and for parts lookup."
+    - "ESN 3B371488 confirmed from engine data plate photo."
+    - "Use ESN 3B371488 on Mercury Owners Manual portal and parts lookup."
     - "Beneteau pre-rig option: Mercury Verado Digital DTS Throttle Shift (250–350 HP)."
 
 electrical_baseline:
@@ -91,14 +97,15 @@ hardware:
 
   - id: engine-verado-300-v8
     category: engine
-    name: Mercury Verado 300 V8 AMS (13000069A)
+    name: Mercury Verado 300 V8 AMS (13000069A / 300XXL)
     status: confirmed
-    keywords: [verado, mercury, outboard, oil, spark plug, gearcase, cooling, flush, pcm, fault code, overheat, no start, warning horn]
+    serial_number_esn: "3B371488"
+    keywords: [verado, mercury, outboard, oil, spark plug, gearcase, cooling, flush, pcm, fault code, overheat, no start, warning horn, 3B371488, 300XXL]
     manuals:
       - path: manuals/engine/Mercury-Verado-V8-SeaPro-V8-Operation-Maintenance-8m0145543.pdf
         title: Verado V8 / SeaPro V8 Operation & Maintenance Manual (8M0145543)
         language: en
-        notes: "Official Brunswick download; confirm against your ESN on Mercury Owners Manual portal for the latest revision."
+        notes: "Official Brunswick download; also retrieve ESN-specific revision for 3B371488 on Mercury Owners Manual portal."
       - path: manuals/engine/Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf
         title: Electric Steering for V8/V10 AMS + Active Trim / DTS features (8M0221736)
         language: en
@@ -116,8 +123,8 @@ hardware:
       - title: Mercury V8 Diagnostic Manual (PCM 112 / CDS G3) (~302 pp)
         how_to_obtain: "Mercury dealer / ManualsLib (Mercury V8 300 Diagnostic Manual)."
         language: en
-      - title: ESN-specific Operation, Maintenance & Installation Manual
-        how_to_obtain: "https://www.mercurymarine.com/us/en/service-and-support/owners-resources/owners-manual — enter ESN."
+      - title: ESN-specific Operation, Maintenance & Installation Manual for 3B371488
+        how_to_obtain: "https://www.mercurymarine.com/us/en/service-and-support/owners-resources/owners-manual — enter ESN 3B371488."
         language: en
     symptoms: [hard start, no start, overheat, low oil pressure, fault alarm, rough idle, no shift, DTS limp, power loss, gearcase noise]
 

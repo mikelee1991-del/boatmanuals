@@ -1,6 +1,6 @@
 # Flyer 8 SPACEdeck — boat binder & Q&A
 
-Documentation and offline Q&A for a **2023 BENETEAU Flyer 8 SPACEdeck** with **Mercury Verado 300** (`13000069A` / ESN `3B371488`).
+Documentation and binder-grounded Q&A for a **2023 BENETEAU Flyer 8 SPACEdeck** with **Mercury Verado 300** (`13000069A` / ESN `3B371488`).
 
 ## Boat binder (source of truth)
 

@@ -253,6 +253,27 @@
       "related": []
     },
     {
+      "id": "RI-ANCHOR-DEPTH",
+      "title": "How deep can I anchor (scope / rode)",
+      "section": "OM-ANCH",
+      "keywords": [
+        "anchor",
+        "anchoring",
+        "depth",
+        "deep",
+        "rode",
+        "scope",
+        "chain",
+        "draft"
+      ],
+      "confidence": "partial",
+      "text": "Rode length on HIN BEYFT208F223 is UNVERIFIED — no boat-specific max anchoring depth yet. Hull draft is 0.50–0.90 m (not rode length). Use scope ~5:1 calm / 7:1+ in wind against measured rode: max depth ≈ rode÷scope − bow height. Garmin depth is water under transducer, not rode remaining. Measure chain+rope length to answer precisely. See chapters/10-ground-tackle.md.",
+      "related": [
+        "OM-ANCH",
+        "RI-WINDLASS"
+      ]
+    },
+    {
       "id": "RI-TEAK",
       "title": "Teak deck",
       "section": "OM-DECK",

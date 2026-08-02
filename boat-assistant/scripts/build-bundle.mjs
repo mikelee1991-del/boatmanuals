@@ -134,8 +134,13 @@ const playbooksPath = path.join(DICT, "owners-manual/llm/symptom-playbooks.yaml"
 let playbooksRaw = "";
 if (fs.existsSync(playbooksPath)) playbooksRaw = fs.readFileSync(playbooksPath, "utf8");
 
+const systemPromptPath = path.join(DICT, "owners-manual/llm/system-prompt.md");
+const systemPrompt = fs.existsSync(systemPromptPath)
+  ? fs.readFileSync(systemPromptPath, "utf8")
+  : "You are the Flyer 8 SPACEdeck vessel assistant. Cite the binder; mark UNVERIFIED gaps.";
+
 const bundle = {
-  version: "2.0.0",
+  version: "3.0.0",
   builtAt: new Date().toISOString(),
   vessel: {
     name: "2023 BENETEAU Flyer 8 SPACEdeck",
@@ -150,13 +155,14 @@ const bundle = {
   docs,
   chunks,
   playbooksRaw,
+  systemPrompt,
   quickPrompts: [
+    "How deep can I anchor on this boat?",
     "Stereo has no sound — what should I check?",
     "No start — walk me through checks",
     "Hard steering — what do I do?",
     "Water-in-fuel warning — how do I fix it?",
     "Garmin is blank — troubleshooting steps",
-    "Shore power not charging — what to check",
     "How do I pair Bluetooth to the Fusion stereo?",
   ],
 };

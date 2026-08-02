@@ -1,6 +1,7 @@
 /**
- * Tiny static server for the offline Flyer 8 Boat Guide.
- * No API keys required. Optional /api/ask for the same local engine.
+ * Flyer 8 Boat Guide server.
+ * - Static UI + offline engine always available
+ * - Optional LLM via OPENROUTER_API_KEY / OPENAI_API_KEY (never commit keys)
  */
 import http from "node:http";
 import fs from "node:fs";
@@ -40,6 +41,52 @@ function readBody(req) {
   });
 }
 
+function llmConfig() {
+  const openrouter = process.env.OPENROUTER_API_KEY;
+  const openai = process.env.OPENAI_API_KEY;
+  if (openrouter) {
+    return {
+      provider: "openrouter",
+      apiKey: openrouter,
+      model: process.env.LLM_MODEL || "openai/gpt-4o-mini",
+      url: "https://openrouter.ai/api/v1/chat/completions",
+    };
+  }
+  if (openai) {
+    return {
+      provider: "openai",
+      apiKey: openai,
+      model: process.env.LLM_MODEL || "gpt-4o-mini",
+      url: "https://api.openai.com/v1/chat/completions",
+    };
+  }
+  return null;
+}
+
+async function callLlm(cfg, messages) {
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${cfg.apiKey}`,
+  };
+  if (cfg.provider === "openrouter") {
+    headers["HTTP-Referer"] = "https://mikelee1991-del.github.io/boatmanuals/";
+    headers["X-Title"] = "Flyer 8 Boat Guide";
+  }
+  const res = await fetch(cfg.url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ model: cfg.model, temperature: 0.2, messages }),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    const msg = data?.error?.message || data?.error || res.statusText;
+    throw new Error(typeof msg === "string" ? msg : JSON.stringify(msg));
+  }
+  const text = data?.choices?.[0]?.message?.content;
+  if (!text) throw new Error("Empty model response");
+  return text;
+}
+
 const bundlePath = path.join(PUBLIC, "knowledge-bundle.json");
 if (!fs.existsSync(bundlePath)) {
   console.error("Missing public/knowledge-bundle.json — run: npm run build");
@@ -47,16 +94,19 @@ if (!fs.existsSync(bundlePath)) {
 }
 
 const bundle = JSON.parse(fs.readFileSync(bundlePath, "utf8"));
-const { answerQuestion } = await import(pathToFileURL(path.join(PUBLIC, "answer-engine.js")).href);
+const engine = await import(pathToFileURL(path.join(PUBLIC, "answer-engine.js")).href);
+const { answerQuestion, retrievePassages, buildLlmMessages } = engine;
 
 const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url, "http://local");
+    const cfg = llmConfig();
 
     if (url.pathname === "/api/status") {
       return send(res, 200, {
         ok: true,
-        mode: "offline-local",
+        llm: Boolean(cfg),
+        provider: cfg?.provider || null,
         vessel: bundle.vessel,
         stats: bundle.stats,
         builtAt: bundle.builtAt,
@@ -64,9 +114,38 @@ const server = http.createServer(async (req, res) => {
     }
 
     if (url.pathname === "/api/ask" && req.method === "POST") {
-      const body = JSON.parse(await readBody(req) || "{}");
-      const result = answerQuestion(bundle, body.question || body.message || "");
-      return send(res, 200, result);
+      const body = JSON.parse((await readBody(req)) || "{}");
+      const question = body.question || body.message || "";
+      const wantLlm = body.mode === "llm" || body.llm === true;
+
+      if (wantLlm) {
+        if (!cfg) {
+          return send(res, 503, {
+            error: "LLM_NOT_CONFIGURED",
+            message:
+              "Set OPENROUTER_API_KEY or OPENAI_API_KEY on the server, or paste an OpenRouter key in the app Settings.",
+          });
+        }
+        const passages = retrievePassages(bundle, question, { limit: 10 });
+        const messages = buildLlmMessages(bundle, question, passages);
+        const answer = await callLlm(cfg, messages);
+        return send(res, 200, {
+          mode: "llm",
+          provider: cfg.provider,
+          model: cfg.model,
+          answer,
+          hits: passages.map((p) => ({
+            id: p.id,
+            file: p.file,
+            title: p.title,
+            score: p.score,
+          })),
+          confidence: "high",
+        });
+      }
+
+      const result = answerQuestion(bundle, question);
+      return send(res, 200, { ...result, mode: "offline" });
     }
 
     let pathname = decodeURIComponent(url.pathname);
@@ -79,13 +158,16 @@ const server = http.createServer(async (req, res) => {
     return send(res, 200, fs.readFileSync(abs), MIME[ext] || "application/octet-stream");
   } catch (err) {
     console.error(err);
-    send(res, 500, { error: String(err) });
+    send(res, 500, { error: String(err.message || err) });
   }
 });
 
 server.listen(PORT, HOST, () => {
-  console.log(`[boat-guide] offline Q&A at http://localhost:${PORT}`);
+  const cfg = llmConfig();
+  console.log(`[boat-guide] http://${HOST === "0.0.0.0" ? "localhost" : HOST}:${PORT}`);
   console.log(
-    `[boat-guide] ${bundle.stats.files} files / ${bundle.stats.chunks} passages / ${Math.round(bundle.stats.bytes / 1024)} KB — no API key`
+    `[boat-guide] binder ${bundle.stats.files} files / ${bundle.stats.chunks} passages — LLM ${
+      cfg ? `ON (${cfg.provider} / ${cfg.model})` : "off (set OPENROUTER_API_KEY or OPENAI_API_KEY)"
+    }`
   );
 });

@@ -153,10 +153,14 @@ export function answerQuestion(bundle, question) {
     lines.push("");
   }
 
-  if (top.length > 1) {
+  const related = top
+    .filter((x) => x.c !== lead)
+    .filter((x) => !top[0] || x.s >= Math.max(8, (top[0].s || 0) * 0.35))
+    .slice(0, 4);
+  if (related.length) {
     lines.push("### Related sources");
-    for (const { c, s } of top.slice(lead && top[0].s >= 8 ? 1 : 0, 5)) {
-      lines.push(`- **${c.title}** (\`${c.file}\`${c.section ? `, ${c.section}` : ""}) — score ${s}`);
+    for (const { c, s } of related) {
+      lines.push(`- **${c.title}** (\`${c.file}\`${c.section ? `, ${c.section}` : ""})`);
       lines.push(`  ${excerpt(c.text, toks, 220)}`);
     }
     lines.push("");

@@ -17,6 +17,7 @@ English manuals and a searchable hardware map for:
 | Shaft | XXL 30 in |
 
 Machine-readable catalog: [`catalog/boat-dictionary.yaml`](catalog/boat-dictionary.yaml)  
+12 V fuse map: [`catalog/fuse-map-12v.md`](catalog/fuse-map-12v.md)  
 PDF library: [`manuals/`](manuals/) (~100 MB)
 
 ---

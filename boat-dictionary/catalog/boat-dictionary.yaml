@@ -276,10 +276,11 @@ hardware:
     name: Fusion marine stereo (Sound Pack)
     status: confirmed
     model_status: exact_model_unverified
-    evidence: "Helm photo — Fusion-class marine stereo head unit beside engine display"
+    evidence: "Helm photo — Fusion-class marine stereo head unit beside engine display; fuse map 10A AN4 music circuit"
+    fuse: "Blue Sea box 10 A — AN4 r 2.5 mm²"
     likely_models:
       - "Fusion MS-RA210 (factory Sound Pack on Flyer 8 equipment list)"
-    keywords: [fusion, stereo, bluetooth, speakers, ra210, audio]
+    keywords: [fusion, stereo, bluetooth, speakers, ra210, audio, AN4]
     manuals:
       - path: manuals/electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf
         title: Fusion MS-RA210 Owner’s Manual
@@ -287,6 +288,18 @@ hardware:
     questions:
       - "Close-up of stereo faceplate to confirm MS-RA210 vs another Fusion model."
     symptoms: [no power, no bluetooth, speaker cutout, fusion-link missing]
+
+  - id: vhf-radio
+    category: electronics
+    name: VHF radio
+    status: confirmed_on_fuse_map
+    evidence: "12V fuse diagram — Blue Sea box 10 A circuit labeled VHF with handset icon"
+    fuse: "Blue Sea box 10 A — VHF r 2.5 mm²"
+    keywords: [vhf, radio, dsc, handset]
+    manuals: []
+    questions:
+      - "VHF brand/model (fixed unit faceplate or MMSI label)?"
+    symptoms: [no transmit, no power, DSC fail]
 
   - id: zipwake
     category: trim_system

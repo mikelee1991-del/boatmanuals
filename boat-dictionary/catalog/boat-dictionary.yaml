@@ -1,0 +1,383 @@
+# Boat Dictionary — 2023 Beneteau Flyer 8 SPACEdeck + Mercury Verado 300
+# Language: English (except where noted)
+# Status fields: confirmed | typical_option | unverified | missing_needs_user
+
+vessel:
+  make: BENETEAU
+  model: Flyer 8 SPACEdeck
+  generation: V2 (new-generation Flyer 8)
+  model_year: 2023
+  hull_system: Air Step 2
+  ce_categories: ["C10", "D10"]
+  naval_design: BENETEAU Powerboats
+  interior_design: Andreani Design / Style & Design
+  identifiers_needed:
+    - hull_identification_number_HIN
+    - builder_serial_or_commissioning_number
+    - delivery_dealer
+    - original_options_invoice_or_build_sheet
+
+specs:
+  loa_m: "7.09–8.17 (with platforms)"
+  hull_length_m: 6.96
+  beam_m: 2.53
+  draft_m: "0.50–0.90"
+  air_draft_standard_m: 1.74
+  air_draft_max_m: 2.45
+  light_displacement_kg: 2282
+  fuel_l: 340
+  fresh_water_l: 80
+  max_engine_hp: 350
+  shaft_length: "XXL / 30 in / 762 mm"
+
+propulsion:
+  status: confirmed
+  manufacturer: Mercury Marine
+  family: Verado V8 FourStroke AMS
+  model_number: "13000069A"
+  horsepower: 300
+  displacement: "4.6 L (279 cid)"
+  cylinders: "V8 32-valve DOHC"
+  color: Cold Fusion White
+  shaft: "30 in XXL"
+  gear_ratio: "1.85:1"
+  full_throttle_rpm: "5200–6000"
+  ignition: "SmartCraft PCM 112 Digital Inductive"
+  fuel_system: EFI
+  controls: "Digital Throttle & Shift (DTS)"
+  steering: "Electro-hydraulic power steering (AMS)"
+  midsection: Advanced MidSection (AMS)
+  smartcraft: true
+  serial_number_needed: true
+  serial_number_location: "Starboard transom bracket / clamp assembly data plate"
+  notes:
+    - "13000069A is a model/catalog number, not the unique Engine Serial Number (ESN)."
+    - "Use ESN for exact Operation/Maintenance PDF from Mercury and for parts lookup."
+    - "Beneteau pre-rig option: Mercury Verado Digital DTS Throttle Shift (250–350 HP)."
+
+electrical_baseline:
+  system_voltage: "12 V"
+  panel: "12 V electrical panel"
+  outlets: ["12 V power outlet", "USB socket"]
+  batteries: "Engine battery install with pre-rig; max 2 batteries (not factory-delivered)"
+  required_engine_battery: "12 V AGM; Mercury specifies high MCA/CCA AGM"
+  bilge: ["1 manual bilge pump", "1 electric bilge pump"]
+  smoke_detector: standard
+
+# ---------------------------------------------------------------------------
+# HARDWARE REGISTRY — searchable by id / aliases / symptoms
+# ---------------------------------------------------------------------------
+hardware:
+  - id: boat-hull-deck
+    category: boat
+    name: Flyer 8 SPACEdeck hull, deck, cockpit, cabin
+    status: confirmed
+    keywords: [hull, deck, airstep, cockpit, cabin, console, bolster, swim platform, locker, fuel tank, water tank]
+    manuals:
+      - path: manuals/boat/Flyer-8-SPACEdeck-Equipment-List-US.pdf
+        title: General Equipment List – North America (M12925)
+        language: en
+      - path: manuals/boat/Flyer-8-SPACEdeck-Equipment-List-EN.pdf
+        title: General Specifications / Equipment List – International (M12921)
+        language: en
+      - path: manuals/boat/Flyer-8-Press-Release-UK.pdf
+        title: Flyer 8 press / product overview (UK)
+        language: en
+    missing:
+      - title: BENETEAU CE Owner's Manual / Owner's Handbook for this HIN
+        how_to_obtain: "Register or request via Beneteau Helpdesk / selling dealer (help.beneteau.com). CE manuals are vessel-specific and not freely published."
+        language: en
+    symptoms: [leak, gelcoat crack, locker drain, fuel smell, water ingress, console rattle]
+
+  - id: engine-verado-300-v8
+    category: engine
+    name: Mercury Verado 300 V8 AMS (13000069A)
+    status: confirmed
+    keywords: [verado, mercury, outboard, oil, spark plug, gearcase, cooling, flush, pcm, fault code, overheat, no start, warning horn]
+    manuals:
+      - path: manuals/engine/Mercury-Verado-V8-SeaPro-V8-Operation-Maintenance-8m0145543.pdf
+        title: Verado V8 / SeaPro V8 Operation & Maintenance Manual (8M0145543)
+        language: en
+        notes: "Official Brunswick download; confirm against your ESN on Mercury Owners Manual portal for the latest revision."
+      - path: manuals/engine/Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf
+        title: Electric Steering for V8/V10 AMS + Active Trim / DTS features (8M0221736)
+        language: en
+      - path: manuals/engine/Mercury-SmartCraft-Operation-Overview-8m0071455r.pdf
+        title: SmartCraft / DTS system overview (8M0071455)
+        language: en
+      - path: manuals/engine/Mercury-Active-Trim-8m0125432e-German.pdf
+        title: Active Trim dedicated manual (German only available as standalone PDF)
+        language: de
+        notes: "English Active Trim coverage is also inside 8M0221736 and the Verado O&M."
+    missing:
+      - title: Mercury Verado V8 AMS Service Manual (printed/PDF part 8M0182077, supersedes 8M0142590)
+        how_to_obtain: "Order from Mercury dealer / Brunswick publications; also indexed on ManualsLib as Mercury V8 300 Service Manual (644 pp)."
+        language: en
+      - title: Mercury V8 Diagnostic Manual (PCM 112 / CDS G3) (~302 pp)
+        how_to_obtain: "Mercury dealer / ManualsLib (Mercury V8 300 Diagnostic Manual)."
+        language: en
+      - title: ESN-specific Operation, Maintenance & Installation Manual
+        how_to_obtain: "https://www.mercurymarine.com/us/en/service-and-support/owners-resources/owners-manual — enter ESN."
+        language: en
+    symptoms: [hard start, no start, overheat, low oil pressure, fault alarm, rough idle, no shift, DTS limp, power loss, gearcase noise]
+
+  - id: dts-controls
+    category: engine_controls
+    name: Mercury Digital Throttle & Shift (DTS) electronic remote control
+    status: confirmed
+    keywords: [dts, throttle, shift, erc, dock mode, throttle only, troll, active trim button, control pad]
+    manuals:
+      - path: manuals/engine/Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf
+        title: ERC / DTS features, Active Trim, electric steering (8M0221736)
+        language: en
+      - path: manuals/engine/Mercury-SmartCraft-Operation-Overview-8m0071455r.pdf
+        title: SmartCraft DTS overview
+        language: en
+      - path: manuals/engine/Mercury-Verado-V8-SeaPro-V8-Operation-Maintenance-8m0145543.pdf
+        title: Verado O&M (controls / features sections)
+        language: en
+    symptoms: [no shift, stuck neutral, throttle only stuck, beep codes, lever unresponsive]
+
+  - id: steering-power
+    category: steering
+    name: Mercury AMS electro-hydraulic / electric power steering
+    status: confirmed
+    keywords: [steering, helm, power steering, fluid, hard steering, lock to lock, AMS]
+    manuals:
+      - path: manuals/engine/Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf
+        title: Electric Steering for V8 and V10 AMS Outboards
+        language: en
+      - path: manuals/engine/Mercury-Verado-V8-SeaPro-V8-Operation-Maintenance-8m0145543.pdf
+        title: Verado O&M (power steering fluid checks)
+        language: en
+    questions:
+      - "Is the helm fully electric steer-by-wire, or electro-hydraulic with a hydraulic helm pump? Photo of helm backside / steering reservoir helps."
+    symptoms: [heavy steering, steering alarm, no assist, fluid leak, uneven lock]
+
+  - id: vesselview-or-gauges
+    category: electronics
+    name: Mercury SmartCraft VesselView / engine gauges (if equipped)
+    status: unverified
+    keywords: [vesselview, smartcraft, gauges, rpm, trim gauge, fault text, eco mode]
+    manuals:
+      - path: manuals/electronics/Mercury-VesselView-704-8m0220645.pdf
+        title: VesselView 704 Operation Manual
+        language: en
+      - path: manuals/electronics/Mercury-VesselView-502-702-8m0109374r.pdf
+        title: VesselView 502 / 702 Operation Manual
+        language: en
+    questions:
+      - "Do you have a dedicated VesselView display, only Garmin with Mercury engine data (VesselView Link / NMEA), or analog SmartCraft gauges?"
+    symptoms: [blank display, no engine data, wrong trim %, alarm text]
+
+  - id: garmin-echomap
+    category: electronics
+    name: Garmin ECHOMAP chartplotter / sonar (Electronic Pack)
+    status: typical_option
+    likely_models:
+      - "ECHOMAP UHD 92sv (common on 2023 packs)"
+      - "ECHOMAP UHD2 92sv (listed on current US equipment list)"
+      - "ECHOMAP Ultra 2 122sv (Upgraded Electronic Pack)"
+    keywords: [garmin, echomap, chartplotter, sonar, gps, downvu, chirp, transducer, gt23]
+    manuals:
+      - path: manuals/electronics/Garmin-ECHOMAP-UHD-Owners-Manual-EN.pdf
+        title: ECHOMAP UHD Owner’s Manual
+        language: en
+      - path: manuals/electronics/Garmin-ECHOMAP-UHD2-62-72-92sv-Owners-Manual-EN.pdf
+        title: ECHOMAP UHD2 6/7/9 sv Owner’s Manual
+        language: en
+      - path: manuals/electronics/Garmin-Transom-Mount-Transducer-Install-EN.pdf
+        title: Garmin Transom-Mount Transducer Installation Instructions (covers GT23M-TM class)
+        language: en
+    questions:
+      - "Exact MFD model from the unit label or About screen (UHD 92sv vs UHD2 92sv vs Ultra 122sv)?"
+      - "Is the transducer GT23M-TM (transom) as factory pack, or another GT model?"
+    symptoms: [no gps fix, no sonar, depth lost at speed, NMEA missing, software update fail]
+
+  - id: fusion-audio
+    category: electronics
+    name: Fusion MS-RA210 Sound Pack
+    status: typical_option
+    keywords: [fusion, stereo, bluetooth, speakers, ra210, audio]
+    manuals:
+      - path: manuals/electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf
+        title: Fusion MS-RA210 Owner’s Manual
+        language: en
+    questions:
+      - "Is the Sound Pack installed (MS-RA210 + speakers)?"
+    symptoms: [no power, no bluetooth, speaker cutout, fusion-link missing]
+
+  - id: zipwake
+    category: trim_system
+    name: Zipwake Series S automatic interceptor trim system
+    status: typical_option
+    mutually_exclusive_with: [lenco-tabs]
+    keywords: [zipwake, interceptor, auto trim, pitch, roll, tabs]
+    manuals:
+      - path: manuals/systems/Zipwake-Series-S-Operators-Manual-EN-R5A.pdf
+        title: Zipwake Series S Operator’s Manual (EN R5A)
+        language: en
+      - path: manuals/systems/Zipwake-Series-S-Installation-Guide-EN.pdf
+        title: Zipwake Series S Installation Guide
+        language: en
+    questions:
+      - "Do you have Zipwake interceptors, LENCO tabs, or neither?"
+    symptoms: [auto pitch fail, error code, interceptor stuck, NMEA GPS missing]
+
+  - id: lenco-tabs
+    category: trim_system
+    name: LENCO electric trim tabs
+    status: typical_option
+    mutually_exclusive_with: [zipwake]
+    keywords: [lenco, trim tabs, electric tabs, list, porpoise]
+    manuals:
+      - path: manuals/systems/LENCO-Electric-Trim-Tab-Kit-Owners-Manual.pdf
+        title: LENCO Electric Trim Tab Kit Owner’s Manual
+        language: en
+    questions:
+      - "If tabs: switch type (indicator / non-indicator / Auto Glide)?"
+    symptoms: [tab stuck, one side dead, switch dead, listing]
+
+  - id: windlass
+    category: anchoring
+    name: Electric windlass 12 V (US Trim Package / Comfort)
+    status: typical_option
+    likely_brand: "Lewmar Pro-Series / Pro-Fish class (verify label on unit)"
+    keywords: [windlass, anchor, rode, gypsy, freefall, contactor, breaker]
+    manuals:
+      - path: manuals/peripherals/Lewmar-Pro-Series-Pro-Fish-Windlass-Manual.pdf
+        title: Lewmar Pro-Series / Pro-Fish Windlass Product Manual
+        language: en
+    questions:
+      - "Windlass brand/model stamped on motor or gearbox (Lewmar / Quick / other)?"
+      - "Chain size (e.g. 8 mm / 5/16) and whether freefall is fitted?"
+    symptoms: [won't haul, freewheel, breaker trips, solenoid click]
+
+  - id: bow-thruster
+    category: maneuvering
+    name: Bow thruster (factory option)
+    status: typical_option
+    likely_brand: "Sleipner Side-Power SE-series (verify tunnel diameter & model plate)"
+    keywords: [bow thruster, side-power, sleipner, tunnel, joystick thruster]
+    manuals:
+      - path: manuals/peripherals/Side-Power-SE-SE-IP-DC-User-Manual-EN.pdf
+        title: Side-Power SE / SE-IP DC User Manual
+        language: en
+    questions:
+      - "Thruster brand/model from motor plate (e.g. SE40/125, SE60/185)?"
+    symptoms: [no thrust, solenoid chatter, overheat cutout, weak batteries]
+
+  - id: cabin-fridge
+    category: comfort
+    name: Cabin fridge 42 L
+    status: typical_option
+    likely_brand: "Isotherm Cruise CR 42 / Indel Webasto class"
+    keywords: [fridge, isotherm, compressor, 12v fridge, cabin refrigerator]
+    manuals:
+      - path: manuals/peripherals/Isotherm-Cruise-42-130-Install-Operating-EN.pdf
+        title: Isotherm Cruise CR 42–130 Installation & Operating Instructions
+        language: en
+      - path: manuals/peripherals/Isotherm-Cruise-Refer-Manual-EN.pdf
+        title: Isotherm Cruise Refrigerators Reference Manual
+        language: en
+    questions:
+      - "Fridge brand/model label inside cabinet or on compressor?"
+    symptoms: [not cold, compressor click, high current draw, frost]
+
+  - id: electric-toilet
+    category: plumbing
+    name: Freshwater electric toilet + holding tank (US Trim Package)
+    status: typical_option
+    tank_l: 88
+    likely_brand: "Jabsco / Tecma class (verify)"
+    keywords: [toilet, head, holding tank, macerator, flush, blackwater]
+    manuals:
+      - path: manuals/peripherals/Jabsco-37010-Electric-Toilet-Manual-EN.pdf
+        title: Jabsco 37010-series Electric Marine Toilet Manual
+        language: en
+    questions:
+      - "Toilet brand/model (Jabsco Quiet Flush, Tecma, other)?"
+    symptoms: [won't flush, weak flush, pump noise, tank full alarm, odor]
+
+  - id: shore-power-charger
+    category: electrical
+    name: Shore power (110 V US) + battery charger pre-fit / charger
+    status: typical_option
+    likely_brand: "Mastervolt ChargeMaster 12/25-3 class (common on EU/US Beneteaus; verify label)"
+    keywords: [shore power, charger, mastervolt, AC inlet, galvanic, battery charging]
+    manuals:
+      - path: manuals/peripherals/Mastervolt-ChargeMaster-12-25-3-Manual-EN.pdf
+        title: Mastervolt ChargeMaster 12/25-3 User Manual
+        language: en
+    questions:
+      - "Is a charger actually installed, or only the shore-power inlet + pre-wiring?"
+      - "Charger brand/model from the unit label?"
+    symptoms: [no charge, AC breaker trip, hot plug, battery sulfation]
+
+  - id: deck-wash
+    category: plumbing
+    name: Electric deck wash pump
+    status: typical_option
+    keywords: [deck wash, washdown, raw water pump]
+    manuals: []
+    questions:
+      - "Is deck wash fitted? Any pump brand label in locker?"
+    symptoms: [no pressure, airlock, strainer clog]
+
+  - id: seanapps
+    category: connected_boat
+    name: Seanapps connected-boat unit + app
+    status: typical_option
+    keywords: [seanapps, geofence, battery monitor, tank level, connectivity, 4G]
+    manuals: []
+    missing:
+      - title: Seanapps user / install documentation
+        how_to_obtain: "In-app Help Center tutorials; dealer-installed; https://www.seanapps.app/en"
+        language: en
+    questions:
+      - "Is a Seanapps unit installed and activated?"
+    symptoms: [offline, wrong tank level, no GPS track]
+
+  - id: t-top-pilot-edition
+    category: exterior
+    name: T-Top / Pilot Edition exterior package
+    status: unverified
+    keywords: [t-top, pilot edition, underwater lights, cockpit led, ski mast, fishing station]
+    manuals:
+      - path: manuals/boat/Flyer-8-SPACEdeck-Equipment-List-US.pdf
+        title: Equipment list (Pilot Edition / options)
+        language: en
+    questions:
+      - "Pilot Edition or standard hull/pulpits?"
+      - "T-Top fitted? Ski mast? Fishing station instead of aft bench?"
+
+# ---------------------------------------------------------------------------
+# SYMPTOM → HARDWARE INDEX (for debugging search)
+# ---------------------------------------------------------------------------
+symptom_index:
+  no_start: [engine-verado-300-v8, dts-controls, electrical_baseline]
+  overheat: [engine-verado-300-v8]
+  hard_steering: [steering-power]
+  no_shift: [dts-controls, engine-verado-300-v8]
+  listing_or_porpoising: [zipwake, lenco-tabs, engine-verado-300-v8]
+  no_depth: [garmin-echomap]
+  windlass_dead: [windlass, electrical_baseline]
+  thruster_dead: [bow-thruster, electrical_baseline]
+  fridge_warm: [cabin-fridge, electrical_baseline]
+  toilet_fail: [electric-toilet]
+  shore_power_issues: [shore-power-charger]
+  stereo_dead: [fusion-audio]
+  blank_engine_data: [vesselview-or-gauges, garmin-echomap, dts-controls]
+
+# ---------------------------------------------------------------------------
+# OFFICIAL PORTALS
+# ---------------------------------------------------------------------------
+portals:
+  beneteau_helpdesk: "https://help.beneteau.com/hc/en-us"
+  beneteau_owners_manuals: "https://help.beneteau.com/hc/en-us/sections/360005594658-Owner-s-manuals"
+  mercury_owners_manuals: "https://www.mercurymarine.com/us/en/service-and-support/owners-resources/owners-manual"
+  mercury_parts: "https://www.mercurymarine.com/"
+  brunswick_download_center: "http://download.brunswick-marine.com/download/dosearch/"
+  garmin_support: "https://support.garmin.com/en-US/"
+  zipwake_support: "https://zipwake.com/"
+  seanapps: "https://www.seanapps.app/en"

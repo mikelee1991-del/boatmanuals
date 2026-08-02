@@ -126,7 +126,7 @@ Reply with whatever you know (photos of labels are ideal):
 9. ~~**Shore power charger**~~ — **CRISTEC YPOWER YPO12-25DE** confirmed (S/N 2022061017878). Still verify battery chemistry vs “OPENED TYPE” setting.
 10. ~~**VesselView**~~ — **dedicated Mercury digital display confirmed**; close-up for exact model still useful.
 11. ~~**Fusion stereo**~~ — **confirmed**; faceplate close-up to lock MS-RA210 vs other.
-12. ~~**T-Top**~~ — **confirmed**. Still open: Pilot Edition / ski mast / fishing station / underwater lights?
+12. ~~**T-Top**~~ — **confirmed** with **4 rod holders**; synthetic teak + elegance upholstery + cockpit table confirmed. Still open: ski mast / underwater lights / fishing station?
 13. **Seanapps** unit present and activated?
 14. Propeller brand/pitch/diameter if known?
 15. ~~**VHF**~~ — **no fixed set**; handheld only (Blue Sea VHF fuse is spare/pre-wire).

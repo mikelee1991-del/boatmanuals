@@ -39,7 +39,12 @@ vessel:
     - "Offshore magnetic compass on dash (US Trim Package item)"
     - "Electric windlass present at bow"
     - "Black pulpits / black windshield frame with Flyer logo"
-    - "Black-frame T-Top with fabric roof"
+    - "Black-frame T-Top with fabric roof + 4 aft rocket-launcher rod holders"
+    - "Synthetic teak / wood-grain decking with black caulk lines (cockpit + swim platform)"
+    - "Elegance-class two-tone upholstery (light grey + cognac/brown accents)"
+    - "GRP/wood cockpit table between helm and aft bench (US Trim Package)"
+    - "Fusion cockpit speaker(s) visible at gunwale"
+    - "Stainless plow/Delta-style anchor on bow roller"
     - "CRISTEC YPOWER YPO12-25DE 12V/25A battery charger (S/N 2022061017878) + 115V/60Hz AC breaker panel"
     - "Flojet washdown pump R4325143F (S/N 22C53625) — 12V 4.5 GPM 40 PSI"
     - "Jabsco PAR-MAX 2.9 freshwater pump 31395-7008 (S/N 22A45914) — 12V 2.9 GPM 40 PSI"
@@ -350,9 +355,10 @@ hardware:
     name: Electric windlass 12 V (US Trim Package / Comfort)
     status: confirmed
     brand_status: exact_model_unverified
-    evidence: "Helm/bow photo — windlass/anchor housing visible at bow"
+    evidence: "Bow photos — windlass housing + stainless plow/Delta-style anchor on bow roller"
+    anchor: "Stainless plow / Delta-style on roller (brand unverified)"
     likely_brand: "Lewmar Pro-Series / Pro-Fish class (verify label on unit)"
-    keywords: [windlass, anchor, rode, gypsy, freefall, contactor, breaker]
+    keywords: [windlass, anchor, rode, gypsy, freefall, contactor, breaker, delta]
     manuals:
       - path: manuals/peripherals/Lewmar-Pro-Series-Pro-Fish-Windlass-Manual.pdf
         title: Lewmar Pro-Series / Pro-Fish Windlass Product Manual
@@ -360,6 +366,7 @@ hardware:
     questions:
       - "Close-up of windlass motor/gearbox plate (Lewmar / Quick / other)."
       - "Chain size (e.g. 8 mm / 5/16) and whether freefall is fitted?"
+      - "Anchor brand/model stamp if present."
     symptoms: [won't haul, freewheel, breaker trips, solenoid click]
 
   - id: bow-thruster
@@ -511,14 +518,22 @@ hardware:
     category: exterior
     name: T-Top / exterior package / pulpits
     status: confirmed
-    evidence: "Helm photo — black metal T-Top frame with black fabric roof (snaps); black pulpits + black windshield frame"
-    keywords: [t-top, pilot edition, underwater lights, cockpit led, ski mast, fishing station, black pulpits, bimini]
+    evidence: "Exterior/cockpit photos — black T-Top frame + fabric roof with 4 aft rod holders; black bow pulpits; synthetic teak decking; elegance two-tone cushions; cockpit table"
+    equipped:
+      - "Black T-Top with fabric roof"
+      - "Rod holders on T-Top (x4 visible aft)"
+      - "Black pulpits"
+      - "Synthetic teak decking"
+      - "Cockpit table"
+      - "Elegance-style grey/cognac upholstery"
+    keywords: [t-top, pilot edition, underwater lights, cockpit led, ski mast, fishing station, black pulpits, bimini, rod holders, synthetic teak, elegance]
     manuals:
       - path: manuals/boat/Flyer-8-SPACEdeck-Equipment-List-US.pdf
         title: Equipment list (Pilot Edition / options)
         language: en
     questions:
-      - "Pilot Edition graphics / underwater lights / ski mast / fishing station also fitted?"
+      - "Underwater lights / ski mast / fishing station also fitted?"
+      - "Decking brand if labeled (SeaDek / Flexiteek / other)?"
 
 # ---------------------------------------------------------------------------
 # SYMPTOM → HARDWARE INDEX (for debugging search)

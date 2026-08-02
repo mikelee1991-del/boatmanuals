@@ -40,11 +40,14 @@ vessel:
     - "Electric windlass present at bow"
     - "Black pulpits / black windshield frame with Flyer logo"
     - "Black-frame T-Top with fabric roof"
+    - "CRISTEC YPOWER YPO12-25DE 12V/25A battery charger (S/N 2022061017878) + 115V/60Hz AC breaker panel"
   not_equipped_from_photos:
     - "LENCO electric trim tabs (Zipwake installed instead)"
+    - "Mastervolt ChargeMaster (charger is CRISTEC, not Mastervolt)"
   notes_from_photos:
     - "Garmin data overlay showed ~14.4 V / 14.2 V and fuel ~154 L (340 L tank) while underway — consistent with charging and partial fuel."
     - "Handheld unit in wheel-base holder may be VHF mic/remote — confirm brand/model if radio is fitted."
+    - "CRISTEC face sticker shows battery profile OPENED TYPE / FREE ELECTROLYTE — confirm this matches installed batteries (AGM vs flooded)."
 
 specs:
   loa_m: "7.09–8.17 (with platforms)"
@@ -377,18 +380,34 @@ hardware:
 
   - id: shore-power-charger
     category: electrical
-    name: Shore power (110 V US) + battery charger pre-fit / charger
-    status: typical_option
-    likely_brand: "Mastervolt ChargeMaster 12/25-3 class (common on EU/US Beneteaus; verify label)"
-    keywords: [shore power, charger, mastervolt, AC inlet, galvanic, battery charging]
+    name: CRISTEC YPOWER battery charger + US shore-power AC panel
+    status: confirmed
+    brand: CRISTEC
+    model: "YPOWER YPO12-25DE"
+    gencode: "3700386101275"
+    serial: "2022061017878"
+    revision: K60
+    input: "90–265 VAC, 3.66 A max, 50/60 Hz"
+    output: "12 VDC, 25 A"
+    made_in: France
+    evidence: "Photo of charger faceplate + adjacent AC breaker enclosure"
+    battery_settings_shown: "OPENED TYPE BAT / FREE ELECTROLYTE (verify matches actual battery chemistry — Mercury Verado typically wants AGM)"
+    ac_panel:
+      shore_voltage_label: "115 Volts / 60 Hz"
+      breakers_visible:
+        - "Schneider iDPN N Vigi C32 / 30 mA (label CHAUFFE-EAU / handwritten PRISE 115V)"
+        - "ABB S202C C16 (x2 visible)"
+      indicator: "Schneider iIL green indicator lit"
+    keywords: [shore power, charger, cristec, ypower, YPO12-25DE, AC inlet, battery charging, schneider, 115V]
     manuals:
-      - path: manuals/peripherals/Mastervolt-ChargeMaster-12-25-3-Manual-EN.pdf
-        title: Mastervolt ChargeMaster 12/25-3 User Manual
+      - path: manuals/peripherals/CRISTEC-YPOWER-Manual-EN.pdf
+        title: CRISTEC YPOWER charger manual (English)
         language: en
-    questions:
-      - "Is a charger actually installed, or only the shore-power inlet + pre-wiring?"
-      - "Charger brand/model from the unit label?"
-    symptoms: [no charge, AC breaker trip, hot plug, battery sulfation]
+        status: pending_download
+      - path: manuals/peripherals/Mastervolt-ChargeMaster-12-25-3-Manual-EN.pdf
+        title: Mastervolt ChargeMaster 12/25-3 (NOT installed — kept only as discarded candidate)
+        language: en
+    symptoms: [no charge, AC breaker trip, hot plug, battery sulfation, wrong charge profile]
 
   - id: deck-wash
     category: plumbing

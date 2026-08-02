@@ -7,13 +7,26 @@ vessel:
   model: Flyer 8 SPACEdeck
   generation: V2 (new-generation Flyer 8)
   model_year: 2023
+  manufacture_month: June
+  manufacture_year: 2022
   hull_system: Air Step 2
-  ce_categories: ["C10", "D10"]
+  market: "US (Beneteau America — USCG + EPA EVAP plates)"
+  builder: "SPBI, Dompierre sur Yon, France"
+  hin: "BEYFT208F223"
+  cin_eu: "FR-SPBFT208F223"
+  ce_notified_body: "0607"
+  plate_ref: "149841"
+  ce_categories: ["C", "D"]
+  max_persons: 10
+  max_load_kg: 1285
   naval_design: BENETEAU Powerboats
   interior_design: Andreani Design / Style & Design
+  plate_evidence:
+    - "HIN plate: BEYFT208F223 / FR-SPBFT208F223"
+    - "CE builder plate: FLYER 8 SPACEdeck; Cat C/D 10 persons; max load 1285 kg; CE 0607"
+    - "USCG safety standards plate — Beneteau America Inc., Marion SC (ref 149841)"
+    - "US EPA EVAP compliance plate — Beneteau America Inc. (ref 165762)"
   identifiers_needed:
-    - hull_identification_number_HIN
-    - builder_serial_or_commissioning_number
     - delivery_dealer
     - original_options_invoice_or_build_sheet
 
@@ -28,6 +41,8 @@ specs:
   fuel_l: 340
   fresh_water_l: 80
   max_engine_hp: 350
+  max_load_kg_ce_plate: 1285
+  max_persons_ce_plate: 10
   shaft_length: "XXL / 30 in / 762 mm"
 
 propulsion:
@@ -78,7 +93,9 @@ hardware:
     category: boat
     name: Flyer 8 SPACEdeck hull, deck, cockpit, cabin
     status: confirmed
-    keywords: [hull, deck, airstep, cockpit, cabin, console, bolster, swim platform, locker, fuel tank, water tank]
+    hin: "BEYFT208F223"
+    cin_eu: "FR-SPBFT208F223"
+    keywords: [hull, deck, airstep, cockpit, cabin, console, bolster, swim platform, locker, fuel tank, water tank, BEYFT208F223, HIN]
     manuals:
       - path: manuals/boat/Flyer-8-SPACEdeck-Equipment-List-US.pdf
         title: General Equipment List – North America (M12925)

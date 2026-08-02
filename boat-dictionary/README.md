@@ -5,6 +5,11 @@ English manuals and a searchable hardware map for:
 | Item | Value |
 |------|--------|
 | Boat | 2023 BENETEAU Flyer 8 SPACEdeck (V2 / Air Step 2) |
+| HIN | **BEYFT208F223** |
+| EU CIN | **FR-SPBFT208F223** |
+| Market | US (Beneteau America — USCG + EPA EVAP) |
+| Builder | SPBI, Dompierre sur Yon, France |
+| CE | Cat **C/D**, **10** persons, max load **1285 kg**, CE **0607** |
 | Engine | Mercury Marine Verado 300 V8 AMS — model **13000069A** / **300XXL** |
 | ESN | **3B371488** (confirmed from data plate photo) |
 | Controls | Digital Throttle & Shift (DTS) |
@@ -18,8 +23,11 @@ PDF library: [`manuals/`](manuals/) (~100 MB)
 
 ## Confirmed from your data
 
+- **HIN `BEYFT208F223`** / EU CIN **`FR-SPBFT208F223`** — 2023 model year; HIN date code **F2** ≈ manufactured **June 2022**.
+- Builder plate confirms **FLYER 8 SPACEdeck**, CE **C/D**, **10** persons, **1285 kg** max load; USCG + EPA EVAP plates = **US-market** boat (Beneteau America, Marion SC).
 - **Engine model `13000069A`** / designation **300XXL** = Mercury **Verado 300 HP** (221 kW), plate weight 620 lb / 281 kg, **30" XXL**.
 - **ESN `3B371488`** confirmed from the transom data plate photo — use this on the [Mercury Owners Manual portal](https://www.mercurymarine.com/us/en/service-and-support/owners-resources/owners-manual) and for parts.
+- Prefer the **US equipment list** (`Flyer-8-SPACEdeck-Equipment-List-US.pdf`) and ask the dealer for the CE Owner’s Handbook against **HIN BEYFT208F223**.
 
 ---
 
@@ -100,7 +108,7 @@ Useful when debugging “is this even installed?”
 
 Reply with whatever you know (photos of labels are ideal):
 
-1. **HIN** (hull ID) and delivery country / dealer?
+1. ~~**HIN**~~ — **done: `BEYFT208F223`** (US boat). Delivery **dealer** still useful.
 2. ~~**Engine ESN**~~ — **done: `3B371488`**
 3. **Garmin** exact model (About screen or bezel): UHD 92sv / UHD2 92sv / Ultra 122sv / other?
 4. **Trim:** Zipwake, LENCO, or none?

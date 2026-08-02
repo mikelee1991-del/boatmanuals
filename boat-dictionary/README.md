@@ -77,7 +77,9 @@ PDF library: [`manuals/`](manuals/) (~100 MB)
 | `manuals/peripherals/Side-Power-SE-SE-IP-DC-User-Manual-EN.pdf` | Side-Power SE thruster user |
 | `manuals/peripherals/Isotherm-Cruise-42-130-Install-Operating-EN.pdf` | Isotherm Cruise 42 L fridge |
 | `manuals/peripherals/Isotherm-Cruise-Refer-Manual-EN.pdf` | Isotherm Cruise reference |
-| `manuals/peripherals/Jabsco-37010-Electric-Toilet-Manual-EN.pdf` | Jabsco electric toilet |
+| `manuals/peripherals/Jabsco-37010-Electric-Toilet-Manual-EN.pdf` | Jabsco electric toilet (candidate — toilet brand not yet confirmed) |
+| `manuals/peripherals/Flojet-Washdown-Pump-Manual-EN.pdf` | **Flojet R4325** washdown pump (installed **R4325143F**) |
+| `manuals/peripherals/Jabsco-PAR-MAX-2.9-Manual-EN.pdf` | **Jabsco PAR-MAX 2.9** freshwater pump (installed **31395-7008**) |
 | `manuals/peripherals/CRISTEC-YPOWER-User-Manual-EN.pdf` | **CRISTEC YPOWER** charger manual (installed: **YPO12-25DE**) |
 | `manuals/peripherals/CRISTEC-YPOWER-Datasheet-EN.pdf` | CRISTEC YPOWER datasheet |
 | `manuals/peripherals/Mastervolt-ChargeMaster-12-25-3-Manual-EN.pdf` | Mastervolt (NOT installed — discarded candidate) |

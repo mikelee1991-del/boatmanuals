@@ -400,12 +400,14 @@ hardware:
       indicator: "Schneider iIL green indicator lit"
     keywords: [shore power, charger, cristec, ypower, YPO12-25DE, AC inlet, battery charging, schneider, 115V]
     manuals:
-      - path: manuals/peripherals/CRISTEC-YPOWER-Manual-EN.pdf
-        title: CRISTEC YPOWER charger manual (English)
+      - path: manuals/peripherals/CRISTEC-YPOWER-User-Manual-EN.pdf
+        title: CRISTEC YPOWER battery chargers user manual (EN section from p.23; covers 12V/25A)
         language: en
-        status: pending_download
+      - path: manuals/peripherals/CRISTEC-YPOWER-Datasheet-EN.pdf
+        title: CRISTEC YPOWER AC-DC datasheet
+        language: en
       - path: manuals/peripherals/Mastervolt-ChargeMaster-12-25-3-Manual-EN.pdf
-        title: Mastervolt ChargeMaster 12/25-3 (NOT installed — kept only as discarded candidate)
+        title: Mastervolt ChargeMaster 12/25-3 (NOT installed — discarded candidate)
         language: en
     symptoms: [no charge, AC breaker trip, hot plug, battery sulfation, wrong charge profile]
 

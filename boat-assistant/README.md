@@ -1,57 +1,56 @@
-# Flyer 8 mobile assistant (Grok)
+# Flyer 8 Boat Guide (offline Q&A)
 
-Mobile-first chat UI that loads the **entire Flyer 8 owner dataset** (consolidated manual, fuse map, playbooks, evidence notes, hardware YAML) into a **Grok (xAI)** system context and answers troubleshooting / ops questions.
+A **mobile interface** where you ask a question about *this* boat and get an answer from the vessel dataset.
 
-## Quick start
+**No API keys. No cloud LLM required. Tiny footprint** (~knowledge bundle only — no PDF binaries in the app).
+
+## Why this approach
+
+| Approach | Keys | Weight | Fits “where is my fuel filter?” |
+|----------|------|--------|----------------------------------|
+| Cloud Grok / ChatGPT API | Yes — can be lost/rotated/billed | Low code, ongoing dependency | Good prose, fragile ops |
+| On-device LLM | No | Heavy (GBs) | Overkill on a phone |
+| **This app: retrieve + compose from your boat binder** | **No** | **~150–200 KB JSON** | **Best default** |
+
+The “model of the boat” is the structured binder in `boat-dictionary/` (identity, wiring, power sequences, playbooks, evidence, OEM excerpts). The UI searches that and writes a readable answer. When something isn’t in the dataset yet, it says so instead of inventing.
+
+Optional cloud LLM can still be added later — it’s not required for the product to work.
+
+## Run
 
 ```bash
 cd boat-assistant
-cp .env.example .env
-# edit .env and set XAI_API_KEY=...   (from https://console.x.ai/)
 npm start
 ```
 
-Open on your phone (same Wi‑Fi):
+Open `http://localhost:8787` on your phone (same Wi‑Fi → use your computer’s LAN IP).  
+Share → **Add to Home Screen** for an app-like icon.
 
-- `http://<your-computer-ip>:8787`
-- Or locally: `http://localhost:8787`
+### Example
 
-You can also skip `.env` and paste the API key under **Settings** in the UI (stored in `sessionStorage` on that device only).
+> Where is my fuel/water separator and how do I know whether it needs to be replaced?
 
-### Add to Home Screen
+Answer comes from Mercury Verado O&M excerpts + vessel notes (engine-mounted low‑pressure filter, starboard aft under cowl, water‑in‑fuel alarm, etc.).
 
-In mobile Safari/Chrome: Share → **Add to Home Screen**. The app installs as a standalone PWA.
+## How it works
 
-## What the model “knows”
+1. `npm run build` packs text from `boat-dictionary/` into `public/knowledge-bundle.json`
+2. Phone loads the PWA (cached by service worker after first visit)
+3. Your question is matched against passages + symptom playbooks **in the browser**
+4. A short answer is composed with source file citations
 
-On each question the server:
-
-1. Loads all text under `boat-dictionary/owners-manual/`, `catalog/`, and `notes/evidence/` (~full corpus in context).
-2. Runs keyword retrieval for playbook/chunk hits.
-3. Calls Grok Chat Completions (`grok-4.5` by default) with the vessel system prompt + corpus + hits.
-
-PDF binaries are **not** embedded (too large); their paths and the consolidated manual content are. Prefer label photos for still-UNVERIFIED items.
-
-## API
+## API (optional)
 
 | Route | Purpose |
 |-------|---------|
-| `GET /api/status` | Dataset + LLM config |
-| `GET /api/search?q=` | Keyword retrieval only |
-| `POST /api/chat` | `{ message, apiKey?, model?, history?, stream? }` → SSE stream |
+| `GET /api/status` | Bundle stats |
+| `POST /api/ask` | `{ "question": "..." }` → same offline engine |
 
-## Env
+## Deploy without a server
 
-| Variable | Default | Meaning |
-|----------|---------|---------|
-| `XAI_API_KEY` | — | Server-side Grok key |
-| `XAI_MODEL` | `grok-4.5` | Model id |
-| `XAI_BASE_URL` | `https://api.x.ai/v1` | OpenAI-compatible base |
-| `PORT` | `8787` | Listen port |
-| `HOST` | `0.0.0.0` | Bind address (phones on LAN) |
+After `npm run build`, the `public/` folder is a static site (GitHub Pages, any static host). No Node needed at runtime — open `index.html` via HTTPS host and it works offline after install.
 
-## Security notes
+## Growing the brain
 
-- Do **not** commit `.env` or API keys.
-- The browser never talks to xAI directly (avoids CORS + keeps the corpus server-side).
-- For internet exposure, put this behind HTTPS + auth; the default is intended for **LAN / personal** use.
+Add facts under `boat-dictionary/` (notes, chapters, YAML), then `npm run build`.  
+No model fine-tuning, no keys to rotate.

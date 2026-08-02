@@ -433,6 +433,22 @@ hardware:
       - "Confirm holding-tank capacity label vs handwritten 80 L EF."
     symptoms: [won't flush, weak flush, pump noise, tank full alarm, odor]
 
+  - id: fuel-filter-water-separator
+    category: fuel
+    name: Verado low-pressure fuel filter / water separator
+    status: confirmed_from_oem
+    location: "Under top cowl, starboard aft near bottom spark plug (Mercury O&M)"
+    evidence: "Mercury Verado V8 O&M 8M0145543 Low-Pressure Fuel Filter section; notes/mercury-fuel-filter-water-separator-excerpts.md"
+    keywords: [fuel filter, water separator, water-separating, low-pressure fuel filter, water-in-fuel, WIF, spin-on filter]
+    manuals:
+      - path: manuals/engine/Mercury-Verado-V8-SeaPro-V8-Operation-Maintenance-8m0145543.pdf
+        title: Verado V8 O&M — Fuel System / Low-Pressure Fuel Filter
+        language: en
+    questions:
+      - "Photo of filter on ESN 3B371488 with cowl off?"
+      - "Is there also a boat-mounted water-separating filter on the fuel line?"
+    symptoms: [water in fuel alarm, fuel contamination, hard start after fueling, Guardian fuel]
+
   - id: shore-power-charger
     category: electrical
     name: CRISTEC YPOWER battery charger + US shore-power AC panel
@@ -560,6 +576,8 @@ symptom_index:
   shore_power_issues: [shore-power-charger]
   stereo_dead: [fusion-audio]
   blank_engine_data: [vesselview-or-gauges, garmin-echomap, dts-controls]
+  water_in_fuel: [fuel-filter-water-separator, engine-verado-300-v8]
+  fuel_filter: [fuel-filter-water-separator]
 
 # ---------------------------------------------------------------------------
 # OFFICIAL PORTALS

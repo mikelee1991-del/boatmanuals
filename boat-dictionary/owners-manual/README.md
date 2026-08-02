@@ -19,11 +19,10 @@
 ## How to use (LLM / AI assistant)
 
 ### Mobile UI (recommended)
-Run the Grok-backed phone app in [`../../boat-assistant/`](../../boat-assistant/) — it loads this entire dataset into context and streams answers.
+Run the **offline** phone guide in [`../../boat-assistant/`](../../boat-assistant/) — no API keys; answers are retrieved from this dataset.
 
 ```bash
-cd boat-assistant && cp .env.example .env   # set XAI_API_KEY
-npm start   # http://localhost:8787 — open on your phone
+cd boat-assistant && npm start   # http://localhost:8787
 ```
 
 ### Manual / other assistants

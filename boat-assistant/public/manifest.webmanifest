@@ -1,7 +1,7 @@
 {
-  "name": "Flyer 8 Assistant",
+  "name": "Flyer 8 Boat Guide",
   "short_name": "Flyer8",
-  "description": "Mobile Grok assistant for the Beneteau Flyer 8 SPACEdeck manuals dataset",
+  "description": "Offline Q&A for your Beneteau Flyer 8 SPACEdeck systems",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#07151c",

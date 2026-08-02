@@ -29,6 +29,15 @@ vessel:
   identifiers_needed:
     - delivery_dealer
     - original_options_invoice_or_build_sheet
+  equipped_confirmed_from_photos:
+    - "Zipwake Dynamic Trim Control (AUTO PITCH / AUTO ROLL active on helm panel)"
+    - "Sleipner (Side-Power) thruster control panel at helm"
+    - "Garmin MFD at helm (chartplotter active; exact model TBD)"
+    - "Electric windlass present at bow"
+    - "Black pulpits / black windshield frame"
+    - "Overhead canvas (T-Top shade / bimini — confirm hard T-Top vs soft)"
+  not_equipped_from_photos:
+    - "LENCO electric trim tabs (Zipwake installed instead)"
 
 specs:
   loa_m: "7.09–8.17 (with platforms)"
@@ -107,8 +116,8 @@ hardware:
         title: Flyer 8 press / product overview (UK)
         language: en
     missing:
-      - title: BENETEAU CE Owner's Manual / Owner's Handbook for this HIN
-        how_to_obtain: "Register or request via Beneteau Helpdesk / selling dealer (help.beneteau.com). CE manuals are vessel-specific and not freely published."
+      - title: BENETEAU CE Owner's Manual / Owner's Handbook for HIN BEYFT208F223
+        how_to_obtain: "Register or request via Beneteau Helpdesk / selling dealer (help.beneteau.com) using HIN BEYFT208F223 / CIN FR-SPBFT208F223. CE manuals are vessel-specific and not freely published. US-market boat — also ask Beneteau America / selling dealer for commissioning docs."
         language: en
     symptoms: [leak, gelcoat crack, locker drain, fuel smell, water ingress, console rattle]
 
@@ -196,8 +205,10 @@ hardware:
 
   - id: garmin-echomap
     category: electronics
-    name: Garmin ECHOMAP chartplotter / sonar (Electronic Pack)
-    status: typical_option
+    name: Garmin multifunction display / sonar (Electronic Pack)
+    status: confirmed
+    model_status: exact_model_unverified
+    evidence: "Helm photo — Garmin chartplotter displaying charts/depth/GPS (San Diego / Shelter Island)"
     likely_models:
       - "ECHOMAP UHD 92sv (common on 2023 packs)"
       - "ECHOMAP UHD2 92sv (listed on current US equipment list)"
@@ -214,7 +225,7 @@ hardware:
         title: Garmin Transom-Mount Transducer Installation Instructions (covers GT23M-TM class)
         language: en
     questions:
-      - "Exact MFD model from the unit label or About screen (UHD 92sv vs UHD2 92sv vs Ultra 122sv)?"
+      - "Exact MFD model from Settings → System → About, or a close-up of the bezel model text."
       - "Is the transducer GT23M-TM (transom) as factory pack, or another GT model?"
     symptoms: [no gps fix, no sonar, depth lost at speed, NMEA missing, software update fail]
 
@@ -234,8 +245,10 @@ hardware:
   - id: zipwake
     category: trim_system
     name: Zipwake Series S automatic interceptor trim system
-    status: typical_option
+    status: confirmed
+    series: "Series S (helm UI shows AUTO PITCH / AUTO ROLL)"
     mutually_exclusive_with: [lenco-tabs]
+    evidence: "Helm photo — Zipwake control panel left of Garmin with AUTO PITCH and AUTO ROLL active"
     keywords: [zipwake, interceptor, auto trim, pitch, roll, tabs]
     manuals:
       - path: manuals/systems/Zipwake-Series-S-Operators-Manual-EN-R5A.pdf
@@ -245,27 +258,28 @@ hardware:
         title: Zipwake Series S Installation Guide
         language: en
     questions:
-      - "Do you have Zipwake interceptors, LENCO tabs, or neither?"
+      - "Optional: photo of interceptor blades on the transom for size (IT300/IT450/etc.)."
     symptoms: [auto pitch fail, error code, interceptor stuck, NMEA GPS missing]
 
   - id: lenco-tabs
     category: trim_system
     name: LENCO electric trim tabs
-    status: typical_option
+    status: not_installed
     mutually_exclusive_with: [zipwake]
+    evidence: "Helm has Zipwake; LENCO not present"
     keywords: [lenco, trim tabs, electric tabs, list, porpoise]
     manuals:
       - path: manuals/systems/LENCO-Electric-Trim-Tab-Kit-Owners-Manual.pdf
-        title: LENCO Electric Trim Tab Kit Owner’s Manual
+        title: LENCO Electric Trim Tab Kit Owner’s Manual (kept for reference only)
         language: en
-    questions:
-      - "If tabs: switch type (indicator / non-indicator / Auto Glide)?"
     symptoms: [tab stuck, one side dead, switch dead, listing]
 
   - id: windlass
     category: anchoring
     name: Electric windlass 12 V (US Trim Package / Comfort)
-    status: typical_option
+    status: confirmed
+    brand_status: exact_model_unverified
+    evidence: "Helm/bow photo — windlass/anchor housing visible at bow"
     likely_brand: "Lewmar Pro-Series / Pro-Fish class (verify label on unit)"
     keywords: [windlass, anchor, rode, gypsy, freefall, contactor, breaker]
     manuals:
@@ -273,22 +287,26 @@ hardware:
         title: Lewmar Pro-Series / Pro-Fish Windlass Product Manual
         language: en
     questions:
-      - "Windlass brand/model stamped on motor or gearbox (Lewmar / Quick / other)?"
+      - "Close-up of windlass motor/gearbox plate (Lewmar / Quick / other)."
       - "Chain size (e.g. 8 mm / 5/16) and whether freefall is fitted?"
     symptoms: [won't haul, freewheel, breaker trips, solenoid click]
 
   - id: bow-thruster
     category: maneuvering
-    name: Bow thruster (factory option)
-    status: typical_option
-    likely_brand: "Sleipner Side-Power SE-series (verify tunnel diameter & model plate)"
+    name: Sleipner (Side-Power) bow thruster
+    status: confirmed
+    brand: Sleipner / Side-Power
+    model_status: exact_model_unverified
+    evidence: "Helm photo — SLEIPNER control panel visible at lower left of dash"
+    likely_models:
+      - "Side-Power SE40 / SE60 class (verify motor plate)"
     keywords: [bow thruster, side-power, sleipner, tunnel, joystick thruster]
     manuals:
       - path: manuals/peripherals/Side-Power-SE-SE-IP-DC-User-Manual-EN.pdf
         title: Side-Power SE / SE-IP DC User Manual
         language: en
     questions:
-      - "Thruster brand/model from motor plate (e.g. SE40/125, SE60/185)?"
+      - "Thruster model from motor plate under cabin/locker hatch (e.g. SE40/125, SE60/185)."
     symptoms: [no thrust, solenoid chatter, overheat cutout, weak batteries]
 
   - id: cabin-fridge
@@ -364,16 +382,17 @@ hardware:
 
   - id: t-top-pilot-edition
     category: exterior
-    name: T-Top / Pilot Edition exterior package
-    status: unverified
-    keywords: [t-top, pilot edition, underwater lights, cockpit led, ski mast, fishing station]
+    name: T-Top / exterior package / pulpits
+    status: partially_confirmed
+    evidence: "Helm photo — black pulpits + black windshield frame; overhead black canvas with tension cords (confirm hard T-Top vs bimini)"
+    keywords: [t-top, pilot edition, underwater lights, cockpit led, ski mast, fishing station, black pulpits, bimini]
     manuals:
       - path: manuals/boat/Flyer-8-SPACEdeck-Equipment-List-US.pdf
         title: Equipment list (Pilot Edition / options)
         language: en
     questions:
-      - "Pilot Edition or standard hull/pulpits?"
-      - "T-Top fitted? Ski mast? Fishing station instead of aft bench?"
+      - "Hard polyester T-Top with black frame, or soft bimini only?"
+      - "Pilot Edition graphics / underwater lights / ski mast / fishing station?"
 
 # ---------------------------------------------------------------------------
 # SYMPTOM → HARDWARE INDEX (for debugging search)

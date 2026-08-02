@@ -28,6 +28,7 @@ PDF library: [`manuals/`](manuals/) (~100 MB)
 - **Engine model `13000069A`** / designation **300XXL** = Mercury **Verado 300 HP** (221 kW), plate weight 620 lb / 281 kg, **30" XXL**.
 - **ESN `3B371488`** confirmed from the transom data plate photo — use this on the [Mercury Owners Manual portal](https://www.mercurymarine.com/us/en/service-and-support/owners-resources/owners-manual) and for parts.
 - Prefer the **US equipment list** (`Flyer-8-SPACEdeck-Equipment-List-US.pdf`) and ask the dealer for the CE Owner’s Handbook against **HIN BEYFT208F223**.
+- From helm photo: **Zipwake** (AUTO PITCH / AUTO ROLL), **Sleipner** thruster panel, **Garmin** MFD (exact model TBD), **electric windlass** at bow, **black pulpits**, overhead canvas. **LENCO not installed** (Zipwake instead).
 
 ---
 
@@ -110,10 +111,10 @@ Reply with whatever you know (photos of labels are ideal):
 
 1. ~~**HIN**~~ — **done: `BEYFT208F223`** (US boat). Delivery **dealer** still useful.
 2. ~~**Engine ESN**~~ — **done: `3B371488`**
-3. **Garmin** exact model (About screen or bezel): UHD 92sv / UHD2 92sv / Ultra 122sv / other?
-4. **Trim:** Zipwake, LENCO, or none?
-5. **Windlass** brand/model on the motor plate?
-6. **Bow thruster** fitted? Brand/model?
+3. **Garmin** exact model — Settings → System → About (or bezel close-up). Unit is confirmed present.
+4. ~~**Trim**~~ — **Zipwake confirmed** (LENCO not installed). Optional: interceptor size on transom.
+5. **Windlass** brand/model on the motor plate (unit confirmed at bow).
+6. ~~**Bow thruster**~~ — **Sleipner confirmed** at helm; still need motor-plate model (SE40/SE60/etc.).
 7. **Cabin fridge** fitted? Brand/model?
 8. **Electric toilet** brand/model?
 9. **Shore power charger** installed? Brand/model (or pre-wire only)?

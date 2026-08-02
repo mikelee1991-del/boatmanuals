@@ -31,16 +31,20 @@ vessel:
     - original_options_invoice_or_build_sheet
   equipped_confirmed_from_photos:
     - "Zipwake Dynamic Trim Control (Series S panel with rotary control under/near Garmin)"
-    - "Sleipner (Side-Power) thruster control + thruster joystick at helm"
-    - "Garmin MFD at helm (chart + sonar split view; exact model TBD)"
+    - "Sleipner (Side-Power) thruster control + thruster joystick (ON/OFF) at helm"
+    - "Garmin MFD at helm (chart + sonar / engine data overlays; exact model TBD)"
     - "Mercury SmartCraft digital engine display (VesselView-class) at helm"
     - "Fusion marine stereo head unit at helm (MS-RA series class)"
-    - "Mercury DTS single-lever control (DOCK / TRANSFER / THROTTLE ONLY)"
+    - "Mercury DTS single-lever control (DOCK / TRANSFER / THROTTLE ONLY) + START/STOP"
+    - "Offshore magnetic compass on dash (US Trim Package item)"
     - "Electric windlass present at bow"
-    - "Black pulpits / black windshield frame"
+    - "Black pulpits / black windshield frame with Flyer logo"
     - "Black-frame T-Top with fabric roof"
   not_equipped_from_photos:
     - "LENCO electric trim tabs (Zipwake installed instead)"
+  notes_from_photos:
+    - "Garmin data overlay showed ~14.4 V / 14.2 V and fuel ~154 L (340 L tank) while underway — consistent with charging and partial fuel."
+    - "Handheld unit in wheel-base holder may be VHF mic/remote — confirm brand/model if radio is fitted."
 
 specs:
   loa_m: "7.09–8.17 (with platforms)"

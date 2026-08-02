@@ -111,16 +111,16 @@ Reply with whatever you know (photos of labels are ideal):
 
 1. ~~**HIN**~~ — **done: `BEYFT208F223`** (US boat). Delivery **dealer** still useful.
 2. ~~**Engine ESN**~~ — **done: `3B371488`**
-3. **Garmin** exact model — Settings → System → About (or bezel close-up). Unit is confirmed present.
-4. ~~**Trim**~~ — **Zipwake confirmed** (LENCO not installed). Optional: interceptor size on transom.
-5. **Windlass** brand/model on the motor plate (unit confirmed at bow).
-6. ~~**Bow thruster**~~ — **Sleipner confirmed** at helm; still need motor-plate model (SE40/SE60/etc.).
+3. **Garmin** exact model — Settings → System → About (or bezel close-up).
+4. ~~**Trim**~~ — **Zipwake confirmed**. Optional: interceptor size on transom.
+5. **Windlass** brand/model on the motor plate.
+6. ~~**Bow thruster**~~ — **Sleipner confirmed**; still need motor-plate model (SE40/SE60/etc.).
 7. **Cabin fridge** fitted? Brand/model?
 8. **Electric toilet** brand/model?
 9. **Shore power charger** installed? Brand/model (or pre-wire only)?
-10. **VesselView** dedicated display, or engine data only on Garmin?
-11. **Sound Pack** (Fusion RA210) installed?
-12. **T-Top / Pilot Edition / ski mast / fishing station**?
+10. ~~**VesselView**~~ — **dedicated Mercury digital display confirmed**; close-up for exact model still useful.
+11. ~~**Fusion stereo**~~ — **confirmed**; faceplate close-up to lock MS-RA210 vs other.
+12. ~~**T-Top**~~ — **confirmed**. Still open: Pilot Edition / ski mast / fishing station / underwater lights?
 13. **Seanapps** unit present and activated?
 14. Propeller brand/pitch/diameter if known?
 

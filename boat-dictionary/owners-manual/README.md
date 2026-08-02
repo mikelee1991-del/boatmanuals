@@ -18,6 +18,15 @@
 
 ## How to use (LLM / AI assistant)
 
+### Mobile UI (recommended)
+Run the Grok-backed phone app in [`../../boat-assistant/`](../../boat-assistant/) — it loads this entire dataset into context and streams answers.
+
+```bash
+cd boat-assistant && cp .env.example .env   # set XAI_API_KEY
+npm start   # http://localhost:8787 — open on your phone
+```
+
+### Manual / other assistants
 1. Load [`llm/system-prompt.md`](llm/system-prompt.md) as the assistant system instructions.
 2. Prefer retrieval from:
    - [`llm/retrieval-index.json`](llm/retrieval-index.json) — chunked facts with IDs

@@ -1,0 +1,14 @@
+{
+  "name": "flyer8-boat-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mobile boat assistant UI backed by the Flyer 8 dataset and Grok (xAI)",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

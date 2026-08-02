@@ -1,10 +1,11 @@
-const CACHE = "flyer8-guide-v3";
+const CACHE = "flyer8-guide-v4";
 const SHELL = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
   "./answer-engine.js",
+  "./llm-ask.js",
   "./knowledge-bundle.json",
   "./manifest.webmanifest",
   "./icon.svg",

@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta
       name="description"
-      content="Offline Flyer 8 boat Q&A — answers from your vessel dataset, no API key"
+      content="Flyer 8 boat Q&A — binder-grounded answers, optional AI for readable output"
     />
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" href="./icon.svg" type="image/svg+xml" />
@@ -28,13 +28,19 @@
       <header class="hero">
         <span class="mark" aria-hidden="true"></span>
         <div>
-          <p class="eyebrow">HIN BEYFT208F223 · offline</p>
+          <p class="eyebrow">HIN BEYFT208F223 · binder + AI</p>
           <h1>Flyer 8 Boat Guide</h1>
-          <p class="tagline">Ask how to <em>fix or operate</em> something on this boat. Answers lead with checklists from the binder — offline, no API key.</p>
+          <p class="tagline">
+            Ask anything about <em>this</em> boat. Answers are grounded in your binder; AI turns them into clear prose when a key is set.
+          </p>
         </div>
       </header>
 
-      <section class="status ok" id="status">Loading boat knowledge…</section>
+      <div class="toolbar">
+        <section class="status ok" id="status">Loading boat knowledge…</section>
+        <button type="button" class="ghost" id="openSettings">Settings</button>
+      </div>
+      <p class="mode-hint" id="modeHint"></p>
 
       <form class="ask" id="form">
         <label class="sr-only" for="q">Question</label>
@@ -42,7 +48,7 @@
           id="q"
           rows="3"
           required
-          placeholder='Example: Stereo has no sound — what should I check?'
+          placeholder="Example: How deep can I anchor on this boat?"
         ></textarea>
         <button type="submit" id="askBtn">Get answer</button>
       </form>
@@ -58,6 +64,51 @@
         <div class="sources" id="sources"></div>
       </article>
     </div>
+
+    <dialog id="settings" class="settings">
+      <form method="dialog" id="settingsForm">
+        <header>
+          <h2>Settings</h2>
+          <button type="button" class="ghost" id="closeSettings" value="cancel">Close</button>
+        </header>
+        <p class="settings-lead">
+          AI keys stay in <strong>this browser</strong> (or on your laptop server). Nothing is committed to the repo.
+        </p>
+        <label>
+          Mode
+          <select name="mode">
+            <option value="ai">AI (readable, needs key or server)</option>
+            <option value="offline">Offline binder match only</option>
+          </select>
+        </label>
+        <label>
+          Provider
+          <select name="provider">
+            <option value="openrouter">OpenRouter (recommended for phone / Pages)</option>
+            <option value="openai">OpenAI (browser may block CORS — prefer server)</option>
+            <option value="custom">Custom OpenAI-compatible base URL</option>
+          </select>
+        </label>
+        <label>
+          Model
+          <input name="model" type="text" placeholder="openai/gpt-4o-mini" autocomplete="off" />
+        </label>
+        <label>
+          API key
+          <input name="apiKey" type="password" placeholder="sk-or-… or sk-…" autocomplete="off" />
+        </label>
+        <label>
+          Custom base URL <span class="opt">(optional)</span>
+          <input name="baseUrl" type="url" placeholder="https://openrouter.ai/api/v1" autocomplete="off" />
+        </label>
+        <p class="settings-help">
+          Get an OpenRouter key at <a href="https://openrouter.ai/keys" target="_blank" rel="noopener">openrouter.ai/keys</a>.
+          Or run <code>OPENAI_API_KEY=… npm start</code> locally and leave this blank.
+        </p>
+        <button type="submit" class="primary">Save</button>
+      </form>
+    </dialog>
+
     <script type="module" src="./app.js"></script>
   </body>
 </html>

@@ -19,7 +19,7 @@
 ## How to use (LLM / AI assistant)
 
 ### Mobile UI (recommended)
-Run the **offline** phone guide in [`../../boat-assistant/`](../../boat-assistant/) — no API keys; answers are retrieved from this dataset.
+Run the phone guide in [`../../boat-assistant/`](../../boat-assistant/) — answers are retrieved from this dataset; optional AI (your API key) rewrites them in plain language.
 
 ```bash
 cd boat-assistant && npm start   # http://localhost:8787

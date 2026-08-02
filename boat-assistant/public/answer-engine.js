@@ -29,7 +29,13 @@ const EXPAND = {
   chartplotter: ["garmin", "echomap", "mfd", "hds"],
   mfd: ["garmin", "echomap", "mfd", "hds"],
   thruster: ["thruster", "sleipner", "side-power", "bow"],
-  windlass: ["windlass", "anchor"],
+  windlass: ["windlass", "anchor", "rode", "gypsy"],
+  anchor: ["anchor", "rode", "scope", "windlass", "delta", "plow", "ground"],
+  rode: ["rode", "anchor", "chain", "scope", "windlass"],
+  scope: ["scope", "rode", "anchor", "depth"],
+  deep: ["deep", "depth", "anchor", "rode", "scope", "draft"],
+  depth: ["depth", "deep", "draft", "anchor", "rode", "scope"],
+  draft: ["draft", "depth", "hull"],
   charger: ["cristec", "ypower", "charger", "shore"],
   shore: ["shore", "cristec", "115v", "rcd"],
   fuse: ["fuse", "blue sea", "an4", "hds"],
@@ -108,7 +114,7 @@ function queryFamily(q, rawToks) {
   if (has("garmin", "mfd", "chartplotter", "sonar", "echomap", "hds")) return "garmin";
   if (has("shore", "charger", "cristec", "rcd")) return "shore";
   if (has("thruster", "sleipner")) return "thruster";
-  if (has("windlass", "anchor")) return "windlass";
+  if (has("windlass") || (has("anchor", "rode", "scope") && !has("garmin", "sonar", "mfd"))) return "windlass";
   if (has("zipwake", "interceptor", "trim")) return "zipwake";
   return null;
 }
@@ -203,6 +209,13 @@ function scoreChunk(rawToks, topics, intent, chunk, family) {
   if (file.endsWith(".yaml") || file.endsWith(".yml") || file.endsWith(".json")) s -= 14;
   if (/^keywords$/i.test(chunk.title || "")) s -= 30;
 
+  // Prefer the dedicated anchoring-depth section over photo inventories that merely mention "anchor"
+  if (/anchor|rode|scope|deep|depth/.test(rawToks.join(" "))) {
+    if (/how deep|scope vs rode|ground-tackle/.test(title + " " + file)) s += 45;
+    if (/evidence\/|exterior-cockpit|helm-photo/.test(file) && !/windlass dead|breaker/.test(rawToks.join(" ")))
+      s -= 25;
+  }
+
   return s;
 }
 
@@ -253,13 +266,16 @@ function bestPlaybook(query, playbooks, topics, family) {
       for (const t of topics) if (al.includes(t)) s += 3;
     }
     if (/stereo|fusion|bluetooth|music|audio|sound/.test(q) && /STEREO|AUDIO/i.test(p.id)) s += 24;
-    if (/garmin|mfd|sonar|depth/.test(q) && /GARMIN|MFD/i.test(p.id)) s += 20;
+    // "depth" alone is often anchoring/water depth — only boost Garmin with MFD context
+    if (/garmin|mfd|sonar|chartplotter|echomap/.test(q) && /GARMIN|MFD/i.test(p.id)) s += 20;
     if (/steer|ephs/.test(q) && /STEER/i.test(p.id)) s += 22;
     if (/\bstart|crank/.test(q) && /NOSTART/i.test(p.id)) s += 22;
     if (/fuel|separator|filter|water-in-fuel|water in fuel/.test(q) && /FUEL|FILTER/i.test(p.id)) s += 22;
     if (/shore|charg|cristec/.test(q) && /SHORE/i.test(p.id)) s += 20;
     if (/thruster|sleipner/.test(q) && /THRUSTER/i.test(p.id)) s += 20;
-    if (/windlass|anchor/.test(q) && /WINDLASS/i.test(p.id)) s += 20;
+    // Windlass playbook is for faults — not "how deep can I anchor"
+    if (/windlass/.test(q) && /WINDLASS/i.test(p.id)) s += 20;
+    if (/anchor/.test(q) && /WINDLASS/i.test(p.id) && hasFailSignal(q)) s += 18;
 
     // Keep playbook on the same equipment family
     if (family === "audio" && !/STEREO|AUDIO/i.test(p.id)) s -= 40;
@@ -394,7 +410,9 @@ export function answerQuestion(bundle, question) {
 
   const top = scored.filter((x) => x.topicsHit.length > 0).slice(0, 12);
   const playbooks = parsePlaybooks(bundle.playbooksRaw);
-  const pb = bestPlaybook(q, playbooks, topics, family);
+  const pbMatch = bestPlaybook(q, playbooks, topics, family);
+  // Playbooks are fault trees — never dump them on planning / how-deep / identity questions
+  const pb = pbMatch && (fail || intent === "troubleshoot") ? pbMatch : null;
 
   const lines = [];
   lines.push(`**${bundle.vessel.name}** · HIN \`${bundle.vessel.hin}\``);
@@ -461,13 +479,37 @@ export function answerQuestion(bundle, question) {
     lines.push("");
   }
 
-  // 2) Detail from best matching note section (same family only)
+  // 2) Detail — notes first; for non-fault questions, prefer the best chapter/note body
   const detailCandidates = [...top]
-    .filter((x) => noteDetailScore(x.c, intent, q, family) > 0)
-    .sort((a, b) => noteDetailScore(b.c, intent, q, family) - noteDetailScore(a.c, intent, q, family));
+    .filter((x) => {
+      const f = (x.c.file || "").toLowerCase();
+      if (/symptom-playbooks|retrieval-index|boat-dictionary\.yaml/.test(f)) return false;
+      if (/^keywords$/i.test(x.c.title || "")) return false;
+      if (noteDetailScore(x.c, intent, q, family) > 0) return true;
+      // Planning / depth / identity: surface chapter sections even without "procedure" titles
+      if (!fail && /owners-manual\/chapters|notes\//.test(f)) return true;
+      return false;
+    })
+    .sort((a, b) => {
+      const boost = (x) => {
+        const t = normTitle(x.c.title) + " " + (x.c.file || "").toLowerCase();
+        let b = noteDetailScore(x.c, intent, q, family);
+        if (/how deep|scope vs rode|ground-tackle|om-anch/.test(t) && /anchor|rode|scope|deep|depth/.test(q))
+          b += 80;
+        if (/evidence\//.test(x.c.file || "") && !fail) b -= 20;
+        if (/notes\//.test(x.c.file || "")) b += 4;
+        return b + x.s;
+      };
+      return boost(b) - boost(a);
+    });
+
+  // Fuse identity questions: short answer is enough
+  const skipDetail = intent === "what" && /\bfuse\b/i.test(q) && actionSteps.length <= 1;
 
   for (const detail of detailCandidates) {
+    if (skipDetail) break;
     const body = stripHeading(detail.c.text);
+    if (!body || body.length < 40) continue;
     const detailSteps = extractNumberedSteps(body);
     const overlap =
       actionSteps.length && detailSteps.length
@@ -492,7 +534,12 @@ export function answerQuestion(bundle, question) {
     }
     if (overlap > 0.65) continue;
 
-    const label = intent === "where" ? "### Location" : intent === "troubleshoot" ? "### Fix detail" : "### How to";
+    const label =
+      intent === "where"
+        ? "### Location"
+        : intent === "troubleshoot" || fail
+          ? "### Fix detail"
+          : "### From the binder";
     lines.push(`${label} (\`${detail.c.file}\` · ${detail.c.title})`);
     lines.push("");
     lines.push(body);
@@ -541,4 +588,74 @@ export function answerQuestion(bundle, question) {
     topics,
     family,
   };
+}
+
+/**
+ * Retrieve binder passages for an LLM (or UI) without composing a template answer.
+ * @param {object} bundle
+ * @param {string} question
+ * @param {{ limit?: number }} [opts]
+ */
+export function retrievePassages(bundle, question, { limit = 10 } = {}) {
+  const q = (question || "").trim();
+  const rawToks = tokenize(q);
+  const expanded = expandTokens(rawToks);
+  const topics = topicTokens(rawToks, expanded);
+  const family = queryFamily(q, rawToks);
+  const intent = classifyIntent(q);
+  const fail = hasFailSignal(q);
+
+  const scored = (bundle.chunks || [])
+    .map((c) => {
+      let s = scoreChunk(rawToks, topics, intent, c, family);
+      const f = (c.file || "").toLowerCase();
+      const t = normTitle(c.title);
+      if (/symptom-playbooks\.yaml/.test(f)) s -= 40;
+      if (/^keywords$/i.test(c.title || "")) s -= 50;
+      if (!fail && /playbook pointer|om-ts-windlass|pb-windlass/i.test(t + " " + f)) s -= 35;
+      if (/how deep|scope|rode|ground-tackle/.test(t + " " + f) && /anchor|rode|scope|deep|depth/.test(q.toLowerCase()))
+        s += 40;
+      if (/owners-manual\/chapters|notes\//.test(f)) s += 6;
+      return { c, s, topicsHit: matchedTopics(topics, haystack(c)) };
+    })
+    .filter((x) => x.s > 0 && x.topicsHit.length > 0)
+    .sort((a, b) => b.s - a.s)
+    .slice(0, limit);
+
+  return scored.map(({ c, s, topicsHit }) => ({
+    id: c.id,
+    file: c.file,
+    title: c.title,
+    section: c.section,
+    text: c.text,
+    score: s,
+    topicsHit,
+  }));
+}
+
+export function buildLlmMessages(bundle, question, passages) {
+  const system =
+    (bundle.systemPrompt || "").trim() ||
+    "You are the vessel-specific technical assistant for this Flyer 8 SPACEdeck.";
+
+  const ctx = (passages || [])
+    .map(
+      (p, i) =>
+        `[${i + 1}] ${p.file}${p.title ? ` · ${p.title}` : ""}\n${String(p.text || "").slice(0, 1800)}`
+    )
+    .join("\n\n");
+
+  const user = `Vessel: ${bundle.vessel?.name || "Flyer 8"} · HIN ${bundle.vessel?.hin || "?"} · ${bundle.vessel?.engine || ""}
+
+Use ONLY the binder excerpts below plus the system rules. If the binder does not contain a fact (e.g. rode length), say it is UNVERIFIED and say what to measure/photograph. Write a clear, human answer in markdown — short paragraphs, numbered steps when helpful. Do not dump unrelated troubleshooting checklists.
+
+Question: ${question}
+
+Binder excerpts:
+${ctx || "(no strong excerpts — say what is unknown and what to check on the boat)"}`;
+
+  return [
+    { role: "system", content: system },
+    { role: "user", content: user },
+  ];
 }

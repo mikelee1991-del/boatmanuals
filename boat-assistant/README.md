@@ -1,64 +1,61 @@
-# Flyer 8 Boat Guide (offline Q&A)
+# Flyer 8 Boat Guide
 
-Part of **this repo**. Ask a question → answer is pulled from the **boat binder** (`../boat-dictionary/`).
+Part of **this repo**. Ask a question → retrieve from the **boat binder** (`../boat-dictionary/`) → optional **LLM** writes a clear answer.
 
-**No API keys. No localtunnel. No cloud LLM required.**
+Live site: **https://mikelee1991-del.github.io/boatmanuals/**
 
-## What “localtunnel” was (ignore it)
+## Why an API key?
 
-Localtunnel was only a **temporary demo URL** from a cloud agent machine so a phone could reach that machine once. It is **not** how this app works, not stored in the repo, and not required.
+The binder alone is not enough for open questions like *“how deep can I anchor?”* — keyword matching often grabs the wrong playbook (e.g. windlass faults).
 
-## What actually ships in the repo
+An LLM (with the binder excerpts as context) produces readable, honest answers and will say **UNVERIFIED** when a fact is missing (rode length is still missing on this HIN).
 
-| Path | Role |
-|------|------|
-| [`../boat-dictionary/`](../boat-dictionary/) | **Boat binder** — manuals index, wiring, power sequences, evidence, notes |
-| [`scripts/build-bundle.mjs`](scripts/build-bundle.mjs) | Packs binder text → `public/knowledge-bundle.json` |
-| [`public/`](public/) | Mobile Q&A UI (static files) |
-| [`public/answer-engine.js`](public/answer-engine.js) | Offline retrieve-and-compose (runs in the browser) |
+**GitHub Pages cannot hold a secret API key** (anything in the static site is public). So you either:
 
-```text
-boat-dictionary/   ← source of truth (the binder)
-       ↓  npm run build
-boat-assistant/public/knowledge-bundle.json
-       ↓
-phone / browser Q&A UI
-```
+1. Paste **your own** OpenRouter/OpenAI key in the app **Settings** (stored only in that browser’s `localStorage`), or  
+2. Run the local server with `OPENROUTER_API_KEY` / `OPENAI_API_KEY` so the key stays on the host.
 
-## Run from the repo (laptop → phone on same Wi‑Fi)
+### Option A — OpenRouter on the phone (recommended for Pages)
+
+1. Create a key: https://openrouter.ai/keys  
+2. Open the Boat Guide → **Settings**  
+3. Mode **AI**, provider **OpenRouter**, paste key, model e.g. `openai/gpt-4o-mini`  
+4. Save → ask again  
+
+Cost is usually fractions of a cent per question.
+
+### Option B — Local server (OpenAI or OpenRouter)
 
 ```bash
 cd boat-assistant
+export OPENROUTER_API_KEY=sk-or-...   # or OPENAI_API_KEY=sk-...
+# optional: export LLM_MODEL=openai/gpt-4o-mini
 npm start
-# open http://localhost:8787
-# or http://<your-laptop-lan-ip>:8787 on your phone
+# http://localhost:8787  (or your LAN IP on the phone)
 ```
 
-`npm start` rebuilds the bundle from `boat-dictionary/` every time, so answers track the binder.
+Leave the in-app key blank; the UI posts to `/api/ask` and the server calls the model.
 
-## Host from GitHub (no laptop server)
+### Option C — Offline only
 
-After this is merged to `main`, GitHub Actions workflow [`.github/workflows/deploy-boat-guide.yml`](../.github/workflows/deploy-boat-guide.yml) builds from the binder and publishes `boat-assistant/public` to **GitHub Pages**.
+Settings → Mode **Offline**. No key. Useful dockside with no signal; weaker on open-ended questions.
 
-One-time setup in the GitHub UI:
+## Pipeline
 
-1. Repo **Settings → Pages**
-2. **Source** = **GitHub Actions**
-
-Live site:
-
-**https://mikelee1991-del.github.io/boatmanuals/**
-
-(Add to Home Screen on your phone. Asset paths are relative so the `/boatmanuals/` project URL works.)
-
-## Example
-
-> Where is my fuel/water separator and how do I know whether it needs to be replaced?
-
-Answer comes from binder notes + Mercury Verado O&M excerpts under `boat-dictionary/`.
+```text
+boat-dictionary/   ← source of truth
+       ↓  npm run build
+knowledge-bundle.json  (+ system prompt)
+       ↓
+retrieve top passages → LLM (if configured) → markdown answer
+       ↓ fallback
+offline answer-engine.js
+```
 
 ## Growing the brain
 
-1. Edit/add files under `boat-dictionary/`
-2. Run `npm run build` (or `npm start`, or push to `main` for Pages)
-3. Ask again — no keys, no model training
+1. Edit/add files under `boat-dictionary/`  
+2. `npm run build` (or push to `main` for Pages)  
+3. Ask again  
+
+To unlock a numeric anchoring-depth answer: measure **chain + rope length**, photograph it, and add the numbers under `owners-manual/chapters/10-ground-tackle.md`.

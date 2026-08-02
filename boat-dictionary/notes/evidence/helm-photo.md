@@ -5,13 +5,16 @@ Photo of helm looking forward over bow (marina / Shelter Island area on Garmin c
 ## Confirmed
 | Item | Evidence |
 |------|----------|
-| Zipwake | Dedicated control panel left of MFD; **AUTO PITCH** and **AUTO ROLL** active → Series S class |
-| Garmin MFD | Center console chartplotter active (GPS speed, depth, position); exact model not readable |
-| Sleipner thruster | **SLEIPNER** labeled control panel lower-left of dash |
+| Zipwake | Panel with **AUTO PITCH** / **AUTO ROLL**; Series S rotary controller under/near Garmin |
+| Garmin MFD | Center chartplotter; chart+sonar split; Garmin bezel logo; exact model not readable |
+| Mercury VesselView-class display | Smaller square digital engine gauge upper-right of Garmin |
+| Fusion stereo | Marine head unit beside engine display (likely MS-RA210 Sound Pack) |
+| Mercury DTS | Single lever with **DOCK**, **TRANSFER**, **THROTTLE ONLY**; red kill lanyard |
+| Sleipner thruster | **SLEIPNER** panel + thruster joystick near ignition |
 | Windlass | White windlass / anchor housing visible at bow |
-| Black pulpits | Black powder-coated bow rails |
-| Overhead canvas | Black fabric with tension cords (T-Top shade or bimini — confirm) |
-| Switch panel | Illuminated rocker/button row under MFD (power, bilge, lights, etc.) |
+| Black pulpits | Black powder-coated bow rails + black windshield frame |
+| T-Top | Black metal frame with black fabric roof (snaps) |
+| Switch panel | Toggle/rocker bank for lights, bilge, etc. |
 
 ## Ruled out
 | Item | Reason |

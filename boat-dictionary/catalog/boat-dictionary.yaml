@@ -30,12 +30,15 @@ vessel:
     - delivery_dealer
     - original_options_invoice_or_build_sheet
   equipped_confirmed_from_photos:
-    - "Zipwake Dynamic Trim Control (AUTO PITCH / AUTO ROLL active on helm panel)"
-    - "Sleipner (Side-Power) thruster control panel at helm"
-    - "Garmin MFD at helm (chartplotter active; exact model TBD)"
+    - "Zipwake Dynamic Trim Control (Series S panel with rotary control under/near Garmin)"
+    - "Sleipner (Side-Power) thruster control + thruster joystick at helm"
+    - "Garmin MFD at helm (chart + sonar split view; exact model TBD)"
+    - "Mercury SmartCraft digital engine display (VesselView-class) at helm"
+    - "Fusion marine stereo head unit at helm (MS-RA series class)"
+    - "Mercury DTS single-lever control (DOCK / TRANSFER / THROTTLE ONLY)"
     - "Electric windlass present at bow"
     - "Black pulpits / black windshield frame"
-    - "Overhead canvas (T-Top shade / bimini — confirm hard T-Top vs soft)"
+    - "Black-frame T-Top with fabric roof"
   not_equipped_from_photos:
     - "LENCO electric trim tabs (Zipwake installed instead)"
 
@@ -158,7 +161,8 @@ hardware:
     category: engine_controls
     name: Mercury Digital Throttle & Shift (DTS) electronic remote control
     status: confirmed
-    keywords: [dts, throttle, shift, erc, dock mode, throttle only, troll, active trim button, control pad]
+    evidence: "Helm photo — Mercury single-lever DTS with DOCK, TRANSFER, THROTTLE ONLY; red lanyard kill switch"
+    keywords: [dts, throttle, shift, erc, dock mode, throttle only, troll, active trim button, control pad, transfer]
     manuals:
       - path: manuals/engine/Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf
         title: ERC / DTS features, Active Trim, electric steering (8M0221736)
@@ -189,8 +193,12 @@ hardware:
 
   - id: vesselview-or-gauges
     category: electronics
-    name: Mercury SmartCraft VesselView / engine gauges (if equipped)
-    status: unverified
+    name: Mercury SmartCraft VesselView / digital engine display
+    status: confirmed
+    model_status: exact_model_unverified
+    evidence: "Helm photo — smaller square digital engine display upper-right of Garmin (VesselView / SmartCraft class)"
+    likely_models:
+      - "VesselView 403 / 502 / 703 / 704 class (confirm bezel or About)"
     keywords: [vesselview, smartcraft, gauges, rpm, trim gauge, fault text, eco mode]
     manuals:
       - path: manuals/electronics/Mercury-VesselView-704-8m0220645.pdf
@@ -200,7 +208,7 @@ hardware:
         title: VesselView 502 / 702 Operation Manual
         language: en
     questions:
-      - "Do you have a dedicated VesselView display, only Garmin with Mercury engine data (VesselView Link / NMEA), or analog SmartCraft gauges?"
+      - "Close-up of the Mercury digital display (model on bezel) or its System/About info."
     symptoms: [blank display, no engine data, wrong trim %, alarm text]
 
   - id: garmin-echomap
@@ -208,7 +216,7 @@ hardware:
     name: Garmin multifunction display / sonar (Electronic Pack)
     status: confirmed
     model_status: exact_model_unverified
-    evidence: "Helm photo — Garmin chartplotter displaying charts/depth/GPS (San Diego / Shelter Island)"
+    evidence: "Helm photos — Garmin chartplotter with chart+sonar split; Garmin logo on bezel; depth/GPS active"
     likely_models:
       - "ECHOMAP UHD 92sv (common on 2023 packs)"
       - "ECHOMAP UHD2 92sv (listed on current US equipment list)"
@@ -231,15 +239,19 @@ hardware:
 
   - id: fusion-audio
     category: electronics
-    name: Fusion MS-RA210 Sound Pack
-    status: typical_option
+    name: Fusion marine stereo (Sound Pack)
+    status: confirmed
+    model_status: exact_model_unverified
+    evidence: "Helm photo — Fusion-class marine stereo head unit beside engine display"
+    likely_models:
+      - "Fusion MS-RA210 (factory Sound Pack on Flyer 8 equipment list)"
     keywords: [fusion, stereo, bluetooth, speakers, ra210, audio]
     manuals:
       - path: manuals/electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf
         title: Fusion MS-RA210 Owner’s Manual
         language: en
     questions:
-      - "Is the Sound Pack installed (MS-RA210 + speakers)?"
+      - "Close-up of stereo faceplate to confirm MS-RA210 vs another Fusion model."
     symptoms: [no power, no bluetooth, speaker cutout, fusion-link missing]
 
   - id: zipwake
@@ -248,7 +260,7 @@ hardware:
     status: confirmed
     series: "Series S (helm UI shows AUTO PITCH / AUTO ROLL)"
     mutually_exclusive_with: [lenco-tabs]
-    evidence: "Helm photo — Zipwake control panel left of Garmin with AUTO PITCH and AUTO ROLL active"
+    evidence: "Helm photos — Zipwake panel with AUTO PITCH/AUTO ROLL; also Series S rotary control under/near Garmin"
     keywords: [zipwake, interceptor, auto trim, pitch, roll, tabs]
     manuals:
       - path: manuals/systems/Zipwake-Series-S-Operators-Manual-EN-R5A.pdf
@@ -383,16 +395,15 @@ hardware:
   - id: t-top-pilot-edition
     category: exterior
     name: T-Top / exterior package / pulpits
-    status: partially_confirmed
-    evidence: "Helm photo — black pulpits + black windshield frame; overhead black canvas with tension cords (confirm hard T-Top vs bimini)"
+    status: confirmed
+    evidence: "Helm photo — black metal T-Top frame with black fabric roof (snaps); black pulpits + black windshield frame"
     keywords: [t-top, pilot edition, underwater lights, cockpit led, ski mast, fishing station, black pulpits, bimini]
     manuals:
       - path: manuals/boat/Flyer-8-SPACEdeck-Equipment-List-US.pdf
         title: Equipment list (Pilot Edition / options)
         language: en
     questions:
-      - "Hard polyester T-Top with black frame, or soft bimini only?"
-      - "Pilot Edition graphics / underwater lights / ski mast / fishing station?"
+      - "Pilot Edition graphics / underwater lights / ski mast / fishing station also fitted?"
 
 # ---------------------------------------------------------------------------
 # SYMPTOM → HARDWARE INDEX (for debugging search)

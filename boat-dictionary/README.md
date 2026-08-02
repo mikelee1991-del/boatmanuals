@@ -28,7 +28,7 @@ PDF library: [`manuals/`](manuals/) (~100 MB)
 - **Engine model `13000069A`** / designation **300XXL** = Mercury **Verado 300 HP** (221 kW), plate weight 620 lb / 281 kg, **30" XXL**.
 - **ESN `3B371488`** confirmed from the transom data plate photo — use this on the [Mercury Owners Manual portal](https://www.mercurymarine.com/us/en/service-and-support/owners-resources/owners-manual) and for parts.
 - Prefer the **US equipment list** (`Flyer-8-SPACEdeck-Equipment-List-US.pdf`) and ask the dealer for the CE Owner’s Handbook against **HIN BEYFT208F223**.
-- From helm photo: **Zipwake** (AUTO PITCH / AUTO ROLL), **Sleipner** thruster panel, **Garmin** MFD (exact model TBD), **electric windlass** at bow, **black pulpits**, overhead canvas. **LENCO not installed** (Zipwake instead).
+- From helm photos: **Zipwake** Series S, **Sleipner** thruster + joystick, **Garmin** MFD (exact model TBD), **Mercury VesselView-class** engine display, **Fusion** stereo, **Mercury DTS** (DOCK/TRANSFER/THROTTLE ONLY), **electric windlass**, **black T-Top**, black pulpits. **LENCO not installed**.
 
 ---
 

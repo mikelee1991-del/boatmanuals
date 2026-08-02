@@ -129,6 +129,6 @@ Reply with whatever you know (photos of labels are ideal):
 12. ~~**T-Top**~~ — **confirmed**. Still open: Pilot Edition / ski mast / fishing station / underwater lights?
 13. **Seanapps** unit present and activated?
 14. Propeller brand/pitch/diameter if known?
-15. **VHF** brand/model (fuse map confirms a VHF circuit)?
+15. ~~**VHF**~~ — **no fixed set**; handheld only (Blue Sea VHF fuse is spare/pre-wire).
 
 Once those are answered, peripheral manuals can be narrowed to exact part numbers and any wrong-brand PDFs can be replaced.

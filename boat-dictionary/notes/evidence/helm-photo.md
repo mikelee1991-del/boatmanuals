@@ -17,7 +17,7 @@ Photo of helm looking forward over bow (marina / Shelter Island area on Garmin c
 | Switch panel | Toggle/rocker bank for lights, bilge, etc. |
 | Offshore compass | Analog magnetic compass on dash behind windshield (US Trim Package) |
 | START/STOP | Mercury ignition + START/STOP button at helm |
-| Possible VHF | Handheld in holder near wheel base — confirm if fixed VHF fitted |
+| VHF | Owner confirmed: **handheld only**, no fixed VHF wired (fuse-map VHF circuit is spare/pre-wire) |
 
 ## Ruled out
 | Item | Reason |

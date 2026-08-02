@@ -13,7 +13,7 @@ Wire codes appear as `ID r <mm²>` where `r` ≈ red (positive) and the number i
 |------|------|---------|-------|---------------------------|
 | 1 | **10 A** | AN4 | 2.5 mm² | Stereo / audio (music note) |
 | 2 | **3 A** | JF, JF2 | 1.5 mm² | Helm instruments / NMEA / clock + steering-related feed |
-| 3 | **10 A** | VHF | 2.5 mm² | **VHF radio** |
+| 3 | **10 A** | VHF | 2.5 mm² | VHF circuit on diagram — **no fixed VHF installed** (handheld only; spare/pre-wire) |
 | 4 | **5 A** | HDS | 2.5 mm² | Multifunction display feed (diagram code **HDS**; on this boat the installed MFD is **Garmin**, not Lowrance) |
 
 ---
@@ -60,5 +60,6 @@ Wire codes appear as `ID r <mm²>` where `r` ≈ red (positive) and the number i
 
 ## Hardware implications for this boat
 - **Blue Sea Systems** fuse block is fitted (“NEW BLUE SEA BOX”).
-- Diagram includes **VHF**, **stereo**, **macerator**, **fresh water**, **shower**, **bilge**, and a **fridge-class** heavy feed — treat those systems as expected/present unless proven absent.
+- Diagram includes **stereo**, **macerator**, **fresh water**, **shower**, **bilge**, and a **fridge-class** heavy feed — treat those as expected/present unless proven absent.
+- **VHF 10 A** fuse/wire is on the Blue Sea box, but owner confirms **no fixed VHF** — **handheld only** (treat as spare/pre-wire).
 - Code **HDS** on the Blue Sea box is the factory wire ID for the display circuit; do **not** assume a Lowrance HDS unit is installed (helm photos show **Garmin**).

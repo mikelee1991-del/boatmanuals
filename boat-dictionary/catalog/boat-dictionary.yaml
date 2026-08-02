@@ -46,7 +46,7 @@ vessel:
     - "Dual batteries in IMNASA boxes: ENGINE BATTERY + HOUSE BATTERY"
     - "Polyethylene HOLDING tank in same locker (hand mark 80 L EF; US list specifies 88 L blackwater — confirm capacity/label)"
     - "Blue Sea Systems auxiliary fuse box + main 12V fuse box (diagram on board)"
-    - "Fuse diagram circuits: stereo, VHF, MFD (wire code HDS), fresh water, shower, macerator, bilge, lights, fridge feed, 12V outlet"
+    - "Fuse diagram circuits: stereo, VHF (pre-wire/spare — no fixed VHF; handheld only), MFD (wire code HDS), fresh water, shower, macerator, bilge, lights, fridge feed, 12V outlet"
   not_equipped_from_photos:
     - "LENCO electric trim tabs (Zipwake installed instead)"
     - "Mastervolt ChargeMaster (charger is CRISTEC, not Mastervolt)"
@@ -124,7 +124,8 @@ electrical_baseline:
     main_fuse_box: "Slots I–X populated (5–20 A); XI–XII empty on diagram"
     notes:
       - "Wire code HDS = display circuit; installed MFD is Garmin (not Lowrance HDS)."
-      - "Diagram confirms expected VHF, macerator, fresh-water, shower, bilge, and fridge-class feeds."
+      - "Blue Sea VHF 10 A circuit is on the diagram but owner confirms no fixed VHF — handheld only (circuit spare/pre-wire)."
+      - "Diagram also shows macerator, fresh-water, shower, bilge, and fridge-class feeds."
   batteries:
     status: confirmed
     arrangement: "Two banks in yellow IMNASA boxes — ENGINE BATTERY + HOUSE BATTERY"
@@ -302,13 +303,14 @@ hardware:
   - id: vhf-radio
     category: electronics
     name: VHF radio
-    status: confirmed_on_fuse_map
-    evidence: "12V fuse diagram — Blue Sea box 10 A circuit labeled VHF with handset icon"
-    fuse: "Blue Sea box 10 A — VHF r 2.5 mm²"
-    keywords: [vhf, radio, dsc, handset]
+    status: not_installed_fixed
+    owner_confirmed: "No fixed VHF wired — handheld only"
+    evidence: "Fuse diagram has a Blue Sea 10 A circuit labeled VHF (spare / pre-wire); owner confirms only a handheld is carried"
+    fuse: "Blue Sea box 10 A — VHF r 2.5 mm² (present on diagram; unused for fixed set)"
+    keywords: [vhf, radio, dsc, handset, handheld]
     manuals: []
     questions:
-      - "VHF brand/model (fixed unit faceplate or MMSI label)?"
+      - "Optional: handheld VHF brand/model if you want its manual in the library."
     symptoms: [no transmit, no power, DSC fail]
 
   - id: zipwake

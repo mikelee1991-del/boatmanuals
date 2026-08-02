@@ -45,6 +45,8 @@ vessel:
     - "Jabsco PAR-MAX 2.9 freshwater pump 31395-7008 (S/N 22A45914) — 12V 2.9 GPM 40 PSI"
     - "Dual batteries in IMNASA boxes: ENGINE BATTERY + HOUSE BATTERY"
     - "Polyethylene HOLDING tank in same locker (hand mark 80 L EF; US list specifies 88 L blackwater — confirm capacity/label)"
+    - "Blue Sea Systems auxiliary fuse box + main 12V fuse box (diagram on board)"
+    - "Fuse diagram circuits: stereo, VHF, MFD (wire code HDS), fresh water, shower, macerator, bilge, lights, fridge feed, 12V outlet"
   not_equipped_from_photos:
     - "LENCO electric trim tabs (Zipwake installed instead)"
     - "Mastervolt ChargeMaster (charger is CRISTEC, not Mastervolt)"
@@ -115,6 +117,14 @@ electrical_baseline:
   system_voltage: "12 V"
   panel: "12 V electrical panel"
   outlets: ["12 V power outlet", "USB socket"]
+  fuse_map:
+    status: confirmed
+    document: catalog/fuse-map-12v.md
+    blue_sea_box: "NEW BLUE SEA BOX — 10A stereo (AN4), 3A JF/JF2 helm feeds, 10A VHF, 5A HDS/MFD"
+    main_fuse_box: "Slots I–X populated (5–20 A); XI–XII empty on diagram"
+    notes:
+      - "Wire code HDS = display circuit; installed MFD is Garmin (not Lowrance HDS)."
+      - "Diagram confirms expected VHF, macerator, fresh-water, shower, bilge, and fridge-class feeds."
   batteries:
     status: confirmed
     arrangement: "Two banks in yellow IMNASA boxes — ENGINE BATTERY + HOUSE BATTERY"
@@ -371,9 +381,11 @@ hardware:
   - id: cabin-fridge
     category: comfort
     name: Cabin fridge 42 L
-    status: typical_option
+    status: likely_installed
+    evidence: "Main fuse diagram includes heavy 1C1A r 4 mm² fridge/fan-class circuit; factory option is 42 L cabin fridge"
+    fuse: "Main fuse box — 1C1A r 4 mm²"
     likely_brand: "Isotherm Cruise CR 42 / Indel Webasto class"
-    keywords: [fridge, isotherm, compressor, 12v fridge, cabin refrigerator]
+    keywords: [fridge, isotherm, compressor, 12v fridge, cabin refrigerator, 1C1A]
     manuals:
       - path: manuals/peripherals/Isotherm-Cruise-42-130-Install-Operating-EN.pdf
         title: Isotherm Cruise CR 42–130 Installation & Operating Instructions
@@ -390,10 +402,11 @@ hardware:
     name: Freshwater electric toilet + holding tank (US Trim Package)
     status: partially_confirmed
     tank_status: confirmed_present
+    macerator_circuit: "Fuse diagram 3P1A — MACER"
     tank_notes: "Turquoise polyethylene tank molded HOLDING in pump/battery locker; handwritten 80 L EF (US equipment list: 88 L blackwater / 80 L fresh water — verify which and exact capacity)"
     tank_l: 88
     likely_brand: "Jabsco / Tecma class (verify)"
-    keywords: [toilet, head, holding tank, macerator, flush, blackwater]
+    keywords: [toilet, head, holding tank, macerator, flush, blackwater, MACER, 3P1A]
     manuals:
       - path: manuals/peripherals/Jabsco-37010-Electric-Toilet-Manual-EN.pdf
         title: Jabsco 37010-series Electric Marine Toilet Manual

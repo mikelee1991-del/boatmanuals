@@ -16,6 +16,7 @@ English manuals and a searchable hardware map for:
 | Steering | **EPHS MPU** Mercury **8M6005909** (TRW10) — electro-hydraulic |
 | Shaft | XXL 30 in |
 
+**Consolidated owner’s manual (start here):** [`owners-manual/README.md`](owners-manual/README.md) — as-installed wiring, power-up/down, troubleshooting, LLM indexes  
 Machine-readable catalog: [`catalog/boat-dictionary.yaml`](catalog/boat-dictionary.yaml)  
 12 V fuse map: [`catalog/fuse-map-12v.md`](catalog/fuse-map-12v.md)  
 Stock vs options vs later-added: [`catalog/equipment-provenance.md`](catalog/equipment-provenance.md)  

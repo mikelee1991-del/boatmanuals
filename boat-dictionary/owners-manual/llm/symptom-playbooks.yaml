@@ -1,0 +1,223 @@
+# Symptom playbooks — machine-readable troubleshooting trees
+# Each playbook: id, aliases, hardware_ids, safety, steps[], next_photos[], manuals[]
+
+version: "1.0.0"
+vessel_hin: "BEYFT208F223"
+engine_esn: "3B371488"
+
+playbooks:
+  - id: PB-NOSTART
+    om_section: OM-TS-NOSTART
+    aliases: [no start, won't start, will not crank, hard start, click no start]
+    hardware_ids: [engine-verado-300-v8, dts-controls, electrical_baseline]
+    safety:
+      - "Clear prop and ensure neutral before cranking"
+      - "No fuel smell in bilge before ignition"
+    steps:
+      - "Confirm kill lanyard clipped to DTS and operator"
+      - "Confirm DTS lever in NEUTRAL"
+      - "ENGINE battery switch ON; measure resting voltage (want ≥12.4 V)"
+      - "Ignition ON — does VesselView power? Note any fault text"
+      - "Attempt START — note: no sound / click / slow crank / cranks no fire"
+      - "If low voltage or slow crank: clean terminals, charge ENGINE bank, retry"
+      - "If cranks no fire: check fuel quantity; follow Mercury flooded/EFI guidance in O&M — do not invent"
+      - "Persistent: Mercury dealer CDS/PCM 112 diagnostics for ESN 3B371488"
+    next_photos: ["battery switch panel labels", "VesselView fault screen", "ENGINE battery CCA label"]
+    manuals:
+      - manuals/engine/Mercury-Verado-V8-SeaPro-V8-Operation-Maintenance-8m0145543.pdf
+      - manuals/engine/Mercury-SmartCraft-Operation-Overview-8m0071455r.pdf
+
+  - id: PB-STEER
+    om_section: OM-TS-STEER
+    aliases: [hard steering, heavy steering, no power steering, stiff wheel, EPHS]
+    hardware_ids: [steering-power]
+    safety:
+      - "Reduce speed if assist lost; both hands on wheel"
+    steps:
+      - "Check EPHS reservoir 8M6005909 between MIN and MAX"
+      - "Top up only with Mercury-specified synthetic steering fluid"
+      - "Inspect for leaks at pump/hoses/ram"
+      - "Note VesselView steering alarms verbatim"
+      - "Check Blue Sea JF 3A as related helm feed — not pump main"
+      - "If fluid drops again or alarm persists: dealer EPHS service"
+    next_photos: ["EPHS reservoir level", "fluid P/N from O&M or bottle"]
+    manuals:
+      - manuals/engine/Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf
+      - manuals/engine/Mercury-Verado-V8-SeaPro-V8-Operation-Maintenance-8m0145543.pdf
+
+  - id: PB-OVERHEAT
+    om_section: OM-TS-OVERHEAT
+    aliases: [overheat, hot engine, no tell tale, no water stream, temperature alarm]
+    hardware_ids: [engine-verado-300-v8]
+    safety:
+      - "Idle immediately; do not continue WOT with overheat alarm"
+    steps:
+      - "Verify tell-tale stream present"
+      - "Clear intake / bag / plastic from water inlets"
+      - "Check flush port closed"
+      - "Allow cool-down; inspect impeller service interval"
+      - "If repeats: dealer cooling system diagnosis"
+    next_photos: ["tell-tale while idling", "VesselView temp alarm"]
+    manuals:
+      - manuals/engine/Mercury-Verado-V8-SeaPro-V8-Operation-Maintenance-8m0145543.pdf
+
+  - id: PB-DTS-SHIFT
+    om_section: OM-TS
+    aliases: [no shift, stuck neutral, won't go into gear, throttle only stuck, DTS beep]
+    hardware_ids: [dts-controls, engine-verado-300-v8]
+    steps:
+      - "Confirm THROTTLE ONLY not engaged unintentionally"
+      - "Record beep pattern / VesselView message"
+      - "Check battery voltage stability"
+      - "Cycle ignition in neutral; retry"
+      - "Dealer SmartCraft/DTS diagnostics if unresolved"
+    manuals:
+      - manuals/engine/Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf
+
+  - id: PB-ZIPWAKE
+    om_section: OM-TS-TRIM
+    aliases: [zipwake error, auto pitch fail, listing, porpoising, interceptor stuck, trim tabs]
+    hardware_ids: [zipwake]
+    notes:
+      - "LENCO is NOT INSTALLED on this boat"
+    steps:
+      - "Confirm Zipwake panel powered"
+      - "Record on-screen error codes"
+      - "Confirm Garmin GPS fix if AUTO modes misbehave"
+      - "Visually inspect interceptor blades for damage/obstruction when possible"
+      - "Review engine trim vs Zipwake interaction"
+      - "Consult Zipwake operator manual for code-specific actions"
+    manuals:
+      - manuals/systems/Zipwake-Series-S-Operators-Manual-EN-R5A.pdf
+
+  - id: PB-THRUSTER
+    om_section: OM-TS-THRUSTER
+    aliases: [thruster dead, bow thruster weak, sleipner, side-power no thrust]
+    hardware_ids: [bow-thruster, electrical_baseline]
+    steps:
+      - "Arm Sleipner panel; test joystick short burst"
+      - "Measure battery voltage at rest and during command"
+      - "Find and check dedicated thruster breaker (not Blue Sea aux 3-10A)"
+      - "If thermal cutout: wait and retry with shorter bursts"
+      - "Haul inspection if mechanical noise or no rotation with voltage OK"
+    next_photos: ["thruster main breaker", "motor plate SE model"]
+    manuals:
+      - manuals/peripherals/Side-Power-SE-SE-IP-DC-User-Manual-EN.pdf
+
+  - id: PB-WINDLASS
+    om_section: OM-TS-WINDLASS
+    aliases: [windlass dead, won't haul, anchor winch, breaker trips windlass]
+    hardware_ids: [windlass, electrical_baseline]
+    steps:
+      - "Confirm HOUSE/ENGINE power and windlass breaker ON"
+      - "Test helm and bow controls if both exist"
+      - "Voltage under load; listen for contactor click"
+      - "If motor runs but no haul: clutch/gypsy/chain match"
+      - "Free stuck anchor by motoring up — do not stall windlass"
+    next_photos: ["windlass motor plate", "chain size", "breaker location"]
+    manuals:
+      - manuals/peripherals/Lewmar-Pro-Series-Pro-Fish-Windlass-Manual.pdf
+
+  - id: PB-FRESH-PUMP
+    om_section: OM-TS-PUMP
+    aliases: [no water pressure, fresh pump, jabsco, par-max, shower no pressure]
+    hardware_ids: [freshwater-pump]
+    steps:
+      - "Verify water in 80 L tank"
+      - "Check 1P2B circuit / 10A device fuse for Jabsco 31395-7008"
+      - "Clean inlet strainer"
+      - "Listen for continuous run (leak) vs rapid cycle (air/leak) vs silence (no power)"
+      - "Allow thermal reset if overheated from dry run"
+    manuals:
+      - manuals/peripherals/Jabsco-PAR-MAX-2.9-Manual-EN.pdf
+
+  - id: PB-WASHDOWN
+    om_section: OM-TS-PUMP
+    aliases: [washdown dead, deck wash, flojet, no washdown pressure]
+    hardware_ids: [deck-wash]
+    steps:
+      - "Confirm washdown seacock/intake open if raw-water (verify on boat)"
+      - "Check 15A device fuse for Flojet R4325143F"
+      - "Clean strainer"
+      - "Same cycle/leak logic as fresh pump"
+    manuals:
+      - manuals/peripherals/Flojet-Washdown-Pump-Manual-EN.pdf
+
+  - id: PB-FRIDGE
+    om_section: OM-TS-FRIDGE
+    aliases: [fridge warm, refrigerator not cold, isotherm]
+    hardware_ids: [cabin-fridge, electrical_baseline]
+    steps:
+      - "Confirm unit installed and switched ON"
+      - "Check main panel heavy feed 1C1A 4mm² path"
+      - "Measure voltage at fridge while attempting to run"
+      - "Check compressor ventilation"
+      - "Identify brand label for model-specific manual"
+    manuals:
+      - manuals/peripherals/Isotherm-Cruise-42-130-Install-Operating-EN.pdf
+
+  - id: PB-GARMIN
+    om_section: OM-TS-MFD
+    aliases: [garmin blank, no sonar, no gps, depth lost, MFD dead]
+    hardware_ids: [garmin-echomap]
+    steps:
+      - "Check Blue Sea HDS 5A fuse (feeds Garmin — code says HDS but unit is Garmin)"
+      - "Battery switches ON; hold power button per Garmin manual"
+      - "If GPS OK but sonar dead: transducer connector/cable"
+      - "Depth lost at speed: aeration/transducer damage"
+      - "Capture Settings → System → About for exact model"
+    manuals:
+      - manuals/electronics/Garmin-ECHOMAP-UHD-Owners-Manual-EN.pdf
+      - manuals/electronics/Garmin-ECHOMAP-UHD2-62-72-92sv-Owners-Manual-EN.pdf
+
+  - id: PB-STEREO
+    om_section: OM-TS-AUDIO
+    aliases: [stereo dead, fusion dead, no bluetooth audio]
+    hardware_ids: [fusion-audio]
+    steps:
+      - "Check Blue Sea AN4 10A fuse"
+      - "Power cycle Fusion head unit"
+      - "Verify voltage at unit"
+      - "Speaker-only faults: wiring / protection mode per Fusion manual"
+    manuals:
+      - manuals/electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf
+
+  - id: PB-SHORE
+    om_section: OM-PWR-SHORE
+    aliases: [no shore power, not charging, RCD trip, cristec off, shore power issues]
+    hardware_ids: [shore-power-charger]
+    safety:
+      - "Do not bypass 30mA RCD"
+      - "Disconnect pedestal first if unsafe"
+    steps:
+      - "Verify marina pedestal live"
+      - "Connect boat inlet first, pedestal last"
+      - "Check Schneider iIL indicator and RCD not tripped"
+      - "CRISTEC ON LED and charge stage LEDs"
+      - "Confirm battery switches allow charge acceptance"
+      - "Verify charger profile matches actual battery chemistry (sticker currently OPENED TYPE)"
+      - "Isolate ABB C16 circuits vs charger to localize trips"
+    manuals:
+      - manuals/peripherals/CRISTEC-YPOWER-User-Manual-EN.pdf
+
+  - id: PB-ENGINE-DATA
+    om_section: OM-TS
+    aliases: [blank engine data, no rpm on display, vesselview blank]
+    hardware_ids: [vesselview-or-gauges, garmin-echomap, dts-controls]
+    steps:
+      - "Does VesselView power on key-on?"
+      - "If VesselView OK but Garmin overlay missing: NMEA/gateway settings"
+      - "If both blank and no start: follow PB-NOSTART power checks"
+      - "Photograph display bezel for exact VesselView model"
+
+  - id: PB-TOILET
+    om_section: OM-WATER-WASTE
+    aliases: [toilet won't flush, macerator, holding tank, head fail]
+    hardware_ids: [electric-toilet]
+    steps:
+      - "Fresh water available for flush?"
+      - "Check MACER 3P1A circuit if discharge pump inoperative"
+      - "Confirm tank not full; locate pump-out deck fitting"
+      - "Photograph toilet brand/model before applying Jabsco-specific steps"
+    manuals:
+      - manuals/peripherals/Jabsco-37010-Electric-Toilet-Manual-EN.pdf

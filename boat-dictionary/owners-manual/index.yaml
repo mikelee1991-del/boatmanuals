@@ -1,0 +1,268 @@
+# Consolidated Owner’s Manual — searchable index
+# Use with llm/retrieval-index.json and llm/symptom-playbooks.yaml
+version: "1.0.0"
+vessel_hin: "BEYFT208F223"
+engine_esn: "3B371488"
+language: en
+root: boat-dictionary/owners-manual
+
+search_aliases:
+  "no start": [OM-TS-NOSTART, OM-PWR-01, OM-ENG]
+  "won't start": [OM-TS-NOSTART, OM-PWR-01]
+  "hard steering": [OM-TS-STEER, OM-ENG-EPHS]
+  "steering stiff": [OM-TS-STEER, OM-ENG-EPHS]
+  "zipwake": [OM-TRIM, OM-TS-TRIM]
+  "trim tabs": [OM-TRIM]  # this boat has Zipwake, not LENCO
+  "lenco": [OM-TRIM]      # NOT INSTALLED
+  "thruster": [OM-THR, OM-TS-THRUSTER]
+  "sleipner": [OM-THR]
+  "windlass": [OM-ANCH, OM-TS-WINDLASS]
+  "anchor": [OM-ANCH]
+  "charger": [OM-BATT, OM-WIRE-AC]
+  "cristec": [OM-BATT]
+  "shore power": [OM-PWR-SHORE, OM-WIRE-AC]
+  "fuse": [OM-WIRE, OM-WIRE-BLUESEA, OM-WIRE-MAIN]
+  "blue sea": [OM-WIRE-BLUESEA]
+  "stereo": [OM-HELM-FUSION, OM-TS-AUDIO]
+  "fusion": [OM-HELM-FUSION]
+  "garmin": [OM-HELM-GARMIN, OM-TS-MFD]
+  "vesselview": [OM-HELM-VV]
+  "dts": [OM-ENG-DTS, OM-PWR-01]
+  "overheat": [OM-TS-OVERHEAT, OM-ENG]
+  "bilge": [OM-WIRE-MAIN, OM-WATER]
+  "macerator": [OM-WATER-WASTE, OM-WIRE]
+  "toilet": [OM-WATER-WASTE]
+  "fridge": [OM-WATER, OM-WIRE-MAIN, OM-TS-FRIDGE]
+  "teak": [OM-DECK]
+  "washdown": [OM-WATER-WASH, OM-TS-PUMP]
+  "fresh water": [OM-WATER-FRESH, OM-TS-PUMP]
+  "power up": [OM-PWR-01, OM-QS]
+  "power down": [OM-PWR-02, OM-QS]
+  "kill switch": [OM-SAFE, OM-PWR-01]
+  "battery": [OM-BATT, OM-WIRE]
+  "vhf": [OM-HELM]  # handheld only
+
+sections:
+  - id: OM-QS
+    path: 00-quickstart.md
+    title: Quickstart & daily checklist
+    keywords: [power up, power down, checklist, daily, pre-departure]
+
+  - id: OM-ID
+    path: chapters/01-vessel-identity.md
+    title: Vessel identity & specifications
+    keywords: [HIN, BEYFT208F223, CE, USCG, specs, fuel, water]
+
+  - id: OM-SAFE
+    path: chapters/02-safety-and-limits.md
+    title: Safety & operating limits
+    keywords: [kill switch, CO, capacity, category C, category D]
+
+  - id: OM-SYS
+    path: chapters/03-systems-overview.md
+    title: Systems overview (as-installed)
+    keywords: [systems, inventory, helm, locker, options]
+
+  - id: OM-WIRE
+    path: chapters/04-electrical-and-wiring.md
+    title: Electrical system & as-installed wiring
+    keywords: [12V, fuse, wiring, Blue Sea, main fuse box]
+
+  - id: OM-WIRE-BLUESEA
+    path: chapters/04-electrical-and-wiring.md#blue-sea-auxiliary-fuse-box
+    title: Blue Sea auxiliary fuse box
+    keywords: [AN4, JF, VHF, HDS, stereo, MFD]
+
+  - id: OM-WIRE-MAIN
+    path: chapters/04-electrical-and-wiring.md#main-fuse-box
+    title: Main 12 V fuse box
+    keywords: [1C1A, 1L1A, 1S1A, 1F1A, fridge, bilge, MACER]
+
+  - id: OM-WIRE-AC
+    path: chapters/04-electrical-and-wiring.md#ac-shore-power-as-installed
+    title: AC shore power as-installed
+    keywords: [115V, RCD, Schneider, ABB, shore inlet]
+
+  - id: OM-PWR
+    path: chapters/05-power-sequences.md
+    title: Power sequences
+    keywords: [powerup, powerdown, sequence, battery switch]
+
+  - id: OM-PWR-01
+    path: chapters/05-power-sequences.md#cold-start-power-up-underway
+    title: Cold-start / power-up sequence
+    keywords: [start, ignition, DTS, READY]
+
+  - id: OM-PWR-02
+    path: chapters/05-power-sequences.md#normal-power-down-shutdown
+    title: Normal power-down / shutdown
+    keywords: [shutdown, stop, overnight]
+
+  - id: OM-PWR-SHORE
+    path: chapters/05-power-sequences.md#shore-power-connect--disconnect
+    title: Shore power connect/disconnect
+    keywords: [shore, plug, charger, marina]
+
+  - id: OM-ENG
+    path: chapters/06-propulsion-and-controls.md
+    title: Propulsion & controls
+    keywords: [Verado, 300XXL, 3B371488, oil, cooling]
+
+  - id: OM-ENG-DTS
+    path: chapters/06-propulsion-and-controls.md#dts-digital-throttle--shift
+    title: DTS controls
+    keywords: [DOCK, TRANSFER, THROTTLE ONLY, lanyard]
+
+  - id: OM-ENG-EPHS
+    path: chapters/06-propulsion-and-controls.md#ephs-power-steering
+    title: EPHS power steering
+    keywords: [8M6005909, TRW10, steering fluid, MIN MAX]
+
+  - id: OM-HELM
+    path: chapters/07-helm-electronics.md
+    title: Helm electronics
+    keywords: [Garmin, VesselView, Fusion, compass]
+
+  - id: OM-HELM-GARMIN
+    path: chapters/07-helm-electronics.md#garmin-mfd
+    title: Garmin MFD
+    keywords: [ECHOMAP, sonar, GPS, HDS fuse]
+
+  - id: OM-HELM-VV
+    path: chapters/07-helm-electronics.md#mercury-vesselview--smartcraft-display
+    title: VesselView / SmartCraft display
+    keywords: [RPM, fault text, trim]
+
+  - id: OM-HELM-FUSION
+    path: chapters/07-helm-electronics.md#fusion-stereo
+    title: Fusion stereo
+    keywords: [MS-RA210, AN4, bluetooth]
+
+  - id: OM-TRIM
+    path: chapters/08-trim-and-stability.md
+    title: Zipwake trim system
+    keywords: [AUTO PITCH, AUTO ROLL, interceptor, Series S]
+
+  - id: OM-WATER
+    path: chapters/09-water-and-waste.md
+    title: Water & waste systems
+    keywords: [fresh water, washdown, toilet, holding]
+
+  - id: OM-WATER-FRESH
+    path: chapters/09-water-and-waste.md#fresh-water-system
+    title: Fresh water (Jabsco PAR-MAX 2.9)
+    keywords: [31395-7008, 1P2B, shower]
+
+  - id: OM-WATER-WASH
+    path: chapters/09-water-and-waste.md#deck-wash--washdown
+    title: Deck wash (Flojet R4325)
+    keywords: [R4325143F, washdown]
+
+  - id: OM-WATER-WASTE
+    path: chapters/09-water-and-waste.md#head--holding-tank
+    title: Head & holding tank
+    keywords: [MACER, 3P1A, HOLDING, blackwater]
+
+  - id: OM-ANCH
+    path: chapters/10-ground-tackle.md
+    title: Ground tackle
+    keywords: [windlass, Delta, plow, rode]
+
+  - id: OM-THR
+    path: chapters/11-thruster.md
+    title: Bow thruster
+    keywords: [Sleipner, Side-Power, joystick]
+
+  - id: OM-DECK
+    path: chapters/12-deck-and-exterior.md
+    title: Deck & exterior
+    keywords: [teak, T-Top, ski pylon, pulpits]
+
+  - id: OM-BATT
+    path: chapters/13-charging-and-batteries.md
+    title: Batteries & charging
+    keywords: [ENGINE BATTERY, HOUSE BATTERY, YPO12-25DE, AGM]
+
+  - id: OM-TS
+    path: chapters/14-troubleshooting.md
+    title: Troubleshooting master
+    keywords: [fault, diagnose, alarm, symptom]
+
+  - id: OM-TS-NOSTART
+    path: chapters/14-troubleshooting.md#no-start--hard-start
+    title: No-start playbook
+    keywords: [crank, lanyard, neutral, battery]
+
+  - id: OM-TS-STEER
+    path: chapters/14-troubleshooting.md#heavy-or-no-power-steering
+    title: Steering playbook
+    keywords: [EPHS, fluid, assist]
+
+  - id: OM-TS-OVERHEAT
+    path: chapters/14-troubleshooting.md#overheat--cooling
+    title: Overheat playbook
+    keywords: [tell-tale, impeller, water]
+
+  - id: OM-TS-TRIM
+    path: chapters/14-troubleshooting.md#zipwake--handling
+    title: Zipwake playbook
+    keywords: [pitch, roll, interceptor]
+
+  - id: OM-TS-THRUSTER
+    path: chapters/14-troubleshooting.md#thruster-dead-or-weak
+    title: Thruster playbook
+    keywords: [solenoid, cutout]
+
+  - id: OM-TS-WINDLASS
+    path: chapters/14-troubleshooting.md#windlass-wont-haul
+    title: Windlass playbook
+    keywords: [breaker, contactor]
+
+  - id: OM-TS-PUMP
+    path: chapters/14-troubleshooting.md#water-pumps-no-pressure--cycling
+    title: Pump playbook
+    keywords: [strainer, airlock, Flojet, Jabsco]
+
+  - id: OM-TS-FRIDGE
+    path: chapters/14-troubleshooting.md#fridge-warm
+    title: Fridge playbook
+    keywords: [1C1A, compressor]
+
+  - id: OM-TS-MFD
+    path: chapters/14-troubleshooting.md#garmin-blank-or-no-sonar
+    title: MFD playbook
+    keywords: [HDS, transducer]
+
+  - id: OM-TS-AUDIO
+    path: chapters/14-troubleshooting.md#stereo-dead
+    title: Stereo playbook
+    keywords: [AN4, Fusion]
+
+  - id: OM-MAINT
+    path: chapters/15-maintenance.md
+    title: Maintenance
+    keywords: [service, flush, oil, teak care]
+
+  - id: OM-MAP
+    path: chapters/16-manuals-map.md
+    title: Manuals map
+    keywords: [PDF, OEM, download]
+
+diagrams:
+  - id: DIAG-12V
+    path: diagrams/12v-as-installed.md
+    title: 12 V as-installed distribution
+  - id: DIAG-AC
+    path: diagrams/ac-shore-power.md
+    title: AC shore power
+  - id: DIAG-HELM
+    path: diagrams/helm-layout.md
+    title: Helm layout
+  - id: DIAG-LOCKER
+    path: diagrams/battery-locker.md
+    title: Battery locker layout
+
+llm_assets:
+  system_prompt: llm/system-prompt.md
+  retrieval_index: llm/retrieval-index.json
+  symptom_playbooks: llm/symptom-playbooks.yaml

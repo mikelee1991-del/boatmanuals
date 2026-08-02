@@ -1,0 +1,438 @@
+{
+  "version": "1.0.0",
+  "vessel_hin": "BEYFT208F223",
+  "engine_esn": "3B371488",
+  "description": "Chunked retrieval index for LLM RAG over the consolidated owner's manual",
+  "chunk_count": 30,
+  "chunks": [
+    {
+      "id": "RI-ID-001",
+      "title": "Vessel identity",
+      "section": "OM-ID",
+      "keywords": [
+        "HIN",
+        "BEYFT208F223",
+        "Flyer 8",
+        "CE",
+        "USCG"
+      ],
+      "confidence": "confirmed",
+      "text": "2023 BENETEAU Flyer 8 SPACEdeck HIN BEYFT208F223 EU CIN FR-SPBFT208F223.\nBuilt ~June 2022 (HIN F2). US-market Beneteau America Marion SC with USCG and EPA EVAP plates.\nCE Cat C/D, 10 persons, max load 1285 kg, notified body 0607. Builder SPBI France.",
+      "related": []
+    },
+    {
+      "id": "RI-ID-002",
+      "title": "Engine identity",
+      "section": "OM-ENG",
+      "keywords": [
+        "Verado",
+        "13000069A",
+        "3B371488",
+        "300XXL"
+      ],
+      "confidence": "confirmed",
+      "text": "Mercury Verado 300 V8 AMS model 13000069A designation 300XXL ESN 3B371488.\n300 HP / 221 kW, 30 inch XXL shaft, Cold Fusion White, DTS controls, SmartCraft PCM 112.",
+      "related": []
+    },
+    {
+      "id": "RI-ENG-EPHS",
+      "title": "EPHS steering pump",
+      "section": "OM-ENG-EPHS",
+      "keywords": [
+        "EPHS",
+        "8M6005909",
+        "steering",
+        "TRW10"
+      ],
+      "confidence": "confirmed",
+      "text": "Steering is Mercury EPHS MPU part 8M6005909 series TRW10 id A0071925 built 2021-08-30.\nElectro-hydraulic assist (not pure steer-by-wire). Check reservoir MIN-MAX; owner photo near MIN.\nUse only Mercury-specified synthetic power steering fluid.",
+      "related": []
+    },
+    {
+      "id": "RI-WIRE-BS",
+      "title": "Blue Sea fuse box",
+      "section": "OM-WIRE-BLUESEA",
+      "keywords": [
+        "Blue Sea",
+        "AN4",
+        "HDS",
+        "VHF",
+        "JF",
+        "fuse"
+      ],
+      "confidence": "confirmed",
+      "text": "NEW BLUE SEA BOX as-installed: (1) 10A AN4 stereo/Fusion 2.5mm2; (2) 3A JF/JF2 helm 1.5mm2;\n(3) 10A VHF 2.5mm2 SPARE \u2014 no fixed VHF installed handheld only; (4) 5A HDS 2.5mm2 feeds Garmin MFD\n(factory code HDS does NOT mean Lowrance is installed).",
+      "related": []
+    },
+    {
+      "id": "RI-WIRE-PERIPH",
+      "title": "Peripheral DC feeds",
+      "section": "OM-WIRE",
+      "keywords": [
+        "1P2B",
+        "3P1A",
+        "MACER",
+        "4P1A",
+        "bilge",
+        "fresh water"
+      ],
+      "confidence": "confirmed",
+      "text": "Diagram peripheral feeds: 1P1A wipers 2.5mm2; 1P2B fresh water 2.5mm2 (Jabsco PAR-MAX);\n2P1A shower sump 2.5mm2; 3P1A MACER 2.5mm2; 4P1A bilge 2.5mm2; 1A1A lights 1.5mm2.\nMain labels: 1L1A cabin light; 1C1A fridge 4.0mm2; 1S1A courtesy; 1F1A 12V outlet.",
+      "related": []
+    },
+    {
+      "id": "RI-WIRE-MAIN",
+      "title": "Main fuse box amps",
+      "section": "OM-WIRE-MAIN",
+      "keywords": [
+        "main fuse",
+        "5A",
+        "15A",
+        "20A"
+      ],
+      "confidence": "confirmed",
+      "text": "Main fuse box diagram slots: I 5A, II 3A, III 10A, IV 15A, V 15A, VI 5A, VII 20A, VIII 15A, IX 5A, X 3A, XI empty, XII empty.\nUse physical onboard legend as final authority when replacing fuses.",
+      "related": []
+    },
+    {
+      "id": "RI-AC",
+      "title": "Shore power AC",
+      "section": "OM-WIRE-AC",
+      "keywords": [
+        "115V",
+        "shore",
+        "RCD",
+        "CRISTEC",
+        "YPO12-25DE"
+      ],
+      "confidence": "confirmed",
+      "text": "115V/60Hz shore panel with Schneider iDPN N Vigi C32 30mA RCD, ABB S202C C16 breakers, Schneider iIL indicator.\nCharger CRISTEC YPOWER YPO12-25DE S/N 2022061017878 output 12V/25A input 90-265VAC.\nProfile sticker OPENED TYPE FREE ELECTROLYTE \u2014 verify vs actual batteries. Not Mastervolt.",
+      "related": []
+    },
+    {
+      "id": "RI-BATT",
+      "title": "Battery banks",
+      "section": "OM-BATT",
+      "keywords": [
+        "ENGINE BATTERY",
+        "HOUSE BATTERY",
+        "IMNASA",
+        "AGM"
+      ],
+      "confidence": "confirmed",
+      "text": "Two yellow IMNASA boxes labeled ENGINE BATTERY and HOUSE BATTERY in locker under teak hatch.\nChemistry unverified. Mercury Verado typically wants AGM start battery \u2014 reconcile with CRISTEC flooded profile sticker.",
+      "related": []
+    },
+    {
+      "id": "RI-PWR-UP",
+      "title": "Power-up sequence summary",
+      "section": "OM-PWR-01",
+      "keywords": [
+        "power up",
+        "start",
+        "cold start",
+        "lanyard"
+      ],
+      "confidence": "confirmed",
+      "text": "Power-up: disconnect shore if leaving; ENGINE+HOUSE switches ON; lanyard on; DTS NEUTRAL; ignition ON wait SmartCraft/VesselView;\nSTART; verify tell-tale, no alarms, steering assist, Zipwake/Garmin up. Full steps in chapters/05-power-sequences.md.",
+      "related": []
+    },
+    {
+      "id": "RI-PWR-DOWN",
+      "title": "Power-down sequence summary",
+      "section": "OM-PWR-02",
+      "keywords": [
+        "power down",
+        "shutdown",
+        "stop"
+      ],
+      "confidence": "confirmed",
+      "text": "Power-down: neutral idle; STOP; ignition off; remove lanyard; electronics off; bilge check; salt flush engine; battery switches off\nunless dedicated bilge must stay live (verify switch design). Shore optional for CRISTEC charge.",
+      "related": []
+    },
+    {
+      "id": "RI-PWR-SHORE",
+      "title": "Shore connect order",
+      "section": "OM-PWR-SHORE",
+      "keywords": [
+        "shore cord",
+        "marina",
+        "connect",
+        "disconnect"
+      ],
+      "confidence": "confirmed",
+      "text": "Connect: engine off; cord to boat inlet first; pedestal last; confirm indicator/RCD; CRISTEC ON LED.\nDisconnect: pedestal first then inlet. Never bypass 30mA RCD.",
+      "related": []
+    },
+    {
+      "id": "RI-HELM",
+      "title": "Helm equipment",
+      "section": "OM-HELM",
+      "keywords": [
+        "Garmin",
+        "VesselView",
+        "Fusion",
+        "DTS",
+        "Zipwake",
+        "Sleipner"
+      ],
+      "confidence": "confirmed",
+      "text": "Helm confirmed: Garmin MFD (model TBD), Mercury VesselView-class display (model TBD), Fusion stereo (likely MS-RA210),\nMercury DTS with DOCK/TRANSFER/THROTTLE ONLY + red lanyard, Zipwake AUTO PITCH/AUTO ROLL + rotary, Sleipner thruster panel+joystick,\noffshore compass. No fixed VHF. LENCO not installed.",
+      "related": []
+    },
+    {
+      "id": "RI-ZIPWAKE",
+      "title": "Zipwake trim",
+      "section": "OM-TRIM",
+      "keywords": [
+        "Zipwake",
+        "interceptor",
+        "AUTO PITCH",
+        "AUTO ROLL",
+        "LENCO"
+      ],
+      "confidence": "confirmed",
+      "text": "Zipwake Series S confirmed with AUTO PITCH and AUTO ROLL. Factory alternative LENCO is NOT installed.\nInterceptors stabilize pitch/roll; engine Active Trim is separate. See Zipwake Series S operator manual.",
+      "related": []
+    },
+    {
+      "id": "RI-PUMPS",
+      "title": "Water pumps",
+      "section": "OM-WATER",
+      "keywords": [
+        "Flojet",
+        "Jabsco",
+        "R4325143F",
+        "31395-7008",
+        "PAR-MAX"
+      ],
+      "confidence": "confirmed",
+      "text": "Washdown: Flojet R4325143F S/N 22C53625 12V 4.5GPM 12A max 40PSI fuse 15A.\nFresh: Jabsco PAR-MAX 2.9 31395-7008 S/N 22A45914 12V 2.9GPM 5.2A max 40PSI fuse 10A.\nBoth in battery locker with strainers.",
+      "related": []
+    },
+    {
+      "id": "RI-HOLDING",
+      "title": "Holding tank",
+      "section": "OM-WATER-WASTE",
+      "keywords": [
+        "HOLDING",
+        "MACER",
+        "toilet",
+        "blackwater"
+      ],
+      "confidence": "confirmed",
+      "text": "Polyethylene HOLDING tank confirmed in battery locker; handwritten 80L EF unverified; US list 88L blackwater.\nMACER circuit 3P1A on fuse diagram. Toilet brand unverified (Jabsco candidate). Observe NDZ laws.",
+      "related": []
+    },
+    {
+      "id": "RI-THRUSTER",
+      "title": "Bow thruster",
+      "section": "OM-THR",
+      "keywords": [
+        "Sleipner",
+        "Side-Power",
+        "thruster",
+        "joystick"
+      ],
+      "confidence": "confirmed",
+      "text": "Sleipner/Side-Power bow thruster confirmed at helm. Exact SE40/SE60 model unverified.\nUses dedicated high-current breaker not Blue Sea aux. Short bursts; watch voltage sag.",
+      "related": []
+    },
+    {
+      "id": "RI-WINDLASS",
+      "title": "Windlass",
+      "section": "OM-ANCH",
+      "keywords": [
+        "windlass",
+        "anchor",
+        "Delta",
+        "plow"
+      ],
+      "confidence": "confirmed",
+      "text": "Electric windlass confirmed with stainless plow/Delta-style anchor on bow roller.\nBrand/model and chain size unverified (Lewmar candidate manual). Dedicated breaker expected near batteries.",
+      "related": []
+    },
+    {
+      "id": "RI-TEAK",
+      "title": "Teak deck",
+      "section": "OM-DECK",
+      "keywords": [
+        "teak",
+        "solid wood",
+        "teck",
+        "deck"
+      ],
+      "confidence": "confirmed",
+      "text": "Owner confirmed real teak on cockpit and swim platforms \u2014 factory solid wood/teck option class.\nNot synthetic SeaDek/Flexiteek. Rinse salt; care differs from foam decking.",
+      "related": []
+    },
+    {
+      "id": "RI-TTOP",
+      "title": "T-Top and ski",
+      "section": "OM-DECK",
+      "keywords": [
+        "T-Top",
+        "rod holders",
+        "ski pylon",
+        "pulpits"
+      ],
+      "confidence": "confirmed",
+      "text": "Black T-Top with fabric roof and 4 aft rod holders confirmed. Black pulpits confirmed.\nStainless ski/tow pylon U-arch over engine confirmed. Elegance grey/cognac upholstery. Cockpit table present.",
+      "related": []
+    },
+    {
+      "id": "RI-FUSE-MAP-HINT",
+      "title": "Symptom to fuse hints",
+      "section": "OM-TS",
+      "keywords": [
+        "fuse cheat sheet",
+        "AN4",
+        "HDS",
+        "troubleshooting"
+      ],
+      "confidence": "confirmed",
+      "text": "Quick fuse hints: stereo\u2192AN4 10A; Garmin\u2192HDS 5A; fresh pump\u21921P2B/10A; washdown\u2192Flojet 15A;\nmacerator\u21923P1A; bilge\u21924P1A; fridge\u21921C1A; fixed VHF\u2192not installed.",
+      "related": []
+    },
+    {
+      "id": "RI-NOT-INSTALLED",
+      "title": "Ruled out equipment",
+      "section": "OM-SYS",
+      "keywords": [
+        "LENCO",
+        "Mastervolt",
+        "fixed VHF",
+        "not installed"
+      ],
+      "confidence": "confirmed",
+      "text": "NOT INSTALLED on this vessel: LENCO trim tabs (Zipwake instead); Mastervolt charger (CRISTEC instead);\nfixed VHF radio (handheld only; Blue Sea VHF fuse is spare/pre-wire).",
+      "related": []
+    },
+    {
+      "id": "RI-PROVENANCE",
+      "title": "Stock vs options",
+      "section": "OM-ID",
+      "keywords": [
+        "US Trim",
+        "options",
+        "factory",
+        "San Diego"
+      ],
+      "confidence": "confirmed",
+      "text": "Reads as US Trim Package + electronics/sound + Zipwake + thruster + deck wash + T-Top/ski + teak + Verado 300.\nClear later-added: SAN DIEGO CA seat lettering. Need dealer build sheet for HIN for 100% proof.",
+      "related": []
+    },
+    {
+      "id": "RI-SAFETY",
+      "title": "Safety limits",
+      "section": "OM-SAFE",
+      "keywords": [
+        "kill switch",
+        "10 persons",
+        "1285 kg",
+        "RCD"
+      ],
+      "confidence": "confirmed",
+      "text": "Max 10 persons / 1285 kg. Always use kill lanyard. Do not bypass 30mA shore RCD.\nHandheld VHF only for radio. Real teak slippery when wet. EPHS fluid loss reduces steering assist.",
+      "related": []
+    },
+    {
+      "id": "RI-PB-NOSTART",
+      "title": "Playbook pointer PB-NOSTART",
+      "section": "OM-TS-NOSTART",
+      "keywords": [
+        "no start"
+      ],
+      "confidence": "confirmed",
+      "text": "For this symptom use playbook PB-NOSTART in llm/symptom-playbooks.yaml and section OM-TS-NOSTART in chapters/14-troubleshooting.md.",
+      "related": [
+        "PB-NOSTART",
+        "OM-TS-NOSTART"
+      ]
+    },
+    {
+      "id": "RI-PB-STEER",
+      "title": "Playbook pointer PB-STEER",
+      "section": "OM-TS-STEER",
+      "keywords": [
+        "hard steering"
+      ],
+      "confidence": "confirmed",
+      "text": "For this symptom use playbook PB-STEER in llm/symptom-playbooks.yaml and section OM-TS-STEER in chapters/14-troubleshooting.md.",
+      "related": [
+        "PB-STEER",
+        "OM-TS-STEER"
+      ]
+    },
+    {
+      "id": "RI-PB-OVERHEAT",
+      "title": "Playbook pointer PB-OVERHEAT",
+      "section": "OM-TS-OVERHEAT",
+      "keywords": [
+        "overheat"
+      ],
+      "confidence": "confirmed",
+      "text": "For this symptom use playbook PB-OVERHEAT in llm/symptom-playbooks.yaml and section OM-TS-OVERHEAT in chapters/14-troubleshooting.md.",
+      "related": [
+        "PB-OVERHEAT",
+        "OM-TS-OVERHEAT"
+      ]
+    },
+    {
+      "id": "RI-PB-ZIPWAKE",
+      "title": "Playbook pointer PB-ZIPWAKE",
+      "section": "OM-TS-TRIM",
+      "keywords": [
+        "zipwake error"
+      ],
+      "confidence": "confirmed",
+      "text": "For this symptom use playbook PB-ZIPWAKE in llm/symptom-playbooks.yaml and section OM-TS-TRIM in chapters/14-troubleshooting.md.",
+      "related": [
+        "PB-ZIPWAKE",
+        "OM-TS-TRIM"
+      ]
+    },
+    {
+      "id": "RI-PB-THRUSTER",
+      "title": "Playbook pointer PB-THRUSTER",
+      "section": "OM-TS-THRUSTER",
+      "keywords": [
+        "thruster dead"
+      ],
+      "confidence": "confirmed",
+      "text": "For this symptom use playbook PB-THRUSTER in llm/symptom-playbooks.yaml and section OM-TS-THRUSTER in chapters/14-troubleshooting.md.",
+      "related": [
+        "PB-THRUSTER",
+        "OM-TS-THRUSTER"
+      ]
+    },
+    {
+      "id": "RI-PB-WINDLASS",
+      "title": "Playbook pointer PB-WINDLASS",
+      "section": "OM-TS-WINDLASS",
+      "keywords": [
+        "windlass"
+      ],
+      "confidence": "confirmed",
+      "text": "For this symptom use playbook PB-WINDLASS in llm/symptom-playbooks.yaml and section OM-TS-WINDLASS in chapters/14-troubleshooting.md.",
+      "related": [
+        "PB-WINDLASS",
+        "OM-TS-WINDLASS"
+      ]
+    },
+    {
+      "id": "RI-PB-SHORE",
+      "title": "Playbook pointer PB-SHORE",
+      "section": "OM-PWR-SHORE",
+      "keywords": [
+        "not charging"
+      ],
+      "confidence": "confirmed",
+      "text": "For this symptom use playbook PB-SHORE in llm/symptom-playbooks.yaml and section OM-PWR-SHORE in chapters/14-troubleshooting.md.",
+      "related": [
+        "PB-SHORE",
+        "OM-PWR-SHORE"
+      ]
+    }
+  ]
+}

@@ -45,11 +45,11 @@ One-time setup in the GitHub UI:
 1. Repo **Settings → Pages**
 2. **Source** = **GitHub Actions**
 
-Site URL will be:
+Live site:
 
-`https://mikelee1991-del.github.io/boatmanuals/`
+**https://mikelee1991-del.github.io/boatmanuals/**
 
-(Add to Home Screen on your phone.)
+(Add to Home Screen on your phone. Asset paths are relative so the `/boatmanuals/` project URL works.)
 
 ## Example
 

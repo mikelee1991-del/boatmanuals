@@ -37,7 +37,7 @@ function showAnswer(result) {
 }
 
 async function loadBundle() {
-  const res = await fetch("/knowledge-bundle.json", { cache: "no-store" });
+  const res = await fetch(new URL("./knowledge-bundle.json", import.meta.url), { cache: "no-store" });
   if (!res.ok) throw new Error("Could not load knowledge bundle");
   bundle = await res.json();
   const kb = Math.round((bundle.stats?.bytes || 0) / 1024);
@@ -71,7 +71,7 @@ form.addEventListener("submit", (e) => {
 });
 
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/sw.js").catch(() => {});
+  navigator.serviceWorker.register(new URL("./sw.js", import.meta.url)).catch(() => {});
 }
 
 askBtn.disabled = true;

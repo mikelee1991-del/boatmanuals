@@ -1,17 +1,22 @@
-const CACHE = "flyer8-guide-v2";
+const CACHE = "flyer8-guide-v3";
 const SHELL = [
-  "/",
-  "/index.html",
-  "/styles.css",
-  "/app.js",
-  "/answer-engine.js",
-  "/knowledge-bundle.json",
-  "/manifest.webmanifest",
-  "/icon.svg",
+  "./",
+  "./index.html",
+  "./styles.css",
+  "./app.js",
+  "./answer-engine.js",
+  "./knowledge-bundle.json",
+  "./manifest.webmanifest",
+  "./icon.svg",
 ];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
+  event.waitUntil(
+    caches
+      .open(CACHE)
+      .then((c) => c.addAll(SHELL.map((p) => new URL(p, self.registration.scope).href)))
+      .then(() => self.skipWaiting())
+  );
 });
 
 self.addEventListener("activate", (event) => {
@@ -26,7 +31,7 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
   const url = new URL(event.request.url);
-  if (url.pathname.startsWith("/api/")) return;
+  if (url.pathname.includes("/api/")) return;
   event.respondWith(
     caches.match(event.request).then((cached) => {
       const fetched = fetch(event.request)

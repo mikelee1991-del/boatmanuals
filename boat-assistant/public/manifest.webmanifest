@@ -2,14 +2,15 @@
   "name": "Flyer 8 Boat Guide",
   "short_name": "Flyer8",
   "description": "Offline Q&A for your Beneteau Flyer 8 SPACEdeck systems",
-  "start_url": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#07151c",
   "theme_color": "#0b1f2a",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/icon.svg",
+      "src": "./icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"

@@ -172,15 +172,34 @@ playbooks:
 
   - id: PB-STEREO
     om_section: OM-TS-AUDIO
-    aliases: [stereo dead, fusion dead, no bluetooth audio]
+    aliases: [stereo dead, fusion dead, no bluetooth audio, no sound, stereo not working, stereo won't turn on, no volume, bluetooth won't pair]
     hardware_ids: [fusion-audio]
     steps:
-      - "Check Blue Sea AN4 10A fuse"
-      - "Power cycle Fusion head unit"
-      - "Verify voltage at unit"
-      - "Speaker-only faults: wiring / protection mode per Fusion manual"
+      - "HOUSE battery switch ON"
+      - "Check Blue Sea AN4 10A fuse — replace only with 10A"
+      - "Press stereo power to turn on; short-press again to unmute if needed"
+      - "Turn dial to raise volume; press source and select Bluetooth/radio/AUX as intended"
+      - "If Bluetooth: phone playing, within range; Menu → BLUETOOTH → CONNECTIONS → DISCOVERABLE and re-pair"
+      - "Still dead with fuse OK: measure 12V at head unit; then speaker/amp wiring per Fusion manual"
     manuals:
       - manuals/electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf
+
+  - id: PB-FUEL-FILTER
+    om_section: OM-MAINT
+    aliases: [water in fuel, water-in-fuel, fuel filter, water separator, fuel contamination, Guardian fuel]
+    hardware_ids: [fuel-filter-water-separator, engine-verado-300-v8]
+    safety:
+      - "Key OFF; lanyard positioned so engine cannot start; no sparks; catch fuel in approved container"
+    steps:
+      - "Stop safely; allow engine to cool if hot"
+      - "Disconnect battery before opening fuel system"
+      - "Remove top cowl; locate low-pressure filter starboard aft near bottom spark plug"
+      - "Inspect for water/contaminants; replace engine-mounted filter per Mercury O&M"
+      - "Trace harness — if boat-mounted separator exists, drain/replace that too"
+      - "Key RUN; leak-check before starting; confirm water-in-fuel warning cleared"
+    manuals:
+      - manuals/engine/Mercury-Verado-V8-SeaPro-V8-Operation-Maintenance-8m0145543.pdf
+      - notes/mercury-fuel-filter-water-separator-excerpts.md
 
   - id: PB-SHORE
     om_section: OM-PWR-SHORE

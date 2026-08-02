@@ -41,6 +41,8 @@ vessel:
     - "Black pulpits / black windshield frame with Flyer logo"
     - "Black-frame T-Top with fabric roof"
     - "CRISTEC YPOWER YPO12-25DE 12V/25A battery charger (S/N 2022061017878) + 115V/60Hz AC breaker panel"
+    - "Flojet washdown pump R4325143F (S/N 22C53625) — 12V 4.5 GPM 40 PSI"
+    - "Jabsco PAR-MAX 2.9 freshwater pump 31395-7008 (S/N 22A45914) — 12V 2.9 GPM 40 PSI"
   not_equipped_from_photos:
     - "LENCO electric trim tabs (Zipwake installed instead)"
     - "Mastervolt ChargeMaster (charger is CRISTEC, not Mastervolt)"
@@ -413,13 +415,47 @@ hardware:
 
   - id: deck-wash
     category: plumbing
-    name: Electric deck wash pump
-    status: typical_option
-    keywords: [deck wash, washdown, raw water pump]
-    manuals: []
-    questions:
-      - "Is deck wash fitted? Any pump brand label in locker?"
-    symptoms: [no pressure, airlock, strainer clog]
+    name: Flojet washdown / deck-wash pump
+    status: confirmed
+    brand: Flojet (Xylem)
+    model: "R4325143F"
+    description: "12V 4.5 GPM 5IE SW40 R"
+    serial: "22C53625"
+    voltage: "12 V DC"
+    open_flow: "4.5 GPM / 17 LPM"
+    max_current: "12 A"
+    shutoff_pressure: "40 PSI / 2.8 BAR"
+    fuse: "15 A"
+    evidence: "Photo of pump pair on bulkhead — left unit Flojet with strainer"
+    keywords: [deck wash, washdown, flojet, R4325143F, raw water pump]
+    manuals:
+      - path: manuals/peripherals/Flojet-Washdown-Pump-Manual-EN.pdf
+        title: Flojet washdown pump installation/operation manual
+        language: en
+        status: pending_download
+    symptoms: [no pressure, airlock, strainer clog, thermal cutout]
+
+  - id: freshwater-pump
+    category: plumbing
+    name: Jabsco PAR-MAX 2.9 fresh water system pump
+    status: confirmed
+    brand: Jabsco (Xylem)
+    model_name: "PAR-MAX 2.9"
+    model_number: "31395-7008"
+    serial: "22A45914"
+    voltage: "12 V DC"
+    flow: "2.9 GPM / 11.0 LPM"
+    max_current: "5.2 A"
+    shutoff_pressure: "40 PSI / 2.8 BAR"
+    fuse: "10 A"
+    evidence: "Photo of pump pair on bulkhead — right unit Jabsco PAR-MAX 2.9"
+    keywords: [fresh water, jabsco, par-max, 31395-7008, pressure pump, shower]
+    manuals:
+      - path: manuals/peripherals/Jabsco-PAR-MAX-2.9-Manual-EN.pdf
+        title: Jabsco PAR-MAX 2.9 installation/operation manual
+        language: en
+        status: pending_download
+    symptoms: [no pressure, cycling, strainer clog, thermal cutout, dry run]
 
   - id: seanapps
     category: connected_boat

@@ -151,13 +151,13 @@ const bundle = {
   chunks,
   playbooksRaw,
   quickPrompts: [
-    "Where is my fuel/water separator and how do I know if it needs replacing?",
-    "Power-up sequence leaving the dock",
-    "No start — what should I check?",
-    "Which fuse feeds the Garmin?",
-    "Shore power connect order",
-    "Hard steering / EPHS fluid",
-    "Zipwake vs LENCO on this boat",
+    "Stereo has no sound — what should I check?",
+    "No start — walk me through checks",
+    "Hard steering — what do I do?",
+    "Water-in-fuel warning — how do I fix it?",
+    "Garmin is blank — troubleshooting steps",
+    "Shore power not charging — what to check",
+    "How do I pair Bluetooth to the Fusion stereo?",
   ],
 };
 

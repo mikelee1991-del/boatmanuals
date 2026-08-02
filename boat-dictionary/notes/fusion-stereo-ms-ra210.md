@@ -1,48 +1,43 @@
-# Fusion stereo (Sound Pack) — how to use on this boat
+# Fusion stereo (Sound Pack) — operate & fix
 
-**Status:** Fusion head unit **confirmed** at helm; factory Sound Pack is **MS-RA210** (confirm faceplate).  
-**Power:** Blue Sea fuse **AN4 · 10 A** (stereo / music circuit).  
+**On this boat:** Fusion head unit at helm (likely **MS-RA210** Sound Pack).  
+**Fuse:** Blue Sea **AN4 · 10 A**.  
 **Manual:** `manuals/electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf`
-
-## Short answer (this vessel)
-
-| Question | Answer |
-|----------|--------|
-| What stereo is it? | Fusion marine head unit — **likely MS-RA210** (Sound Pack) |
-| Where is it? | Helm, near Garmin / VesselView |
-| Which fuse? | Blue Sea box **AN4 10 A** |
-| Power on | Press the **power** button on the stereo |
-| Power off | **Press and hold** power to turn off |
-| Mute | Short press power while on |
-| Volume | **Turn the dial** (default home speaker zone) |
-| Change source (BT / radio / AUX…) | Press the **source** button, turn dial, press dial to select |
-| Bluetooth music | Select **BLUETOOTH** source → make stereo **DISCOVERABLE** → pair phone |
-
-## Daily controls (MS-RA210)
-
-- **Dial:** turn = volume (or move through menus); press = select / switch zone while adjusting volume  
-- **Power:** press = on / mute; press-and-hold = off; hold >10 s = reset  
-- **Menu:** open settings / return; press-and-hold exits menu  
-- **Source:** change media source (Bluetooth, AM/FM, AUX, etc.)  
-- **Skip / tune:** track skip or radio tune depending on source  
-
-## Bluetooth pairing (typical)
-
-1. On stereo, select **BLUETOOTH** source.  
-2. Menu → **BLUETOOTH → CONNECTIONS → DISCOVERABLE**.  
-3. On phone: enable Bluetooth, find the Fusion device, pair (within ~10 m / 33 ft).  
-4. Play audio from the phone; control volume on the stereo dial.  
-5. After pairing you can turn Discoverable **off** to avoid interruptions.
-
-Up to **eight** Bluetooth media devices can be paired (per Fusion manual).
 
 ## If it won’t turn on / no sound
 
-1. Battery switches ON; house power available.  
-2. Check Blue Sea **AN4 10 A** fuse.  
-3. Volume up; not muted; correct **source** selected.  
-4. For Bluetooth: phone connected and playing; try re-pair.  
-5. See troubleshooting `OM-TS-AUDIO` / playbook `PB-STEREO`.
+1. Confirm **HOUSE** (and ENGINE if needed) battery switches **ON**.  
+2. Check Blue Sea fuse **AN4 10 A** — replace with same ampacity if blown.  
+3. On the stereo: press **power** (on). If already on, short-press power to **unmute**.  
+4. **Turn the dial** to raise volume on the home zone.  
+5. Press **source** and select the intended input (Bluetooth / radio / AUX). Wrong source = silence.  
+6. Bluetooth path: phone connected and **playing**; volume up on phone; re-pair if needed (see pairing below).  
+7. Still dead with good fuse/voltage → check speaker wiring / amp protect; see `OM-TS-AUDIO`.
+
+## Bluetooth pairing
+
+1. Select **BLUETOOTH** source.  
+2. Menu → **BLUETOOTH → CONNECTIONS → DISCOVERABLE**.  
+3. On phone: Bluetooth on → find Fusion → pair (within ~10 m / 33 ft).  
+4. Start playback on the phone; set volume on the stereo dial.  
+5. Turn Discoverable **off** after pairing to avoid dropouts.  
+6. Up to eight phones can be paired (Fusion manual).
+
+## Daily controls
+
+1. **Power on:** short press power. **Off:** press and hold power.  
+2. **Mute:** short press power while on.  
+3. **Volume:** turn dial (press dial while adjusting to change zone).  
+4. **Source:** source button → dial to highlight → press dial.  
+5. **Reset:** press and hold power **> 10 seconds** (last resort).
+
+## Where / what (quick)
+
+| Item | Detail |
+|------|--------|
+| Unit | Helm Fusion head unit (likely MS-RA210) |
+| Fuse | Blue Sea **AN4 10 A** |
+| Speakers | Cockpit speaker(s) confirmed |
 
 ## Keywords
-stereo, fusion, MS-RA210, bluetooth, volume, source, dial, mute, AN4, audio, sound pack, speakers
+stereo, fusion, MS-RA210, bluetooth, no sound, dead stereo, volume, mute, source, dial, AN4, pairing, audio

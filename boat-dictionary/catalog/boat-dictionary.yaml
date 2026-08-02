@@ -45,6 +45,7 @@ vessel:
     - "GRP/wood cockpit table between helm and aft bench (US Trim Package)"
     - "Fusion cockpit speaker(s) visible at gunwale"
     - "Stainless plow/Delta-style anchor on bow roller"
+    - "Stainless ski / wakeboard tow pylon (U-arch over engine)"
     - "CRISTEC YPOWER YPO12-25DE 12V/25A battery charger (S/N 2022061017878) + 115V/60Hz AC breaker panel"
     - "Flojet washdown pump R4325143F (S/N 22C53625) — 12V 4.5 GPM 40 PSI"
     - "Jabsco PAR-MAX 2.9 freshwater pump 31395-7008 (S/N 22A45914) — 12V 2.9 GPM 40 PSI"
@@ -526,13 +527,14 @@ hardware:
       - "Synthetic teak decking"
       - "Cockpit table"
       - "Elegance-style grey/cognac upholstery"
-    keywords: [t-top, pilot edition, underwater lights, cockpit led, ski mast, fishing station, black pulpits, bimini, rod holders, synthetic teak, elegance]
+      - "Stainless ski / wakeboard tow pylon (U-arch over engine)"
+    keywords: [t-top, pilot edition, underwater lights, cockpit led, ski mast, fishing station, black pulpits, bimini, rod holders, synthetic teak, elegance, ski pylon, tow point]
     manuals:
       - path: manuals/boat/Flyer-8-SPACEdeck-Equipment-List-US.pdf
         title: Equipment list (Pilot Edition / options)
         language: en
     questions:
-      - "Underwater lights / ski mast / fishing station also fitted?"
+      - "Underwater lights / fishing station also fitted?"
       - "Decking brand if labeled (SeaDek / Flexiteek / other)?"
 
 # ---------------------------------------------------------------------------

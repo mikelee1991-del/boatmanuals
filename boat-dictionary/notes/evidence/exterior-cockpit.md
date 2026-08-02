@@ -14,8 +14,14 @@
 | Helm | Garmin MFD + Mercury digital display + DTS (reconfirmed) |
 | Aft bench | Forward-facing stern bench; backrest marked "SAN DIEGO, CA" (custom) |
 
+## Later stern underway photo
+| Item | Notes |
+|------|--------|
+| Ski / wake pylon | **Confirmed** — stainless U-arch tow point over white Mercury outboard |
+| Engine | White Mercury cowl (Verado) underway — reconfirmed |
+| Upholstery | Grey seat with tan bolster + embossed Beneteau mark — reconfirmed |
+
 ## Still open
-- Ski mast vs boarding handle at stern (partially visible in one shot)
-- Underwater lights / Pilot Edition graphics
+- Underwater lights / Pilot Edition graphics / fishing station
 - Windlass brand plate under bow hatch
 - Decking product brand if labeled

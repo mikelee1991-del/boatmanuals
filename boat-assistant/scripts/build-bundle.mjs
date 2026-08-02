@@ -26,6 +26,7 @@ const INCLUDE = [
   "catalog/equipment-provenance.md",
   "notes/evidence",
   "notes/mercury-fuel-filter-water-separator-excerpts.md",
+  "notes/fusion-stereo-ms-ra210.md",
 ];
 
 function walk(dir, out = []) {

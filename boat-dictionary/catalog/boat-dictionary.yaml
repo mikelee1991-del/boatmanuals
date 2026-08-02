@@ -81,16 +81,28 @@ propulsion:
   ignition: "SmartCraft PCM 112 Digital Inductive"
   fuel_system: EFI
   controls: "Digital Throttle & Shift (DTS)"
-  steering: "Electro-hydraulic power steering (AMS)"
+  steering: "Electro-Hydraulic Power Steering (EPHS) — Mercury EPHS MPU"
   midsection: Advanced MidSection (AMS)
   smartcraft: true
   serial_number_needed: false
   serial_number_location: "Starboard transom bracket / clamp assembly data plate"
   plate_evidence: "Photo of Mercury data plate — Model 13000069A, Serial 3B371488, 300XXL, 300 HP / 221 kW, 620 lb / 281 kg, CE 0098, CAN ICES-2/NMB-2"
+  ephs_mpu:
+    status: confirmed
+    manufacturer: Mercury Marine
+    part_number: "8M6005909"
+    component: "EPHS MPU (Electro-Hydraulic Power Steering Motor Pump Unit)"
+    additional_id: "A0071925"
+    model_series: "TRW10"
+    facility: SCHALKE
+    manufacture_date: "2021-08-30"
+    fluid_note: "Cap/tag references Mercury synthetic steering fluid (label showed Mercury 92… Synthetic … 0W-30 class — verify exact P/N in O&M)."
+    photo_observation: "Reservoir fluid appeared at or slightly below MIN mark in owner photo — check/top up per Mercury procedure before next outing."
   notes:
     - "ESN 3B371488 confirmed from engine data plate photo."
     - "Use ESN 3B371488 on Mercury Owners Manual portal and parts lookup."
     - "Beneteau pre-rig option: Mercury Verado Digital DTS Throttle Shift (250–350 HP)."
+    - "Steering confirmed as EPHS (not pure electric steer-by-wire) via pump label 8M6005909."
 
 electrical_baseline:
   system_voltage: "12 V"
@@ -181,18 +193,24 @@ hardware:
 
   - id: steering-power
     category: steering
-    name: Mercury AMS electro-hydraulic / electric power steering
+    name: Mercury EPHS MPU — Electro-Hydraulic Power Steering
     status: confirmed
-    keywords: [steering, helm, power steering, fluid, hard steering, lock to lock, AMS]
+    part_number: "8M6005909"
+    additional_id: "A0071925"
+    model_series: "TRW10"
+    manufacture_date: "2021-08-30"
+    evidence: "Photo of reservoir/pump label — MERCURY MARINE 8M6005909 EPHS MPU TRW10 SCHALKE"
+    keywords: [steering, helm, power steering, fluid, hard steering, lock to lock, AMS, EPHS, 8M6005909, TRW10]
     manuals:
       - path: manuals/engine/Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf
-        title: Electric Steering for V8 and V10 AMS Outboards
+        title: Electric Steering / AMS steering systems (8M0221736) — related SmartCraft steering docs
         language: en
       - path: manuals/engine/Mercury-Verado-V8-SeaPro-V8-Operation-Maintenance-8m0145543.pdf
         title: Verado O&M (power steering fluid checks)
         language: en
-    questions:
-      - "Is the helm fully electric steer-by-wire, or electro-hydraulic with a hydraulic helm pump? Photo of helm backside / steering reservoir helps."
+    maintenance:
+      - "Check EPHS reservoir between MIN and MAX; top up only with Mercury-specified synthetic power steering fluid."
+      - "Owner photo showed level at/near MIN — inspect promptly."
     symptoms: [heavy steering, steering alarm, no assist, fluid leak, uneven lock]
 
   - id: vesselview-or-gauges

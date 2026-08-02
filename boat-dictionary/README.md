@@ -13,7 +13,7 @@ English manuals and a searchable hardware map for:
 | Engine | Mercury Marine Verado 300 V8 AMS — model **13000069A** / **300XXL** |
 | ESN | **3B371488** (confirmed from data plate photo) |
 | Controls | Digital Throttle & Shift (DTS) |
-| Steering | AMS electro-hydraulic / electric power steering |
+| Steering | **EPHS MPU** Mercury **8M6005909** (TRW10) — electro-hydraulic |
 | Shaft | XXL 30 in |
 
 Machine-readable catalog: [`catalog/boat-dictionary.yaml`](catalog/boat-dictionary.yaml)  

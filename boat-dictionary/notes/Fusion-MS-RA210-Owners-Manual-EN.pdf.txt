@@ -1,0 +1,1335 @@
+MS-RA210 
+Owner’s Manual
+
+===== PAGE =====
+
+© 2020 Garmin Ltd. or its subsidiaries
+All rights reserved. Under the copyright laws, this manual may not be copied, in whole or in part, without the written consent of Garmin. Garmin reserves the right to change 
+or improve its products and to make changes in the content of this manual without obligation to notify any person or organization of such changes or improvements. Go to 
+www.garmin.com for current updates and supplemental information concerning the use of this product.
+Garmin
+®
+, ANT
+®
+, Fusion
+®
+, and the Fusion logo are trademarks of Garmin Ltd. or its subsidiaries, registered in the USA and other countries. Connect IQ™, Fusion-Link™, and Fusion-Link 
+Lite™ are trademarks of Garmin Ltd. or its subsidiaries. These trademarks may not be used without the express permission of Garmin.
+Apple
+®
+, iPhone
+®
+, and iPod touch
+®
+ are trademarks of Apple Inc., registered in the USA and other countries. App Store
+SM
+ is a service mark of Apple Inc., registered in the USA and 
+other countries. Android™ and Google Play™ are a trademarks of Google Inc. BLUETOOTH
+®
+ word mark and logos are owned by the Bluetooth SIG, Inc. and any use of such marks 
+by Garmin is under license. NMEA 2000
+®
+ and the NMEA 2000 logo are registered trademarks of the National Marine Electronics Association. SiriusXM
+®
+, SportsFlash™, TuneMix™, 
+TuneStart™, and all related marks and logos are trademarks of Sirius XM Radio Inc. All rights reserved. Other trademarks and trade names are those of their respective owners.
+M/N: A03771    IC: 1792A-03771
+
+===== PAGE =====
+
+Table of Contents
+Getting Started................................. 1
+Stereo Controls........................................1
+Entering Text........................................ 3
+Using the Dial to Select Items.............3
+Stereo Screen.......................................... 3
+Naming the Device.................................. 4
+Setting the Home Zone........................... 4
+Selecting a Source.................................. 4
+Adjusting the Backlight and Dial 
+Brightness................................................ 4
+Audio Control................................... 4
+Adjusting the Volume..............................4
+Adjusting the Subwoofer Level........... 4
+Adjusting the Tone.................................. 5
+Disabling the Loud Setting for a 
+Zone......................................................... 5
+Adjusting the Gain for an Auxiliary 
+Device...................................................... 5
+Speaker Zones.........................................5
+DSP Settings............................................ 5
+Configuring the DSP Settings............. 6
+Automatic Volume Adjustment Based on 
+Speed....................................................... 6
+Media Player Connection.................. 6
+Bluetooth Device Playback............... 7
+Connecting a Compatible Bluetooth 
+Device...................................................... 7
+Bluetooth Range Information............. 7
+Selecting a Different Bluetooth 
+Device...................................................... 7
+Bluetooth Source Menu and Settings.... 8
+Disabling Bluetooth Auto 
+Connection........................................... 8
+USB Device Playback........................8
+USB Device Compatibility....................... 9
+Connecting a USB Device................... 9
+Controlling Music Playback on a USB 
+Flash Drive or Media Player.................... 9
+Controlling Music Playback on a 
+Connected Android Device..................... 9
+Controlling Music Playback on a 
+Connected Apple Device.......................10
+USB Source Settings............................. 10
+Radio..............................................10
+Setting the Tuner Region...................... 10
+Changing the Radio Station.................. 11
+SiriusXM Satellite Radio................. 11
+Setting the Tuner Region for the 
+SiriusXM Source.................................... 11
+Locating the SiriusXM Radio ID............11
+Activating a SiriusXM Subscription..... 11
+Selecting a Category............................. 11
+Using Replay Mode............................... 12
+Alerts...................................................... 12
+Adding an Artist or Song Alert.......... 12
+Adding Teams for Game Alerts........ 12
+Adding Teams from a Live 
+Game.............................................. 12
+Viewing Active Alerts........................ 12
+Managing Alerts................................ 13
+TuneMix™ Feature................................. 13
+Starting and Stopping a TuneMix 
+Collection........................................... 13
+Creating and Customizing a TuneMix 
+Collection........................................... 13
+SportsFlash Feature.............................. 14
+Adding Teams to Receive SportsFlash 
+Alerts.................................................. 14
+Changing SportsFlash Team 
+Priority................................................ 14
+Enabling the TuneStart™ Feature......... 14
+Parental Controls.................................. 14
+Unlocking the Parental Controls.......15
+Locking Channels.............................. 15
+Clearing All Locked Channels........... 15
+Changing the Parental Control 
+Passcode........................................... 15
+SiriusXM Troubleshooting.................... 16
+Clearing SiriusXM Data..................... 16
+DAB Playback................................. 17
+Setting the Tuner Region...................... 17
+Scanning for DAB Stations................... 17
+Changing DAB Stations..................... 17
+Table of Contents i
+
+===== PAGE =====
+
+Selecting a DAB Station from a 
+List...................................................... 17
+Selecting a DAB Station from a 
+Category............................................. 17
+Presets...........................................18
+Saving a Station or Channel as a 
+Preset..................................................... 18
+Selecting a Preset from a List.............. 18
+Removing Presets................................. 18
+Connecting an Auxiliary Device.......18
+General Settings............................. 19
+Speaker Zone Settings.......................... 19
+Disabling the Internal Amplifier........ 19
+Setting the Home Zone..................... 19
+Synchronizing the Source and Zone 
+Volume Levels................................... 19
+Adjusting the Power-On Volume 
+Limit................................................... 20
+Maintaining Individual Zone Volume 
+Levels................................................. 20
+Enabling Automatic Volume 
+Adjustment Based on Speed............ 20
+Automatic Volume Control 
+Settings.......................................... 20
+Disabling a Zone................................ 21
+Setting a Zone Name........................ 21
+Linking Zones.................................... 21
+Adjusting the Subwoofer Filter......... 21
+Adjusting Additional Audio Settings 
+for a Zone...........................................22
+Power Options....................................... 22
+Source Settings..................................... 22
+Update Options..................................... 22
+Additional Stereo Control Options...23
+Connecting to a Garmin Watch............ 23
+Connecting to an ARX70 Remote 
+Control................................................... 23
+Fusion-Link Wireless Remote Control 
+App......................................................... 23
+FUSION-Link™ Network Technology.... 23
+NMEA 2000 Remote Control and 
+Display................................................... 24
+NMEA 2000 Information................... 24
+Appendix........................................ 24
+Registering Your Fusion Device........... 24
+Software Updates................................. 24
+Updating the Software Using a USB 
+Flash Drive......................................... 24
+Troubleshooting.................................... 25
+The stereo does not respond to key 
+presses...............................................25
+The stereo keeps locking up when 
+connected to an Apple device.......... 25
+The stereo is not finding my 
+connected Apple device....................25
+My Bluetooth audio is interrupted by 
+short breaks....................................... 25
+The stereo does not display all song 
+information from my Bluetooth 
+source................................................ 25
+Specifications........................................ 26
+Stereo Dimension Drawings................. 27
+Side Dimensions................................27
+Top Dimensions................................ 27
+ii Table of Contents
+
+===== PAGE =====
+
+Getting Started
+ WARNING
+See the Important Safety and Product Information guide in the product box for product warnings and other 
+important information.
+Stereo Controls
+Getting Started 1
+
+===== PAGE =====
+
+Dial
+• Turn to adjust the volume.
+• When adjusting the volume, press to switch between zones.
+• Turn to move through the menus or adjust a setting.
+• When in a menu, press to select the highlighted option.
+• Press and hold to activate certain functions such as opening the radio presets.
+• Press to turn on the stereo.
+• Press to mute the audio.
+• Press and hold to turn off the stereo.
+• Press and hold for longer than 10 seconds to reset the stereo.
+• Press to open the menu.
+• Press to return to the previous screen from the menu.
+• Press and hold to exit the menu.
+Press to change the source.
+TIP: You can turn the dial to browse, and press the dial to select the source.
+• Press to skip to the beginning of the track or to the previous track, when using an applicable source.
+• Press and hold to rewind the track, when using an applicable source.
+• AM/FM source:
+◦ Press to tune to the previous station or preset.
+◦ Press and hold for faster tuning (manual mode only).
+• AUX: Press to decrease the gain.
+• SiriusXM source:
+◦ In Live Mode, press to tune to the previous station or preset.
+◦ In Live Mode, press and hold for faster tuning, in Manual mode only.
+◦ In Replay Mode, press to skip to the previous track.
+◦ In Replay Mode, press and hold to rewind the current track.
+• DAB source:
+◦ Press to return to the previous DAB station in the ensemble. When you reach the beginning of the 
+current ensemble, the stereo automatically changes to the last available station in the previous 
+ensemble.
+◦ Press and hold to return to the previous DAB ensemble.
+• Press to pause or resume media playback.
+• AM/FM source:
+◦ Press to cycle through the tuning modes (Auto, Manual, and Preset).
+◦ Press and hold to save the selected station as a preset.
+• SiriusXM source:
+◦ Press and hold to switch between Replay Mode and Live Mode.
+◦ In Live Mode, press to cycle through the tuning modes (Manual, Category, and Preset).
+◦ In Replay Mode, press to pause and play.
+• DAB source:
+◦ Press and hold to scan for DAB stations.
+◦ Press to switch between manual tuning mode and presets.
+• Press to skip to the next track or station, when using an applicable source.
+• Press and hold to fast-forward, when using an applicable source.
+• AM/FM:
+◦ Press to tune to the next station or preset.
+◦ Press and hold for faster tuning (manual mode only).
+• AUX: Press to increase the gain.
+• SiriusXM source:
+2 Getting Started
+
+===== PAGE =====
+
+◦ In Live Mode, press to tune to the next station or preset.
+◦ In Live Mode, press and hold for faster tuning, in Manual mode only.
+◦ In Replay Mode, press to skip to the next track, if applicable.
+◦ In Replay Mode, press and hold to fast-forward the current track, if applicable.
+• DAB source:
+◦ Press to advance to the next DAB station in the ensemble. When you reach the end of the current 
+ensemble, the stereo automatically changes to the first available station in the next ensemble.
+◦ Press and hold to advance to the next DAB ensemble.
+Entering Text
+1 In a field that allows you to enter text, select  to erase the existing characters.
+2 If necessary, select  or  to use numerals, symbols, or lower-case letters when available.
+3 Turn the dial to choose a character, and press the dial to select it.
+4 Select  to save the new text.
+Using the Dial to Select Items
+You can use the dial to highlight and select items on the screen.
+• Turn the dial to highlight an item on the screen.
+• Press the dial to select the highlighted option.
+Stereo Screen
+The information displayed on the screen varies depending on the source selected. This example shows the 
+device playing a track on a device connected using Bluetooth
+®
+ wireless technology.
+Source name
+Active zone
+Track details (if available)
+Album art (if available from a compatible source)
+Elapsed time, track duration, and the current track number out of the total number of tracks in the playlist 
+(if available)
+Getting Started 3
+
+===== PAGE =====
+
+Naming the Device
+You should provide a unique name for this device so you can easily identify it when viewing devices on the 
+network.
+NOTE: You should provide unique names for all of the devices and zones on the network to avoid confusion 
+when grouping, controlling, and setting up stereos and zones. You should also turn off zones that are not in use 
+(Speaker Zone Settings, page 19).
+For further customization, you can provide unique names for the sources on each stereo and turn off unused 
+sources (General Settings, page 19).
+1 Select  > SETTINGS.
+2 Select DEVICE NAME, and select an option:
+• Select a pre-defined name from the list.
+• Select CUSTOM NAME, and enter a unique name for the device.
+Setting the Home Zone
+The home zone is the speaker zone that you adjust by default when you turn the dial.
+1 Select  > SETTINGS.
+2 Select ZONE > ASSIGN HOME ZONE.
+3 Select a zone.
+Selecting a Source
+1 Select .
+2 Turn the dial to highlight a source.
+3 Press the dial to select the source.
+Adjusting the Backlight and Dial Brightness
+NOTE: If you connected the dim wire on the wiring harness to the boat's illumination wire, the backlight and dial 
+dim automatically when the boat lights are on. This may affect how you adjust the brightness setting.
+1 Select  > BRIGHTNESS.
+2 Adjust the brightness level.
+Audio Control
+Adjusting the Volume
+1 Turn the dial to adjust the volume for the home zone on the stereo.
+2 If necessary, press the dial to switch between zones.
+Adjusting the Subwoofer Level
+You can adjust the subwoofer level for each zone.
+1 Press the dial, and select a zone with a connected subwoofer.
+2 Press and hold the dial.
+The SUB LEVEL adjustment for the zone appears.
+3 Adjust the subwoofer level and press the dial to set it.
+4 Audio Control
+
+===== PAGE =====
+
+Adjusting the Tone
+1 Select  > AUDIO.
+2 Select the zone to adjust.
+3 Press the dial to select a tone.
+4 Adjust the tone level and press the dial to set it.
+Disabling the Loud Setting for a Zone
+The LOUD setting maintains frequency response at low volumes and increases perceived loudness at high 
+volumes. This setting is enabled by default in all zones. 
+1 Select  > AUDIO.
+2 Select a zone to adjust.
+3 Select LOUD to clear the check box.
+Adjusting the Gain for an Auxiliary Device
+You can adjust the gain for a connected auxiliary device to achieve a volume level similar to that of other media 
+sources. You can adjust the gain in 1 dB increments.
+1 Select an auxiliary source.
+2 Select an option:
+• To increase the gain, select .
+• To decrease the gain, select .
+NOTE: To achieve the best audio quality when using a portable media player with headphone output, it may 
+be necessary to adjust the volume control on the media player, instead of adjusting the gain.
+Speaker Zones
+You can group speakers in one area into a speaker zone. This enables you to control the audio level of the 
+zones individually. For example, you could make the audio quieter in the cabin and louder on deck.
+You can set the balance, volume limit, tone, subwoofer frequency, and name for each zone, and configure other 
+zone-specific settings (Speaker Zone Settings, page 19).
+DSP Settings
+This stereo features digital signal processing (DSP). You can select pre-configured DSP settings for Fusion
+®
+speakers and amplifiers to optimize audio reproduction in their installed locations.
+All DSP settings are configured using the Fusion-Link™ remote control app (Fusion-Link Wireless Remote Control 
+App, page 23).
+Audio Control 5
+
+===== PAGE =====
+
+Configuring the DSP Settings
+You must download and install the Fusion-Link remote control app on your compatible Apple
+®
+ or Android™
+device before you can configure the DSP settings (Fusion-Link Wireless Remote Control App, page 23).
+You can configure the DSP settings to optimize the sound on each zone with the installed speakers, amplifiers, 
+and environment.
+1 From the settings menu on your Apple or Android device, connect to the stereo using Bluetooth technology.
+2 Open the Fusion-Link remote control app on your compatible Apple or Android device.
+3 If necessary, select the stereo you want to configure.
+4 Select .
+5 If necessary, select the MUSIC tab.
+6 Select a zone.
+7 Select DSP SETTINGS.
+8 Configure the DSP settings as needed, depending on the models of Fusion speakers and amplifiers 
+connected to the zone.
+9 Repeat these steps for each zone.
+10 After you have finished configuring the DSP settings for all zones, select an option:
+• On an Apple device, select  > SEND DSP SETTINGS
+• On an Android device, select  > Zone > SEND DSP SETTINGS.
+Automatic Volume Adjustment Based on Speed
+If your stereo is connected to a NMEA 2000
+®
+ network with a device that provides speed information such as an 
+engine, chartplotter, GPS antenna, water speed sensor, or wind speed sensor, you can set the stereo to adjust 
+the volume automatically based on the selected speed source (Enabling Automatic Volume Adjustment Based 
+on Speed, page 20).
+For example, if a chartplotter with an internal GPS antenna or a stand-alone GPS antenna is on the same NMEA 
+2000 network as the stereo and you set the SPEED SOURCE to SPEED OVER GROUND, the volume increases as 
+your speed increases.
+NOTE: When the volume increases to adjust for speed, the actual volume output changes, but the volume-level 
+indicator bar and number stays the same.
+For more information about connecting the stereo to a NMEA 2000 network, see the installation instructions for 
+your stereo.
+Media Player Connection
+ CAUTION
+Always disconnect your media player from the stereo when not in use and do not leave it in your vessel. This 
+can help reduce the risk of theft and damage from extreme temperatures.
+Do not remove the media player or use your stereo in a distracting manner while operating the vessel. Check 
+and obey all marine laws in association with use.
+NOTICE
+It is the user's responsibility to comply with all applicable laws and ordinances associated with the use of this 
+device. Garmin
+®
+ is not responsible for any fines, penalties, or damages that you may incur for failing to abide by 
+any such laws and ordinances.
+The stereo accepts a variety of media players, including smartphones and other mobile devices. You can 
+connect a compatible media player using a Bluetooth wireless connection or a USB connection to the USB port.
+6 Media Player Connection
+
+===== PAGE =====
+
+Bluetooth Device Playback
+You can pair the stereo to up to eight Bluetooth media devices.
+You can control the playback using the stereo controls on all Bluetooth devices, and on some devices you can 
+browse the music collection from the menu on the stereo.
+On Bluetooth devices that do not support media browsing, you should select the song or playlist on the media 
+device.
+The availability of song information such as song title, artist name, track duration, and album art depends on the 
+capability of the media player and music application.
+Connecting a Compatible Bluetooth Device
+You can play media from a compatible Bluetooth device using the Bluetooth wireless connection.
+You can control the music playback with the media app on a Bluetooth device or using the Fusion-Link remote 
+control app (Fusion-Link Wireless Remote Control App, page 23).
+1 Select the BLUETOOTH source.
+2 Select  > BLUETOOTH > CONNECTIONS > DISCOVERABLE to make the stereo visible to your compatible 
+Bluetooth device.
+3 Enable Bluetooth on your compatible Bluetooth device.
+4 Bring the compatible Bluetooth device within 10 m (33 ft.) of the stereo.
+5 On your compatible Bluetooth device, search for Bluetooth devices.
+6 On your compatible Bluetooth device, select the stereo from the list of detected devices.
+NOTE: The stereo appears in the Bluetooth device list as the device name (the default name is MS-RA210 
+unless it was changed in the settings).
+7 On your compatible Bluetooth device, follow the on-screen instructions to pair and connect to the discovered 
+stereo.
+When pairing, your compatible Bluetooth device may ask you to confirm a code on the stereo. The stereo 
+does not display a code, but it does connect correctly when you confirm the message on the Bluetooth 
+device.
+8 If your compatible Bluetooth device does not immediately connect to the stereo, repeat steps 1 through 7.
+NOTE: If another Bluetooth device is already playing music on the stereo, connecting a new device will not 
+interrupt playback. You must select the newly-added device if you want to use it instead (Selecting a Different 
+Bluetooth Device, page 7).
+The DISCOVERABLE setting is disabled automatically after two minutes.
+NOTE: On some Bluetooth devices, adjusting the volume on the device affects the volume level on the stereo.
+Bluetooth Range Information
+The stereo and Bluetooth wireless devices have a range of 10 m (33 ft.). For optimal performance, the Bluetooth 
+wireless device should also have a clear line of sight to the stereo.
+Selecting a Different Bluetooth Device
+When you have more than one Bluetooth device paired to the stereo, you can select a different device when 
+needed. You can pair the stereo with up to eight Bluetooth devices.
+1 With the BLUETOOTH source selected, select  > BLUETOOTH > CONNECTIONS > PAIRED DEVICES.
+2 Select a Bluetooth device.
+Bluetooth Device Playback 7
+
+===== PAGE =====
+
+Bluetooth Source Menu and Settings
+With the BLUETOOTH source selected, select  > BLUETOOTH.
+NOTE: The options in this menu vary based on the connected device.
+CONNECTIONS > DISCOVERABLE: Allows the stereo to be visible to Bluetooth devices. You can turn off this 
+setting to prevent possible interruption to audio after pairing a Bluetooth device to the stereo.
+CONNECTIONS > PAIRED DEVICES: Shows a list of Bluetooth devices paired with the stereo. You can select a 
+device in the list to connect it to the stereo if it is in range.
+CONNECTIONS > REMOVE DEVICE: Removes the Bluetooth device from the stereo. To listen to audio from this 
+Bluetooth device again, you must pair the device again.
+NOTE: You should also remove the stereo from the list of paired devices on your Bluetooth device to avoid 
+connection issues when pairing the device again.
+REPEAT: Sets the repeat mode for the current selection (Apple devices only). You can repeat the current 
+selection by selecting the REPEAT ONE option. You can repeat all items in the selection by selecting the 
+REPEAT ALL option.
+SHUFFLE: Shuffles the tracks in the folder, album, or playlist (Apple devices only).
+PLAYLIST: Displays the playlists on the device (Apple devices only).
+ARTISTS: Displays the artists on the device (Apple devices only).
+ALBUMS: Displays the albums on the device (Apple devices only).
+GENRES: Displays the genres of music on the device (Apple devices only).
+SONGS: Displays the songs on the device (Apple devices only).
+Disabling Bluetooth Auto Connection
+By default, the stereo automatically reconnects to the last connected Bluetooth device when you turn it on. You 
+can disable this setting.
+Select  > SETTINGS > SOURCE > BLUETOOTH > AUTO CONNECT.
+When the AUTO CONNECT checkbox is clear, the stereo will not attempt to automatically reconnect to a 
+Bluetooth device. When this feature is disabled, you must select a Bluetooth device manually to connect it 
+(Selecting a Different Bluetooth Device, page 7).
+USB Device Playback
+You can connect various USB media players, USB flash drives, and smartphones to the stereo. How you access 
+the USB source depends on the type of connected media player or smartphone.
+Media Player Source Selections
+Android device MTP
+Apple device iPOD
+USB flash drive USB
+MP3 media player (as a mass-storage device)
+USB
+NOTE: If your MP3 media player does not support 
+mass-storage when connected using USB, you must 
+connect it to the stereo as an auxiliary device 
+(Connecting an Auxiliary Device, page 18).
+You can control the playback using the stereo controls on all USB devices, and on some devices you can browse 
+the music collection from the menu on the stereo. On USB devices that do not support media browsing, you 
+should select the song or playlist on the media device.
+The availability of song information such as song title, artist name, and track duration depends on the capability 
+of the media player and music application.
+8 USB Device Playback
+
+===== PAGE =====
+
+USB Device Compatibility
+You can use a USB flash drive or the USB cable included with your media player to connect a media player or 
+mobile device to the USB port.
+The stereo is compatible with iAP2 Apple devices such as the iPhone
+®
+ Xs Max, iPhone Xs, iPhone XR, iPhone X, 
+iPhone 8 Plus, iPhone 8, iPhone 7 Plus, iPhone 7, iPhone SE, iPhone 6s Plus, iPhone 6s, iPhone 6 Plus, iPhone 6, 
+iPhone 5s, and iPod touch
+®
+ (6th generation).
+The stereo is compatible with Android devices that support MTP mode.
+The stereo is compatible with media players and other USB mass storage devices, including USB flash drives. 
+Music on USB drives must meet these conditions:
+• The music files must be formatted as MP3, AAC (.m4a), or FLAC, files.
+• If you connect a portable hard drive, you must connect it to an external power source. The USB port on this 
+stereo cannot provide power for a portable hard drive.
+• The USB mass storage device must be formatted using one of the following systems:
+◦ Microsoft
+®
+: NTFS, VFAT, FAT1, MSDOS
+◦ Apple: HFS, HFSPLUS
+◦ Linux: EXT2, EXT3, EX4
+Connecting a USB Device
+You can connect a USB device to the USB port on the stereo.
+1 Locate the USB port on the back of the stereo.
+2 Connect the USB device to the USB port.
+Controlling Music Playback on a USB Flash Drive or Media Player
+1 Connect a compatible USB flash drive or media player to the stereo.
+2 Select the USB source.
+3 Select  > USB.
+4 Select the name of the USB device.
+5 Browse the music files on the device and begin playback.
+You can use the stereo controls to select, play, pause, and skip tracks.
+TIP: If the USB media player has a screen and controls, you can use the controls on the USB media player to 
+control playback.
+Controlling Music Playback on a Connected Android Device
+You can connect an Android device to the stereo using a USB cable to play media files stored on the Android 
+device. To play media from an app on the Android device, you should connect the device using Bluetooth 
+technology instead (Bluetooth Device Playback, page 7).
+1 Connect a compatible Android device to the stereo using an appropriate USB cable.
+2 If necessary, enable USB file transfer or MTP on your Android device.
+See the documentation available for your Android device for more information.
+3 Select the MTP source on the stereo.
+4 Select  > MTP.
+5 Browse the music files on the Android device and begin playback.
+You can use the stereo controls to select, play, pause, and skip tracks.
+1 FAT includes most types of FAT file systems except exFAT.
+USB Device Playback 9
+
+===== PAGE =====
+
+Controlling Music Playback on a Connected Apple Device
+1 Connect a compatible iAP2 Apple device to the stereo using USB.
+2 Select the iPOD source on the stereo.
+3 Launch a music application on the connected Apple device, and begin playback.
+You can use the music application on the Apple device or you can use the stereo controls to browse the music 
+library and to select, play, pause, and skip tracks.
+USB Source Settings
+With a USB device connected and a USB source selected, select , then select USB, iPOD, or MTP.
+NOTE: You can browse the files on the device using this menu. The options in this menu vary based on the 
+connected device.
+REPEAT: For a USB or MTP source, select to start playing the tracks in the list from the beginning after the last 
+track has played.
+For an iPOD source, select REPEAT ONE to repeat the current track, or select REPEAT ALL to start playing the 
+tracks in the folder, album, or playlist from the beginning after the last track has played.
+SHUFFLE: For a USB or MTP source, select to randomly play the tracks in the list.
+For an iPOD source, select to randomly play the tracks in the folder, album, or playlist.
+Radio
+To listen to AM or FM radio, you must have a suitable marine AM/FM antenna properly connected to the stereo 
+and be within range of a broadcasting station. For instructions on connecting an AM/FM antenna, see the 
+stereo installation instructions.
+To listen to SiriusXM
+®
+ radio, you must have the appropriate equipment and subscriptions (SiriusXM Satellite 
+Radio, page 11). For instructions on connecting a SiriusXM Connect Vehicle Tuner, see the stereo installation 
+instructions.
+To listen to DAB stations, you must have the appropriate equipment (DAB Playback, page 17). For instructions 
+on connecting a DAB adapter and antenna, see the installation instructions provided with your adapter and 
+antenna.
+Setting the Tuner Region
+You must select the region you are in to receive AM and FM stations properly.
+If you are connected to a compatible SiriusXM tuner and antenna, and have a subscription (USA only), you must 
+select the region you are in to receive SiriusXM stations properly.
+NOTE: SiriusXM service is not available in all regions.
+You must select the region you are in to receive DAB stations properly.
+NOTE: You must connect a compatible DAB module and antenna (not included), to receive DAB stations.
+DAB stations are not available in all regions.
+1 Select  > SETTINGS.
+2 Select TUNER REGION.
+3 Select the region you are in.
+10 Radio
+
+===== PAGE =====
+
+Changing the Radio Station
+1 Select an applicable source, such as FM.
+2 Select  repeatedly to move through the tuning modes, and select an option:
+• Select AUTO to scan and stop on the next available station.
+• Select MANUAL to select a station manually.
+• Select PRESET to select a saved station preset.
+3 Select  or  to tune to the station.
+When in MANUAL tuning mode, you can hold  or  to quickly advance through the stations.
+SiriusXM Satellite Radio
+Only SiriusXM brings you more of what you love to listen to, all in one place. Get over 140 channels, including 
+commercial-free music plus the best sports, news, talk, comedy and entertainment. Welcome to the world 
+of satellite radio. A SiriusXM Vehicle Tuner and subscription are required. For more information, go to www
+.siriusxm.com.
+Setting the Tuner Region for the SiriusXM Source
+You must set the stereo to use the USA tuner region before you can listen to SiriusXM Satellite Radio.
+Select  > SETTINGS > TUNER REGION > USA.
+Locating the SiriusXM Radio ID
+You must have the radio ID of your SiriusXM Connect Tuner before you can activate your SiriusXM subscription. 
+You can locate the SiriusXM Radio ID on the back of the SiriusXM Connect Tuner or its packaging, or by tuning 
+your stereo to channel 0.
+With the SiriusXM source selected, select  > SiriusXM > CHANNELS > ALL CHANNELS > 000 RADIO ID.
+The SiriusXM Radio ID does not include the letters I, O, S, or F.
+Activating a SiriusXM Subscription
+1 With the SiriusXM source selected, tune to channel 1.
+You should be able to hear the preview channel. If not, check the SiriusXM Connect Tuner and antenna 
+installation and connections, and try again.
+2 Tune to channel 0 to locate the Radio ID.
+3 Contact SiriusXM listener care by phone at (866) 635-2349 or go to www.siriusxm.com/activatenow to 
+subscribe in the United States. Contact SiriusXM by phone at (877) 438-9677 or go to www.siriusxm.ca
+/activatexm to subscribe in Canada. 
+4 Provide the Radio ID.
+The activation process usually takes 10 to 15 minutes, but can take up to an hour. For the SiriusXM Connect 
+Tuner to receive the activation message, it must be turned on and receiving the SiriusXM signal.
+5 If the service is not activated within the hour, go to http://care.siriusxm.com/refresh or contact SiriusXM 
+Listener Care by phone at 1-866-635-2349.
+Selecting a Category
+You can control which categories of channels are available when using the CATEGORY tuning method.
+1 With the SiriusXM source selected, select  > SiriusXM > CATEGORY.
+2 Select a category.
+SiriusXM Satellite Radio 11
+
+===== PAGE =====
+
+Using Replay Mode
+You can use Replay Mode to control playback of a SiriusXM broadcast.
+NOTE: The device enables Replay Mode automatically when playing saved preset channels.
+1 If necessary, hold  to enable Replay Mode.
+A progress bar appears at the bottom of the screen.
+2 Select an option:
+• Press  to pause and resume playback.
+• Press  or  to skip backward or forward in increments.
+NOTE: If you fast-forward or skip forward to the end of the progress bar, the stereo exits Replay Mode 
+automatically.
+• Hold  or  to rewind or fast-forward the track.
+• Hold  to exit Replay Mode.
+Alerts
+NOTE: The Artist, Song, and Game Alerts feature is compatible with the SXV300 tuner (sold separately). Other 
+tuners are compatible, but may limit the features. Review the user manual supplied with your SiriusXM tuner to 
+learn about features available with your tuner module.
+Adding an Artist or Song Alert
+You can set alerts for artists and songs so that when a particular song or a song from a particular artist begins 
+to play on any music channel, you can quickly tune to that channel.
+1 While a particular song or a song from a particular artist is playing, select  > SiriusXM > ADD ALERT > 
+SAVE ARTIST/SONG.
+2 Select the song or the artist.
+Adding Teams for Game Alerts
+You can set alerts for sports teams so that when a game featuring a saved team begins to play on any sports 
+channel, you can quickly tune to that channel.
+NOTE: A Game Alert is different than a SportsFlash™ alert. A Game Alert lets you know when a game begins, 
+while a SportsFlash alert lets you know when an exciting play occurs during a game.
+1 Select  > SiriusXM > ADD ALERT > GAME ALERT TEAMS.
+2 Select a sports league.
+3 Select a team to fill the check box and add a Game Alert.
+4 Repeat steps 2 and 3 for each team you want to add to the list of Game Alerts.
+Adding Teams from a Live Game
+While listening to a game, you can quickly add a team playing to your list of Game Alert teams.
+1 While listening to a game on a channel, select  > SiriusXM > ADD ALERT > SAVE TEAM.
+A list of teams playing in the current game appears.
+2 Select the team or teams to add to your list of Game Alert teams.
+Viewing Active Alerts
+You can review active Artist, Song, and Game Alerts.
+1 Select  > SiriusXM > ACTIVE ALERTS.
+2 Select a category.
+12 SiriusXM Satellite Radio
+
+===== PAGE =====
+
+Managing Alerts
+You can manage your saved alerts to select which ones you want to receive. You can delete saved alerts you do 
+not want.
+1 Select  > SiriusXM > SXM SETTINGS > ALERT MANAGEMENT.
+2 Select an option:
+• To enable saved alerts for songs only, artists only, or games only, select ENABLE BY TYPES, and select a 
+type.
+• To enable saved alerts for specific artists only, select ENABLE ARTISTS, and select the artists.
+• To enable saved alerts for specific songs only, select ENABLE SONGS, and select the songs.
+• To enable saved game alerts for specific teams, select ENABLE TEAMS, and select the teams.
+• To delete all saved alerts for songs, artists, or teams, select DELETE BY TYPES, and select a type.
+• To delete saved alerts for specific artists, select DELETE ARTISTS, and select the artists.
+• To delete saved alerts for specific songs, select DELETE SONGS, and select the songs.
+• To delete saved alerts for specific teams, select DELETE TEAMS, and select the teams.
+TuneMix™ Feature
+NOTE: The TuneMix feature is compatible with the SXV300 tuner (sold separately). Other tuners are compatible, 
+but may limit the features. Review the user manual supplied with your SiriusXM tuner to learn about features 
+available with your tuner module.
+Starting and Stopping a TuneMix Collection
+Before you can start playing a TuneMix collection, you must create one (Creating and Customizing a TuneMix 
+Collection, page 13).
+The TuneMix feature enables you to mix your favorite music channels to create a custom listening experience.
+1 Select  > SiriusXM > TUNEMIX.
+2 Select a TuneMix collection.
+The stereo begins playing the TuneMix collection.
+3 To stop playing a TuneMix collection, select  > CHANNELS, and select a channel.
+The stereo stops playing the TuneMix collection and begins playing the selected channel.
+Creating and Customizing a TuneMix Collection
+You can create up to 10 unique TuneMix collections on the stereo.
+NOTE: A TuneMix collection must include at least two of your favorite SiriusXM music channels.
+1 Select  > SiriusXM > SXM SETTINGS > TUNEMIX SETUP.
+2 Select a TuneMix collection.
+3 Select a channel to fill the check box and add it to the TuneMix collection.
+4 After you are finished customizing the TuneMix collection, select .
+5 Repeat steps 2 through 4 for each TuneMix collection you want to customize.
+SiriusXM Satellite Radio 13
+
+===== PAGE =====
+
+SportsFlash Feature
+The SportsFlash feature alerts you to key plays from your favorite teams during a live game. When an exciting 
+play happens, a SportsFlash alert appears, and you can tune to the broadcast and hear the play. When the 
+SportsFlash alert ends, you can choose to return to the previous channel, or remain tuned to the game.
+To receive SportsFlash alerts, your subscription package must include play-by-play sports channels for the 
+sports leagues you want to include in the alerts.
+You can enable, disable, or delete SportsFlash alerts that you have added (Managing Alerts, page 13).
+NOTE: A SportsFlash is different than a Game Alert. A SportsFlash alert lets you know when an exciting play 
+occurs during a game, while a Game Alert lets you know when a game begins.
+NOTE: The SportsFlash feature is compatible with the SXV300 tuner (sold separately). Other tuners are 
+compatible but may limit the features. Review the user manual supplied with your SiriusXM tuner to learn 
+about features available with your tuner module.
+Adding Teams to Receive SportsFlash Alerts
+1 Select  > SiriusXM > SPORTSFLASH > TEAM SELECT.
+2 Select a sports league.
+3 Select a team to fill the check box and add a SportsFlash alert.
+4 Repeat steps 2 and 3 for each team you want to add to the list of SportsFlash alerts.
+Changing SportsFlash Team Priority
+If more than one team for which you have set up SportsFlash alerts are playing at the same time, you can adjust 
+the team priority to hear SportsFlash alerts from your preferred team first.
+1 Select  > SiriusXM > SPORTSFLASH > TEAM PRIORITIES.
+A list of your selected SportsFlash teams appears, in order of priority.
+2 Select a team to move it up one priority level in the list.
+3 Repeat the previous step with each team you want to reorder until the priority list is ordered the way you 
+prefer.
+Enabling the TuneStart™ Feature
+When you enable the TuneStart feature and tune to a preset channel, the stereo starts the current song from the 
+beginning of the song instead of starting it from the point it is at in the live broadcast.
+NOTE: The TuneStart feature is available when tuning to preset channels only. The TuneStart feature is 
+compatible with the SXV300 tuner (sold separately). Other tuners are compatible but may limit the features. 
+Review the user manual supplied with your SiriusXM tuner to learn about features available with your tuner 
+module.
+If necessary, select  > SiriusXM > SXM SETTINGS > TUNESTART.
+When the TuneStart feature starts a song from the beginning, a progress bar appears and you can control the 
+track using the same controls as Replay Mode (Using Replay Mode, page 12).
+Parental Controls
+The parental control feature allows you to limit access to any SiriusXM channels, including those with mature 
+content. When the parental control feature is enabled, you must enter a passcode to tune to the locked 
+channels. You can also change the 4-digit passcode.
+14 SiriusXM Satellite Radio
+
+===== PAGE =====
+
+Unlocking the Parental Controls
+You can unlock the parental controls to access locked channels.
+1 With the SiriusXM source selected, select  > SiriusXM > PARENTAL.
+2 Select UNLOCK.
+3 Enter the passcode.
+TIP: The default passcode is 0000.
+The parental controls remain unlocked until you turn off the vehicle or until you lock them again.
+Locking Channels
+1 With the SiriusXM source selected, select  > SiriusXM > PARENTAL.
+2 Select the UNLOCK check box.
+3 Enter the passcode.
+TIP: The default passcode is 0000.
+4 Select LOCK/UNLOCK.
+A list of available channels appears.
+5 Select one or more channels to lock, and select .
+6 Clear the UNLOCK check box to lock the parental controls.
+You cannot access the locked channels while the parental controls are locked. You must unlock the parental 
+controls to tune the locked channels.
+Clearing All Locked Channels
+1 With the SiriusXM source selected, select  > SiriusXM > PARENTAL > UNLOCK.
+2 Enter the passcode.
+3 Select  > SiriusXM > PARENTAL > CLEAR ALL LOCKED.
+Changing the Parental Control Passcode
+1 With the SiriusXM source selected, select  > SiriusXM > PARENTAL > UNLOCK.
+2 Enter the passcode.
+3 Select  > SiriusXM > PARENTAL > CHANGE PIN.
+4 Follow the on-screen instructions.
+SiriusXM Satellite Radio 15
+
+===== PAGE =====
+
+SiriusXM Troubleshooting
+Advisory Description Resolutions
+Check 
+Antenna
+The radio has detected a fault 
+with the SiriusXM antenna. The 
+antenna cable may be disconnected 
+or damaged.
+• Verify the antenna cable is connected to the 
+SiriusXM Connect Vehicle Tuner.
+• Inspect the antenna cable for damage and kinks. 
+Replace the antenna if the cable is damaged. 
+SiriusXM products are available at your local car 
+audio retailer, or at www.shop.siriusxm.com.
+Check Tuner
+The stereo is having difficulty 
+communicating with the SiriusXM 
+Connect Vehicle Tuner. The tuner 
+may be disconnected or damaged.
+Verify the SiriusXM Connect Vehicle Tuner cable is 
+connected securely to the stereo.
+No Signal
+The SiriusXM Connect Vehicle Tuner 
+is having difficulty receiving the 
+SiriusXM satellite signal.
+• Verify the SiriusXM antenna is outdoors with a clear 
+view of the sky.
+• Verify the SiriusXM antenna is mounted securely.
+• Remove obstructions above or next to the SiriusXM 
+antenna.
+• Inspect the cable antenna for damage and kinks. 
+Replace the antenna if the cable is damaged. 
+SiriusXM products are available at your local car 
+audio retailer or at www.shop.siriusxm.com.
+• Consult the SiriusXM Connect Vehicle Tuner installa­
+tion instructions for more information on antenna 
+installation.
+Subscription 
+Updated
+The radio has detected a change in 
+your SiriusXM subscription status.
+• Select any button to clear the message.
+• Go to www.siriusxm.com or call 866-635-2349 with 
+questions about your subscription.
+Channel Not 
+Available
+The channel you requested is not 
+a valid SiriusXM channel, or the 
+channel that you were listening to 
+is no longer available. You may see 
+this message briefly the first time 
+you connect a new SiriusXM Connect 
+Vehicle Tuner.
+Go to www.siriusxm.com for more information about 
+the SiriusXM channel lineup.
+Channel Not 
+Subscribed
+The channel you requested is not 
+included in your SiriusXM subscrip­
+tion package, or the channel you were 
+listening to is no longer included in 
+your SiriusXM subscription package.
+Go to www.siriusxm.com or call 866-635-2349 for 
+more information about your subscription package or 
+to subscribe to the channel.
+Channel 
+Locked
+The channel you requested is locked 
+by the parental control feature.
+Refer to the parental control section in the owner's 
+manual to unlock channels.
+Clearing SiriusXM Data
+You can clear all entered SiriusXM user information, such as favorite teams and alerts.
+Use the FACTORY RESET option in the settings menu to reset the stereo (Update Options, page 22).
+NOTE: The factory reset setting resets all data in the stereo, including AM and FM presets, zone settings, etc. 
+in addition to clearing all SiriusXM user information.
+16 SiriusXM Satellite Radio
+
+===== PAGE =====
+
+DAB Playback
+When you connect a compatible Digital Audio Broadcasting (DAB) module and antenna, such as the MS-
+DAB100A to the RA210 stereo, you can tune in to and play DAB stations.
+DAB broadcasts are not available in all regions. When the stereo is not set to a compatible region, the DAB 
+source is not available.
+Setting the Tuner Region
+You must select the region you are in to receive DAB stations properly.
+1 Select  > SETTINGS.
+2 Select TUNER REGION.
+3 Select the region you are in.
+Scanning for DAB Stations
+Before you can scan for DAB stations, you must connect a compatible DAB module and antenna (not included) 
+to the stereo.
+NOTE: Because DAB signals are broadcast in select countries only, you must set the tuner region to a location 
+where DAB signals are broadcast.
+1 Select the DAB source.
+2 Hold  to scan for available DAB stations.
+When scanning is complete, the first available station in the first ensemble found begins playing.
+NOTE: After the first scan is complete, you can hold  again to re-scan for DAB stations. When the re-scan 
+is complete, the system starts playing the first station in the ensemble you were listening to when you 
+started the re-scan.
+Changing DAB Stations
+1 Select the DAB source.
+2 If necessary, hold  to scan for local DAB stations.
+3 Select  or  to change the station.
+When you reach the end of the current ensemble, the stereo automatically changes to the first available 
+station in the next ensemble.
+TIP: You can hold  or  to change the ensemble.
+Selecting a DAB Station from a List
+1 Select the DAB source.
+2 If necessary, hold  to scan for local DAB stations.
+3 Select  > DAB > BROWSE > STATIONS.
+4 Select a station from the list.
+Selecting a DAB Station from a Category
+1 Select the DAB source.
+2 If necessary, hold  to scan for local DAB stations.
+3 Select  > DAB > BROWSE > CATEGORIES.
+4 Select a category from the list.
+5 Select a station from the list.
+DAB Playback 17
+
+===== PAGE =====
+
+Presets
+You can save your favorite AM stations and FM stations as presets for easy access.
+You can save your favorite SiriusXM channels if the stereo is connected to an optional SiriusXM tuner and 
+antenna.
+You can save your favorite DAB stations if the stereo is connected to the proper DAB equipment and set to the 
+correct tuner region. (DAB Playback, page 17)
+Saving a Station or Channel as a Preset
+1 With an applicable source selected, tune the stereo to a station or a channel.
+2 Press and hold the dial, and select .
+TIP: For the AM, FM, or SiriusXM source, you can press and hold  to save the current station or channel as 
+a preset.
+TIP: You can also select , the name of the source, and PRESETS > SAVE CURRENT to save the current 
+station or channel as a preset.
+Selecting a Preset from a List
+1 With an applicable source selected, press and hold the dial.
+TIP: You can also select , the name of the source, and PRESETS > VIEW PRESETS to view the list of 
+presets.
+2 Select a preset.
+Removing Presets
+1 With an applicable source selected, press and hold the dial.
+2 Select .
+3 Select each preset station or channel you want to remove.
+4 When you are finished removing presets, select .
+TIP: You can also select , the name of the source, and PRESETS > REMOVE PRESETS or REMOVE ALL 
+PRESETS to remove preset stations or channels.
+Connecting an Auxiliary Device
+You can connect various auxiliary devices to the stereo. These devices have either RCA connectors, a line 
+output, or a headphone output jack.
+1 Locate the auxiliary connectors on the wiring harness.
+2 If necessary, connect an RCA-to-3.5 mm adapter cable to the auxiliary device.
+3 Connect the auxiliary device to the AUX IN RCA connectors on the wiring harness.
+4 Select the Aux source.
+18 Presets
+
+===== PAGE =====
+
+General Settings
+Select  > SETTINGS.
+NOTE: When a check box is filled, the option is on. When the check box is clear, the option is off.
+DEVICE NAME: Sets a name for this device.
+LANGUAGE: Sets the language used on the device.
+TUNER REGION: Sets the region used by the FM and AM sources.
+This setting is also needed to configure DAB and SiriusXM sources.
+TELEMUTE: Sets the behavior of the stereo when it detects a signal on the TELEMUTE wire in the wiring 
+harness. This is commonly used to change to the Aux1 source when you hold the button on a Fusion 
+handheld microphone. You can also choose to either mute the audio or change to the Aux1 source when 
+connected to a hands-free mobile phone kit. See yourFusion handheld microphone or hands-free mobile 
+phone kit instructions for more information.
+NOTE: This setting does not affect a phone connected to the stereo using Bluetooth technology.
+POWER OPTIONS: Adjusts the power settings, such as the power-save mode (Power Options, page 22).
+SEARCHING: Enables Fusion Alpha Search Technology (FAST), which allows you to quickly search for tracks by 
+letter or number. You can select a number to enable the FAST menu if your music device contains more than 
+the selected number of items.
+ZONE: Enables you to configure the speaker zones (Speaker Zone Settings, page 19).
+SOURCE: Allows you to enable, disable, and name the sources on the stereo (Source Settings, page 22).
+UPDATE: Updates the stereo or connected devices using the appropriate update file on a connected USB flash 
+drive (Update Options, page 22).
+NOTE: It is not necessary to use this menu if you are updating the software using the Fusion-Link app on a 
+mobile device instead of using an update file loaded onto a USB flash drive.
+UPDATE > FACTORY RESET: Restores all settings to the factory default values.
+ABOUT: Shows the software version information for the stereo.
+Speaker Zone Settings
+Disabling the Internal Amplifier
+If you do not connect speakers directly to zones 1 and 2, you can disable the internal amplifier to reduce power 
+consumption.
+1 Select  > SETTINGS.
+2 Select ZONE.
+3 Select INTERNAL AMP ON to clear the check box.
+Setting the Home Zone
+The home zone is the speaker zone that you adjust by default when you turn the dial.
+1 Select  > SETTINGS.
+2 Select ZONE > ASSIGN HOME ZONE.
+3 Select a zone.
+Synchronizing the Source and Zone Volume Levels
+You can synchronize the volume levels on one or all zones with some source devices, such as a Bluetooth, 
+AirPlay
+®
+, or UPnP source.
+1 Select  > SETTINGS.
+2 Select ZONE > PHONE VOLUME SYNC.
+3 Select a zone or ALL.
+When you adjust the volume on the connected source, the volume on the selected zone is also adjusted.
+General Settings 19
+
+===== PAGE =====
+
+Adjusting the Power-On Volume Limit
+By default, when you turn on the stereo, the system automatically reduces the volume to level 12 if it was louder 
+than that when you turned it off. You can adjust this limit if you want to retain a louder volume or limit to a lower 
+volume when you turn on the stereo.
+NOTE: This setting affects all zones on the stereo.
+1 Select  > SETTINGS.
+2 Select ZONE > POWER ON VOLUME LIMIT.
+3 Adjust the volume limit.
+Maintaining Individual Zone Volume Levels
+If you adjust the volume levels of individual zones so that some zones are louder than others, the individual 
+zone volume settings are all affected when you adjust the volume for ALL zones. By default, if you adjust the 
+volume for ALL to 00, this sets of the volume levels for all zones to 00 and resets all individual zone volume 
+adjustments. You can enable the KEEP VOLUME RATIOS option to retain individual zone volume adjustments 
+when you adjust the volume for ALL to 00.
+NOTE: This setting applies to volume adjustments on the stereo or a connected ERX remote control only. If you 
+adjust the volume on the stereo using a connected chartplotter or NRX remote control, the volume levels will 
+still be reset.
+TIP: For the best results when enabling this setting, you should set the power-on volume limit to 24 (Adjusting 
+the Power-On Volume Limit, page 20).
+1 Select  > SETTINGS.
+2 Select ZONE > KEEP VOLUME RATIOS.
+Enabling Automatic Volume Adjustment Based on Speed
+1 Select  > SETTINGS > ZONE > SPEED VS VOLUME > ENABLED.
+2 If needed, update the settings to select the speed source (Automatic Volume Control Settings, page 20).
+Automatic Volume Control Settings
+Select  > SETTINGS > ZONE > SPEED VS VOLUME.
+ENABLED: Enables the automatic volume control feature.
+SPEED SOURCE: Sets the source that the stereo uses to determine the speed (Speed Source Information, 
+page 21).
+MAX/MIN SPEED: Sets the expected maximum and minimum speed range for the selected SPEED SOURCE. 
+The MIN setting indicates the speed at which the volume plays at the level you set by turning the dial. The 
+MAX setting indicates the speed at which the volume plays at the highest level set in the VOLUME INCREASE 
+setting.
+TIP: You should start by setting these values at the speeds you typically expect from your engine or sensor 
+and adjust them as needed.
+VOLUME INCREASE: Sets the total volume increase for each zone when the selected SPEED SOURCE reaches 
+the set maximum speed set in the MAX/MIN SPEED setting. The higher you set this level, the louder the 
+volume will be as you approach the set maximum speed.
+NOTE: When the volume increases to adjust for speed, the actual volume output changes but the volume-
+level indicator bar and number stays the same.
+CUSTOM UNITS: Changes the measurement unit used to indicate the vessel or wind speed.
+20 General Settings
+
+===== PAGE =====
+
+Speed Source Information
+Select  > SETTINGS > ZONE > SPEED VS VOLUME > SPEED SOURCE.
+ENGINE SPEED: Uses the RPM reading provided by a supported NMEA 2000 engine. The volume increases as 
+the engine RPM increases from the set MIN speed to the set MAX speed. If multiple supported engines are 
+connected, the stereo uses the average RPM reading from all engines.
+SPEED OVER GROUND: Uses the speed over ground (SOG) reading provided by a supported NMEA 2000 GPS 
+antenna or chartplotter with an internal GPS antenna. The volume increases as the SOG increases from the 
+set MIN speed to the set MAX speed.
+SPEED THROUGH WATER: Uses the speed through water (STW) reading provided by a supported NMEA 2000 
+water-speed sensor. The volume increases as the STW increases from the set MIN speed to the set MAX 
+speed.
+WIND SPEED: Uses the wind speed reading provided by a supported NMEA 2000 wind-speed sensor. The 
+volume increases as the wind speed increases from the set MIN speed to the set MAX speed.
+Disabling a Zone
+You can disable an unused zone and remove it from the audio level pages. When a zone is disabled, you cannot 
+change any of the settings for that zone. You cannot disable zone 1.
+1 Select  > SETTINGS.
+2 Select ZONE.
+3 Select a zone.
+4 Select ZONE ENABLED to clear the check box.
+Setting a Zone Name
+You can set a name for a speaker zone to make it easier to identify.
+1 Select  > SETTINGS.
+2 Select ZONE.
+3 Select a zone.
+4 SelectZONE NAME, and select an option:
+• Select a pre-defined name from the list.
+• Select CUSTOM NAME, and enter a unique name for the zone.
+Linking Zones
+You can link zones 1 and 2 to keep the volume levels synchronized. Adjusting the volume of either of the linked 
+zones affects both zones.
+1 Select  > SETTINGS.
+2 Select ZONE > ZONE 2 > LINK TO ZONE 1.
+NOTE: After zones 1 and 2 are linked, you cannot adjust the volume of each zone individually.
+Adjusting the Subwoofer Filter
+You can use the subwoofer filter setting to control the subwoofer cutoff frequency for each zone, which can 
+enhance the blend of the sound produced by the speakers and the subwoofer. Audio signals above the selected 
+frequency are not passed to the subwoofer.
+NOTE: If a DSP setting has been applied to the zone using the Fusion-Link app, this setting cannot be changed 
+on the stereo.
+1 Select  > SETTINGS.
+2 Select ZONE.
+3 Select a zone.
+4 Select SUB. FREQ..
+5 Select a frequency.
+General Settings 21
+
+===== PAGE =====
+
+Adjusting Additional Audio Settings for a Zone
+1 Select  > SETTINGS.
+2 Select ZONE.
+3 Select a zone.
+4 Select one or more options:
+• To limit the maximum volume output of this zone, select VOLUME LIMIT, and adjust the level.
+• To adjust the right and left speaker balance of this zone, select BALANCE, and adjust the balance.
+• To reduce the power output to the external amplifier associated with this zone, select EXT. AMP GAIN, 
+and adjust the gain level.
+• To reduce the power output to the internal amplifier associated with this zone, select INT. AMP GAIN, and 
+adjust the gain level.
+NOTE: This setting is available only for zones associated with an internal amplifier, typically zones 1 and 
+2.
+• To change the output of this zone from stereo to mono, select MONO.
+NOTE: The mono setting is useful if a listening position is closer to one speaker than the other and 
+predominantly hear only that channel. The mono setting combines both channels in each speaker in the 
+zone.
+Power Options
+Select  > SETTINGS > POWER OPTIONS.
+POWER SAVE: Disables the LCD backlight after one minute of inactivity to save battery power.
+Source Settings
+Select  > SETTINGS > SOURCE, and select the name of the source you want to configure.
+NOTE: This menu contains system-wide source settings. Most sources also have source-specific settings. See 
+the sections of this manual for each source for more information about source-specific settings.
+Not all options are available for every source on the stereo.
+SOURCE ENABLED: Enables and disables the source on this stereo. You may want to disable sources that will 
+never be used on the stereo so they no longer appear on the source-selection screen.
+SOURCE NAME: Changes the name of the source as it appears on this stereo.
+Update Options
+NOTICE
+Do not turn off the device or disconnect the power during a software update. Turning off the power during a 
+software update may cause the device to become unresponsive.
+NOTE: 
+• You can update the device software using an update file loaded onto USB flash drive (Updating the Software 
+Using a USB Flash Drive, page 24).
+• The device may restart a few times when updating. This is normal.
+• You can program only newer versions of software on the device.
+Select  > SETTINGS > UPDATE.
+STEREO: Updates the stereo using a valid software update file on a connected USB flash drive (Updating the 
+Software Using a USB Flash Drive, page 24).
+NRX REMOTE: Updates an optional NRX remote connected to the NMEA 2000 port or NMEA 2000 network.
+DAB MODULE: Updates an optional DAB module connected to the SIRIUS XM port.
+22 General Settings
+
+===== PAGE =====
+
+Additional Stereo Control Options
+Connecting to a Garmin Watch
+For more information about the watch, see the watch manual at garmin.com/manuals.
+1 Following the instructions in the watch manual, install the Fusion-Link Lite™ app from the Connect IQ™ store 
+onto the watch.
+2 On the stereo, select the BLUETOOTH source.
+3 Select  > BLUETOOTH > CONNECTIONS > DISCOVERABLE.
+The stereo remains discoverable for two minutes.
+4 Bring the watch within 3 m (10 ft.) of the stereo.
+NOTE: Stay 10 m (33 ft.) away from other ANT
+®
+ devices while pairing.
+5 Open the Fusion-Link Lite app on the watch.
+The first time you open the app on the watch, the watch automatically pairs with and connects to the stereo. 
+If you need to pair to another stereo, in the Fusion-Link Lite app, select Settings > Pair new.
+6 Control the audio playback using the Fusion-Link Lite app on the watch.
+After the devices are paired, they connect automatically when they are turned on, within range, and the app is 
+open on the watch.
+Connecting to an ARX70 Remote Control
+1 On the stereo, select the BLUETOOTH source.
+2 Select  > BLUETOOTH > CONNECTIONS > DISCOVERABLE.
+3 Bring the ARX70 remote control within 10 m (33 ft.) of the stereo.
+NOTE: Stay 10 m (33 ft.) away from other ANT devices while pairing.
+4 On the ARX70 remote control, press and hold  until the status LED starts alternating green and red.
+The remote control searches for the stereo. When the remote control pairs successfully, the status LED turns 
+on green briefly and then turns off.
+If the remote control cannot find the stereo, the status LED turns on red briefly and then turns off.
+Fusion-Link Wireless Remote Control App
+You can use the Fusion-Link remote control app on your compatible Apple or Android device to adjust the 
+stereo volume, change the source, control playback, select and manage radio presets, and adjust some stereo 
+settings.You can use the app to set up and configure DSP profiles on the stereo.
+The app communicates with the stereo using a wireless connection to the mobile device. You must connect 
+your compatible device to the stereo using Bluetooth technology to use the app.
+You can connect an Apple device to the stereo using a USB cable to update the stereo software.
+For information about the Fusion-Link remote control app for compatible Apple or Android devices, go to the 
+Apple App Store
+SM
+ or the Google Play™ store.
+FUSION-Link™ Network Technology
+FUSION-Link network technology allows you to fully control compatible Fusion entertainment systems on 
+compatible multi-function displays installed at the helm, flybridge, or navigation station of the vessel. This 
+provides integrated entertainment control and a less cluttered console.
+The partnered multi-function display becomes the portal on which you can control all audio on the vessel, no 
+matter where on the vessel the connected stereo is installed. The FUSION-Link equipped stereo can be installed 
+out of sight if space is an issue and users need to access the stereo only to replace removable media.
+FUSION-Link technology offered on this device can communicate using existing industry-standard NMEA 2000 
+networks.
+Additional Stereo Control Options 23
+
+===== PAGE =====
+
+NMEA 2000 Remote Control and Display
+The stereo can be controlled by compatible Fusion wired remote controls installed in the audio zones 
+throughout the vessel. Operating the entertainment system from the remote control is similar to operating it 
+from the main stereo.
+Fusion wired remote controls operate over an existing NMEA 2000 network, so wiring the remote controls 
+directly to the stereo is not necessary. All remote controls connected to the same NMEA 2000 network as the 
+stereo can control the stereo.
+The Fusion wired remote control can also serve as an NMEA
+®
+ display showing NMEA navigation data or vessel 
+performance data from other NMEA devices on an existing NMEA 2000 network. See the instructions provided 
+with your remote control for information on supported NMEA 2000 PGN information.
+NMEA 2000 Information
+NMEA 2000 is the most popular marine standard for data communication within vessels. It has become the 
+standard for sending navigation and engine management data within vessels. Fusion introduces an industry-
+first product by incorporating NMEA 2000 functionality in its audio remote control devices. This enables the 
+user to monitor a series of NMEA sentences available over the NMEA 2000 network on a connected remote 
+control.
+Appendix
+Registering Your Fusion Device
+Help us better support you by completing our online registration today.
+• Go to garmin.com/account/register/.
+• Keep the original sales receipt, or a photocopy, in a safe place.
+Software Updates
+For best results, you should update the software in all Fusion devices at the time of installation to ensure 
+compatibility.
+You can update the software using a USB flash drive. For software updates and instructions on updating the 
+device using the USB flash drive, go to the device product page at support.garmin.com.
+Updating the Software Using a USB Flash Drive
+You can update the device software using a USB flash drive.
+NOTICE
+Do not turn off the device or disconnect the power during a software update. Turning off the power during a 
+software update may cause the device to become unresponsive.
+NOTE: 
+• You cannot update the software using a USB flash drive formatted using the NTFS file system. If you 
+encounter problems updating the device, format the USB flash drive using FAT32 and try the update process 
+again.
+• The device may restart a few times while updating the software. This is expected behavior.
+• You can program only newer versions of software on the device.
+1 Go to the page for your device on support.garmin.com, and download the update file.
+2 Extract the contents of the .zip file to the root of your USB storage device.
+The contents of the software update are contained in a folder named Garmin.
+3 Insert the USB storage device into the USB port of the stereo.
+4 Select  > SETTINGS.
+5 Select UPDATE > STEREO > YES.
+24 Appendix
+
+===== PAGE =====
+
+Troubleshooting
+The stereo does not respond to key presses
+• Hold  until the stereo turns off, and turn it on again to reset the stereo.
+• Disconnect power to the stereo for two minutes to reset the stereo.
+The stereo keeps locking up when connected to an Apple device
+• Press and hold the power button to reset the stereo.
+• Reset the Apple device. Go to www.apple.com for more information.
+• Make sure you have the latest version of iTunes
+®
+ and the latest operating software on your Apple device.
+The stereo is not finding my connected Apple device
+• Make sure your Apple device supports Interface Accessory Protocol 2 (iAP2). This stereo is not compatible 
+with iAP1 devices.
+• Make sure you have the latest version of iTunes and the latest operating software on your Apple device.
+• Make sure you have the latest version of the Fusion-Link application on your Apple device.
+• Reset the Apple device.
+Go to www.apple.com for more information.
+• Contact your Fusion dealer or go to support.garmin.com.
+My Bluetooth audio is interrupted by short breaks
+• Ensure the media player is not covered or obstructed.
+Bluetooth technology performs best with line-of-sight operation.
+• Bring the media player within 10 m (33 ft.) of the stereo.
+• Turn off the DISCOVERABLE setting after pairing a Bluetooth device to the stereo.
+The stereo does not display all song information from my Bluetooth source
+The availability of song information such as song title, artist name, track duration, and album cover artwork 
+depends on the capability of the media player and music application.
+Appendix 25
+
+===== PAGE =====
+
+Specifications
+Weight 350 g (12.4 oz.)
+Water rating IEC 60529 IPX6 and IPX7 (front of stereo only, when properly installed)2
+IEC 60529 IPX2 (rear of stereo)
+Operating temperature range From 0 to 50°C (from 32 to 122°F)
+Storage temperature range From -20 to 70°C (from -4 to 158°F)
+Input voltage From 10.8 to 16 Vdc
+Current (max.) 15 A
+Current (muted) Less than 400 mA
+Current (off) Less than 100 mA
+Fuse 15 A mini-blade type
+NMEA 2000 LEN @ 9 Vdc 1 (50 mA)
+Bluetooth wireless range Up to 10 m (30 ft.)
+ANT wireless range Up to 3 m (10 ft.)
+Wireless frequencies/protocols Bluetooth 2.4 GHz @ 12 dBm nominal
+ANT 2.4 GHz @ 7 dBm nominal
+Compass-safe distance 15 cm (5.9 in.)
+On-board, Class D amplifier
+Output music power per channel 4 x 50 W max. 4 Ohm
+Total output peak power 200 W max.
+Output power per channel 4 x 26 W RMS at 14.4 Vdc input, 4 Ohm, 10% THD3
+Line output level (max.) 5.5 V (peak to peak)
+Aux input level (typical) 1 V RMS
+Tuner frequencies
+Tuner Europe and Australasia USA Japan
+FM radio frequency range 87.5 to 108 MHz 87.5 to 107.9 MHz 76 to 95 MHz
+FM frequency step 50 kHz 200 kHz 50 kHz
+AM radio frequency range 522 to 1620 kHz 530 to 1710 kHz 522 to 1620 kHz
+AM frequency step 9 kHz 10 kHz 9 kHz
+2 When properly installed, the front of the stereo withstands incidental exposure to water of up to 1 m for up to 30 min, and is protected against powerful jets of 
+water. For more information, go to www.garmin.com/waterrating.
+3 The stereo may limit the output power to prevent the amplifier from overheating, and to maintain the audio dynamics.
+26 Appendix
+
+===== PAGE =====
+
+Stereo Dimension Drawings
+Side Dimensions
+22 mm (0.87 in.)
+104.6 mm (4.12 in.)
+68 mm (2.68 in.)
+49.8 mm (1.96 in.)
+Top Dimensions
+157 mm (6.18 in.)
+130 mm (5.10 in.)
+22 mm (0.87 in.)
+10 mm (0.39 in.)
+Appendix 27
+
+===== PAGE =====
+
+support.garmin.com
+GUID-D2CC8123-F312-4C49-A2F8-B71FC2CB024B v7June 2023

@@ -1,0 +1,567 @@
+# Boat Dictionary — 2023 Beneteau Flyer 8 SPACEdeck + Mercury Verado 300
+# Language: English (except where noted)
+# Status fields: confirmed | typical_option | unverified | missing_needs_user
+
+vessel:
+  make: BENETEAU
+  model: Flyer 8 SPACEdeck
+  generation: V2 (new-generation Flyer 8)
+  model_year: 2023
+  manufacture_month: June
+  manufacture_year: 2022
+  hull_system: Air Step 2
+  market: "US (Beneteau America — USCG + EPA EVAP plates)"
+  builder: "SPBI, Dompierre sur Yon, France"
+  hin: "BEYFT208F223"
+  cin_eu: "FR-SPBFT208F223"
+  ce_notified_body: "0607"
+  plate_ref: "149841"
+  ce_categories: ["C", "D"]
+  max_persons: 10
+  max_load_kg: 1285
+  naval_design: BENETEAU Powerboats
+  interior_design: Andreani Design / Style & Design
+  plate_evidence:
+    - "HIN plate: BEYFT208F223 / FR-SPBFT208F223"
+    - "CE builder plate: FLYER 8 SPACEdeck; Cat C/D 10 persons; max load 1285 kg; CE 0607"
+    - "USCG safety standards plate — Beneteau America Inc., Marion SC (ref 149841)"
+    - "US EPA EVAP compliance plate — Beneteau America Inc. (ref 165762)"
+  identifiers_needed:
+    - delivery_dealer
+    - original_options_invoice_or_build_sheet
+  equipped_confirmed_from_photos:
+    - "Zipwake Dynamic Trim Control (Series S panel with rotary control under/near Garmin)"
+    - "Sleipner (Side-Power) thruster control + thruster joystick (ON/OFF) at helm"
+    - "Garmin MFD at helm (chart + sonar / engine data overlays; exact model TBD)"
+    - "Mercury SmartCraft digital engine display (VesselView-class) at helm"
+    - "Fusion marine stereo head unit at helm (MS-RA series class)"
+    - "Mercury DTS single-lever control (DOCK / TRANSFER / THROTTLE ONLY) + START/STOP"
+    - "Offshore magnetic compass on dash (US Trim Package item)"
+    - "Electric windlass present at bow"
+    - "Black pulpits / black windshield frame with Flyer logo"
+    - "Black-frame T-Top with fabric roof + 4 aft rocket-launcher rod holders"
+    - "Synthetic teak / wood-grain decking with black caulk lines (cockpit + swim platform)"
+    - "Elegance-class two-tone upholstery (light grey + cognac/brown accents)"
+    - "GRP/wood cockpit table between helm and aft bench (US Trim Package)"
+    - "Fusion cockpit speaker(s) visible at gunwale"
+    - "Stainless plow/Delta-style anchor on bow roller"
+    - "CRISTEC YPOWER YPO12-25DE 12V/25A battery charger (S/N 2022061017878) + 115V/60Hz AC breaker panel"
+    - "Flojet washdown pump R4325143F (S/N 22C53625) — 12V 4.5 GPM 40 PSI"
+    - "Jabsco PAR-MAX 2.9 freshwater pump 31395-7008 (S/N 22A45914) — 12V 2.9 GPM 40 PSI"
+    - "Dual batteries in IMNASA boxes: ENGINE BATTERY + HOUSE BATTERY"
+    - "Polyethylene HOLDING tank in same locker (hand mark 80 L EF; US list specifies 88 L blackwater — confirm capacity/label)"
+    - "Blue Sea Systems auxiliary fuse box + main 12V fuse box (diagram on board)"
+    - "Fuse diagram circuits: stereo, VHF (pre-wire/spare — no fixed VHF; handheld only), MFD (wire code HDS), fresh water, shower, macerator, bilge, lights, fridge feed, 12V outlet"
+  not_equipped_from_photos:
+    - "LENCO electric trim tabs (Zipwake installed instead)"
+    - "Mastervolt ChargeMaster (charger is CRISTEC, not Mastervolt)"
+  notes_from_photos:
+    - "Garmin data overlay showed ~14.4 V / 14.2 V and fuel ~154 L (340 L tank) while underway — consistent with charging and partial fuel."
+    - "Handheld unit in wheel-base holder may be VHF mic/remote — confirm brand/model if radio is fitted."
+    - "CRISTEC face sticker shows battery profile OPENED TYPE / FREE ELECTROLYTE — confirm this matches installed batteries (AGM vs flooded)."
+
+specs:
+  loa_m: "7.09–8.17 (with platforms)"
+  hull_length_m: 6.96
+  beam_m: 2.53
+  draft_m: "0.50–0.90"
+  air_draft_standard_m: 1.74
+  air_draft_max_m: 2.45
+  light_displacement_kg: 2282
+  fuel_l: 340
+  fresh_water_l: 80
+  max_engine_hp: 350
+  max_load_kg_ce_plate: 1285
+  max_persons_ce_plate: 10
+  shaft_length: "XXL / 30 in / 762 mm"
+
+propulsion:
+  status: confirmed
+  manufacturer: Mercury Marine
+  family: Verado V8 FourStroke AMS
+  model_number: "13000069A"
+  model_designation: "300XXL"
+  serial_number_esn: "3B371488"
+  horsepower: 300
+  power_kw: 221
+  dry_weight_lb: 620
+  dry_weight_kg: 281
+  displacement: "4.6 L (279 cid)"
+  cylinders: "V8 32-valve DOHC"
+  color: Cold Fusion White
+  shaft: "30 in XXL"
+  gear_ratio: "1.85:1"
+  full_throttle_rpm: "5200–6000"
+  ignition: "SmartCraft PCM 112 Digital Inductive"
+  fuel_system: EFI
+  controls: "Digital Throttle & Shift (DTS)"
+  steering: "Electro-Hydraulic Power Steering (EPHS) — Mercury EPHS MPU"
+  midsection: Advanced MidSection (AMS)
+  smartcraft: true
+  serial_number_needed: false
+  serial_number_location: "Starboard transom bracket / clamp assembly data plate"
+  plate_evidence: "Photo of Mercury data plate — Model 13000069A, Serial 3B371488, 300XXL, 300 HP / 221 kW, 620 lb / 281 kg, CE 0098, CAN ICES-2/NMB-2"
+  ephs_mpu:
+    status: confirmed
+    manufacturer: Mercury Marine
+    part_number: "8M6005909"
+    component: "EPHS MPU (Electro-Hydraulic Power Steering Motor Pump Unit)"
+    additional_id: "A0071925"
+    model_series: "TRW10"
+    facility: SCHALKE
+    manufacture_date: "2021-08-30"
+    fluid_note: "Cap/tag references Mercury synthetic steering fluid (label showed Mercury 92… Synthetic … 0W-30 class — verify exact P/N in O&M)."
+    photo_observation: "Reservoir fluid appeared at or slightly below MIN mark in owner photo — check/top up per Mercury procedure before next outing."
+  notes:
+    - "ESN 3B371488 confirmed from engine data plate photo."
+    - "Use ESN 3B371488 on Mercury Owners Manual portal and parts lookup."
+    - "Beneteau pre-rig option: Mercury Verado Digital DTS Throttle Shift (250–350 HP)."
+    - "Steering confirmed as EPHS (not pure electric steer-by-wire) via pump label 8M6005909."
+
+electrical_baseline:
+  system_voltage: "12 V"
+  panel: "12 V electrical panel"
+  outlets: ["12 V power outlet", "USB socket"]
+  fuse_map:
+    status: confirmed
+    document: catalog/fuse-map-12v.md
+    blue_sea_box: "NEW BLUE SEA BOX — 10A stereo (AN4), 3A JF/JF2 helm feeds, 10A VHF, 5A HDS/MFD"
+    main_fuse_box: "Slots I–X populated (5–20 A); XI–XII empty on diagram"
+    notes:
+      - "Wire code HDS = display circuit; installed MFD is Garmin (not Lowrance HDS)."
+      - "Blue Sea VHF 10 A circuit is on the diagram but owner confirms no fixed VHF — handheld only (circuit spare/pre-wire)."
+      - "Diagram also shows macerator, fresh-water, shower, bilge, and fridge-class feeds."
+  batteries:
+    status: confirmed
+    arrangement: "Two banks in yellow IMNASA boxes — ENGINE BATTERY + HOUSE BATTERY"
+    box_brand: IMNASA
+    chemistry: "Unverified from photos — CRISTEC sticker currently set to OPENED TYPE / FREE ELECTROLYTE; Mercury Verado typically requires AGM for engine start — verify labels on batteries inside boxes"
+    evidence: "Compartment photo — strapped ENGINE and HOUSE battery boxes above CRISTEC charger"
+  required_engine_battery: "12 V AGM; Mercury specifies high MCA/CCA AGM"
+  bilge: ["1 manual bilge pump", "1 electric bilge pump"]
+  smoke_detector: standard
+
+# ---------------------------------------------------------------------------
+# HARDWARE REGISTRY — searchable by id / aliases / symptoms
+# ---------------------------------------------------------------------------
+hardware:
+  - id: boat-hull-deck
+    category: boat
+    name: Flyer 8 SPACEdeck hull, deck, cockpit, cabin
+    status: confirmed
+    hin: "BEYFT208F223"
+    cin_eu: "FR-SPBFT208F223"
+    keywords: [hull, deck, airstep, cockpit, cabin, console, bolster, swim platform, locker, fuel tank, water tank, BEYFT208F223, HIN]
+    manuals:
+      - path: manuals/boat/Flyer-8-SPACEdeck-Equipment-List-US.pdf
+        title: General Equipment List – North America (M12925)
+        language: en
+      - path: manuals/boat/Flyer-8-SPACEdeck-Equipment-List-EN.pdf
+        title: General Specifications / Equipment List – International (M12921)
+        language: en
+      - path: manuals/boat/Flyer-8-Press-Release-UK.pdf
+        title: Flyer 8 press / product overview (UK)
+        language: en
+    missing:
+      - title: BENETEAU CE Owner's Manual / Owner's Handbook for HIN BEYFT208F223
+        how_to_obtain: "Register or request via Beneteau Helpdesk / selling dealer (help.beneteau.com) using HIN BEYFT208F223 / CIN FR-SPBFT208F223. CE manuals are vessel-specific and not freely published. US-market boat — also ask Beneteau America / selling dealer for commissioning docs."
+        language: en
+    symptoms: [leak, gelcoat crack, locker drain, fuel smell, water ingress, console rattle]
+
+  - id: engine-verado-300-v8
+    category: engine
+    name: Mercury Verado 300 V8 AMS (13000069A / 300XXL)
+    status: confirmed
+    serial_number_esn: "3B371488"
+    keywords: [verado, mercury, outboard, oil, spark plug, gearcase, cooling, flush, pcm, fault code, overheat, no start, warning horn, 3B371488, 300XXL]
+    manuals:
+      - path: manuals/engine/Mercury-Verado-V8-SeaPro-V8-Operation-Maintenance-8m0145543.pdf
+        title: Verado V8 / SeaPro V8 Operation & Maintenance Manual (8M0145543)
+        language: en
+        notes: "Official Brunswick download; also retrieve ESN-specific revision for 3B371488 on Mercury Owners Manual portal."
+      - path: manuals/engine/Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf
+        title: Electric Steering for V8/V10 AMS + Active Trim / DTS features (8M0221736)
+        language: en
+      - path: manuals/engine/Mercury-SmartCraft-Operation-Overview-8m0071455r.pdf
+        title: SmartCraft / DTS system overview (8M0071455)
+        language: en
+      - path: manuals/engine/Mercury-Active-Trim-8m0125432e-German.pdf
+        title: Active Trim dedicated manual (German only available as standalone PDF)
+        language: de
+        notes: "English Active Trim coverage is also inside 8M0221736 and the Verado O&M."
+    missing:
+      - title: Mercury Verado V8 AMS Service Manual (printed/PDF part 8M0182077, supersedes 8M0142590)
+        how_to_obtain: "Order from Mercury dealer / Brunswick publications; also indexed on ManualsLib as Mercury V8 300 Service Manual (644 pp)."
+        language: en
+      - title: Mercury V8 Diagnostic Manual (PCM 112 / CDS G3) (~302 pp)
+        how_to_obtain: "Mercury dealer / ManualsLib (Mercury V8 300 Diagnostic Manual)."
+        language: en
+      - title: ESN-specific Operation, Maintenance & Installation Manual for 3B371488
+        how_to_obtain: "https://www.mercurymarine.com/us/en/service-and-support/owners-resources/owners-manual — enter ESN 3B371488."
+        language: en
+    symptoms: [hard start, no start, overheat, low oil pressure, fault alarm, rough idle, no shift, DTS limp, power loss, gearcase noise]
+
+  - id: dts-controls
+    category: engine_controls
+    name: Mercury Digital Throttle & Shift (DTS) electronic remote control
+    status: confirmed
+    evidence: "Helm photo — Mercury single-lever DTS with DOCK, TRANSFER, THROTTLE ONLY; red lanyard kill switch"
+    keywords: [dts, throttle, shift, erc, dock mode, throttle only, troll, active trim button, control pad, transfer]
+    manuals:
+      - path: manuals/engine/Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf
+        title: ERC / DTS features, Active Trim, electric steering (8M0221736)
+        language: en
+      - path: manuals/engine/Mercury-SmartCraft-Operation-Overview-8m0071455r.pdf
+        title: SmartCraft DTS overview
+        language: en
+      - path: manuals/engine/Mercury-Verado-V8-SeaPro-V8-Operation-Maintenance-8m0145543.pdf
+        title: Verado O&M (controls / features sections)
+        language: en
+    symptoms: [no shift, stuck neutral, throttle only stuck, beep codes, lever unresponsive]
+
+  - id: steering-power
+    category: steering
+    name: Mercury EPHS MPU — Electro-Hydraulic Power Steering
+    status: confirmed
+    part_number: "8M6005909"
+    additional_id: "A0071925"
+    model_series: "TRW10"
+    manufacture_date: "2021-08-30"
+    evidence: "Photo of reservoir/pump label — MERCURY MARINE 8M6005909 EPHS MPU TRW10 SCHALKE"
+    keywords: [steering, helm, power steering, fluid, hard steering, lock to lock, AMS, EPHS, 8M6005909, TRW10]
+    manuals:
+      - path: manuals/engine/Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf
+        title: Electric Steering / AMS steering systems (8M0221736) — related SmartCraft steering docs
+        language: en
+      - path: manuals/engine/Mercury-Verado-V8-SeaPro-V8-Operation-Maintenance-8m0145543.pdf
+        title: Verado O&M (power steering fluid checks)
+        language: en
+    maintenance:
+      - "Check EPHS reservoir between MIN and MAX; top up only with Mercury-specified synthetic power steering fluid."
+      - "Owner photo showed level at/near MIN — inspect promptly."
+    symptoms: [heavy steering, steering alarm, no assist, fluid leak, uneven lock]
+
+  - id: vesselview-or-gauges
+    category: electronics
+    name: Mercury SmartCraft VesselView / digital engine display
+    status: confirmed
+    model_status: exact_model_unverified
+    evidence: "Helm photo — smaller square digital engine display upper-right of Garmin (VesselView / SmartCraft class)"
+    likely_models:
+      - "VesselView 403 / 502 / 703 / 704 class (confirm bezel or About)"
+    keywords: [vesselview, smartcraft, gauges, rpm, trim gauge, fault text, eco mode]
+    manuals:
+      - path: manuals/electronics/Mercury-VesselView-704-8m0220645.pdf
+        title: VesselView 704 Operation Manual
+        language: en
+      - path: manuals/electronics/Mercury-VesselView-502-702-8m0109374r.pdf
+        title: VesselView 502 / 702 Operation Manual
+        language: en
+    questions:
+      - "Close-up of the Mercury digital display (model on bezel) or its System/About info."
+    symptoms: [blank display, no engine data, wrong trim %, alarm text]
+
+  - id: garmin-echomap
+    category: electronics
+    name: Garmin multifunction display / sonar (Electronic Pack)
+    status: confirmed
+    model_status: exact_model_unverified
+    evidence: "Helm photos — Garmin chartplotter with chart+sonar split; Garmin logo on bezel; depth/GPS active"
+    likely_models:
+      - "ECHOMAP UHD 92sv (common on 2023 packs)"
+      - "ECHOMAP UHD2 92sv (listed on current US equipment list)"
+      - "ECHOMAP Ultra 2 122sv (Upgraded Electronic Pack)"
+    keywords: [garmin, echomap, chartplotter, sonar, gps, downvu, chirp, transducer, gt23]
+    manuals:
+      - path: manuals/electronics/Garmin-ECHOMAP-UHD-Owners-Manual-EN.pdf
+        title: ECHOMAP UHD Owner’s Manual
+        language: en
+      - path: manuals/electronics/Garmin-ECHOMAP-UHD2-62-72-92sv-Owners-Manual-EN.pdf
+        title: ECHOMAP UHD2 6/7/9 sv Owner’s Manual
+        language: en
+      - path: manuals/electronics/Garmin-Transom-Mount-Transducer-Install-EN.pdf
+        title: Garmin Transom-Mount Transducer Installation Instructions (covers GT23M-TM class)
+        language: en
+    questions:
+      - "Exact MFD model from Settings → System → About, or a close-up of the bezel model text."
+      - "Is the transducer GT23M-TM (transom) as factory pack, or another GT model?"
+    symptoms: [no gps fix, no sonar, depth lost at speed, NMEA missing, software update fail]
+
+  - id: fusion-audio
+    category: electronics
+    name: Fusion marine stereo (Sound Pack)
+    status: confirmed
+    model_status: exact_model_unverified
+    evidence: "Helm photo — Fusion-class marine stereo head unit beside engine display; fuse map 10A AN4 music circuit"
+    fuse: "Blue Sea box 10 A — AN4 r 2.5 mm²"
+    likely_models:
+      - "Fusion MS-RA210 (factory Sound Pack on Flyer 8 equipment list)"
+    keywords: [fusion, stereo, bluetooth, speakers, ra210, audio, AN4]
+    manuals:
+      - path: manuals/electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf
+        title: Fusion MS-RA210 Owner’s Manual
+        language: en
+    questions:
+      - "Close-up of stereo faceplate to confirm MS-RA210 vs another Fusion model."
+    symptoms: [no power, no bluetooth, speaker cutout, fusion-link missing]
+
+  - id: vhf-radio
+    category: electronics
+    name: VHF radio
+    status: not_installed_fixed
+    owner_confirmed: "No fixed VHF wired — handheld only"
+    evidence: "Fuse diagram has a Blue Sea 10 A circuit labeled VHF (spare / pre-wire); owner confirms only a handheld is carried"
+    fuse: "Blue Sea box 10 A — VHF r 2.5 mm² (present on diagram; unused for fixed set)"
+    keywords: [vhf, radio, dsc, handset, handheld]
+    manuals: []
+    questions:
+      - "Optional: handheld VHF brand/model if you want its manual in the library."
+    symptoms: [no transmit, no power, DSC fail]
+
+  - id: zipwake
+    category: trim_system
+    name: Zipwake Series S automatic interceptor trim system
+    status: confirmed
+    series: "Series S (helm UI shows AUTO PITCH / AUTO ROLL)"
+    mutually_exclusive_with: [lenco-tabs]
+    evidence: "Helm photos — Zipwake panel with AUTO PITCH/AUTO ROLL; also Series S rotary control under/near Garmin"
+    keywords: [zipwake, interceptor, auto trim, pitch, roll, tabs]
+    manuals:
+      - path: manuals/systems/Zipwake-Series-S-Operators-Manual-EN-R5A.pdf
+        title: Zipwake Series S Operator’s Manual (EN R5A)
+        language: en
+      - path: manuals/systems/Zipwake-Series-S-Installation-Guide-EN.pdf
+        title: Zipwake Series S Installation Guide
+        language: en
+    questions:
+      - "Optional: photo of interceptor blades on the transom for size (IT300/IT450/etc.)."
+    symptoms: [auto pitch fail, error code, interceptor stuck, NMEA GPS missing]
+
+  - id: lenco-tabs
+    category: trim_system
+    name: LENCO electric trim tabs
+    status: not_installed
+    mutually_exclusive_with: [zipwake]
+    evidence: "Helm has Zipwake; LENCO not present"
+    keywords: [lenco, trim tabs, electric tabs, list, porpoise]
+    manuals:
+      - path: manuals/systems/LENCO-Electric-Trim-Tab-Kit-Owners-Manual.pdf
+        title: LENCO Electric Trim Tab Kit Owner’s Manual (kept for reference only)
+        language: en
+    symptoms: [tab stuck, one side dead, switch dead, listing]
+
+  - id: windlass
+    category: anchoring
+    name: Electric windlass 12 V (US Trim Package / Comfort)
+    status: confirmed
+    brand_status: exact_model_unverified
+    evidence: "Bow photos — windlass housing + stainless plow/Delta-style anchor on bow roller"
+    anchor: "Stainless plow / Delta-style on roller (brand unverified)"
+    likely_brand: "Lewmar Pro-Series / Pro-Fish class (verify label on unit)"
+    keywords: [windlass, anchor, rode, gypsy, freefall, contactor, breaker, delta]
+    manuals:
+      - path: manuals/peripherals/Lewmar-Pro-Series-Pro-Fish-Windlass-Manual.pdf
+        title: Lewmar Pro-Series / Pro-Fish Windlass Product Manual
+        language: en
+    questions:
+      - "Close-up of windlass motor/gearbox plate (Lewmar / Quick / other)."
+      - "Chain size (e.g. 8 mm / 5/16) and whether freefall is fitted?"
+      - "Anchor brand/model stamp if present."
+    symptoms: [won't haul, freewheel, breaker trips, solenoid click]
+
+  - id: bow-thruster
+    category: maneuvering
+    name: Sleipner (Side-Power) bow thruster
+    status: confirmed
+    brand: Sleipner / Side-Power
+    model_status: exact_model_unverified
+    evidence: "Helm photo — SLEIPNER control panel visible at lower left of dash"
+    likely_models:
+      - "Side-Power SE40 / SE60 class (verify motor plate)"
+    keywords: [bow thruster, side-power, sleipner, tunnel, joystick thruster]
+    manuals:
+      - path: manuals/peripherals/Side-Power-SE-SE-IP-DC-User-Manual-EN.pdf
+        title: Side-Power SE / SE-IP DC User Manual
+        language: en
+    questions:
+      - "Thruster model from motor plate under cabin/locker hatch (e.g. SE40/125, SE60/185)."
+    symptoms: [no thrust, solenoid chatter, overheat cutout, weak batteries]
+
+  - id: cabin-fridge
+    category: comfort
+    name: Cabin fridge 42 L
+    status: likely_installed
+    evidence: "Main fuse diagram includes heavy 1C1A r 4 mm² fridge/fan-class circuit; factory option is 42 L cabin fridge"
+    fuse: "Main fuse box — 1C1A r 4 mm²"
+    likely_brand: "Isotherm Cruise CR 42 / Indel Webasto class"
+    keywords: [fridge, isotherm, compressor, 12v fridge, cabin refrigerator, 1C1A]
+    manuals:
+      - path: manuals/peripherals/Isotherm-Cruise-42-130-Install-Operating-EN.pdf
+        title: Isotherm Cruise CR 42–130 Installation & Operating Instructions
+        language: en
+      - path: manuals/peripherals/Isotherm-Cruise-Refer-Manual-EN.pdf
+        title: Isotherm Cruise Refrigerators Reference Manual
+        language: en
+    questions:
+      - "Fridge brand/model label inside cabinet or on compressor?"
+    symptoms: [not cold, compressor click, high current draw, frost]
+
+  - id: electric-toilet
+    category: plumbing
+    name: Freshwater electric toilet + holding tank (US Trim Package)
+    status: partially_confirmed
+    tank_status: confirmed_present
+    macerator_circuit: "Fuse diagram 3P1A — MACER"
+    tank_notes: "Turquoise polyethylene tank molded HOLDING in pump/battery locker; handwritten 80 L EF (US equipment list: 88 L blackwater / 80 L fresh water — verify which and exact capacity)"
+    tank_l: 88
+    likely_brand: "Jabsco / Tecma class (verify)"
+    keywords: [toilet, head, holding tank, macerator, flush, blackwater, MACER, 3P1A]
+    manuals:
+      - path: manuals/peripherals/Jabsco-37010-Electric-Toilet-Manual-EN.pdf
+        title: Jabsco 37010-series Electric Marine Toilet Manual
+        language: en
+    questions:
+      - "Toilet brand/model in the cabin head (Jabsco Quiet Flush, Tecma, other)?"
+      - "Confirm holding-tank capacity label vs handwritten 80 L EF."
+    symptoms: [won't flush, weak flush, pump noise, tank full alarm, odor]
+
+  - id: shore-power-charger
+    category: electrical
+    name: CRISTEC YPOWER battery charger + US shore-power AC panel
+    status: confirmed
+    brand: CRISTEC
+    model: "YPOWER YPO12-25DE"
+    gencode: "3700386101275"
+    serial: "2022061017878"
+    revision: K60
+    input: "90–265 VAC, 3.66 A max, 50/60 Hz"
+    output: "12 VDC, 25 A"
+    made_in: France
+    evidence: "Photo of charger faceplate + adjacent AC breaker enclosure"
+    battery_settings_shown: "OPENED TYPE BAT / FREE ELECTROLYTE (verify matches actual battery chemistry — Mercury Verado typically wants AGM)"
+    ac_panel:
+      shore_voltage_label: "115 Volts / 60 Hz"
+      breakers_visible:
+        - "Schneider iDPN N Vigi C32 / 30 mA (label CHAUFFE-EAU / handwritten PRISE 115V)"
+        - "ABB S202C C16 (x2 visible)"
+      indicator: "Schneider iIL green indicator lit"
+    keywords: [shore power, charger, cristec, ypower, YPO12-25DE, AC inlet, battery charging, schneider, 115V]
+    manuals:
+      - path: manuals/peripherals/CRISTEC-YPOWER-User-Manual-EN.pdf
+        title: CRISTEC YPOWER battery chargers user manual (EN section from p.23; covers 12V/25A)
+        language: en
+      - path: manuals/peripherals/CRISTEC-YPOWER-Datasheet-EN.pdf
+        title: CRISTEC YPOWER AC-DC datasheet
+        language: en
+      - path: manuals/peripherals/Mastervolt-ChargeMaster-12-25-3-Manual-EN.pdf
+        title: Mastervolt ChargeMaster 12/25-3 (NOT installed — discarded candidate)
+        language: en
+    symptoms: [no charge, AC breaker trip, hot plug, battery sulfation, wrong charge profile]
+
+  - id: deck-wash
+    category: plumbing
+    name: Flojet washdown / deck-wash pump
+    status: confirmed
+    brand: Flojet (Xylem)
+    model: "R4325143F"
+    description: "12V 4.5 GPM 5IE SW40 R"
+    serial: "22C53625"
+    voltage: "12 V DC"
+    open_flow: "4.5 GPM / 17 LPM"
+    max_current: "12 A"
+    shutoff_pressure: "40 PSI / 2.8 BAR"
+    fuse: "15 A"
+    evidence: "Photo of pump pair on bulkhead — left unit Flojet with strainer"
+    keywords: [deck wash, washdown, flojet, R4325143F, raw water pump]
+    manuals:
+      - path: manuals/peripherals/Flojet-Washdown-Pump-Manual-EN.pdf
+        title: Flojet 4305/4325 Series Washdown Pump User Guide (covers R4325)
+        language: en
+    symptoms: [no pressure, airlock, strainer clog, thermal cutout]
+
+  - id: freshwater-pump
+    category: plumbing
+    name: Jabsco PAR-MAX 2.9 fresh water system pump
+    status: confirmed
+    brand: Jabsco (Xylem)
+    model_name: "PAR-MAX 2.9"
+    model_number: "31395-7008"
+    serial: "22A45914"
+    voltage: "12 V DC"
+    flow: "2.9 GPM / 11.0 LPM"
+    max_current: "5.2 A"
+    shutoff_pressure: "40 PSI / 2.8 BAR"
+    fuse: "10 A"
+    evidence: "Photo of pump pair on bulkhead — right unit Jabsco PAR-MAX 2.9"
+    keywords: [fresh water, jabsco, par-max, 31395-7008, pressure pump, shower]
+    manuals:
+      - path: manuals/peripherals/Jabsco-PAR-MAX-2.9-Manual-EN.pdf
+        title: Jabsco 31295/31395 Series Automatic Water System Pump Manual
+        language: en
+    symptoms: [no pressure, cycling, strainer clog, thermal cutout, dry run]
+
+  - id: seanapps
+    category: connected_boat
+    name: Seanapps connected-boat unit + app
+    status: typical_option
+    keywords: [seanapps, geofence, battery monitor, tank level, connectivity, 4G]
+    manuals: []
+    missing:
+      - title: Seanapps user / install documentation
+        how_to_obtain: "In-app Help Center tutorials; dealer-installed; https://www.seanapps.app/en"
+        language: en
+    questions:
+      - "Is a Seanapps unit installed and activated?"
+    symptoms: [offline, wrong tank level, no GPS track]
+
+  - id: t-top-pilot-edition
+    category: exterior
+    name: T-Top / exterior package / pulpits
+    status: confirmed
+    evidence: "Exterior/cockpit photos — black T-Top frame + fabric roof with 4 aft rod holders; black bow pulpits; synthetic teak decking; elegance two-tone cushions; cockpit table"
+    equipped:
+      - "Black T-Top with fabric roof"
+      - "Rod holders on T-Top (x4 visible aft)"
+      - "Black pulpits"
+      - "Synthetic teak decking"
+      - "Cockpit table"
+      - "Elegance-style grey/cognac upholstery"
+    keywords: [t-top, pilot edition, underwater lights, cockpit led, ski mast, fishing station, black pulpits, bimini, rod holders, synthetic teak, elegance]
+    manuals:
+      - path: manuals/boat/Flyer-8-SPACEdeck-Equipment-List-US.pdf
+        title: Equipment list (Pilot Edition / options)
+        language: en
+    questions:
+      - "Underwater lights / ski mast / fishing station also fitted?"
+      - "Decking brand if labeled (SeaDek / Flexiteek / other)?"
+
+# ---------------------------------------------------------------------------
+# SYMPTOM → HARDWARE INDEX (for debugging search)
+# ---------------------------------------------------------------------------
+symptom_index:
+  no_start: [engine-verado-300-v8, dts-controls, electrical_baseline]
+  overheat: [engine-verado-300-v8]
+  hard_steering: [steering-power]
+  no_shift: [dts-controls, engine-verado-300-v8]
+  listing_or_porpoising: [zipwake, lenco-tabs, engine-verado-300-v8]
+  no_depth: [garmin-echomap]
+  windlass_dead: [windlass, electrical_baseline]
+  thruster_dead: [bow-thruster, electrical_baseline]
+  fridge_warm: [cabin-fridge, electrical_baseline]
+  toilet_fail: [electric-toilet]
+  shore_power_issues: [shore-power-charger]
+  stereo_dead: [fusion-audio]
+  blank_engine_data: [vesselview-or-gauges, garmin-echomap, dts-controls]
+
+# ---------------------------------------------------------------------------
+# OFFICIAL PORTALS
+# ---------------------------------------------------------------------------
+portals:
+  beneteau_helpdesk: "https://help.beneteau.com/hc/en-us"
+  beneteau_owners_manuals: "https://help.beneteau.com/hc/en-us/sections/360005594658-Owner-s-manuals"
+  mercury_owners_manuals: "https://www.mercurymarine.com/us/en/service-and-support/owners-resources/owners-manual"
+  mercury_parts: "https://www.mercurymarine.com/"
+  brunswick_download_center: "http://download.brunswick-marine.com/download/dosearch/"
+  garmin_support: "https://support.garmin.com/en-US/"
+  zipwake_support: "https://zipwake.com/"
+  seanapps: "https://www.seanapps.app/en"

@@ -43,6 +43,8 @@ vessel:
     - "CRISTEC YPOWER YPO12-25DE 12V/25A battery charger (S/N 2022061017878) + 115V/60Hz AC breaker panel"
     - "Flojet washdown pump R4325143F (S/N 22C53625) — 12V 4.5 GPM 40 PSI"
     - "Jabsco PAR-MAX 2.9 freshwater pump 31395-7008 (S/N 22A45914) — 12V 2.9 GPM 40 PSI"
+    - "Dual batteries in IMNASA boxes: ENGINE BATTERY + HOUSE BATTERY"
+    - "Polyethylene HOLDING tank in same locker (hand mark 80 L EF; US list specifies 88 L blackwater — confirm capacity/label)"
   not_equipped_from_photos:
     - "LENCO electric trim tabs (Zipwake installed instead)"
     - "Mastervolt ChargeMaster (charger is CRISTEC, not Mastervolt)"
@@ -113,7 +115,12 @@ electrical_baseline:
   system_voltage: "12 V"
   panel: "12 V electrical panel"
   outlets: ["12 V power outlet", "USB socket"]
-  batteries: "Engine battery install with pre-rig; max 2 batteries (not factory-delivered)"
+  batteries:
+    status: confirmed
+    arrangement: "Two banks in yellow IMNASA boxes — ENGINE BATTERY + HOUSE BATTERY"
+    box_brand: IMNASA
+    chemistry: "Unverified from photos — CRISTEC sticker currently set to OPENED TYPE / FREE ELECTROLYTE; Mercury Verado typically requires AGM for engine start — verify labels on batteries inside boxes"
+    evidence: "Compartment photo — strapped ENGINE and HOUSE battery boxes above CRISTEC charger"
   required_engine_battery: "12 V AGM; Mercury specifies high MCA/CCA AGM"
   bilge: ["1 manual bilge pump", "1 electric bilge pump"]
   smoke_detector: standard
@@ -368,7 +375,9 @@ hardware:
   - id: electric-toilet
     category: plumbing
     name: Freshwater electric toilet + holding tank (US Trim Package)
-    status: typical_option
+    status: partially_confirmed
+    tank_status: confirmed_present
+    tank_notes: "Turquoise polyethylene tank molded HOLDING in pump/battery locker; handwritten 80 L EF (US equipment list: 88 L blackwater / 80 L fresh water — verify which and exact capacity)"
     tank_l: 88
     likely_brand: "Jabsco / Tecma class (verify)"
     keywords: [toilet, head, holding tank, macerator, flush, blackwater]
@@ -377,7 +386,8 @@ hardware:
         title: Jabsco 37010-series Electric Marine Toilet Manual
         language: en
     questions:
-      - "Toilet brand/model (Jabsco Quiet Flush, Tecma, other)?"
+      - "Toilet brand/model in the cabin head (Jabsco Quiet Flush, Tecma, other)?"
+      - "Confirm holding-tank capacity label vs handwritten 80 L EF."
     symptoms: [won't flush, weak flush, pump noise, tank full alarm, odor]
 
   - id: shore-power-charger

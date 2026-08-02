@@ -6,7 +6,7 @@
 | Spacedeck layout | Open bow with facing benches + center walkway |
 | T-Top | Black frame, black fabric roof, **4 aft rocket-launcher rod holders** |
 | Pulpits | Black powder-coated bow rails |
-| Decking | Light wood-grain synthetic teak with black caulk (cockpit + swim platform) |
+| Decking | **Real teak** (owner confirmed) — cockpit + swim platform; factory solid-wood/teck option class |
 | Upholstery | Light grey with cognac/brown accents (Elegance-class look) |
 | Cockpit table | Pedestal table between helm and aft bench |
 | Anchor | Stainless plow/Delta-style on bow roller |
@@ -24,4 +24,3 @@
 ## Still open
 - Underwater lights / Pilot Edition graphics / fishing station
 - Windlass brand plate under bow hatch
-- Decking product brand if labeled

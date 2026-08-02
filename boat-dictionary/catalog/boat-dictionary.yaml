@@ -41,7 +41,7 @@ vessel:
     - "Electric windlass present at bow"
     - "Black pulpits / black windshield frame with Flyer logo"
     - "Black-frame T-Top with fabric roof + 4 aft rocket-launcher rod holders"
-    - "Synthetic teak / wood-grain decking with black caulk lines (cockpit + swim platform)"
+    - "Real teak decking (cockpit + swim platform) — owner confirmed; factory 'solid wood / teck' option class"
     - "Elegance-class two-tone upholstery (light grey + cognac/brown accents)"
     - "GRP/wood cockpit table between helm and aft bench (US Trim Package)"
     - "Fusion cockpit speaker(s) visible at gunwale"
@@ -520,23 +520,22 @@ hardware:
     category: exterior
     name: T-Top / exterior package / pulpits
     status: confirmed
-    evidence: "Exterior/cockpit photos — black T-Top frame + fabric roof with 4 aft rod holders; black bow pulpits; synthetic teak decking; elegance two-tone cushions; cockpit table"
+    evidence: "Exterior/cockpit photos + owner confirmation — real teak decking; black T-Top with 4 rod holders; black pulpits; elegance upholstery; cockpit table; ski pylon"
     equipped:
       - "Black T-Top with fabric roof"
       - "Rod holders on T-Top (x4 visible aft)"
       - "Black pulpits"
-      - "Synthetic teak decking"
+      - "Real teak decking (cockpit + platforms)"
       - "Cockpit table"
       - "Elegance-style grey/cognac upholstery"
       - "Stainless ski / wakeboard tow pylon (U-arch over engine)"
-    keywords: [t-top, pilot edition, underwater lights, cockpit led, ski mast, fishing station, black pulpits, bimini, rod holders, synthetic teak, elegance, ski pylon, tow point]
+    keywords: [t-top, pilot edition, underwater lights, cockpit led, ski mast, fishing station, black pulpits, bimini, rod holders, teak, solid wood, elegance, ski pylon, tow point]
     manuals:
       - path: manuals/boat/Flyer-8-SPACEdeck-Equipment-List-US.pdf
         title: Equipment list (Pilot Edition / options)
         language: en
     questions:
       - "Underwater lights / fishing station also fitted?"
-      - "Decking brand if labeled (SeaDek / Flexiteek / other)?"
 
 # ---------------------------------------------------------------------------
 # SYMPTOM → HARDWARE INDEX (for debugging search)

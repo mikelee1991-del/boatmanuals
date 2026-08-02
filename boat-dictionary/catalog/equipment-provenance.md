@@ -60,6 +60,7 @@ These are **not** bare-boat stock, but they **are** on Beneteau’s official lis
 | **Rod holders on T-Top** | Option (list says x5) | **4** visible aft — factory option class |
 | **Stainless ski mast** | Option | Confirmed tow pylon |
 | Cabin fridge 42 L | Option | Likely (heavy 1C1A fuse feed) — confirm in cabin |
+| **Solid wood / teak cockpit** (cockpit + platforms) | Factory option on Flyer 8 family lists (“Solid wood cockpit” / “Teck”) | **Owner confirmed real teak** (not foam carpet / not synthetic) |
 | Mercury Verado DTS pre-rig 250–350 | Option | Confirmed Verado 300 + DTS + VesselView-class display |
 | Dual batteries | Allowed (max 2, not factory-delivered) | ENGINE + HOUSE IMNASA boxes |
 
@@ -90,7 +91,6 @@ That’s the only **clear** non-factory customization found so far.
 
 | Item | Why uncertain |
 |------|----------------|
-| **Synthetic teak decking** (plank look + black caulk) | Official list mentions **grey foam carpet** or (on older lists) **solid wood** — not explicitly “Flexiteek/SeaDek”. Could be a dealer upgrade or a regional offering. Brand label would settle it. |
 | **T-Top fabric roof** | Factory describes “white polyester roof + black aluminium frame”; yours is black fabric over black frame. Still matches the factory T-Top *option*, just verify if roof material is OEM soft-top vs later canvas. |
 | Exact **windlass / toilet / fridge / VesselView / Garmin** model numbers | Almost certainly factory/dealer, but labels still needed |
 
@@ -99,9 +99,9 @@ That’s the only **clear** non-factory customization found so far.
 ## Bottom line
 
 **No strong evidence of major aftermarket systems added later.**  
-Your boat reads as a **US-market Flyer 8 SPACEdeck with US Trim Package + electronics/sound + Zipwake + thruster + T-Top/ski/deck-wash options**, plus Mercury Verado 300.
+Your boat reads as a **US-market Flyer 8 SPACEdeck with US Trim Package + electronics/sound + Zipwake + thruster + T-Top/ski/deck-wash + teak deck options**, plus Mercury Verado 300.
 
-The only obvious post-factory touch found so far is the **San Diego seat lettering**. Synthetic teak is the main “maybe dealer upgrade” item.
+The only obvious post-factory touch found so far is the **San Diego seat lettering**.
 
 ### How to prove 100%
 Ask the selling dealer for the **original options invoice / build sheet** for HIN `BEYFT208F223`. That list is definitive for factory vs later.

@@ -1,6 +1,6 @@
 # Battery / pump / holding-tank locker (photo evidence)
 
-Deck hatch over synthetic teak; compartment contains batteries, CRISTEC charger, AC panel, both water pumps, and a large tank.
+Deck hatch over teak decking; compartment contains batteries, CRISTEC charger, AC panel, both water pumps, and a large tank.
 
 ## Batteries
 | Box label | Notes |

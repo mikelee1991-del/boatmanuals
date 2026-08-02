@@ -15,6 +15,9 @@ Photo of helm looking forward over bow (marina / Shelter Island area on Garmin c
 | Black pulpits | Black powder-coated bow rails + black windshield frame |
 | T-Top | Black metal frame with black fabric roof (snaps) |
 | Switch panel | Toggle/rocker bank for lights, bilge, etc. |
+| Offshore compass | Analog magnetic compass on dash behind windshield (US Trim Package) |
+| START/STOP | Mercury ignition + START/STOP button at helm |
+| Possible VHF | Handheld in holder near wheel base — confirm if fixed VHF fitted |
 
 ## Ruled out
 | Item | Reason |

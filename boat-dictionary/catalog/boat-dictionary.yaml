@@ -29,6 +29,7 @@ vessel:
   identifiers_needed:
     - delivery_dealer
     - original_options_invoice_or_build_sheet
+  equipment_provenance: catalog/equipment-provenance.md
   equipped_confirmed_from_photos:
     - "Zipwake Dynamic Trim Control (Series S panel with rotary control under/near Garmin)"
     - "Sleipner (Side-Power) thruster control + thruster joystick (ON/OFF) at helm"

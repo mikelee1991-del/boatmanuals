@@ -18,6 +18,7 @@ English manuals and a searchable hardware map for:
 
 Machine-readable catalog: [`catalog/boat-dictionary.yaml`](catalog/boat-dictionary.yaml)  
 12 V fuse map: [`catalog/fuse-map-12v.md`](catalog/fuse-map-12v.md)  
+Stock vs options vs later-added: [`catalog/equipment-provenance.md`](catalog/equipment-provenance.md)  
 PDF library: [`manuals/`](manuals/) (~100 MB)
 
 ---

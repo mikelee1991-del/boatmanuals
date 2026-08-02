@@ -41,7 +41,7 @@ async function loadBundle() {
   if (!res.ok) throw new Error("Could not load knowledge bundle");
   bundle = await res.json();
   const kb = Math.round((bundle.stats?.bytes || 0) / 1024);
-  statusEl.textContent = `Ready · ${bundle.stats?.files || "?"} files · ${bundle.stats?.chunks || "?"} passages · ${kb} KB · no API key`;
+  statusEl.textContent = `From boat binder · ${bundle.stats?.files || "?"} files · ${bundle.stats?.chunks || "?"} passages · ${kb} KB · offline`;
   statusEl.className = "status ok";
 
   chipsEl.innerHTML = "";

@@ -162,6 +162,12 @@ const bundle = {
 
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 fs.writeFileSync(OUT, JSON.stringify(bundle));
+// Provenance stamp so the UI can show "built from boat-dictionary"
+bundle.source = {
+  binder: "boat-dictionary/",
+  note: "Generated from the repo boat binder. Re-run npm run build after binder edits.",
+};
+
 console.log(
-  `Wrote ${OUT} — ${bundle.stats.files} files, ${bundle.stats.chunks} chunks, ${Math.round(bundle.stats.bytes / 1024)} KB source`
+  `Wrote ${OUT} — ${bundle.stats.files} files, ${bundle.stats.chunks} chunks, ${Math.round(bundle.stats.bytes / 1024)} KB source (from boat-dictionary/)`
 );

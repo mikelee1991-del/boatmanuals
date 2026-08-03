@@ -6,9 +6,9 @@ Live: **https://mikelee1991-del.github.io/boatmanuals/**
 
 ## Free setup (recommended for readable AI answers)
 
-1. Create a **free** key at [openrouter.ai/keys](https://openrouter.ai/keys) (no paid plan required for `:free` models).
+1. Create a **free** key at [openrouter.ai/keys](https://openrouter.ai/keys).
 2. Open the guide → **Setup** → paste the key.
-3. Keep model `meta-llama/llama-3.3-70b-instruct:free` (or any model ending in `:free`).
+3. Set model to **`openrouter/free`** (recommended). It auto-picks a live free model — individual `:free` slugs (like Llama 3.3) get retired often.
 
 Without a key, the app still answers from the binder (checklists + excerpts). With a free key, it synthesizes a clear bottom-line + steps.
 

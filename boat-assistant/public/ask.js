@@ -1,6 +1,8 @@
 /**
- * Ask orchestrator: free binder answers by default;
- * optional free OpenRouter model for synthesis when a free key is saved.
+ * Ask orchestrator: free binder answers always;
+ * optional OpenRouter free synthesis when a free key is saved.
+ *
+ * Free model slugs rotate often — default is openrouter/free (auto-picks a live free model).
  */
 import {
   answerStructured,
@@ -11,18 +13,40 @@ import {
 
 const SETTINGS_KEY = "flyer8-guide-settings-v2";
 
+/** Durable free entrypoint — OpenRouter picks whatever :free models are live today. */
+export const FREE_ROUTER = "openrouter/free";
+
+/** Specific free fallbacks if the router or a saved slug is down. */
+export const FREE_MODEL_FALLBACKS = [
+  FREE_ROUTER,
+  "google/gemma-4-31b-it:free",
+  "inclusionai/ling-3.0-flash:free",
+  "openai/gpt-oss-20b:free",
+  "nvidia/nemotron-3-nano-30b-a3b:free",
+];
+
+const RETIRED_FREE = [
+  "meta-llama/llama-3.3-70b-instruct:free",
+  "meta-llama/llama-3.2-3b-instruct:free",
+  "meta-llama/llama-3.1-8b-instruct:free",
+];
+
 export const DEFAULT_SETTINGS = {
-  // free = local synthesis; ai = OpenRouter :free model (needs free signup key)
   mode: "ai",
   provider: "openrouter",
   apiKey: "",
-  model: "meta-llama/llama-3.3-70b-instruct:free",
+  model: FREE_ROUTER,
 };
+
+function normalizeModel(model) {
+  const m = (model || "").trim();
+  if (!m || RETIRED_FREE.includes(m)) return FREE_ROUTER;
+  return m;
+}
 
 export function loadSettings() {
   try {
     const raw = localStorage.getItem(SETTINGS_KEY);
-    // migrate old key once
     if (!raw) {
       const legacy = localStorage.getItem("flyer8-llm-settings");
       if (legacy) {
@@ -30,7 +54,7 @@ export function loadSettings() {
         const next = {
           ...DEFAULT_SETTINGS,
           apiKey: old.apiKey || "",
-          model: old.model?.includes(":free") ? old.model : DEFAULT_SETTINGS.model,
+          model: normalizeModel(old.model),
           mode: old.apiKey ? "ai" : "free",
         };
         localStorage.setItem(SETTINGS_KEY, JSON.stringify(next));
@@ -38,7 +62,13 @@ export function loadSettings() {
       }
       return { ...DEFAULT_SETTINGS };
     }
-    return { ...DEFAULT_SETTINGS, ...JSON.parse(raw) };
+    const parsed = { ...DEFAULT_SETTINGS, ...JSON.parse(raw) };
+    const fixed = normalizeModel(parsed.model);
+    if (fixed !== parsed.model) {
+      parsed.model = fixed;
+      localStorage.setItem(SETTINGS_KEY, JSON.stringify(parsed));
+    }
+    return parsed;
   } catch {
     return { ...DEFAULT_SETTINGS };
   }
@@ -46,6 +76,7 @@ export function loadSettings() {
 
 export function saveSettings(partial) {
   const next = { ...loadSettings(), ...partial };
+  if (next.model) next.model = normalizeModel(next.model);
   localStorage.setItem(SETTINGS_KEY, JSON.stringify(next));
   return next;
 }
@@ -58,29 +89,62 @@ function parseJsonAnswer(text) {
   return JSON.parse(cleaned.slice(start, end + 1));
 }
 
-async function callOpenRouter(settings, messages) {
+function isModelUnavailableError(err) {
+  const msg = String(err?.message || err || "").toLowerCase();
+  return (
+    msg.includes("unavailable for free") ||
+    msg.includes("no endpoints found") ||
+    msg.includes("not available") ||
+    msg.includes("is not a valid model") ||
+    msg.includes("404") ||
+    msg.includes("model not found")
+  );
+}
+
+async function callOpenRouter(apiKey, model, messages) {
   const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${settings.apiKey}`,
+      Authorization: `Bearer ${apiKey}`,
       "HTTP-Referer": location.origin,
       "X-Title": "Flyer 8 Boat Guide",
     },
     body: JSON.stringify({
-      model: settings.model || DEFAULT_SETTINGS.model,
+      model,
       temperature: 0.15,
       messages,
     }),
   });
   const data = await res.json().catch(() => ({}));
   if (!res.ok) {
-    const msg = data?.error?.message || res.statusText || "OpenRouter request failed";
+    const msg = data?.error?.message || data?.error || res.statusText || "OpenRouter request failed";
     throw new Error(typeof msg === "string" ? msg : JSON.stringify(msg));
   }
   const text = data?.choices?.[0]?.message?.content;
   if (!text) throw new Error("Empty model response");
   return text;
+}
+
+/** Try preferred model, then free fallbacks. Persist working model when we auto-heal. */
+async function callOpenRouterWithFallback(settings, messages) {
+  const preferred = normalizeModel(settings.model);
+  const queue = [preferred, ...FREE_MODEL_FALLBACKS.filter((m) => m !== preferred)];
+  let lastErr;
+  for (const model of queue) {
+    try {
+      const text = await callOpenRouter(settings.apiKey, model, messages);
+      if (model !== settings.model) {
+        // Auto-migrate saved settings off a dead free slug
+        saveSettings({ model });
+      }
+      return { text, model };
+    } catch (err) {
+      lastErr = err;
+      if (!isModelUnavailableError(err)) throw err;
+    }
+  }
+  throw lastErr || new Error("No free OpenRouter models available right now");
 }
 
 async function tryServerLlm(question) {
@@ -111,7 +175,6 @@ export async function askQuestion(bundle, mediaIndex, question, settings = loadS
   const evidence = matchEvidence(mediaIndex, question, passages);
   const local = answerStructured(bundle, question, mediaIndex);
 
-  // Prefer server LLM if configured (OPENROUTER_API_KEY / GEMINI etc.)
   const server = await tryServerLlm(question);
   if (server?.structured) {
     return {
@@ -119,6 +182,7 @@ export async function askQuestion(bundle, mediaIndex, question, settings = loadS
       ...server.structured,
       mode: "ai",
       provider: server.provider || "server",
+      model: server.model,
       evidence: evidence.length ? evidence : local.evidence,
       sources: local.sources,
       manuals: local.manuals,
@@ -128,14 +192,14 @@ export async function askQuestion(bundle, mediaIndex, question, settings = loadS
 
   if (settings.mode === "ai" && settings.apiKey) {
     const messages = buildLlmMessages(bundle, question, passages, evidence);
-    const raw = await callOpenRouter(settings, messages);
+    const { text: raw, model } = await callOpenRouterWithFallback(settings, messages);
     const parsed = parseJsonAnswer(raw);
     const evidenceIds = new Set(parsed.evidenceIds || []);
     const ev = evidence.filter((e) => evidenceIds.has(e.id));
     return {
       mode: "ai",
       provider: "openrouter",
-      model: settings.model,
+      model,
       summary: parsed.summary || local.summary,
       steps: Array.isArray(parsed.steps) && parsed.steps.length ? parsed.steps : local.steps,
       details: parsed.details || "",

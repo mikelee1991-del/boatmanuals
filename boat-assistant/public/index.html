@@ -115,12 +115,12 @@
         </header>
         <p>
           <strong>Free path:</strong> binder answers work with no key. For readable AI synthesis, use OpenRouter’s
-          <code>:free</code> models (free signup).
+          free router (recommended) or any live <code>:free</code> model.
         </p>
         <label>
           Answer mode
           <select name="mode">
-            <option value="ai">AI synthesis (recommended — free OpenRouter model)</option>
+            <option value="ai">AI synthesis (recommended — free OpenRouter)</option>
             <option value="free">Binder only (no network model)</option>
           </select>
         </label>
@@ -130,11 +130,12 @@
         </label>
         <label>
           Model
-          <input name="model" type="text" value="meta-llama/llama-3.3-70b-instruct:free" />
+          <input name="model" type="text" value="openrouter/free" placeholder="openrouter/free" />
         </label>
         <p class="hint">
-          Get a key at <a href="https://openrouter.ai/keys" target="_blank" rel="noopener">openrouter.ai/keys</a>.
-          Pick any model ending in <code>:free</code>. Key stays in this browser only.
+          Key: <a href="https://openrouter.ai/keys" target="_blank" rel="noopener">openrouter.ai/keys</a>.
+          Prefer <code>openrouter/free</code> — it auto-picks a working free model (individual
+          <code>:free</code> slugs get retired often). Your key stays in this browser only.
         </p>
         <button type="submit" class="btn primary">Save</button>
       </form>

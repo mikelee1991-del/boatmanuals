@@ -24,5 +24,5 @@ Live: **https://mikelee1991-del.github.io/boatmanuals/**
 
 ### Help needed from you
 
-1. **Free AI key (optional but recommended):** [openrouter.ai/keys](https://openrouter.ai/keys) → paste in **Setup** on the site. Use a model ending in `:free` ($0).
+1. **Free AI key (optional but recommended):** [openrouter.ai/keys](https://openrouter.ai/keys) → paste in **Setup** → model **`openrouter/free`**.
 2. **Original photos:** evidence is transcribed, but image files aren’t in the repo. Drop photos into `boat-dictionary/photos/` and we can display them in answers.

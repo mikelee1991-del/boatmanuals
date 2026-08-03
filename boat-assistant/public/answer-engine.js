@@ -577,7 +577,8 @@ function keyPointsFromPassages(passages, limit = 8) {
   });
   for (const p of ordered) {
     if (p.kind === "evidence") continue;
-    if (/diagrams\/|retrieval-index/.test(p.file || "")) continue;
+    if (p.kind === "manual") continue; // OEM page dumps are for Details, not key bullets
+    if (/diagrams\/|retrieval-index|extracts\//.test(p.file || "")) continue;
     const body = stripHeading(p.text);
     const short = extractShort(body);
     if (short) add(short);
@@ -589,7 +590,8 @@ function keyPointsFromPassages(passages, limit = 8) {
   }
   if (points.length < 3) {
     for (const p of ordered) {
-      if (p.kind === "evidence") continue;
+      if (p.kind === "evidence" || p.kind === "manual") continue;
+      if (/diagrams\/|extracts\//.test(p.file || "")) continue;
       const para = firstUsefulParagraph(p.text);
       if (para) add(para.length > 180 ? para.slice(0, 177) + "…" : para);
       if (points.length >= limit) break;

@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-08-03T04:31:04.326Z",
+  "builtAt": "2026-08-03T05:27:50.362Z",
   "items": [
     {
       "id": "battery-locker",
@@ -40,6 +40,7 @@
       "file": "notes/evidence/deck-and-canvas-photo-evidence.md",
       "title": "Deck / canvas photo evidence",
       "tags": [
+        "helm",
         "teak",
         "cockpit",
         "engine",
@@ -113,7 +114,7 @@
         "engine",
         "hin"
       ],
-      "summary": "Photo of helm looking forward over bow (marina / Shelter Island area on Garmin chart).",
+      "summary": "Owner helm photo looking forward over the bow (Garmin chart centered on **Shelter Island, San Diego**). Electronics powered; boat in marina / idle.",
       "image": null,
       "photoStatus": "transcript-only",
       "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."

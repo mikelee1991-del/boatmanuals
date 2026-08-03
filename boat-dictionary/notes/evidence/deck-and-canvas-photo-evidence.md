@@ -7,7 +7,7 @@ Source: owner exterior photos + owner confirmation
 
 - **Real teak decking** on cockpit sole and swim platforms (owner confirmed — not foam carpet / SeaDek / Flexiteek-class synthetic).
 - Matches Beneteau factory option class **“Solid wood cockpit” / “Teck”** on Flyer 8 family equipment lists (exact line for HIN BEYFT208F223 still needs build sheet).
-- Black T-Top with fabric roof and **4** aft rocket-launcher rod holders.
+- Black **soft** T-Top with fabric roof (**CONFIRMED** from helm/bow photo — not a hardtop) and **4** aft rocket-launcher rod holders.
 - Black pulpits / black windshield frame with Flyer logo.
 - Elegance-class two-tone upholstery (light grey + cognac accents).
 - GRP/wood cockpit table (US Trim Package).

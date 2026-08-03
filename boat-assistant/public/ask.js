@@ -8,6 +8,7 @@ import {
   answerStructured,
   retrievePassages,
   matchEvidence,
+  matchFigures,
   buildLlmMessages,
 } from "./answer-engine.js";
 
@@ -19,10 +20,10 @@ export const FREE_ROUTER = "openrouter/free";
 /** Specific free fallbacks if the router or a saved slug is down. */
 export const FREE_MODEL_FALLBACKS = [
   FREE_ROUTER,
-  "google/gemma-4-31b-it:free",
   "inclusionai/ling-3.0-flash:free",
   "openai/gpt-oss-20b:free",
   "nvidia/nemotron-3-nano-30b-a3b:free",
+  "google/gemma-4-31b-it:free",
 ];
 
 const RETIRED_FREE = [
@@ -170,10 +171,11 @@ export function needsFreeKey(settings = loadSettings()) {
 /**
  * Main entry used by the UI.
  */
-export async function askQuestion(bundle, mediaIndex, question, settings = loadSettings()) {
-  const passages = retrievePassages(bundle, question, { limit: 12 });
+export async function askQuestion(bundle, mediaIndex, question, settings = loadSettings(), figuresIndex = null) {
+  const passages = retrievePassages(bundle, question, { limit: 14 });
   const evidence = matchEvidence(mediaIndex, question, passages);
-  const local = answerStructured(bundle, question, mediaIndex);
+  const figures = matchFigures(figuresIndex, question, passages, { limit: 6 });
+  const local = answerStructured(bundle, question, mediaIndex, figuresIndex);
 
   const server = await tryServerLlm(question);
   if (server?.structured) {
@@ -184,6 +186,7 @@ export async function askQuestion(bundle, mediaIndex, question, settings = loadS
       provider: server.provider || "server",
       model: server.model,
       evidence: evidence.length ? evidence : local.evidence,
+      figures: figures.length ? figures : local.figures,
       sources: local.sources,
       manuals: local.manuals,
       confidence: "high",
@@ -191,21 +194,24 @@ export async function askQuestion(bundle, mediaIndex, question, settings = loadS
   }
 
   if (settings.mode === "ai" && settings.apiKey) {
-    const messages = buildLlmMessages(bundle, question, passages, evidence);
+    const messages = buildLlmMessages(bundle, question, passages, evidence, figures);
     const { text: raw, model } = await callOpenRouterWithFallback(settings, messages);
     const parsed = parseJsonAnswer(raw);
     const evidenceIds = new Set(parsed.evidenceIds || []);
+    const figureIds = new Set(parsed.figureIds || []);
     const ev = evidence.filter((e) => evidenceIds.has(e.id));
+    const figs = figures.filter((f) => figureIds.has(f.id));
     return {
       mode: "ai",
       provider: "openrouter",
       model,
       summary: parsed.summary || local.summary,
       steps: Array.isArray(parsed.steps) && parsed.steps.length ? parsed.steps : local.steps,
-      details: parsed.details || "",
+      details: parsed.details || local.details,
       warnings: parsed.warnings || local.warnings,
       unknowns: parsed.unknowns || local.unknowns,
       evidence: ev.length ? ev : evidence,
+      figures: figs.length ? figs : figures,
       sources: local.sources,
       manuals: local.manuals,
       confidence: "high",

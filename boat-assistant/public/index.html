@@ -24,7 +24,7 @@
           <p class="kicker">2023 Flyer 8 SPACEdeck · BEYFT208F223</p>
           <h1>Ask the boat</h1>
           <p class="lede">
-            Problem-solving answers from your manuals and binder. Free binder search always works; free AI synthesis needs a one-time free key.
+            Engineer-to-engineer answers from your binder + OEM manuals — steps, synthesis, and figures when they help.
           </p>
         </div>
         <button type="button" class="btn ghost" id="settingsBtn">Setup</button>
@@ -87,12 +87,17 @@
         </section>
 
         <section class="block" id="evidenceBlock" hidden>
-          <h3>Photo evidence from your binder</h3>
+          <h3>Boat photo evidence</h3>
           <div class="evidence-grid" id="evidence"></div>
           <p class="hint" id="photoHint">
-            Original photo files aren’t in the repo yet — these cards are transcribed from your photos. Add images under
-            <code>boat-dictionary/photos/</code> and we can show them here.
+            These cards are transcribed from your boat photos. Drop originals into
+            <code>boat-dictionary/photos/</code> to show the actual images.
           </p>
+        </section>
+
+        <section class="block" id="figuresBlock" hidden>
+          <h3>From the manuals</h3>
+          <div class="figures-grid" id="figures"></div>
         </section>
 
         <section class="block" id="manualBlock" hidden>

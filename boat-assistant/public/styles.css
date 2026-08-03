@@ -294,6 +294,41 @@ textarea {
   gap: 10px;
 }
 
+.figures-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.manual-fig {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.manual-fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: contain;
+  background: #0a1520;
+}
+
+.manual-fig figcaption {
+  padding: 8px 10px 10px;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.manual-fig figcaption strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
 .evidence-card {
   border: 1px solid var(--line);
   border-radius: 14px;

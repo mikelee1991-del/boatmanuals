@@ -18,6 +18,8 @@ const unknownBlock = document.getElementById("unknownBlock");
 const unknownsEl = document.getElementById("unknowns");
 const evidenceBlock = document.getElementById("evidenceBlock");
 const evidenceEl = document.getElementById("evidence");
+const figuresBlock = document.getElementById("figuresBlock");
+const figuresEl = document.getElementById("figures");
 const manualBlock = document.getElementById("manualBlock");
 const manualsEl = document.getElementById("manuals");
 const sourcesEl = document.getElementById("sources");
@@ -27,6 +29,7 @@ const setupForm = document.getElementById("setupForm");
 
 let bundle = null;
 let mediaIndex = null;
+let figuresIndex = null;
 
 function escapeHtml(s) {
   return String(s)
@@ -120,6 +123,26 @@ function renderResult(a) {
     evidenceEl.innerHTML = "";
   }
 
+  if (a.figures?.length) {
+    figuresBlock.hidden = false;
+    figuresEl.innerHTML = a.figures
+      .map(
+        (f) => `<figure class="manual-fig">
+          <a href="${escapeHtml(f.src)}" target="_blank" rel="noopener">
+            <img src="${escapeHtml(f.src)}" alt="${escapeHtml(f.caption || f.manualName)}" loading="lazy" />
+          </a>
+          <figcaption>
+            <strong>${escapeHtml(f.manualName)}</strong> · p.${f.page}<br />
+            ${escapeHtml(f.caption || "")}
+          </figcaption>
+        </figure>`
+      )
+      .join("");
+  } else {
+    figuresBlock.hidden = true;
+    figuresEl.innerHTML = "";
+  }
+
   if (a.manuals?.length) {
     manualBlock.hidden = false;
     manualsEl.innerHTML = a.manuals
@@ -150,16 +173,21 @@ function fillSetup() {
 }
 
 async function load() {
-  const [bundleRes, mediaRes] = await Promise.all([
+  const [bundleRes, mediaRes, figuresRes] = await Promise.all([
     fetch(new URL("./knowledge-bundle.json", import.meta.url), { cache: "no-store" }),
     fetch(new URL("./media-index.json", import.meta.url), { cache: "no-store" }),
+    fetch(new URL("./figures-index.json", import.meta.url), { cache: "no-store" }),
   ]);
   if (!bundleRes.ok) throw new Error("Could not load boat binder bundle");
   bundle = await bundleRes.json();
   mediaIndex = mediaRes.ok ? await mediaRes.json() : { items: [] };
+  figuresIndex = figuresRes.ok ? await figuresRes.json() : { items: [] };
 
   const kb = Math.round((bundle.stats?.bytes || 0) / 1024);
-  statusEl.textContent = `${bundle.stats?.chunks || "?"} passages · ${bundle.stats?.manuals || "?"} manuals · ${bundle.stats?.evidenceCards || "?"} photo cards · ${kb} KB`;
+  const figMb = Math.round(((figuresIndex.bytes || 0) / (1024 * 1024)) * 10) / 10;
+  statusEl.textContent = `${bundle.stats?.chunks || "?"} passages · ${bundle.stats?.manuals || "?"} manuals · ${
+    figuresIndex.count || 0
+  } figures (${figMb} MB) · ${kb} KB text`;
 
   chipsEl.innerHTML = "";
   for (const prompt of bundle.quickPrompts || []) {
@@ -180,19 +208,16 @@ async function ask(question) {
   if (!bundle) return;
   askBtn.disabled = true;
   askBtn.textContent = "Working…";
-  statusEl.textContent = needsFreeKey() ? "Searching binder…" : "Synthesizing answer…";
+  statusEl.textContent = needsFreeKey() ? "Searching binder + manuals…" : "Synthesizing full-picture answer…";
   try {
-    const answer = await askQuestion(bundle, mediaIndex, question, loadSettings());
+    const answer = await askQuestion(bundle, mediaIndex, question, loadSettings(), figuresIndex);
     renderResult(answer);
     statusEl.textContent =
-      answer.mode === "ai" ? "AI synthesis from binder + manuals" : "Binder answer (add free OpenRouter key for AI polish)";
+      answer.mode === "ai"
+        ? `AI synthesis · ${answer.model || "free model"} · ${(answer.figures || []).length} figures`
+        : `Binder answer · ${(answer.figures || []).length} figures (add free OpenRouter key for fuller synthesis)`;
   } catch (err) {
-    const fallback = await askQuestion(
-      bundle,
-      mediaIndex,
-      question,
-      { ...loadSettings(), mode: "free", apiKey: "" }
-    );
+    const fallback = await askQuestion(bundle, mediaIndex, question, { ...loadSettings(), mode: "free", apiKey: "" }, figuresIndex);
     fallback.summary = `AI unavailable (${err.message || err}). Showing binder answer instead.\n\n` + (fallback.summary || "");
     renderResult(fallback);
     statusEl.textContent = "Binder fallback";

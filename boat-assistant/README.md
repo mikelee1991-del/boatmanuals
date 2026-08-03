@@ -34,8 +34,12 @@ npm start
 # npm start
 ```
 
-## Rebuild binder
+## Manual figures
+
+OEM diagrams are extracted into `public/media/figures/` (+ `figures-index.json`):
 
 ```bash
+pip install pymupdf pillow   # once
+npm run figures
 npm run build
 ```

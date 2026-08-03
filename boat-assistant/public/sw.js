@@ -1,4 +1,4 @@
-const CACHE = "flyer8-guide-v7";
+const CACHE = "flyer8-guide-v8";
 const SHELL = [
   "./",
   "./index.html",
@@ -8,6 +8,7 @@ const SHELL = [
   "./answer-engine.js",
   "./knowledge-bundle.json",
   "./media-index.json",
+  "./figures-index.json",
   "./manifest.webmanifest",
   "./icon.svg",
 ];
@@ -34,6 +35,19 @@ self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
   const url = new URL(event.request.url);
   if (url.pathname.includes("/api/")) return;
+  // Manual figures: network-first (too many to precache)
+  if (url.pathname.includes("/media/figures/")) {
+    event.respondWith(
+      fetch(event.request)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put(event.request, copy));
+          return res;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
   event.respondWith(
     caches.match(event.request).then((cached) => {
       const fetched = fetch(event.request)

@@ -19,6 +19,10 @@ const MIME = {
   ".json": "application/json; charset=utf-8",
   ".webmanifest": "application/manifest+json; charset=utf-8",
   ".svg": "image/svg+xml",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".png": "image/png",
+  ".webp": "image/webp",
 };
 
 function send(res, status, body, type = "application/json; charset=utf-8") {
@@ -78,6 +82,9 @@ function parseJsonAnswer(text) {
 
 const bundle = JSON.parse(fs.readFileSync(path.join(PUBLIC, "knowledge-bundle.json"), "utf8"));
 const mediaIndex = JSON.parse(fs.readFileSync(path.join(PUBLIC, "media-index.json"), "utf8"));
+const figuresIndex = fs.existsSync(path.join(PUBLIC, "figures-index.json"))
+  ? JSON.parse(fs.readFileSync(path.join(PUBLIC, "figures-index.json"), "utf8"))
+  : { items: [] };
 const engine = await import(pathToFileURL(path.join(PUBLIC, "answer-engine.js")).href);
 
 const server = http.createServer(async (req, res) => {
@@ -91,21 +98,24 @@ const server = http.createServer(async (req, res) => {
         llm: Boolean(cfg),
         provider: cfg?.provider || null,
         stats: bundle.stats,
+        figures: figuresIndex.count || figuresIndex.items?.length || 0,
       });
     }
 
     if (url.pathname === "/api/ask" && req.method === "POST") {
       const body = JSON.parse((await readBody(req)) || "{}");
       const question = body.question || "";
-      const local = engine.answerStructured(bundle, question, mediaIndex);
+      const local = engine.answerStructured(bundle, question, mediaIndex, figuresIndex);
 
       if (body.mode === "llm") {
         if (!cfg) return send(res, 503, { error: "LLM_NOT_CONFIGURED" });
-        const passages = engine.retrievePassages(bundle, question, { limit: 12 });
+        const passages = engine.retrievePassages(bundle, question, { limit: 14 });
         const evidence = engine.matchEvidence(mediaIndex, question, passages);
-        const messages = engine.buildLlmMessages(bundle, question, passages, evidence);
+        const figures = engine.matchFigures(figuresIndex, question, passages, { limit: 6 });
+        const messages = engine.buildLlmMessages(bundle, question, passages, evidence, figures);
         const raw = await callLlm(cfg, messages);
         const parsed = parseJsonAnswer(raw);
+        const figureIds = new Set(parsed.figureIds || []);
         return send(res, 200, {
           mode: "llm",
           provider: cfg.provider,
@@ -113,9 +123,12 @@ const server = http.createServer(async (req, res) => {
           structured: {
             summary: parsed.summary || local.summary,
             steps: parsed.steps?.length ? parsed.steps : local.steps,
-            details: parsed.details || "",
+            details: parsed.details || local.details,
             warnings: parsed.warnings || local.warnings,
             unknowns: parsed.unknowns || local.unknowns,
+            figures: figures.filter((f) => figureIds.has(f.id)).length
+              ? figures.filter((f) => figureIds.has(f.id))
+              : figures,
           },
           answer: parsed.summary,
         });

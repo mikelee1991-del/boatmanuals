@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build-bundle.mjs",
+    "figures": "python3 scripts/extract-figures.py",
     "prestart": "node scripts/build-bundle.mjs",
     "start": "node server.mjs",
     "dev": "node scripts/build-bundle.mjs && node --watch server.mjs"

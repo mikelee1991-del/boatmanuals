@@ -28,10 +28,10 @@
       <header class="hero">
         <span class="mark" aria-hidden="true"></span>
         <div>
-          <p class="eyebrow">HIN BEYFT208F223 · binder + AI</p>
+          <p class="eyebrow">HIN BEYFT208F223 · free</p>
           <h1>Flyer 8 Boat Guide</h1>
           <p class="tagline">
-            Ask anything about <em>this</em> boat. Answers are grounded in your binder; AI turns them into clear prose when a key is set.
+            Ask anything about <em>this</em> boat. Answers come from your binder — free, no API key.
           </p>
         </div>
       </header>
@@ -72,38 +72,40 @@
           <button type="button" class="ghost" id="closeSettings" value="cancel">Close</button>
         </header>
         <p class="settings-lead">
-          AI keys stay in <strong>this browser</strong> (or on your laptop server). Nothing is committed to the repo.
+          Default is <strong>free</strong> (binder only). Optional AI needs a key you provide — OpenRouter has $0 models if you want that later.
         </p>
         <label>
           Mode
           <select name="mode">
-            <option value="ai">AI (readable, needs key or server)</option>
-            <option value="offline">Offline binder match only</option>
+            <option value="free">Free — binder only (recommended)</option>
+            <option value="ai">Optional AI (needs your key)</option>
           </select>
         </label>
         <label>
           Provider
           <select name="provider">
-            <option value="openrouter">OpenRouter (recommended for phone / Pages)</option>
-            <option value="openai">OpenAI (browser may block CORS — prefer server)</option>
-            <option value="custom">Custom OpenAI-compatible base URL</option>
+            <option value="openrouter">OpenRouter (free models available)</option>
+            <option value="groq">Groq (free tier — often needs server)</option>
+            <option value="openai">OpenAI (paid)</option>
+            <option value="custom">Custom OpenAI-compatible URL</option>
           </select>
         </label>
         <label>
           Model
-          <input name="model" type="text" placeholder="openai/gpt-4o-mini" autocomplete="off" />
+          <input name="model" type="text" placeholder="meta-llama/llama-3.3-70b-instruct:free" autocomplete="off" />
         </label>
         <label>
-          API key
-          <input name="apiKey" type="password" placeholder="sk-or-… or sk-…" autocomplete="off" />
+          API key <span class="opt">(only for Optional AI)</span>
+          <input name="apiKey" type="password" placeholder="leave blank for free mode" autocomplete="off" />
         </label>
         <label>
           Custom base URL <span class="opt">(optional)</span>
           <input name="baseUrl" type="url" placeholder="https://openrouter.ai/api/v1" autocomplete="off" />
         </label>
         <p class="settings-help">
-          Get an OpenRouter key at <a href="https://openrouter.ai/keys" target="_blank" rel="noopener">openrouter.ai/keys</a>.
-          Or run <code>OPENAI_API_KEY=… npm start</code> locally and leave this blank.
+          You do <strong>not</strong> need a key. Free mode reads <code>boat-dictionary/</code> on this device.
+          If you later want AI polish, OpenRouter’s <code>:free</code> models cost $0 after a free signup at
+          <a href="https://openrouter.ai/keys" target="_blank" rel="noopener">openrouter.ai/keys</a>.
         </p>
         <button type="submit" class="primary">Save</button>
       </form>

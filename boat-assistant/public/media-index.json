@@ -1,0 +1,149 @@
+{
+  "builtAt": "2026-08-03T03:37:42.403Z",
+  "items": [
+    {
+      "id": "battery-locker",
+      "file": "notes/evidence/battery-locker.md",
+      "title": "Battery / pump / holding-tank locker (photo evidence)",
+      "tags": [
+        "battery",
+        "charger",
+        "cristec",
+        "pump",
+        "flojet",
+        "jabsco",
+        "teak",
+        "engine"
+      ],
+      "summary": "Deck hatch over teak decking; compartment contains batteries, CRISTEC charger, AC panel, both water pumps, and a large tank.",
+      "image": null,
+      "photoStatus": "transcript-only",
+      "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."
+    },
+    {
+      "id": "cristec-charger",
+      "file": "notes/evidence/cristec-charger.md",
+      "title": "CRISTEC charger + AC panel (photo evidence)",
+      "tags": [
+        "battery",
+        "charger",
+        "cristec",
+        "engine"
+      ],
+      "summary": "- Replaces earlier Mastervolt ChargeMaster assumption — **charger is CRISTEC**. - Verify charge profile vs actual house/engine battery chemistry (sticker shows flooded/open electrolyte; Mercury Verado typically requires AGM starting battery).",
+      "image": null,
+      "photoStatus": "transcript-only",
+      "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."
+    },
+    {
+      "id": "deck-and-canvas-photo-evidence",
+      "file": "notes/evidence/deck-and-canvas-photo-evidence.md",
+      "title": "Deck / canvas photo evidence",
+      "tags": [
+        "teak",
+        "cockpit",
+        "engine",
+        "hin"
+      ],
+      "summary": "Date: 2026-08-02 Source: owner exterior photos + owner confirmation",
+      "image": null,
+      "photoStatus": "transcript-only",
+      "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."
+    },
+    {
+      "id": "engine-data-plate",
+      "file": "notes/evidence/engine-data-plate.md",
+      "title": "Engine data plate (photo evidence)",
+      "tags": [
+        "engine"
+      ],
+      "summary": "Confirmed from owner photo of Mercury Marine clamp/transom label:",
+      "image": null,
+      "photoStatus": "transcript-only",
+      "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."
+    },
+    {
+      "id": "ephs-mpu-label",
+      "file": "notes/evidence/ephs-mpu-label.md",
+      "title": "EPHS Motor Pump Unit label (photo evidence)",
+      "tags": [
+        "pump",
+        "hin",
+        "ephs",
+        "steering"
+      ],
+      "summary": "Translucent greenish-yellow reservoir on Mercury electro-hydraulic power steering pump (in foam-lined black housing).",
+      "image": null,
+      "photoStatus": "transcript-only",
+      "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."
+    },
+    {
+      "id": "exterior-cockpit",
+      "file": "notes/evidence/exterior-cockpit.md",
+      "title": "Exterior / cockpit photos (evidence)",
+      "tags": [
+        "helm",
+        "garmin",
+        "fusion",
+        "windlass",
+        "anchor",
+        "teak",
+        "cockpit",
+        "engine",
+        "hin"
+      ],
+      "summary": "- Underwater lights / Pilot Edition graphics / fishing station - Windlass brand plate under bow hatch",
+      "image": null,
+      "photoStatus": "transcript-only",
+      "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."
+    },
+    {
+      "id": "helm-photo",
+      "file": "notes/evidence/helm-photo.md",
+      "title": "Helm / bow photo evidence",
+      "tags": [
+        "helm",
+        "garmin",
+        "fusion",
+        "zipwake",
+        "thruster",
+        "sleipner",
+        "windlass",
+        "anchor",
+        "engine",
+        "hin"
+      ],
+      "summary": "Photo of helm looking forward over bow (marina / Shelter Island area on Garmin chart).",
+      "image": null,
+      "photoStatus": "transcript-only",
+      "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."
+    },
+    {
+      "id": "hull-plates",
+      "file": "notes/evidence/hull-plates.md",
+      "title": "Hull / builder plates (photo evidence)",
+      "tags": [
+        "hin",
+        "hull"
+      ],
+      "summary": "**Conclusion:** This is a France-built, **US-certified** Flyer 8 SPACEdeck, model year 2023. Use HIN **BEYFT208F223** when requesting the Beneteau CE Owner’s Handbook from the dealer / Helpdesk.",
+      "image": null,
+      "photoStatus": "transcript-only",
+      "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."
+    },
+    {
+      "id": "water-pumps",
+      "file": "notes/evidence/water-pumps.md",
+      "title": "Water pumps (photo evidence)",
+      "tags": [
+        "pump",
+        "flojet",
+        "jabsco"
+      ],
+      "summary": "Two pumps mounted side-by-side on a white bulkhead, each with intake strainer and blue discharge hose.",
+      "image": null,
+      "photoStatus": "transcript-only",
+      "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."
+    }
+  ]
+}

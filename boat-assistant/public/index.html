@@ -3,111 +3,140 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#0b1f2a" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta
-      name="description"
-      content="Flyer 8 boat Q&A — binder-grounded answers, optional AI for readable output"
-    />
+    <meta name="theme-color" content="#10243a" />
+    <meta name="description" content="Ask your Flyer 8 a question — clear answers and troubleshooting from the boat binder." />
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" href="./icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="./icon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,650;9..144,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,700&family=Source+Sans+3:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
-    <title>Flyer 8 Boat Guide</title>
+    <title>Flyer 8 — Ask the boat</title>
   </head>
   <body>
-    <div class="app">
-      <header class="hero">
-        <span class="mark" aria-hidden="true"></span>
+    <div class="shell">
+      <header class="top">
         <div>
-          <p class="eyebrow">HIN BEYFT208F223 · free</p>
-          <h1>Flyer 8 Boat Guide</h1>
-          <p class="tagline">
-            Ask anything about <em>this</em> boat. Answers come from your binder — free, no API key.
+          <p class="kicker">2023 Flyer 8 SPACEdeck · BEYFT208F223</p>
+          <h1>Ask the boat</h1>
+          <p class="lede">
+            Problem-solving answers from your manuals and binder. Free binder search always works; free AI synthesis needs a one-time free key.
           </p>
         </div>
+        <button type="button" class="btn ghost" id="settingsBtn">Setup</button>
       </header>
 
-      <div class="toolbar">
-        <section class="status ok" id="status">Loading boat knowledge…</section>
-        <button type="button" class="ghost" id="openSettings">Settings</button>
-      </div>
-      <p class="mode-hint" id="modeHint"></p>
+      <aside class="banner" id="keyBanner" hidden>
+        <div>
+          <strong>For clear AI answers (free):</strong> create an OpenRouter key — $0 models, no credit card required for free tier use.
+          <a href="https://openrouter.ai/keys" target="_blank" rel="noopener">Get free key</a>
+          then paste it in Setup. Until then, you’ll still get binder-based answers.
+        </div>
+        <button type="button" class="btn small" id="openSetupFromBanner">Add key</button>
+      </aside>
 
-      <form class="ask" id="form">
-        <label class="sr-only" for="q">Question</label>
+      <form class="ask-box" id="form">
+        <label class="sr-only" for="q">Your question</label>
         <textarea
           id="q"
           rows="3"
           required
-          placeholder="Example: How deep can I anchor on this boat?"
+          placeholder="e.g. Stereo has no sound — what should I check first?"
         ></textarea>
-        <button type="submit" id="askBtn">Get answer</button>
+        <div class="ask-actions">
+          <p class="meta" id="status">Loading binder…</p>
+          <button type="submit" class="btn primary" id="askBtn" disabled>Ask</button>
+        </div>
       </form>
 
       <section class="chips" id="chips" aria-label="Example questions"></section>
 
-      <article class="answer" id="answer" hidden>
-        <header>
+      <article class="result" id="result" hidden>
+        <header class="result-head">
           <h2>Answer</h2>
-          <span class="badge" id="confidence"></span>
+          <span class="pill" id="pill">—</span>
         </header>
-        <div class="body" id="answerBody"></div>
-        <div class="sources" id="sources"></div>
+
+        <section class="block">
+          <h3>Bottom line</h3>
+          <div class="prose" id="summary"></div>
+        </section>
+
+        <section class="block" id="stepsBlock" hidden>
+          <h3>Do this</h3>
+          <ol class="steps" id="steps"></ol>
+        </section>
+
+        <section class="block" id="warnBlock" hidden>
+          <h3>Safety</h3>
+          <ul id="warnings"></ul>
+        </section>
+
+        <section class="block" id="detailBlock" hidden>
+          <h3>Details</h3>
+          <div class="prose" id="details"></div>
+        </section>
+
+        <section class="block" id="unknownBlock" hidden>
+          <h3>Still unverified on this boat</h3>
+          <ul id="unknowns"></ul>
+        </section>
+
+        <section class="block" id="evidenceBlock" hidden>
+          <h3>Photo evidence from your binder</h3>
+          <div class="evidence-grid" id="evidence"></div>
+          <p class="hint" id="photoHint">
+            Original photo files aren’t in the repo yet — these cards are transcribed from your photos. Add images under
+            <code>boat-dictionary/photos/</code> and we can show them here.
+          </p>
+        </section>
+
+        <section class="block" id="manualBlock" hidden>
+          <h3>Related manuals</h3>
+          <ul class="manuals" id="manuals"></ul>
+        </section>
+
+        <section class="block sources-block">
+          <h3>Sources</h3>
+          <ul class="sources" id="sources"></ul>
+        </section>
       </article>
     </div>
 
-    <dialog id="settings" class="settings">
-      <form method="dialog" id="settingsForm">
+    <dialog class="setup" id="setup">
+      <form method="dialog" id="setupForm">
         <header>
-          <h2>Settings</h2>
-          <button type="button" class="ghost" id="closeSettings" value="cancel">Close</button>
+          <h2>Setup</h2>
+          <button type="button" class="btn ghost small" id="closeSetup">Close</button>
         </header>
-        <p class="settings-lead">
-          Default is <strong>free</strong> (binder only). Optional AI needs a key you provide — OpenRouter has $0 models if you want that later.
+        <p>
+          <strong>Free path:</strong> binder answers work with no key. For readable AI synthesis, use OpenRouter’s
+          <code>:free</code> models (free signup).
         </p>
         <label>
-          Mode
+          Answer mode
           <select name="mode">
-            <option value="free">Free — binder only (recommended)</option>
-            <option value="ai">Optional AI (needs your key)</option>
+            <option value="ai">AI synthesis (recommended — free OpenRouter model)</option>
+            <option value="free">Binder only (no network model)</option>
           </select>
         </label>
         <label>
-          Provider
-          <select name="provider">
-            <option value="openrouter">OpenRouter (free models available)</option>
-            <option value="groq">Groq (free tier — often needs server)</option>
-            <option value="openai">OpenAI (paid)</option>
-            <option value="custom">Custom OpenAI-compatible URL</option>
-          </select>
+          Free OpenRouter API key
+          <input name="apiKey" type="password" placeholder="sk-or-v1-…" autocomplete="off" />
         </label>
         <label>
           Model
-          <input name="model" type="text" placeholder="meta-llama/llama-3.3-70b-instruct:free" autocomplete="off" />
+          <input name="model" type="text" value="meta-llama/llama-3.3-70b-instruct:free" />
         </label>
-        <label>
-          API key <span class="opt">(only for Optional AI)</span>
-          <input name="apiKey" type="password" placeholder="leave blank for free mode" autocomplete="off" />
-        </label>
-        <label>
-          Custom base URL <span class="opt">(optional)</span>
-          <input name="baseUrl" type="url" placeholder="https://openrouter.ai/api/v1" autocomplete="off" />
-        </label>
-        <p class="settings-help">
-          You do <strong>not</strong> need a key. Free mode reads <code>boat-dictionary/</code> on this device.
-          If you later want AI polish, OpenRouter’s <code>:free</code> models cost $0 after a free signup at
-          <a href="https://openrouter.ai/keys" target="_blank" rel="noopener">openrouter.ai/keys</a>.
+        <p class="hint">
+          Get a key at <a href="https://openrouter.ai/keys" target="_blank" rel="noopener">openrouter.ai/keys</a>.
+          Pick any model ending in <code>:free</code>. Key stays in this browser only.
         </p>
-        <button type="submit" class="primary">Save</button>
+        <button type="submit" class="btn primary">Save</button>
       </form>
     </dialog>
 

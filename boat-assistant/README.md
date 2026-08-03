@@ -1,39 +1,41 @@
 # Flyer 8 Boat Guide
 
-Part of **this repo**. Ask a question → answer from the **boat binder** (`../boat-dictionary/`).
+Ask your boat a question. Answers come from the **boat binder** + OEM manual extracts.
 
-**Free by default. No API key required.**
+Live: **https://mikelee1991-del.github.io/boatmanuals/**
 
-Live site: **https://mikelee1991-del.github.io/boatmanuals/**
+## Free setup (recommended for readable AI answers)
 
-## How it works
+1. Create a **free** key at [openrouter.ai/keys](https://openrouter.ai/keys) (no paid plan required for `:free` models).
+2. Open the guide → **Setup** → paste the key.
+3. Keep model `meta-llama/llama-3.3-70b-instruct:free` (or any model ending in `:free`).
 
-```text
-boat-dictionary/   ← source of truth
-       ↓  npm run build
-knowledge-bundle.json
-       ↓
-phone / browser retrieves the right passages and composes an answer
-```
+Without a key, the app still answers from the binder (checklists + excerpts). With a free key, it synthesizes a clear bottom-line + steps.
 
-Optional AI (Settings → Optional AI) is off unless you paste your own key. OpenRouter has `$0` `:free` models if you want that later — not required.
+## What’s in the brain
 
-## Run locally
+- Owner’s manual chapters, fuse map, playbooks
+- Photo **evidence cards** (transcribed from your boat photos)
+- Text extracts from Mercury, Garmin, Fusion, Zipwake, CRISTEC, pumps, windlass, thruster manuals
+
+## Photos
+
+Original image files are **not in the repo yet**. Evidence notes under `boat-dictionary/notes/evidence/` power the “Photo evidence” cards.
+
+To show real pictures in answers, add files under `boat-dictionary/photos/` and tell the agent — we can wire them into `media-index.json`.
+
+## Local
 
 ```bash
 cd boat-assistant
 npm start
-# http://localhost:8787
+# optional free AI on the server:
+# export OPENROUTER_API_KEY=sk-or-...
+# npm start
 ```
 
-## Hosted
+## Rebuild binder
 
-After merge to `main`, GitHub Actions publishes `public/` to Pages.
-
-Hard-refresh the phone after deploys (service worker cache).
-
-## Growing the brain
-
-1. Edit/add files under `boat-dictionary/`
-2. `npm run build` (or push to `main`)
-3. Ask again
+```bash
+npm run build
+```

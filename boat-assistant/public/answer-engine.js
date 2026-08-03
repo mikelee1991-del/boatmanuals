@@ -564,6 +564,8 @@ function keyPointsFromPassages(passages, limit = 8) {
     if (/walk-around clear|bilge ok|no fuel odor/i.test(norm)) return;
     if (/^these often have breakers/i.test(norm)) return;
     if (/^leds:/i.test(norm)) return;
+    if (/^confirmed adjacent/i.test(norm)) return;
+    if (/^\d+\.\s+\d+\s+[A-Z]/.test(norm)) return; // OEM page dumps like "24 1 PRECAUTIONS"
     const key = norm.toLowerCase();
     if (seen.has(key)) return;
     seen.add(key);

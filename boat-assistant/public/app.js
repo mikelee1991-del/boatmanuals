@@ -1,4 +1,4 @@
-import { askWithLlm, askOffline, loadSettings, saveSettings, DEFAULT_SETTINGS } from "./llm-ask.js";
+import { askWithLlm, askFree, loadSettings, saveSettings, DEFAULT_SETTINGS } from "./llm-ask.js";
 
 const statusEl = document.getElementById("status");
 const form = document.getElementById("form");
@@ -20,13 +20,12 @@ function formatAnswer(text) {
   const blocks = [];
   let html = text.replace(/```[\w]*\n([\s\S]*?)```/g, (_, code) => {
     const i = blocks.length;
-    blocks.push(`<pre><code>${code.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").trim()}</code></pre>`);
+    blocks.push(
+      `<pre><code>${code.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").trim()}</code></pre>`
+    );
     return `\u0000BLOCK${i}\u0000`;
   });
-  html = html
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;");
+  html = html.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
   html = html.replace(/^### (.+)$/gm, "<h3>$1</h3>");
   html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
@@ -44,9 +43,12 @@ function formatAnswer(text) {
 
 function showAnswer(result) {
   answerEl.hidden = false;
-  const badge = result.mode === "llm" ? `ai · ${result.confidence || "high"}` : result.confidence || "—";
+  const badge =
+    result.mode === "llm"
+      ? `ai · ${result.confidence || "high"}`
+      : `free · ${result.confidence || "—"}`;
   confidenceEl.textContent = badge;
-  confidenceEl.className = `badge ${result.confidence || ""} ${result.mode || ""}`;
+  confidenceEl.className = `badge ${result.confidence || ""} ${result.mode || "free"}`;
   answerBody.innerHTML = formatAnswer(result.answer);
   sourcesEl.innerHTML = (result.hits || [])
     .slice(0, 6)
@@ -57,18 +59,16 @@ function showAnswer(result) {
 
 function refreshModeHint() {
   const s = loadSettings();
-  if (s.mode === "offline") {
-    modeHint.textContent = "Offline binder match (no AI)";
-  } else if (s.apiKey) {
-    modeHint.textContent = `AI via ${s.provider} · ${s.model}`;
+  if (s.mode === "ai" && s.apiKey) {
+    modeHint.textContent = `Optional AI · ${s.provider} · ${s.model}`;
   } else {
-    modeHint.textContent = "AI mode — add an API key in Settings (or use a server key)";
+    modeHint.textContent = "Free mode — answers from your boat binder, no API key";
   }
 }
 
 function fillSettingsForm() {
   const s = loadSettings();
-  settingsForm.mode.value = s.mode;
+  settingsForm.mode.value = s.mode === "ai" ? "ai" : "free";
   settingsForm.provider.value = s.provider;
   settingsForm.model.value = s.model;
   settingsForm.apiKey.value = s.apiKey;
@@ -80,7 +80,7 @@ async function loadBundle() {
   if (!res.ok) throw new Error("Could not load knowledge bundle");
   bundle = await res.json();
   const kb = Math.round((bundle.stats?.bytes || 0) / 1024);
-  statusEl.textContent = `Boat binder · ${bundle.stats?.files || "?"} files · ${bundle.stats?.chunks || "?"} passages · ${kb} KB`;
+  statusEl.textContent = `Boat binder · ${bundle.stats?.files || "?"} files · ${bundle.stats?.chunks || "?"} passages · ${kb} KB · free`;
   statusEl.className = "status ok";
 
   chipsEl.innerHTML = "";
@@ -99,60 +99,24 @@ async function loadBundle() {
   refreshModeHint();
 }
 
-function keyHelpAnswer() {
-  return {
-    mode: "setup",
-    confidence: "medium",
-    hits: [],
-    answer: `### API key needed for readable AI answers
-
-The binder is already on your phone. An **LLM** turns the right excerpts into a clear answer (instead of keyword checklists).
-
-**Why a key:** GitHub Pages is static — a shared OpenAI key cannot be hidden in the website. Use **your own** key (stays in this browser only), or run the local server with a key.
-
-#### Option A — OpenRouter (works on the live site)
-1. Create a key at [openrouter.ai/keys](https://openrouter.ai/keys)
-2. Tap **Settings** → paste the key → provider **OpenRouter** → model \`openai/gpt-4o-mini\` (or any chat model) → Save
-3. Ask again
-
-#### Option B — Local server with OpenAI
-\`\`\`bash
-cd boat-assistant
-export OPENAI_API_KEY=sk-...
-npm start
-\`\`\`
-Then open the local URL — the app calls \`/api/ask\` and the key never enters the browser.
-
-#### Option C — Offline only
-Settings → Mode **Offline** — keyword answers from the binder (no key, weaker for open questions).
-
-**Anchoring note:** rode length is not in the binder yet — even AI will say UNVERIFIED until you measure chain + rope and we add it under \`OM-ANCH\`.`,
-  };
-}
-
 async function ask(question) {
   if (!bundle) return;
   const settings = loadSettings();
+  const useAi = settings.mode === "ai" && Boolean(settings.apiKey);
   askBtn.disabled = true;
-  askBtn.textContent = settings.mode === "offline" ? "Matching…" : "Thinking…";
+  askBtn.textContent = useAi ? "Thinking…" : "Searching binder…";
   try {
-    if (settings.mode === "offline") {
-      showAnswer(askOffline(bundle, question));
+    if (!useAi) {
+      showAnswer(askFree(bundle, question));
       return;
     }
     try {
       showAnswer(await askWithLlm(bundle, question, settings));
     } catch (err) {
-      if (err?.code === "API_KEY_REQUIRED" || /API_KEY_REQUIRED/.test(String(err.message))) {
-        showAnswer(keyHelpAnswer());
-        return;
-      }
-      // Fall back to offline binder compose, but explain the AI failure
-      const offline = askOffline(bundle, question);
-      offline.answer =
-        `_(AI unavailable: ${err.message || err}. Showing binder match instead.)_\n\n` + offline.answer;
-      offline.confidence = "medium";
-      showAnswer(offline);
+      const free = askFree(bundle, question);
+      free.answer = `_(Optional AI failed: ${err.message || err}. Showing free binder answer.)_\n\n` + free.answer;
+      free.confidence = "medium";
+      showAnswer(free);
     }
   } finally {
     askBtn.disabled = false;

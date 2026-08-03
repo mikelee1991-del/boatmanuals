@@ -419,15 +419,16 @@ export function answerQuestion(bundle, question) {
   lines.push("");
 
   if (!top.length && !pb) {
-    lines.push("No strong binder match yet. Try a symptom (“no sound”, “hard steering”) or a part name (Fusion, Garmin, Zipwake).");
-    return { answer: lines.join("\n"), hits: [], confidence: "low", intent, topics, family };
+    lines.push(
+      "I don’t have a strong match in this boat’s binder yet. Try a symptom (no sound, hard steering) or a part name (Fusion, Garmin, Zipwake), or add a note under `boat-dictionary/`."
+    );
+    return { answer: lines.join("\n"), hits: [], confidence: "low", intent, topics, family, mode: "free" };
   }
 
   // Short fact for fuse/identity questions
   if (intent === "what" && /\bfuse\b/i.test(q)) {
     const fact = fuseFact(q, family);
     if (fact) {
-      lines.push("### Short answer");
       lines.push(fact);
       lines.push("");
     }
@@ -474,7 +475,7 @@ export function answerQuestion(bundle, question) {
   }
 
   if (actionSteps.length) {
-    lines.push("### Do this now");
+    lines.push(fail || intent === "troubleshoot" ? "### Check this now" : "### Steps");
     actionSteps.slice(0, 10).forEach((step, i) => lines.push(`${i + 1}. ${step}`));
     lines.push("");
   }
@@ -506,6 +507,7 @@ export function answerQuestion(bundle, question) {
   // Fuse identity questions: short answer is enough
   const skipDetail = intent === "what" && /\bfuse\b/i.test(q) && actionSteps.length <= 1;
 
+  let usedDetail = null;
   for (const detail of detailCandidates) {
     if (skipDetail) break;
     const body = stripHeading(detail.c.text);
@@ -523,7 +525,7 @@ export function answerQuestion(bundle, question) {
         : 0;
 
     const detailTitle = normTitle(detail.c.title);
-    // Operate howto: Do this now already has the controls — don't append extra sections
+    // Operate howto: steps already became the answer
     if (preferOperate) continue;
     // Playbook checklist already answered the symptom — only keep distinct procedures
     if (intent === "troubleshoot" && pb && actionSteps.length >= 4) {
@@ -534,35 +536,41 @@ export function answerQuestion(bundle, question) {
     }
     if (overlap > 0.65) continue;
 
-    const label =
-      intent === "where"
-        ? "### Location"
-        : intent === "troubleshoot" || fail
-          ? "### Fix detail"
-          : "### From the binder";
-    lines.push(`${label} (\`${detail.c.file}\` · ${detail.c.title})`);
-    lines.push("");
-    lines.push(body);
+    usedDetail = detail.c;
+    // Lift **Short answer:** to the top of the body when present
+    const short = body.match(/\*\*Short answer:\*\*\s*([\s\S]*?)(?:\n\n|\n(?=\d+\.|\*\*|###|# ))/);
+    if (short && !actionSteps.length) {
+      lines.push(short[1].trim());
+      lines.push("");
+      const rest = body.replace(/\*\*Short answer:\*\*\s*[\s\S]*?(?=\n\n|\n(?=\d+\.|\*\*|What you))/i, "").trim();
+      // Prefer the "What you can use today" block if present
+      const usable = rest.match(/What you \*?can\*? use today:[\s\S]*/i);
+      lines.push(usable ? usable[0].trim() : rest);
+    } else {
+      lines.push(body);
+    }
     lines.push("");
     break;
   }
 
   // 3) Brief boat-specific facts
   const ctx = boatContextBits(rawToks, family);
-  lines.push("### On this boat");
-  if (ctx.length) ctx.forEach((b) => lines.push(`- ${b}`));
-  else if (top[0]) lines.push(`- See \`${top[0].c.file}\` for vessel-specific notes`);
-  if (pb?.om_section) lines.push(`- Binder section: \`${pb.om_section}\``);
-  lines.push("");
+  if (ctx.length || pb?.om_section) {
+    lines.push("### On this boat");
+    if (ctx.length) ctx.forEach((b) => lines.push(`- ${b}`));
+    if (pb?.om_section) lines.push(`- Binder section: \`${pb.om_section}\``);
+    lines.push("");
+  }
 
-  // 4) Sources (topic-filtered)
+  // 4) Sources (topic-filtered) — keep out of the main prose
   lines.push("### Sources");
+  if (usedDetail) lines.push(`- ${usedDetail.title} — \`${usedDetail.file}\``);
   if (pb) lines.push(`- Playbook ${pb.id}${pb.om_section ? ` · \`${pb.om_section}\`` : ""}`);
   const srcs = [...top]
     .map((x) => ({ ...x, ss: sourceScore(x.c, topics, intent, family) }))
     .filter((x) => x.ss > 0)
     .sort((a, b) => b.ss - a.ss);
-  const seen = new Set();
+  const seen = new Set(usedDetail ? [usedDetail.file + usedDetail.title] : []);
   for (const x of srcs) {
     const key = x.c.file + x.c.title;
     if (seen.has(key)) continue;
@@ -571,7 +579,7 @@ export function answerQuestion(bundle, question) {
     if (seen.size >= 3) break;
   }
   lines.push("");
-  lines.push("_Troubleshooting-first answer from the boat binder (offline)._");
+  lines.push("_Free answer from this boat’s binder — no API key._");
 
   return {
     answer: lines.join("\n"),
@@ -583,10 +591,16 @@ export function answerQuestion(bundle, question) {
       topicsHit,
     })),
     playbook: pb?.id || null,
-    confidence: actionSteps.length >= 3 || (intent === "what" && /\bfuse\b/i.test(q)) ? "high" : top[0]?.s >= 18 ? "medium" : "low",
+    confidence:
+      actionSteps.length >= 3 || (intent === "what" && /\bfuse\b/i.test(q)) || usedDetail
+        ? "high"
+        : top[0]?.s >= 18
+          ? "medium"
+          : "low",
     intent,
     topics,
     family,
+    mode: "free",
   };
 }
 

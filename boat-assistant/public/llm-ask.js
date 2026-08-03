@@ -1,24 +1,32 @@
 /**
- * LLM answer path — retrieve binder passages, then call an OpenAI-compatible API.
- * Keys stay in the browser (localStorage) or on the optional Node proxy — never in the repo.
+ * Ask path: free binder answers by default.
+ * Optional paid/free-tier LLM only when the user opts in with a key.
  */
 import { retrievePassages, buildLlmMessages, answerQuestion } from "./answer-engine.js";
 
 const SETTINGS_KEY = "flyer8-llm-settings";
 
 export const DEFAULT_SETTINGS = {
-  mode: "ai", // ai | offline
-  provider: "openrouter", // openrouter | openai | custom
+  mode: "free", // free | ai
+  provider: "openrouter",
   apiKey: "",
-  model: "openai/gpt-4o-mini",
-  baseUrl: "", // optional override
+  // OpenRouter hosts several $0 models — only used if mode=ai and a free key is pasted
+  model: "meta-llama/llama-3.3-70b-instruct:free",
+  baseUrl: "",
 };
 
 export function loadSettings() {
   try {
     const raw = localStorage.getItem(SETTINGS_KEY);
     if (!raw) return { ...DEFAULT_SETTINGS };
-    return { ...DEFAULT_SETTINGS, ...JSON.parse(raw) };
+    const parsed = { ...DEFAULT_SETTINGS, ...JSON.parse(raw) };
+    // Migrate older defaults that forced paid AI
+    if (parsed.mode === "offline") parsed.mode = "free";
+    if (parsed.mode === "ai" && !parsed.apiKey) parsed.mode = "free";
+    if (parsed.model === "openai/gpt-4o-mini" && !parsed.apiKey) {
+      parsed.model = DEFAULT_SETTINGS.model;
+    }
+    return parsed;
   } catch {
     return { ...DEFAULT_SETTINGS };
   }
@@ -33,7 +41,7 @@ export function saveSettings(partial) {
 function endpointFor(settings) {
   if (settings.baseUrl) return settings.baseUrl.replace(/\/$/, "") + "/chat/completions";
   if (settings.provider === "openai") return "https://api.openai.com/v1/chat/completions";
-  // OpenRouter allows browser CORS with a personal key — best fit for GitHub Pages
+  if (settings.provider === "groq") return "https://api.groq.com/openai/v1/chat/completions";
   return "https://openrouter.ai/api/v1/chat/completions";
 }
 
@@ -68,10 +76,6 @@ async function callChatCompletions(settings, messages) {
   return text;
 }
 
-/**
- * Try local/proxied server first (OPENAI_API_KEY / OPENROUTER_API_KEY on the host),
- * then browser-side OpenRouter/OpenAI with the user's saved key.
- */
 export async function askWithLlm(bundle, question, settings = loadSettings()) {
   const passages = retrievePassages(bundle, question, { limit: 10 });
   const messages = buildLlmMessages(bundle, question, passages);
@@ -83,7 +87,6 @@ export async function askWithLlm(bundle, question, settings = loadSettings()) {
     topicsHit: p.topicsHit,
   }));
 
-  // 1) Same-origin proxy (npm start / custom backend) — key never touches the browser
   try {
     const proxy = await fetch(new URL("./api/ask", location.href), {
       method: "POST",
@@ -103,10 +106,9 @@ export async function askWithLlm(bundle, question, settings = loadSettings()) {
       }
     }
   } catch {
-    // Pages has no /api — fall through
+    // Pages has no /api
   }
 
-  // 2) Browser → OpenRouter / OpenAI with user key
   if (!settings.apiKey) {
     const err = new Error("API_KEY_REQUIRED");
     err.code = "API_KEY_REQUIRED";
@@ -124,7 +126,13 @@ export async function askWithLlm(bundle, question, settings = loadSettings()) {
   };
 }
 
-export function askOffline(bundle, question) {
+/** Free binder-grounded answer — no network model, no API key. */
+export function askFree(bundle, question) {
   const result = answerQuestion(bundle, question);
-  return { ...result, mode: "offline" };
+  return { ...result, mode: "free" };
+}
+
+/** @deprecated use askFree */
+export function askOffline(bundle, question) {
+  return askFree(bundle, question);
 }

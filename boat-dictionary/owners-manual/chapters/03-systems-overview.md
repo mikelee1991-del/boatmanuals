@@ -64,11 +64,11 @@ flowchart TB
 See [`../diagrams/helm-layout.md`](../diagrams/helm-layout.md).
 
 - Center: **Garmin** chartplotter/sonar
-- Upper right of Garmin: **Mercury digital engine display** (VesselView-class)
+- Left of Garmin: **Zipwake** Series S (**AUTO PITCH** / **AUTO ROLL**) + **Sleipner** thruster joystick below
+- Mercury digital engine display (VesselView-class) in the helm cluster
 - Near displays: **Fusion** stereo
 - Single-lever **Mercury DTS** with DOCK / TRANSFER / THROTTLE ONLY + red lanyard
-- **Zipwake** AUTO PITCH / AUTO ROLL + Series S rotary
-- **Sleipner** panel + thruster joystick
+- Soft black fabric **T-Top** (not a hardtop)
 - Offshore **magnetic compass**
 - Switch bank (lights, bilge, accessories)
 - START/STOP / ignition

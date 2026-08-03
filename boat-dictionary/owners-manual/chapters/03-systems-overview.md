@@ -1,5 +1,7 @@
 # OM-SYS — Systems overview (as-installed)
 
+**Short answer:** Center-console Flyer 8 with dual 12 V banks, Mercury Verado 300 + SmartCraft/EPHS, **Zipwake Series S** (not LENCO), Sleipner thruster, windlass, Fusion + Garmin on the Blue Sea strip, and US shore power into a **CRISTEC YPO12-25DE** charger — not Mastervolt. Handheld VHF only.
+
 Mental model of this boat: **center-console dayboat** with cabin/head, dual 12 V banks, Mercury SmartCraft propulsion, and a factory option set focused on docking (thruster), trim (Zipwake), anchoring (windlass), and US marina shore power (CRISTEC).
 
 ## Block diagram

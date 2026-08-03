@@ -38,6 +38,39 @@ function escapeHtml(s) {
     .replaceAll(">", "&gt;");
 }
 
+/** GitHub blob base for binder files (PDFs + markdown). */
+const BINDER_BLOB =
+  "https://github.com/mikelee1991-del/boatmanuals/blob/main/boat-dictionary/";
+
+/** Turn a binder-relative path into a GitHub (or absolute) URL. */
+function binderHref(file, { page } = {}) {
+  if (!file) return null;
+  const raw = String(file).trim();
+  if (/^https?:\/\//i.test(raw)) return raw;
+  let path = raw.replace(/^\.\//, "");
+  if (path.startsWith("boat-dictionary/")) path = path.slice("boat-dictionary/".length);
+  // evidence media-index paths are already notes/...
+  const href =
+    BINDER_BLOB +
+    path
+      .split("/")
+      .filter(Boolean)
+      .map((seg) => encodeURIComponent(seg))
+      .join("/");
+  if (page && /\.pdf$/i.test(path)) return `${href}#page=${page}`;
+  return href;
+}
+
+function isBinderPath(path) {
+  return /^(notes|owners-manual|manuals|photos|catalog)\//i.test(path || "");
+}
+
+function linkLabel(href, label, { external = true } = {}) {
+  if (!href) return escapeHtml(label);
+  const rel = external ? ' target="_blank" rel="noopener"' : "";
+  return `<a href="${escapeHtml(href)}"${rel}>${escapeHtml(label)}</a>`;
+}
+
 function renderMarkdown(text) {
   if (!text) return "";
   let html = escapeHtml(text);
@@ -56,8 +89,39 @@ function renderMarkdown(text) {
       .map((r) => `<tr>${r.map((c) => `<td>${c}</td>`).join("")}</tr>`)
       .join("")}</tbody></table>`;
   });
+  // markdown links [label](url) — absolute or binder-relative
+  html = html.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, label, url) => {
+    let href = url;
+    if (/^https?:\/\//i.test(url)) {
+      href = url;
+    } else if (/\.md(?:#.*)?$/i.test(url) || /\.pdf(?:#.*)?$/i.test(url)) {
+      // Resolve relative binder links to GitHub
+      const clean = url.replace(/^\.\//, "").replace(/^(\.\.\/)+/, "");
+      const guessed = clean.includes("manuals/")
+        ? clean
+        : clean.includes("owners-manual/") || clean.includes("notes/") || clean.includes("catalog/")
+          ? clean
+          : clean.includes("diagrams/")
+            ? `owners-manual/${clean}`
+            : clean.includes("chapters/")
+              ? `owners-manual/${clean}`
+              : clean.match(/^\d{2}-/)
+                ? `owners-manual/chapters/${clean}`
+                : clean;
+      href = binderHref(guessed.split("#")[0]) + (guessed.includes("#") ? "#" + guessed.split("#").slice(1).join("#") : "");
+    } else {
+      return `[${label}](${escapeHtml(url)})`;
+    }
+    return `<a href="${escapeHtml(href)}" target="_blank" rel="noopener">${label}</a>`;
+  });
   html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-  html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+  html = html.replace(/`([^`]+)`/g, (_, code) => {
+    if (isBinderPath(code)) {
+      const href = binderHref(code);
+      return `<code><a href="${escapeHtml(href)}" target="_blank" rel="noopener">${escapeHtml(code)}</a></code>`;
+    }
+    return `<code>${escapeHtml(code)}</code>`;
+  });
   html = html.replace(/^- (.+)$/gm, "<li>$1</li>");
   html = html.replace(/(?:<li>.*<\/li>\n?)+/g, (m) => `<ul>${m}</ul>`);
   html = html.replace(/\n{2,}/g, "</p><p>");
@@ -85,9 +149,12 @@ function renderResult(a) {
 
   summaryEl.innerHTML = renderMarkdown(a.summary || "");
 
+  const stepsHeading = document.getElementById("stepsHeading");
+  if (stepsHeading) stepsHeading.textContent = a.stepsTitle || "Do this";
+
   if (a.steps?.length) {
     stepsBlock.hidden = false;
-    stepsEl.innerHTML = a.steps.map((s) => `<li>${escapeHtml(s)}</li>`).join("");
+    stepsEl.innerHTML = a.steps.map((s) => `<li>${renderMarkdown(s).replace(/^<p>|<\/p>$/g, "")}</li>`).join("");
   } else {
     stepsBlock.hidden = true;
     stepsEl.innerHTML = "";
@@ -107,16 +174,20 @@ function renderResult(a) {
   if (a.evidence?.length) {
     evidenceBlock.hidden = false;
     evidenceEl.innerHTML = a.evidence
-      .map(
-        (e) => `<article class="evidence-card">
-          <h4>${escapeHtml(e.title)}</h4>
+      .map((e) => {
+        const href = binderHref(e.file);
+        const title = href
+          ? linkLabel(href, e.title)
+          : escapeHtml(e.title);
+        return `<article class="evidence-card">
+          <h4>${title}</h4>
           <p>${escapeHtml(e.summary)}</p>
           <div class="tags">${(e.tags || [])
             .slice(0, 6)
             .map((t) => `<span class="tag">${escapeHtml(t)}</span>`)
             .join("")}</div>
-        </article>`
-      )
+        </article>`;
+      })
       .join("");
   } else {
     evidenceBlock.hidden = true;
@@ -126,17 +197,21 @@ function renderResult(a) {
   if (a.figures?.length) {
     figuresBlock.hidden = false;
     figuresEl.innerHTML = a.figures
-      .map(
-        (f) => `<figure class="manual-fig">
+      .map((f) => {
+        const manHref = binderHref(f.manual, { page: f.page });
+        const manLink = manHref
+          ? linkLabel(manHref, f.manualName || "OEM manual")
+          : escapeHtml(f.manualName || "");
+        return `<figure class="manual-fig">
           <a href="${escapeHtml(f.src)}" target="_blank" rel="noopener">
             <img src="${escapeHtml(f.src)}" alt="${escapeHtml(f.caption || f.manualName)}" loading="lazy" />
           </a>
           <figcaption>
-            <strong>${escapeHtml(f.manualName)}</strong> · p.${f.page}<br />
+            <strong>${manLink}</strong> · p.${f.page}<br />
             ${escapeHtml(f.caption || "")}
           </figcaption>
-        </figure>`
-      )
+        </figure>`;
+      })
       .join("");
   } else {
     figuresBlock.hidden = true;
@@ -146,7 +221,11 @@ function renderResult(a) {
   if (a.manuals?.length) {
     manualBlock.hidden = false;
     manualsEl.innerHTML = a.manuals
-      .map((m) => `<li><code>${escapeHtml(m.file)}</code> · ${escapeHtml(m.name)}</li>`)
+      .map((m) => {
+        const href = binderHref(m.file);
+        const name = m.name || m.file;
+        return `<li>${linkLabel(href, name)} <span class="path">${escapeHtml(m.file)}</span></li>`;
+      })
       .join("");
   } else {
     manualBlock.hidden = true;
@@ -154,8 +233,12 @@ function renderResult(a) {
   }
 
   sourcesEl.innerHTML = (a.sources || [])
-    .slice(0, 6)
-    .map((s) => `<li><code>${escapeHtml(s.file)}</code> · ${escapeHtml(s.title)}</li>`)
+    .slice(0, 8)
+    .map((s) => {
+      const href = binderHref(s.file);
+      const label = s.title || s.file;
+      return `<li>${linkLabel(href, label)} <span class="path">${escapeHtml(s.file)}</span></li>`;
+    })
     .join("");
 
   resultEl.scrollIntoView({ behavior: "smooth", block: "start" });

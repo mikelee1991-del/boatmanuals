@@ -193,12 +193,13 @@ let systemPrompt = fs.existsSync(systemPromptPath)
 systemPrompt += `
 
 ## Extra rules for this UI
-- Answer like a calm dockside helper: plain language first, then numbered checks.
-- Prefer CONFIRMED boat facts from evidence notes and catalog.
+- Many asks are informational (how a system works on this hull). Lead with accurate synthesis — not a fault tree — unless they describe a problem.
+- Prefer CONFIRMED boat facts from evidence notes and catalog; cite binder paths in backticks for hyperlinks.
 - When OEM extract text conflicts with vessel evidence, prefer vessel evidence and say so.
 - If a photo/evidence card exists for the topic, mention what it shows.
 - Never invent part numbers, fuse ratings, or torque values.
 - If rode length / exact Garmin model / etc. is unknown, say UNVERIFIED and what to photograph.
+- Put real depth in \`details\`; keep \`summary\` human but substantive.
 `;
 
 const media = buildMediaIndex();
@@ -243,13 +244,13 @@ const bundle = {
   systemPrompt,
   manuals: manualsList,
   quickPrompts: [
-    "Stereo has no sound — what should I check?",
+    "How does charging work on this boat?",
+    "Explain the HOUSE vs ENGINE battery setup",
     "How deep can I anchor?",
-    "Hard steering — walk me through it",
-    "Water-in-fuel warning on the engine",
-    "Shore power not charging the batteries",
-    "Garmin is blank — troubleshooting",
+    "How does Zipwake work vs engine trim?",
+    "Stereo has no sound — what should I check?",
     "Where is the fuel filter and how do I service it?",
+    "Hard steering — walk me through it",
     "What does the battery locker look like?",
   ],
 };

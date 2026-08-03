@@ -1,4 +1,4 @@
-const CACHE = "flyer8-guide-v8";
+const CACHE = "flyer8-guide-v9";
 const SHELL = [
   "./",
   "./index.html",

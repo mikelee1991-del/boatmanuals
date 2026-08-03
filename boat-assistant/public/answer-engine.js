@@ -26,6 +26,7 @@ const EXPAND = {
   depth: ["depth", "deep", "draft", "anchor", "rode"],
   charger: ["cristec", "ypower", "charger", "shore"],
   shore: ["shore", "cristec", "rcd", "115v"],
+  charging: ["cristec", "ypower", "charger", "shore", "battery", "house", "engine"],
   steering: ["ephs", "steering", "8m6005909"],
   ephs: ["ephs", "steering"],
   fuel: ["fuel", "filter", "separator", "water-in-fuel"],
@@ -34,9 +35,13 @@ const EXPAND = {
   start: ["start", "crank", "lanyard", "dts"],
   pump: ["pump", "flojet", "jabsco", "washdown"],
   zipwake: ["zipwake", "interceptor", "trim"],
+  trim: ["zipwake", "interceptor", "trim"],
   fuse: ["fuse", "blue sea", "an4", "hds"],
   battery: ["battery", "engine", "house", "locker"],
+  batteries: ["battery", "engine", "house", "locker", "cristec"],
   locker: ["battery", "locker", "cristec", "pump"],
+  electrical: ["battery", "house", "engine", "blue", "sea", "fuse", "cristec"],
+  house: ["house", "battery", "engine", "cristec"],
 };
 
 function tokenize(q) {
@@ -79,7 +84,8 @@ export function classifyIntent(q) {
     return "troubleshoot";
   if (/\b(how do i|how to|pair|operate|replace|service|change|drain|flush|prime)\b/.test(s)) return "howto";
   if (/\b(where is|where does|location|find the)\b/.test(s)) return "where";
-  if (/\b(what is|which|do i have|model|fuse for)\b/.test(s)) return "what";
+  if (/\b(what is|which|do i have|model|fuse for|how does|explain|tell me about|overview|describe)\b/.test(s))
+    return "what";
   if (/\b(how deep|how much|how far)\b/.test(s)) return "planning";
   return "general";
 }
@@ -90,6 +96,11 @@ function failSignal(q) {
   );
 }
 
+function isInformational(intent, q) {
+  if (failSignal(q) || intent === "troubleshoot") return false;
+  return ["what", "howto", "where", "planning", "general", "visual"].includes(intent);
+}
+
 function familyOf(q, raw) {
   const s = q.toLowerCase();
   const has = (...xs) => xs.some((x) => raw.includes(x) || s.includes(x));
@@ -98,11 +109,12 @@ function familyOf(q, raw) {
   if (has("separator") || /\bwater[- ]?in[- ]?fuel\b/.test(s) || (has("fuel") && has("filter"))) return "fuel";
   if ((has("start", "crank") || /\bno start\b/.test(s)) && !has("steering")) return "start";
   if (has("garmin", "mfd", "chartplotter", "sonar", "echomap")) return "garmin";
-  if (has("shore", "charger", "cristec")) return "shore";
+  if (has("shore", "charger", "cristec", "charging", "ypower")) return "shore";
   if (has("thruster", "sleipner")) return "thruster";
   if (has("windlass") || (has("anchor", "rode", "scope") && !has("garmin"))) return "anchor";
-  if (has("zipwake", "interceptor")) return "zipwake";
-  if (has("battery", "locker")) return "electrical";
+  if (has("zipwake", "interceptor", "trim")) return "zipwake";
+  if (has("battery", "batteries", "locker", "electrical", "house") && !has("shore", "charger", "cristec"))
+    return "electrical";
   if (has("pump", "flojet", "jabsco", "washdown")) return "pump";
   return null;
 }
@@ -114,6 +126,7 @@ function scoreChunk(q, raw, topicList, intent, family, c) {
   let s = 0;
   const title = (c.title || "").toLowerCase();
   const file = (c.file || "").toLowerCase();
+  const info = isInformational(intent, q);
 
   for (const t of th) {
     s += t.length >= 6 ? 10 : 6;
@@ -121,15 +134,24 @@ function scoreChunk(q, raw, topicList, intent, family, c) {
     if (file.includes(t)) s += 8;
   }
 
-  if (c.kind === "manual") s += 8;
+  if (c.kind === "manual") s += info ? 12 : 8;
   if (c.kind === "evidence") s += intent === "visual" || /\bphoto|look like|locker|helm\b/i.test(q) ? 28 : 6;
-  if (c.kind === "note") s += 6;
+  if (c.kind === "note") s += info ? 10 : 6;
   if (/symptom-playbooks|retrieval-index|boat-dictionary\.yaml/.test(file)) s -= 20;
   if (/^keywords$/i.test(c.title || "")) s -= 40;
 
   if (intent === "troubleshoot" || failSignal(q)) {
     if (/troubleshoot|if it won't|no sound|warning|alarm|fault|replace|check this/.test(title + h.slice(0, 200)))
       s += 18;
+  }
+  if (info) {
+    // Prefer overview / as-installed / OEM extracts over fault trees
+    if (/troubleshoot|if it won't|pb-|om-ts-|symptom|fault tree|no sound|won't start/.test(title + file)) s -= 16;
+    if (/overview|as-installed|how deep|scope|diagram|charging|batter|electrical|trim|ground-tackle|operation/.test(
+      title + file
+    ))
+      s += 16;
+    if (c.kind === "manual" && /extracts\//.test(file)) s += 10;
   }
   if (intent === "planning" && /how deep|scope|rode/.test(title + file)) s += 40;
   if (intent === "visual" && /evidence\//.test(file)) s += 35;
@@ -140,7 +162,9 @@ function scoreChunk(q, raw, topicList, intent, family, c) {
   if (family === "steer" && /steer|ephs/.test(file + title)) s += 22;
   if (family === "anchor" && /ground-tackle|anchor|rode|windlass|lewmar/.test(file + title)) s += 22;
   if (family === "garmin" && /garmin|echomap|mfd/.test(file + title)) s += 20;
-  if (family === "shore" && /cristec|shore|ypower/.test(file + title)) s += 20;
+  if (family === "shore" && /cristec|shore|ypower|charg/.test(file + title)) s += 20;
+  if (family === "electrical" && /electrical|battery|wiring|blue.?sea|charg/.test(file + title)) s += 20;
+  if (family === "zipwake" && /zipwake|trim/.test(file + title)) s += 20;
 
   // Cross-topic blockers
   if (family === "steer" && /fuel-filter|water-separator|when to service/.test(file + title)) s -= 50;
@@ -280,7 +304,7 @@ export function matchFigures(figuresIndex, question, passages, { limit = 6 } = {
     pump: [/flojet|jabsco|par-max/],
     start: [/verado|smartcraft|dts/],
     vesselview: [/vesselview|smartcraft/],
-    electrical: [/cristec|verado|fusion/],
+    electrical: [/cristec|verado|fusion|ypower/],
   };
 
   return items
@@ -328,8 +352,11 @@ function stripHeading(text) {
 }
 
 function extractShort(text) {
-  const m = text.match(/\*\*Short answer:\*\*\s*([\s\S]*?)(?:\n\n|\n(?=\d+\.|What you|\*\*))/i);
-  return m ? m[1].trim() : null;
+  const m = (text || "").match(
+    /\*\*Short answer:\*\*\s*([\s\S]*?)(?:\n\n|\n(?=\d+\.|What you|#{1,3}\s)|\n(?=\*\*[A-Z])|$)/i
+  );
+  if (!m) return null;
+  return m[1].replace(/\s+/g, " ").trim();
 }
 
 function extractSteps(text, limit = 8) {
@@ -339,6 +366,236 @@ function extractSteps(text, limit = 8) {
     if (steps.length >= limit) break;
   }
   return steps;
+}
+
+function extractBullets(text, limit = 8) {
+  const out = [];
+  for (const m of text.matchAll(/^\s*[-*]\s+(.+)$/gm)) {
+    const line = m[1].trim().replace(/\*\*/g, "");
+    if (line.length < 12 || line.length > 220) continue;
+    if (/^keywords?:/i.test(line)) continue;
+    out.push(line);
+    if (out.length >= limit) break;
+  }
+  return out;
+}
+
+function isJunkSummaryText(t) {
+  if (!t) return true;
+  const s = t.trim();
+  if (s.length < 40) return true;
+  if (/^keywords?:/i.test(s)) return true;
+  if (/^\|/.test(s)) return true;
+  if (/^```/.test(s)) return true;
+  if (/^[┌│└├─┐┘┤┬┴┼]+/m.test(s)) return true; // ascii diagrams
+  if (/^\d+\.\s+Kill battery|^1\.\s+Key off/i.test(s)) return true;
+  // Pure numbered procedure dump without prose context — weak as a bottom line
+  if (/^\d+\.\s+/.test(s) && (s.match(/^\d+\.\s+/gm) || []).length >= 3) return true;
+  return false;
+}
+
+function firstUsefulParagraph(text) {
+  const body = stripHeading(text);
+  const short = extractShort(body);
+  if (short && !isJunkSummaryText(short)) return short.replace(/\s+/g, " ").trim();
+  for (const block of body.split(/\n{2,}/)) {
+    let t = block.trim();
+    if (/^```/.test(t)) continue;
+    t = t.replace(/\s+/g, " ").replace(/^[-*]\s+/, "").trim();
+    if (isJunkSummaryText(t)) continue;
+    return t.slice(0, 520);
+  }
+  const fallback = body.replace(/\s+/g, " ").slice(0, 420);
+  return isJunkSummaryText(fallback) ? "" : fallback;
+}
+
+function pickPrimaryPassage(passages, intent, family) {
+  const ranked = [...passages].sort((a, b) => {
+    const score = (p) => {
+      let s = p.score || 0;
+      const file = (p.file || "").toLowerCase();
+      const title = (p.title || "").toLowerCase();
+      const body = stripHeading(p.text || "");
+      if (extractShort(body)) s += 80;
+      if (/chapters\//.test(file)) s += 20;
+      if (/diagrams\//.test(file)) s -= 40;
+      if (/evidence\//.test(file) && intent !== "visual") s -= 20;
+      if (/retrieval-index|symptom-playbooks|keywords/.test(file + title)) s -= 40;
+      if (/^banks\b|^chemistry\b|^charger\b|^shore ac\b|^usage tips\b/i.test(title)) s -= 10;
+      if (family === "shore" && /13-charging|charg|battery|cristec|electrical|shore/.test(file + title)) s += 30;
+      if (family === "electrical" && /04-electrical|13-charging|battery|electrical|charg|wiring/.test(file + title))
+        s += 30;
+      if (family === "zipwake" && /trim|zipwake/.test(file + title)) s += 25;
+      if (family === "anchor" && /ground-tackle|anchor|rode/.test(file + title)) s += 25;
+      if (isJunkSummaryText(firstUsefulParagraph(body) || body.slice(0, 80))) s -= 30;
+      return s;
+    };
+    return score(b) - score(a);
+  });
+  return (
+    (intent === "visual" && passages.find((p) => p.kind === "evidence")) ||
+    ranked[0] ||
+    passages[0]
+  );
+}
+
+function stepsTitleFor(intent, isFault) {
+  if (isFault) return "Do this";
+  if (intent === "howto") return "How to";
+  if (intent === "where") return "Where to look";
+  return "Key points";
+}
+
+function relatedManuals(bundle, family, passages, q) {
+  const manuals = bundle.manuals || [];
+  const ql = (q || "").toLowerCase();
+  const passageBlob = passages.map((p) => `${p.file} ${p.title}`).join(" ").toLowerCase();
+
+  const familyMatch = (n) => {
+    if (family === "audio") return /fusion|ra210/.test(n);
+    if (family === "garmin") return /garmin/.test(n);
+    if (family === "fuel" || family === "start") return /verado|mercury.*operation/.test(n);
+    if (family === "steer") return /steering|ephs|electric-steering/.test(n);
+    if (family === "shore" || family === "electrical") return /cristec|ypower/.test(n);
+    if (family === "anchor") return /lewmar|windlass/.test(n);
+    if (family === "zipwake") return /zipwake/.test(n);
+    if (family === "thruster") return /side-power|sleipner/.test(n);
+    if (family === "pump") return /flojet|jabsco|par-max/.test(n);
+    return false;
+  };
+
+  const scored = manuals
+    .map((m) => {
+      const n = (m.name + m.file).toLowerCase();
+      let s = 0;
+      const famHit = family && familyMatch(n);
+      if (famHit) s += 50;
+      const base = (m.name || "").replace(/\.pdf$/i, "").toLowerCase();
+      if (passageBlob.includes(base.slice(0, 18))) s += 20;
+      for (const tok of tokenize(q)) {
+        if (tok.length < 5) continue;
+        if (n.includes(tok)) s += 6;
+      }
+      if (/mastervolt|lenco/.test(n) && !/mastervolt|lenco/.test(ql + passageBlob)) s -= 50;
+      // When we know the equipment family, stay on that OEM set
+      if (family && !famHit) s = 0;
+      return { ...m, score: s };
+    })
+    .filter((m) => m.score >= 20)
+    .sort((a, b) => b.score - a.score);
+
+  return scored.slice(0, 5);
+}
+
+function composeInfoSummary(primary, passages, family) {
+  const clean = (s) =>
+    String(s || "")
+      .replace(/^\*\*Short answer:\*\*\s*/i, "")
+      .replace(/^Short answer:\s*/i, "")
+      .replace(/\s+/g, " ")
+      .trim();
+  const bits = [];
+  if (primary) {
+    const short = extractShort(stripHeading(primary.text));
+    if (short && !isJunkSummaryText(short)) bits.push(clean(short));
+    else {
+      const para = firstUsefulParagraph(primary.text);
+      if (para) bits.push(clean(para));
+    }
+  }
+  // Prefer a second *Short answer* from another chapter when available
+  for (const p of passages) {
+    if (primary && p.file === primary.file && p.title === primary.title) continue;
+    if (p.kind === "evidence") continue;
+    if (/diagrams\//.test(p.file || "")) continue;
+    const short = extractShort(stripHeading(p.text));
+    if (!short || isJunkSummaryText(short)) continue;
+    const nugget = clean(short);
+    if (!nugget || nugget.length < 50) continue;
+    if (bits[0] && nugget.slice(0, 60) === bits[0].slice(0, 60)) continue;
+    // Skip near-duplicate system blurbs
+    if (bits[0] && bits[0].length > 100) {
+      const a = bits[0].toLowerCase();
+      const b = nugget.toLowerCase();
+      if (/cristec/.test(a) && /cristec/.test(b) && /house/.test(a) && /house/.test(b)) continue;
+    }
+    bits.push(nugget);
+    break;
+  }
+  let summary = bits.filter(Boolean).join(" ");
+  if (summary.length > 750) summary = summary.slice(0, 747) + "…";
+  if (!summary) {
+    const label = family || "system";
+    summary = `Here’s how the ${label} side of this Flyer 8 is set up on HIN BEYFT208F223, drawn from the binder and matching OEM extracts — see Details and linked sources for the full picture.`;
+  }
+  return summary;
+}
+
+function composeDetails(passages, intent, info) {
+  const limit = info ? 6 : 4;
+  const sliceLen = info ? 2200 : 1400;
+  const parts = [];
+  for (const p of passages.slice(0, limit)) {
+    if (p.kind === "evidence" && intent !== "visual") continue;
+    const body = stripHeading(p.text);
+    if (body.length < 60) continue;
+    const kindLabel = p.kind === "manual" ? "OEM extract" : p.kind === "note" ? "Binder note" : p.kind || "Source";
+    parts.push(`**${p.title}** — ${kindLabel} · \`${p.file}\`\n\n${body.slice(0, sliceLen)}`);
+  }
+  return parts.join("\n\n---\n\n");
+}
+
+function keyPointsFromPassages(passages, limit = 8) {
+  const points = [];
+  const seen = new Set();
+  const add = (line) => {
+    const norm = String(line || "")
+      .replace(/^\*\*Short answer:\*\*\s*/i, "")
+      .replace(/^Short answer:\s*/i, "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .replace(/\*\*/g, "");
+    if (norm.length < 20 || norm.length > 240) return;
+    if (isJunkSummaryText(norm)) return;
+    if (/^[┌│└]/.test(norm) || /^```/.test(norm)) return;
+    if (/^see\s+\[/i.test(norm)) return;
+    if (/^location:/i.test(norm)) return;
+    if (/^`?manuals\//i.test(norm)) return;
+    if (/walk-around clear|bilge ok|no fuel odor/i.test(norm)) return;
+    if (/^these often have breakers/i.test(norm)) return;
+    if (/^leds:/i.test(norm)) return;
+    const key = norm.toLowerCase();
+    if (seen.has(key)) return;
+    seen.add(key);
+    points.push(norm);
+  };
+  // Prefer chapter notes with short answers / bullets first
+  const ordered = [...passages].sort((a, b) => {
+    const af = /chapters\//.test(a.file || "") ? 1 : 0;
+    const bf = /chapters\//.test(b.file || "") ? 1 : 0;
+    return bf - af;
+  });
+  for (const p of ordered) {
+    if (p.kind === "evidence") continue;
+    if (/diagrams\/|retrieval-index/.test(p.file || "")) continue;
+    const body = stripHeading(p.text);
+    const short = extractShort(body);
+    if (short) add(short);
+    for (const b of extractBullets(body, 4)) {
+      if (/^location:/i.test(b) || /^see\s+\[/i.test(b)) continue;
+      add(b);
+    }
+    if (points.length >= limit) break;
+  }
+  if (points.length < 3) {
+    for (const p of ordered) {
+      if (p.kind === "evidence") continue;
+      const para = firstUsefulParagraph(p.text);
+      if (para) add(para.length > 180 ? para.slice(0, 177) + "…" : para);
+      if (points.length >= limit) break;
+    }
+  }
+  return points.slice(0, limit);
 }
 
 /**
@@ -353,8 +610,9 @@ export function answerStructured(bundle, question, mediaIndex = null, figuresInd
   if (!q) {
     return {
       mode: "free",
-      summary: "Ask a question about this Flyer 8 — systems, faults, how-tos, or what something looks like.",
+      summary: "Ask a question about this Flyer 8 — systems, how they work, faults, how-tos, or what something looks like.",
       steps: [],
+      stepsTitle: "Key points",
       details: "",
       warnings: [],
       unknowns: [],
@@ -369,9 +627,11 @@ export function answerStructured(bundle, question, mediaIndex = null, figuresInd
   const intent = classifyIntent(q);
   const raw = tokenize(q);
   const family = familyOf(q, raw);
-  const passages = retrievePassages(bundle, q, { limit: 14 });
+  const info = isInformational(intent, q);
+  const passages = retrievePassages(bundle, q, { limit: info ? 16 : 14 });
   const playbooks = parsePlaybooks(bundle.playbooksRaw);
   const pb = bestPlaybook(q, playbooks, topics(raw, expand(raw)), family);
+  const isFault = Boolean(pb) || intent === "troubleshoot" || failSignal(q);
   const evidence = matchEvidence(mediaIndex, q, passages);
   const figures = matchFigures(figuresIndex, q, passages, { limit: 6 });
 
@@ -379,30 +639,21 @@ export function answerStructured(bundle, question, mediaIndex = null, figuresInd
   if (pb?.safety?.length) steps.push(...pb.safety.map((s) => `Safety: ${s}`));
   if (pb?.steps?.length) steps.push(...pb.steps);
 
-  // Pull supporting detail from multiple top passages (full picture)
-  const detailParts = [];
-  for (const p of passages.slice(0, 4)) {
-    if (p.kind === "evidence" && intent !== "visual") continue;
-    const body = stripHeading(p.text);
-    if (body.length < 60) continue;
-    detailParts.push(`**${p.title}** (\`${p.file}\`)\n\n${body.slice(0, 1400)}`);
-  }
+  let details = composeDetails(passages, intent, info);
 
-  const primary =
-    passages.find((p) => p.kind === "evidence" && intent === "visual") ||
-    passages.find((p) => /how deep|scope vs rode/i.test(p.title || "")) ||
-    passages.find((p) => p.kind === "note") ||
-    passages.find((p) => p.kind === "manual") ||
-    passages[0];
+  const primary = pickPrimaryPassage(passages, intent, family);
 
   let summary = "";
-  let details = detailParts.join("\n\n---\n\n");
-  if (pb?.steps?.length) {
+  if (isFault && pb?.steps?.length) {
     summary = `You’re looking at a ${family || "system"} issue on this Flyer 8${
       pb.om_section ? ` (${pb.om_section})` : ""
     }. I’d run the checks below in order — they combine the vessel playbook with what we know is actually installed on HIN BEYFT208F223.`;
   }
-  if (primary) {
+
+  if (info) {
+    summary = composeInfoSummary(primary, passages, family);
+    if (!steps.length) steps.push(...keyPointsFromPassages(passages, intent === "howto" ? 8 : 7));
+  } else if (primary) {
     const body = stripHeading(primary.text);
     const short = extractShort(body);
     if (!summary) {
@@ -424,7 +675,7 @@ export function answerStructured(bundle, question, mediaIndex = null, figuresInd
     summary = `Follow the ${pb.id} tree for this symptom — it’s written against the gear confirmed on this hull.`;
   } else if (!summary) {
     summary =
-      "I don’t have a strong binder match yet. Name the system (Fusion, Garmin, Zipwake, fuel filter, windlass, CRISTEC) or paste any alarm text / fuse ID you see.";
+      "I don’t have a strong binder match yet. Name the system (Fusion, Garmin, Zipwake, fuel filter, windlass, CRISTEC, HOUSE/ENGINE banks) or paste any alarm text / fuse ID you see.";
   }
 
   // Fuse shortcuts
@@ -436,7 +687,7 @@ export function answerStructured(bundle, question, mediaIndex = null, figuresInd
   }
 
   const warnings = [];
-  if (/fuel|separator|battery|shore|rcd/i.test(q)) {
+  if (/fuel|separator|battery|shore|rcd|ac\b|115/i.test(q)) {
     warnings.push("Key off / isolate power before opening fuel or AC panels when the binder says to.");
   }
 
@@ -445,33 +696,21 @@ export function answerStructured(bundle, question, mediaIndex = null, figuresInd
     unknowns.push("Measure total chain + rope length on board to get a boat-specific max anchoring depth.");
   }
 
-  const manuals = (bundle.manuals || [])
-    .filter((m) => {
-      const n = (m.name + m.file).toLowerCase();
-      if (family === "audio") return /fusion|ra210/.test(n);
-      if (family === "garmin") return /garmin/.test(n);
-      if (family === "fuel" || family === "start") return /verado|mercury.*operation/.test(n);
-      if (family === "steer") return /steering|ephs|electric-steering/.test(n);
-      if (family === "shore") return /cristec/.test(n);
-      if (family === "anchor") return /lewmar|windlass/.test(n);
-      if (family === "zipwake") return /zipwake/.test(n);
-      if (family === "thruster") return /side-power|sleipner/.test(n);
-      if (family === "pump") return /flojet|jabsco|par-max/.test(n);
-      return false;
-    })
-    .slice(0, 4);
+  const manuals = relatedManuals(bundle, family, passages, q);
 
   const sources = [];
   if (pb) sources.push({ title: `Playbook ${pb.id}`, file: "owners-manual/llm/symptom-playbooks.yaml" });
-  for (const p of passages.slice(0, 5)) {
+  for (const p of passages.slice(0, info ? 7 : 5)) {
     sources.push({ title: p.title, file: p.file, kind: p.kind });
   }
 
+  const detailCap = info ? 7500 : 4500;
   return {
     mode: "free",
     summary,
     steps: steps.slice(0, 12),
-    details: details.length > 4500 ? details.slice(0, 4500) + "\n\n…" : details,
+    stepsTitle: stepsTitleFor(intent, isFault),
+    details: details.length > detailCap ? details.slice(0, detailCap) + "\n\n…" : details,
     warnings,
     unknowns,
     evidence,
@@ -486,25 +725,31 @@ export function answerStructured(bundle, question, mediaIndex = null, figuresInd
 }
 
 export function buildLlmMessages(bundle, question, passages, evidence, figures) {
+  const intent = classifyIntent(question);
+  const info = isInformational(intent, question);
   const system =
     (bundle.systemPrompt || "").trim() +
     `
 
 Return ONLY valid JSON with this shape:
 {
-  "summary": "conversational paragraph — diagnose/answer like talking to a fellow engineer",
-  "steps": ["ordered diagnostic or how-to steps with test points where useful"],
-  "details": "deeper multi-source synthesis in markdown: theory, cross-system interactions on THIS boat, what good vs bad looks like",
-  "warnings": ["safety / energy isolation notes"],
+  "summary": "conversational paragraph — answer like talking to a fellow engineer",
+  "steps": ["ordered how-to, key facts, or diagnostic steps — match the question type"],
+  "stepsTitle": "Do this | How to | Key points | Where to look",
+  "details": "deep multi-source synthesis in markdown: how the system works on THIS boat, cross-system interactions, OEM context, what good looks like",
+  "warnings": ["safety / energy isolation notes — omit if not relevant"],
   "unknowns": ["UNVERIFIED on this HIN + what to measure/photograph"],
   "evidenceIds": ["boat photo evidence card ids that help"],
   "figureIds": ["OEM manual figure ids that help"],
   "manualRefs": ["OEM PDF filenames to open"]
 }
-No prose outside JSON. Be detailed in details; keep summary tight but human.`;
+No prose outside JSON.
+
+Intent for this question: ${intent}${info ? " (informational — teach/explain the system; do NOT force a fault tree)" : " (problem-solving — diagnose and check)"}.
+Be detailed in details (several short sections is fine). Keep summary human and accurate. Cite binder paths in backticks so the UI can link them.`;
 
   const ctx = passages
-    .map((p, i) => `[${i + 1}] (${p.kind || "note"}) ${p.file} · ${p.title}\n${String(p.text || "").slice(0, 2000)}`)
+    .map((p, i) => `[${i + 1}] (${p.kind || "note"}) ${p.file} · ${p.title}\n${String(p.text || "").slice(0, info ? 2600 : 2000)}`)
     .join("\n\n");
 
   const ev = (evidence || [])
@@ -518,7 +763,22 @@ No prose outside JSON. Be detailed in details; keep summary tight but human.`;
     )
     .join("\n");
 
-  const user = `Vessel: ${bundle.vessel?.name} · HIN ${bundle.vessel?.hin} · ${bundle.vessel?.engine}
+  const user = info
+    ? `Vessel: ${bundle.vessel?.name} · HIN ${bundle.vessel?.hin} · ${bundle.vessel?.engine}
+
+The owner is an engineer asking for accurate system knowledge — not necessarily a repair. Synthesize a clear, detailed picture of how this works on THIS hull. Use multiple binder/OEM sources. Do not invent a troubleshooting checklist unless the question is about a fault.
+
+Question: ${question}
+
+Boat photo evidence cards:
+${ev || "(none matched)"}
+
+OEM manual figures available (pick relevant figureIds):
+${figs || "(none matched)"}
+
+Binder / extract excerpts:
+${ctx || "(none)"}`
+    : `Vessel: ${bundle.vessel?.name} · HIN ${bundle.vessel?.hin} · ${bundle.vessel?.engine}
 
 The owner is an engineer. Give the full picture — not a single-manual paraphrase. Tie vessel-confirmed facts to OEM procedure.
 

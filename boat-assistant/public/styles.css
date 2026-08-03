@@ -379,7 +379,36 @@ textarea {
   color: var(--muted);
   font-size: 13px;
   display: grid;
-  gap: 4px;
+  gap: 6px;
+}
+
+.manuals a,
+.sources a,
+.evidence-card h4 a,
+.manual-fig figcaption a,
+.prose a,
+.prose code a {
+  color: #8ec5ff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.manuals a:hover,
+.sources a:hover,
+.evidence-card h4 a:hover,
+.manual-fig figcaption a:hover,
+.prose a:hover {
+  color: #c5e0ff;
+}
+
+.manuals .path,
+.sources .path {
+  display: block;
+  margin-top: 2px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  opacity: 0.75;
+  word-break: break-all;
 }
 
 .sources-block {

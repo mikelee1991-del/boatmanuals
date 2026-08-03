@@ -4,7 +4,7 @@
 
 **Status:** **CONFIRMED** installed · **LENCO NOT INSTALLED**
 
-Helm shows **AUTO PITCH** / **AUTO ROLL** plus Series S rotary controller near Garmin.
+Helm shows a vertical Zipwake Series S panel **left of the Garmin** with **AUTO PITCH** / **AUTO ROLL** plus rotary controls.
 
 ## Manuals
 - `manuals/systems/Zipwake-Series-S-Operators-Manual-EN-R5A.pdf`

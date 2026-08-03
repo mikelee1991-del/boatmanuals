@@ -1,31 +1,39 @@
 # Helm / bow photo evidence
 
-Photo of helm looking forward over bow (marina / Shelter Island area on Garmin chart).
+Owner helm photo looking forward over the bow (Garmin chart centered on **Shelter Island, San Diego**). Electronics powered; boat in marina / idle.
 
 ## Confirmed
 | Item | Evidence |
 |------|----------|
-| Zipwake | Panel with **AUTO PITCH** / **AUTO ROLL**; Series S rotary controller under/near Garmin |
-| Garmin MFD | Center chartplotter; chart+sonar split; Garmin bezel logo; exact model not readable |
-| Mercury VesselView-class display | Smaller square digital engine gauge upper-right of Garmin |
-| Fusion stereo | Marine head unit beside engine display (likely MS-RA210 Sound Pack) |
-| Mercury DTS | Single lever with **DOCK**, **TRANSFER**, **THROTTLE ONLY**; red kill lanyard |
-| Sleipner thruster | **SLEIPNER** panel + thruster joystick near ignition |
-| Windlass | White windlass / anchor housing visible at bow |
-| Black pulpits | Black powder-coated bow rails + black windshield frame |
-| T-Top | Black metal frame with black fabric roof (snaps) |
-| Switch panel | Toggle/rocker bank for lights, bilge, etc. |
-| Offshore compass | Analog magnetic compass on dash behind windshield (US Trim Package) |
-| START/STOP | Mercury ignition + START/STOP button at helm |
-| VHF | Owner confirmed: **handheld only**, no fixed VHF wired (fuse-map VHF circuit is spare/pre-wire) |
+| Zipwake Series S | Vertical panel **left of Garmin** with **AUTO PITCH** / **AUTO ROLL** and Series S circular/rotary controls |
+| Garmin MFD | Center chartplotter; Garmin bezel; chart page live (Shelter Island). Exact SKU still not readable from this distance |
+| Live helm data (this photo) | Depth overlay **~3.4 ft**; heading **061° M**; GPS roughly **N 32°42.8′ / W 117°14.0′** (Shelter Island) |
+| Mercury VesselView-class display | Smaller SmartCraft engine display in the helm cluster (exact model still **UNVERIFIED**) |
+| Sleipner thruster | Square control pad with joystick + **ON** / **OFF** below the Zipwake panel |
+| Switch bank | Horizontal rocker row under the Garmin; at least one circuit lit (blue LED) |
+| Offshore compass | Analog magnetic compass on the dash, port of the Garmin / forward of Zipwake |
+| Windshield / brand | Black powder-coated frame; silver Beneteau seahorse centered on the windshield |
+| T-Top | **Soft** black fabric roof on black metal frame (**CONFIRMED** fabric, not a hardtop) |
+| Bow / SPACEdeck | Open bow seating with center walkthrough; stainless plow / Delta-style anchor on the bow roller |
+| Black pulpits | Black powder-coated bow rails matching the windshield frame |
+| VHF | Owner confirmed: **handheld only** — no fixed VHF (fuse-map VHF circuit is spare/pre-wire) |
+
+## Also on this helm (from matching prior photos)
+| Item | Evidence |
+|------|----------|
+| Fusion stereo | Marine head unit in the helm cluster (likely MS-RA210 Sound Pack) |
+| Mercury DTS | Single lever with **DOCK** / **TRANSFER** / **THROTTLE ONLY**; red kill lanyard |
+| START/STOP | Mercury ignition + START/STOP at helm |
 
 ## Ruled out
 | Item | Reason |
 |------|--------|
 | LENCO electric trim tabs | Zipwake installed (factory options are mutually exclusive) |
+| Hard T-Top | Fabric roof with snaps / soft top structure visible |
 
 ## Still needed from close-ups
-- Garmin About screen / bezel model
+- Garmin **About** screen / bezel model string
+- VesselView exact model (502 / 702 / 704 / etc.)
 - Windlass motor plate
 - Sleipner thruster motor plate
-- Confirm hard T-Top vs soft bimini
+- Fusion faceplate confirmation (MS-RA210)

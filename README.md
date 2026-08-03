@@ -1,30 +1,28 @@
 # Flyer 8 SPACEdeck — boat binder & Q&A
 
-Documentation and binder-grounded Q&A for a **2023 BENETEAU Flyer 8 SPACEdeck** with **Mercury Verado 300** (`13000069A` / ESN `3B371488`).
+Documentation and problem-solving Q&A for a **2023 BENETEAU Flyer 8 SPACEdeck** with **Mercury Verado 300** (`13000069A` / ESN `3B371488`).
 
 ## Boat binder (source of truth)
 
-Everything the guide knows lives here:
+- [`boat-dictionary/`](boat-dictionary/) — hardware catalog, fuse map, owner’s manual chapters, evidence notes, OEM PDF library + text extracts
+- Entry: [`boat-dictionary/README.md`](boat-dictionary/README.md)
 
-- [`boat-dictionary/`](boat-dictionary/) — hardware catalog, fuse map, owner’s manual chapters, evidence notes, OEM PDF library  
-- Entry point: [`boat-dictionary/README.md`](boat-dictionary/README.md)  
-- Consolidated manual: [`boat-dictionary/owners-manual/README.md`](boat-dictionary/owners-manual/README.md)
+## Ask the boat (UI)
 
-## Q&A UI (reads the binder)
+[`boat-assistant/`](boat-assistant/) — rebuilt mobile Q&A:
 
-[`boat-assistant/`](boat-assistant/) is a **repo-local** mobile page that answers questions from the binder.
+- **Bottom line** + **Do this** steps + safety + photo evidence cards + related manuals
+- Free binder answers always
+- Optional **free** OpenRouter `:free` model for clearer synthesis (one-time free key)
 
 ```bash
 cd boat-assistant
-npm start          # builds from boat-dictionary/, serves http://localhost:8787
+npm start
 ```
 
-No API keys. After merge to `main`, GitHub Pages can host the same UI (see `boat-assistant/README.md`).
+Live: **https://mikelee1991-del.github.io/boatmanuals/**
 
-## Layout
+### Help needed from you
 
-```text
-boat-dictionary/     boat binder (edit this to teach the boat)
-boat-assistant/      Q&A UI that packs + searches the binder
-.github/workflows/   builds binder → GitHub Pages
-```
+1. **Free AI key (optional but recommended):** [openrouter.ai/keys](https://openrouter.ai/keys) → paste in **Setup** on the site. Use a model ending in `:free` ($0).
+2. **Original photos:** evidence is transcribed, but image files aren’t in the repo. Drop photos into `boat-dictionary/photos/` and we can display them in answers.

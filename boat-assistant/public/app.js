@@ -1,87 +1,165 @@
-import { askWithLlm, askFree, loadSettings, saveSettings, DEFAULT_SETTINGS } from "./llm-ask.js";
+import { askQuestion, loadSettings, saveSettings, needsFreeKey, DEFAULT_SETTINGS } from "./ask.js";
 
 const statusEl = document.getElementById("status");
 const form = document.getElementById("form");
 const qEl = document.getElementById("q");
 const askBtn = document.getElementById("askBtn");
 const chipsEl = document.getElementById("chips");
-const answerEl = document.getElementById("answer");
-const answerBody = document.getElementById("answerBody");
-const confidenceEl = document.getElementById("confidence");
+const resultEl = document.getElementById("result");
+const pillEl = document.getElementById("pill");
+const summaryEl = document.getElementById("summary");
+const stepsBlock = document.getElementById("stepsBlock");
+const stepsEl = document.getElementById("steps");
+const warnBlock = document.getElementById("warnBlock");
+const warningsEl = document.getElementById("warnings");
+const detailBlock = document.getElementById("detailBlock");
+const detailsEl = document.getElementById("details");
+const unknownBlock = document.getElementById("unknownBlock");
+const unknownsEl = document.getElementById("unknowns");
+const evidenceBlock = document.getElementById("evidenceBlock");
+const evidenceEl = document.getElementById("evidence");
+const manualBlock = document.getElementById("manualBlock");
+const manualsEl = document.getElementById("manuals");
 const sourcesEl = document.getElementById("sources");
-const settingsDlg = document.getElementById("settings");
-const openSettingsBtn = document.getElementById("openSettings");
-const settingsForm = document.getElementById("settingsForm");
-const modeHint = document.getElementById("modeHint");
+const keyBanner = document.getElementById("keyBanner");
+const setup = document.getElementById("setup");
+const setupForm = document.getElementById("setupForm");
 
 let bundle = null;
+let mediaIndex = null;
 
-function formatAnswer(text) {
-  const blocks = [];
-  let html = text.replace(/```[\w]*\n([\s\S]*?)```/g, (_, code) => {
-    const i = blocks.length;
-    blocks.push(
-      `<pre><code>${code.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").trim()}</code></pre>`
-    );
-    return `\u0000BLOCK${i}\u0000`;
+function escapeHtml(s) {
+  return String(s)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+}
+
+function renderMarkdown(text) {
+  if (!text) return "";
+  let html = escapeHtml(text);
+  // tables
+  html = html.replace(/(?:^\|.+\|\n?)+/gm, (block) => {
+    const rows = block.trim().split("\n").filter(Boolean);
+    if (rows.length < 2) return block;
+    const parse = (row) =>
+      row
+        .split("|")
+        .slice(1, -1)
+        .map((c) => c.trim());
+    const head = parse(rows[0]);
+    const bodyRows = rows.slice(2).map(parse);
+    return `<table><thead><tr>${head.map((c) => `<th>${c}</th>`).join("")}</tr></thead><tbody>${bodyRows
+      .map((r) => `<tr>${r.map((c) => `<td>${c}</td>`).join("")}</tr>`)
+      .join("")}</tbody></table>`;
   });
-  html = html.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
-  html = html.replace(/^### (.+)$/gm, "<h3>$1</h3>");
   html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
-  html = html.replace(/^_(.+)_$/gm, "<em>$1</em>");
   html = html.replace(/^- (.+)$/gm, "<li>$1</li>");
   html = html.replace(/(?:<li>.*<\/li>\n?)+/g, (m) => `<ul>${m}</ul>`);
   html = html.replace(/\n{2,}/g, "</p><p>");
   html = `<p>${html}</p>`;
-  html = html.replace(/<p><h3>/g, "<h3>").replace(/<\/h3><\/p>/g, "</h3>");
+  html = html.replace(/<p><table>/g, "<table>").replace(/<\/table><\/p>/g, "</table>");
   html = html.replace(/<p><ul>/g, "<ul>").replace(/<\/ul><\/p>/g, "</ul>");
   html = html.replace(/<p><\/p>/g, "");
-  html = html.replace(/\u0000BLOCK(\d+)\u0000/g, (_, i) => blocks[Number(i)]);
   return html;
 }
 
-function showAnswer(result) {
-  answerEl.hidden = false;
-  const badge =
-    result.mode === "llm"
-      ? `ai · ${result.confidence || "high"}`
-      : `free · ${result.confidence || "—"}`;
-  confidenceEl.textContent = badge;
-  confidenceEl.className = `badge ${result.confidence || ""} ${result.mode || "free"}`;
-  answerBody.innerHTML = formatAnswer(result.answer);
-  sourcesEl.innerHTML = (result.hits || [])
-    .slice(0, 6)
-    .map((h) => `<div><code>${h.file}</code> · ${h.title}</div>`)
-    .join("");
-  answerEl.scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
-function refreshModeHint() {
-  const s = loadSettings();
-  if (s.mode === "ai" && s.apiKey) {
-    modeHint.textContent = `Optional AI · ${s.provider} · ${s.model}`;
-  } else {
-    modeHint.textContent = "Free mode — answers from your boat binder, no API key";
+function showList(block, el, items) {
+  if (!items?.length) {
+    block.hidden = true;
+    el.innerHTML = "";
+    return;
   }
+  block.hidden = false;
+  el.innerHTML = items.map((i) => `<li>${escapeHtml(i)}</li>`).join("");
 }
 
-function fillSettingsForm() {
+function renderResult(a) {
+  resultEl.hidden = false;
+  pillEl.textContent = a.mode === "ai" ? `AI · ${a.model || a.provider || "free model"}` : "Binder · free";
+  pillEl.className = `pill ${a.mode === "ai" ? "ai" : "free"}`;
+
+  summaryEl.innerHTML = renderMarkdown(a.summary || "");
+
+  if (a.steps?.length) {
+    stepsBlock.hidden = false;
+    stepsEl.innerHTML = a.steps.map((s) => `<li>${escapeHtml(s)}</li>`).join("");
+  } else {
+    stepsBlock.hidden = true;
+    stepsEl.innerHTML = "";
+  }
+
+  showList(warnBlock, warningsEl, a.warnings);
+  showList(unknownBlock, unknownsEl, a.unknowns);
+
+  if (a.details && a.details.trim() && a.details.trim() !== (a.summary || "").trim()) {
+    detailBlock.hidden = false;
+    detailsEl.innerHTML = renderMarkdown(a.details);
+  } else {
+    detailBlock.hidden = true;
+    detailsEl.innerHTML = "";
+  }
+
+  if (a.evidence?.length) {
+    evidenceBlock.hidden = false;
+    evidenceEl.innerHTML = a.evidence
+      .map(
+        (e) => `<article class="evidence-card">
+          <h4>${escapeHtml(e.title)}</h4>
+          <p>${escapeHtml(e.summary)}</p>
+          <div class="tags">${(e.tags || [])
+            .slice(0, 6)
+            .map((t) => `<span class="tag">${escapeHtml(t)}</span>`)
+            .join("")}</div>
+        </article>`
+      )
+      .join("");
+  } else {
+    evidenceBlock.hidden = true;
+    evidenceEl.innerHTML = "";
+  }
+
+  if (a.manuals?.length) {
+    manualBlock.hidden = false;
+    manualsEl.innerHTML = a.manuals
+      .map((m) => `<li><code>${escapeHtml(m.file)}</code> · ${escapeHtml(m.name)}</li>`)
+      .join("");
+  } else {
+    manualBlock.hidden = true;
+    manualsEl.innerHTML = "";
+  }
+
+  sourcesEl.innerHTML = (a.sources || [])
+    .slice(0, 6)
+    .map((s) => `<li><code>${escapeHtml(s.file)}</code> · ${escapeHtml(s.title)}</li>`)
+    .join("");
+
+  resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function refreshBanner() {
+  keyBanner.hidden = !needsFreeKey();
+}
+
+function fillSetup() {
   const s = loadSettings();
-  settingsForm.mode.value = s.mode === "ai" ? "ai" : "free";
-  settingsForm.provider.value = s.provider;
-  settingsForm.model.value = s.model;
-  settingsForm.apiKey.value = s.apiKey;
-  settingsForm.baseUrl.value = s.baseUrl || "";
+  setupForm.mode.value = s.mode;
+  setupForm.apiKey.value = s.apiKey || "";
+  setupForm.model.value = s.model || DEFAULT_SETTINGS.model;
 }
 
-async function loadBundle() {
-  const res = await fetch(new URL("./knowledge-bundle.json", import.meta.url), { cache: "no-store" });
-  if (!res.ok) throw new Error("Could not load knowledge bundle");
-  bundle = await res.json();
+async function load() {
+  const [bundleRes, mediaRes] = await Promise.all([
+    fetch(new URL("./knowledge-bundle.json", import.meta.url), { cache: "no-store" }),
+    fetch(new URL("./media-index.json", import.meta.url), { cache: "no-store" }),
+  ]);
+  if (!bundleRes.ok) throw new Error("Could not load boat binder bundle");
+  bundle = await bundleRes.json();
+  mediaIndex = mediaRes.ok ? await mediaRes.json() : { items: [] };
+
   const kb = Math.round((bundle.stats?.bytes || 0) / 1024);
-  statusEl.textContent = `Boat binder · ${bundle.stats?.files || "?"} files · ${bundle.stats?.chunks || "?"} passages · ${kb} KB · free`;
-  statusEl.className = "status ok";
+  statusEl.textContent = `${bundle.stats?.chunks || "?"} passages · ${bundle.stats?.manuals || "?"} manuals · ${bundle.stats?.evidenceCards || "?"} photo cards · ${kb} KB`;
 
   chipsEl.innerHTML = "";
   for (const prompt of bundle.quickPrompts || []) {
@@ -89,38 +167,38 @@ async function loadBundle() {
     b.type = "button";
     b.className = "chip";
     b.textContent = prompt;
-    b.title = prompt;
     b.addEventListener("click", () => {
       qEl.value = prompt;
       ask(prompt);
     });
     chipsEl.appendChild(b);
   }
-  refreshModeHint();
+  refreshBanner();
 }
 
 async function ask(question) {
   if (!bundle) return;
-  const settings = loadSettings();
-  const useAi = settings.mode === "ai" && Boolean(settings.apiKey);
   askBtn.disabled = true;
-  askBtn.textContent = useAi ? "Thinking…" : "Searching binder…";
+  askBtn.textContent = "Working…";
+  statusEl.textContent = needsFreeKey() ? "Searching binder…" : "Synthesizing answer…";
   try {
-    if (!useAi) {
-      showAnswer(askFree(bundle, question));
-      return;
-    }
-    try {
-      showAnswer(await askWithLlm(bundle, question, settings));
-    } catch (err) {
-      const free = askFree(bundle, question);
-      free.answer = `_(Optional AI failed: ${err.message || err}. Showing free binder answer.)_\n\n` + free.answer;
-      free.confidence = "medium";
-      showAnswer(free);
-    }
+    const answer = await askQuestion(bundle, mediaIndex, question, loadSettings());
+    renderResult(answer);
+    statusEl.textContent =
+      answer.mode === "ai" ? "AI synthesis from binder + manuals" : "Binder answer (add free OpenRouter key for AI polish)";
+  } catch (err) {
+    const fallback = await askQuestion(
+      bundle,
+      mediaIndex,
+      question,
+      { ...loadSettings(), mode: "free", apiKey: "" }
+    );
+    fallback.summary = `AI unavailable (${err.message || err}). Showing binder answer instead.\n\n` + (fallback.summary || "");
+    renderResult(fallback);
+    statusEl.textContent = "Binder fallback";
   } finally {
     askBtn.disabled = false;
-    askBtn.textContent = "Get answer";
+    askBtn.textContent = "Ask";
   }
 }
 
@@ -129,36 +207,36 @@ form.addEventListener("submit", (e) => {
   ask(qEl.value);
 });
 
-openSettingsBtn.addEventListener("click", () => {
-  fillSettingsForm();
-  settingsDlg.showModal();
+document.getElementById("settingsBtn").addEventListener("click", () => {
+  fillSetup();
+  setup.showModal();
 });
+document.getElementById("openSetupFromBanner").addEventListener("click", () => {
+  fillSetup();
+  setup.showModal();
+});
+document.getElementById("closeSetup").addEventListener("click", () => setup.close());
 
-settingsForm.addEventListener("submit", (e) => {
+setupForm.addEventListener("submit", (e) => {
   e.preventDefault();
   saveSettings({
-    mode: settingsForm.mode.value || DEFAULT_SETTINGS.mode,
-    provider: settingsForm.provider.value || DEFAULT_SETTINGS.provider,
-    model: settingsForm.model.value.trim() || DEFAULT_SETTINGS.model,
-    apiKey: settingsForm.apiKey.value.trim(),
-    baseUrl: settingsForm.baseUrl.value.trim(),
+    mode: setupForm.mode.value,
+    apiKey: setupForm.apiKey.value.trim(),
+    model: setupForm.model.value.trim() || DEFAULT_SETTINGS.model,
   });
-  refreshModeHint();
-  settingsDlg.close();
+  refreshBanner();
+  setup.close();
 });
-
-document.getElementById("closeSettings").addEventListener("click", () => settingsDlg.close());
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register(new URL("./sw.js", import.meta.url)).catch(() => {});
 }
 
 askBtn.disabled = true;
-loadBundle()
+load()
   .then(() => {
     askBtn.disabled = false;
-    const params = new URLSearchParams(location.search);
-    const q = params.get("q");
+    const q = new URLSearchParams(location.search).get("q");
     if (q) {
       qEl.value = q;
       ask(q);
@@ -166,5 +244,4 @@ loadBundle()
   })
   .catch((err) => {
     statusEl.textContent = String(err.message || err);
-    statusEl.className = "status bad";
   });

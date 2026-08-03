@@ -46,7 +46,7 @@ function llmConfig() {
   return {
     provider: "openrouter",
     apiKey: key,
-    model: process.env.LLM_MODEL || "meta-llama/llama-3.3-70b-instruct:free",
+    model: process.env.LLM_MODEL || "openrouter/free",
     url: "https://openrouter.ai/api/v1/chat/completions",
   };
 }

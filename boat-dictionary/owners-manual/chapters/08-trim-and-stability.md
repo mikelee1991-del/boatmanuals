@@ -1,5 +1,7 @@
 # OM-TRIM — Zipwake Series S
 
+**Short answer:** This hull has **Zipwake Series S** interceptors (**LENCO not installed**). AUTO PITCH / AUTO ROLL at the helm stabilize attitude via the interceptors; **Mercury engine trim** (and possibly Active Trim) is a separate path — don’t assume Zipwake replaces Verado trim. Exact interceptor size plates and NMEA/GPS feed details are still **UNVERIFIED**.
+
 **Status:** **CONFIRMED** installed · **LENCO NOT INSTALLED**
 
 Helm shows **AUTO PITCH** / **AUTO ROLL** plus Series S rotary controller near Garmin.

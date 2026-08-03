@@ -1,5 +1,7 @@
 # OM-BATT — Batteries & charging
 
+**Short answer:** Dual yellow IMNASA boxes in the teak hatch locker are labeled **ENGINE BATTERY** (start) and **HOUSE BATTERY** (house loads, thruster, windlass, electronics). Shore charging is a **CRISTEC YPOWER YPO12-25DE** (12 V / 25 A) — **not** Mastervolt. Battery chemistry vs the charger’s “OPENED TYPE” sticker is still **UNVERIFIED**; running alternator voltage in owner photos is about **14.2–14.4 V**.
+
 ## Banks (**CONFIRMED**)
 
 | Bank | Container | Role |

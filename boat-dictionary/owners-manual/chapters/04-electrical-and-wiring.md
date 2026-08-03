@@ -1,5 +1,7 @@
 # OM-WIRE — Electrical system & as-installed wiring
 
+**Short answer:** Dual 12 V banks (**ENGINE** / **HOUSE**) feed the main fuse box and Blue Sea aux strip. Notable Blue Sea IDs: **AN4 · 10 A** = Fusion stereo, **HDS · 5 A** = Garmin MFD, **VHF · 10 A** = spare (handheld VHF only). Shore path is 115 V → RCD → **CRISTEC YPO12-25DE**. Thruster/windlass use high-current protection off the aux strip.
+
 **Source of truth for fuse IDs:** owner photo of printed diagram labeled **FLYER 8 SPACE DECK / 12V**, transcribed in [`../../catalog/fuse-map-12v.md`](../../catalog/fuse-map-12v.md).  
 **Warning on diagram:** TURN OFF POWER BEFORE SERVICING.
 

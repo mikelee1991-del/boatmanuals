@@ -251,6 +251,78 @@ export function matchEvidence(mediaIndex, question, passages) {
     .slice(0, 3);
 }
 
+/**
+ * Match OEM manual figures to the question / retrieved passages.
+ */
+export function matchFigures(figuresIndex, question, passages, { limit = 6 } = {}) {
+  const items = figuresIndex?.items || [];
+  if (!items.length) return [];
+  const q = question.toLowerCase();
+  const raw = tokenize(q);
+  const fam = familyOf(q, raw);
+  const passageManuals = new Set(
+    passages
+      .map((p) => (p.file || "").toLowerCase())
+      .filter((f) => f.includes("extracts/") || f.includes("manual"))
+      .map((f) => f.replace(/^.*extracts\//, "").replace(/\.md$/, "").toLowerCase())
+  );
+  const passageBlob = passages.map((p) => `${p.title} ${p.text || ""}`.slice(0, 500)).join(" ").toLowerCase();
+
+  const familyManualHints = {
+    audio: [/fusion|ra210/],
+    garmin: [/garmin|echomap/],
+    fuel: [/verado|operation-maintenance|fuel/],
+    steer: [/steering|ephs|electric-steering/],
+    shore: [/cristec|ypower/],
+    anchor: [/lewmar|windlass/],
+    thruster: [/side-power|sleipner/],
+    zipwake: [/zipwake/],
+    pump: [/flojet|jabsco|par-max/],
+    start: [/verado|smartcraft|dts/],
+    vesselview: [/vesselview|smartcraft/],
+    electrical: [/cristec|verado|fusion/],
+  };
+
+  return items
+    .map((item) => {
+      let s = 0;
+      const hay = `${item.caption} ${item.manualName} ${(item.topics || []).join(" ")} ${(item.tags || []).join(" ")}`.toLowerCase();
+      for (const t of raw) {
+        if (t.length < 3) continue;
+        if (hay.includes(t)) s += 6;
+      }
+      for (const t of item.topics || []) {
+        if (q.includes(t) || fam === t || (fam === "audio" && t === "stereo")) s += 10;
+        if (passageBlob.includes(t)) s += 3;
+      }
+      for (const t of item.tags || []) if (q.includes(t)) s += 5;
+      const man = (item.manualName || "").toLowerCase();
+      for (const hint of passageManuals) {
+        if (man.includes(hint.slice(0, 18)) || hint.includes(man.replace(/\.pdf$/, "").slice(0, 18))) s += 12;
+      }
+      const hints = familyManualHints[fam] || [];
+      if (hints.length) {
+        if (hints.some((re) => re.test(man) || re.test((item.manual || "").toLowerCase()))) s += 22;
+        else s -= 18; // keep figures on-topic for the equipment family
+      }
+      if (fam && (item.topics || []).includes(fam)) s += 8;
+      if (fam === "fuel" && /garmin|echomap|fusion/.test(man)) s -= 30;
+      if (fam === "audio" && /verado|garmin|cristec/.test(man)) s -= 20;
+      // Prefer real embedded figures slightly over full-page renders when scores tie-ish
+      if (item.kind === "page-render") s -= 1;
+      return { ...item, score: s };
+    })
+    .filter((x) => {
+      if (x.score < 14) return false;
+      const hints = familyManualHints[fam];
+      if (!hints?.length) return true;
+      const man = `${x.manualName || ""} ${x.manual || ""}`.toLowerCase();
+      return hints.some((re) => re.test(man));
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit);
+}
+
 function stripHeading(text) {
   return (text || "").replace(/^#{1,3}\s+.*$/m, "").trim();
 }
@@ -271,18 +343,23 @@ function extractSteps(text, limit = 8) {
 
 /**
  * Structured free answer (no LLM).
+ * @param {object} bundle
+ * @param {string} question
+ * @param {object|null} mediaIndex
+ * @param {object|null} figuresIndex
  */
-export function answerStructured(bundle, question, mediaIndex = null) {
+export function answerStructured(bundle, question, mediaIndex = null, figuresIndex = null) {
   const q = (question || "").trim();
   if (!q) {
     return {
       mode: "free",
-      summary: "Ask a question about this Flyer 8.",
+      summary: "Ask a question about this Flyer 8 — systems, faults, how-tos, or what something looks like.",
       steps: [],
       details: "",
       warnings: [],
       unknowns: [],
       evidence: [],
+      figures: [],
       sources: [],
       manuals: [],
       confidence: "low",
@@ -292,14 +369,24 @@ export function answerStructured(bundle, question, mediaIndex = null) {
   const intent = classifyIntent(q);
   const raw = tokenize(q);
   const family = familyOf(q, raw);
-  const passages = retrievePassages(bundle, q, { limit: 12 });
+  const passages = retrievePassages(bundle, q, { limit: 14 });
   const playbooks = parsePlaybooks(bundle.playbooksRaw);
   const pb = bestPlaybook(q, playbooks, topics(raw, expand(raw)), family);
   const evidence = matchEvidence(mediaIndex, q, passages);
+  const figures = matchFigures(figuresIndex, q, passages, { limit: 6 });
 
   const steps = [];
   if (pb?.safety?.length) steps.push(...pb.safety.map((s) => `Safety: ${s}`));
   if (pb?.steps?.length) steps.push(...pb.steps);
+
+  // Pull supporting detail from multiple top passages (full picture)
+  const detailParts = [];
+  for (const p of passages.slice(0, 4)) {
+    if (p.kind === "evidence" && intent !== "visual") continue;
+    const body = stripHeading(p.text);
+    if (body.length < 60) continue;
+    detailParts.push(`**${p.title}** (\`${p.file}\`)\n\n${body.slice(0, 1400)}`);
+  }
 
   const primary =
     passages.find((p) => p.kind === "evidence" && intent === "visual") ||
@@ -309,28 +396,35 @@ export function answerStructured(bundle, question, mediaIndex = null) {
     passages[0];
 
   let summary = "";
-  let details = "";
+  let details = detailParts.join("\n\n---\n\n");
   if (pb?.steps?.length) {
-    summary = `On this Flyer 8, work through these checks for that symptom${pb.om_section ? ` (${pb.om_section})` : ""}.`;
+    summary = `You’re looking at a ${family || "system"} issue on this Flyer 8${
+      pb.om_section ? ` (${pb.om_section})` : ""
+    }. I’d run the checks below in order — they combine the vessel playbook with what we know is actually installed on HIN BEYFT208F223.`;
   }
   if (primary) {
     const body = stripHeading(primary.text);
     const short = extractShort(body);
-    if (!summary) summary = short || body.split(/\n\n/)[0].replace(/\s+/g, " ").slice(0, 420);
-    // Don't use a bare numbered list as the summary
-    if (/^\s*\d+\.\s+/.test(summary) && short) summary = short;
-    if (/^\s*\d+\.\s+/.test(summary) && pb?.steps?.length) {
-      summary = `On this Flyer 8, work through these checks for that symptom${pb.om_section ? ` (${pb.om_section})` : ""}.`;
+    if (!summary) {
+      summary = short
+        ? short
+        : `Here’s the best read from the binder on that: ${body.split(/\n\n/)[0].replace(/\s+/g, " ").slice(0, 380)}`;
     }
-    details = body;
+    if (/^\s*\d+\.\s+/.test(summary) && pb?.steps?.length) {
+      summary = `You’re looking at a ${family || "system"} issue on this Flyer 8${
+        pb.om_section ? ` (${pb.om_section})` : ""
+      }. I’d run the checks below in order — vessel-specific first, then OEM procedure detail.`;
+    }
+    if (!details) details = body;
     if (!steps.length) {
       const fromNote = extractSteps(body);
       if (fromNote.length) steps.push(...fromNote);
     }
   } else if (pb && !summary) {
-    summary = `Follow the ${pb.id} checks for this symptom on your Flyer 8.`;
+    summary = `Follow the ${pb.id} tree for this symptom — it’s written against the gear confirmed on this hull.`;
   } else if (!summary) {
-    summary = "I couldn’t find a strong match in the binder yet. Try naming the system (Fusion, Garmin, Zipwake, fuel filter, windlass).";
+    summary =
+      "I don’t have a strong binder match yet. Name the system (Fusion, Garmin, Zipwake, fuel filter, windlass, CRISTEC) or paste any alarm text / fuse ID you see.";
   }
 
   // Fuse shortcuts
@@ -376,11 +470,12 @@ export function answerStructured(bundle, question, mediaIndex = null) {
   return {
     mode: "free",
     summary,
-    steps: steps.slice(0, 10),
-    details: details.length > 1200 && steps.length >= 4 ? details.slice(0, 900) + "…" : details,
+    steps: steps.slice(0, 12),
+    details: details.length > 4500 ? details.slice(0, 4500) + "\n\n…" : details,
     warnings,
     unknowns,
     evidence,
+    figures,
     sources,
     manuals,
     confidence: steps.length >= 3 || summary.length > 80 ? "high" : "medium",
@@ -390,39 +485,52 @@ export function answerStructured(bundle, question, mediaIndex = null) {
   };
 }
 
-export function buildLlmMessages(bundle, question, passages, evidence) {
+export function buildLlmMessages(bundle, question, passages, evidence, figures) {
   const system =
     (bundle.systemPrompt || "").trim() +
     `
 
 Return ONLY valid JSON with this shape:
 {
-  "summary": "2-5 sentence plain-language answer",
-  "steps": ["numbered troubleshooting or how-to steps, empty if not needed"],
-  "details": "optional deeper explanation in markdown paragraphs",
-  "warnings": ["safety notes"],
-  "unknowns": ["what is UNVERIFIED and what to photograph/measure"],
-  "evidenceIds": ["ids of evidence cards that help"],
-  "manualRefs": ["OEM manual filenames to open if needed"]
+  "summary": "conversational paragraph — diagnose/answer like talking to a fellow engineer",
+  "steps": ["ordered diagnostic or how-to steps with test points where useful"],
+  "details": "deeper multi-source synthesis in markdown: theory, cross-system interactions on THIS boat, what good vs bad looks like",
+  "warnings": ["safety / energy isolation notes"],
+  "unknowns": ["UNVERIFIED on this HIN + what to measure/photograph"],
+  "evidenceIds": ["boat photo evidence card ids that help"],
+  "figureIds": ["OEM manual figure ids that help"],
+  "manualRefs": ["OEM PDF filenames to open"]
 }
-No prose outside JSON.`;
+No prose outside JSON. Be detailed in details; keep summary tight but human.`;
 
   const ctx = passages
-    .map((p, i) => `[${i + 1}] (${p.kind || "note"}) ${p.file} · ${p.title}\n${String(p.text || "").slice(0, 1600)}`)
+    .map((p, i) => `[${i + 1}] (${p.kind || "note"}) ${p.file} · ${p.title}\n${String(p.text || "").slice(0, 2000)}`)
     .join("\n\n");
 
   const ev = (evidence || [])
     .map((e) => `- id:${e.id} · ${e.title}: ${e.summary}`)
     .join("\n");
 
+  const figs = (figures || [])
+    .map(
+      (f) =>
+        `- id:${f.id} · p.${f.page} · ${f.manualName}: ${f.caption} [topics: ${(f.topics || []).join(", ")}]`
+    )
+    .join("\n");
+
   const user = `Vessel: ${bundle.vessel?.name} · HIN ${bundle.vessel?.hin} · ${bundle.vessel?.engine}
+
+The owner is an engineer. Give the full picture — not a single-manual paraphrase. Tie vessel-confirmed facts to OEM procedure.
 
 Question: ${question}
 
-Evidence cards available:
+Boat photo evidence cards:
 ${ev || "(none matched)"}
 
-Binder excerpts:
+OEM manual figures available (pick relevant figureIds):
+${figs || "(none matched)"}
+
+Binder / extract excerpts:
 ${ctx || "(none)"}`;
 
   return [

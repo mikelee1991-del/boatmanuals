@@ -383,7 +383,13 @@ askBtn.disabled = true;
 load()
   .then(() => {
     askBtn.disabled = false;
-    const q = new URLSearchParams(location.search).get("q");
+    const params = new URLSearchParams(location.search);
+    if (params.has("_reset")) {
+      params.delete("_reset");
+      const clean = `${location.pathname}${params.toString() ? `?${params}` : ""}${location.hash}`;
+      history.replaceState({}, "", clean);
+    }
+    const q = params.get("q");
     if (q) {
       qEl.value = q;
       ask(q);

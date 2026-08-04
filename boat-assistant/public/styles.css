@@ -469,3 +469,29 @@ textarea {
 .setup a {
   color: #9fe0cf;
 }
+
+.setup-reset {
+  margin-top: 4px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 8px;
+}
+
+.setup-reset h3 {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--muted, #9bb0c0);
+}
+
+.btn.danger {
+  background: #8b2e2e;
+  color: #fff7f5;
+  border-color: #a94444;
+}
+
+.btn.danger:disabled {
+  opacity: 0.55;
+}

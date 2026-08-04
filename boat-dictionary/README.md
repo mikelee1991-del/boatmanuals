@@ -32,6 +32,7 @@ PDF library: [`manuals/`](manuals/) (~100 MB)
 - **ESN `3B371488`** confirmed from the transom data plate photo — use this on the [Mercury Owners Manual portal](https://www.mercurymarine.com/us/en/service-and-support/owners-resources/owners-manual) and for parts.
 - Prefer the **US equipment list** (`Flyer-8-SPACEdeck-Equipment-List-US.pdf`) and ask the dealer for the CE Owner’s Handbook against **HIN BEYFT208F223**.
 - From helm photos: **Zipwake** Series S, **Sleipner** thruster + joystick, **Garmin** MFD (exact model TBD), **Mercury VesselView-class** engine display, **Fusion** stereo, **Mercury DTS** (DOCK/TRANSFER/THROTTLE ONLY), **electric windlass**, **black T-Top**, black pulpits. **LENCO not installed**.
+- Windlass control docs onboard: **Quick HRC** Multipurpose Control Panel manual **CE REV 005c** (exact HRC SKU + winch motor plate still open).
 
 ---
 
@@ -77,7 +78,8 @@ PDF library: [`manuals/`](manuals/) (~100 MB)
 ### Peripherals (typical options — verify on your boat)
 | File | What it is |
 |------|------------|
-| `manuals/peripherals/Lewmar-Pro-Series-Pro-Fish-Windlass-Manual.pdf` | Lewmar windlass (common class) |
+| `manuals/peripherals/Quick-HRC-Multipurpose-Control-Panel-EN.pdf` | **Quick HRC** multipurpose handheld (manual onboard) |
+| `manuals/peripherals/Lewmar-Pro-Series-Pro-Fish-Windlass-Manual.pdf` | Lewmar windlass (alternate winch candidate) |
 | `manuals/peripherals/Side-Power-SE-SE-IP-DC-User-Manual-EN.pdf` | Side-Power SE thruster user |
 | `manuals/peripherals/Isotherm-Cruise-42-130-Install-Operating-EN.pdf` | Isotherm Cruise 42 L fridge |
 | `manuals/peripherals/Isotherm-Cruise-Refer-Manual-EN.pdf` | Isotherm Cruise reference |

@@ -367,22 +367,27 @@ hardware:
     category: anchoring
     name: Electric windlass 12 V (US Trim Package / Comfort)
     status: confirmed
-    brand_status: exact_model_unverified
-    evidence: "Bow photos — windlass housing + stainless plow/Delta-style anchor on bow roller; Blue Sea 187-Series 80A breaker with windlass label"
+    brand_status: control_quick_hrc_winch_sku_unverified
+    evidence: "Bow photos — windlass housing + stainless plow/Delta-style anchor; Blue Sea 187-Series 80A breaker; owner photo of Quick HRC Multipurpose Control Panel manual CE REV 005c"
     breaker: "Blue Sea Systems 187-Series 80 A (CONFIRMED)"
+    control: "Quick HRC multipurpose handheld (manual onboard — exact HRC 100x SKU UNVERIFIED)"
     anchor: "Stainless plow / Delta-style on roller (brand unverified)"
-    likely_brand: "Lewmar Pro-Series / Pro-Fish class (verify label on unit)"
-    keywords: [windlass, anchor, rode, gypsy, freefall, contactor, breaker, delta, 80A, 187]
+    likely_brand: "Quick winch class LIKELY given HRC remote docs; confirm motor plate"
+    keywords: [windlass, anchor, rode, gypsy, freefall, contactor, breaker, delta, 80A, 187, quick, HRC, remote]
     manuals:
+      - path: manuals/peripherals/Quick-HRC-Multipurpose-Control-Panel-EN.pdf
+        title: Quick HRC Multipurpose Control Panel Installation & User Manual
+        language: en
       - path: manuals/peripherals/Lewmar-Pro-Series-Pro-Fish-Windlass-Manual.pdf
-        title: Lewmar Pro-Series / Pro-Fish Windlass Product Manual
+        title: Lewmar Pro-Series / Pro-Fish Windlass Product Manual (alternate winch candidate)
         language: en
     questions:
-      - "Close-up of windlass motor/gearbox plate (Lewmar / Quick / other)."
+      - "Photo of Quick HRC handheld (button count / LED torch) and deck socket."
+      - "Close-up of windlass motor/gearbox plate (Quick / Lewmar / other)."
       - "Chain size (e.g. 8 mm / 5/16) and whether freefall is fitted?"
       - "Anchor brand/model stamp if present."
       - "Clear photo of thruster breaker face if separate from the 80 A windlass breaker."
-    symptoms: [won't haul, freewheel, breaker trips, solenoid click]
+    symptoms: [won't haul, freewheel, breaker trips, solenoid click, remote dead]
 
   - id: bow-thruster
     category: maneuvering

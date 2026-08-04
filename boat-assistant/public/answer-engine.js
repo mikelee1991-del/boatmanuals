@@ -18,8 +18,10 @@ const EXPAND = {
   sound: ["stereo", "fusion", "audio", "sound"],
   garmin: ["garmin", "echomap", "mfd", "hds", "chartplotter", "sonar"],
   thruster: ["thruster", "sleipner", "side-power"],
-  windlass: ["windlass", "anchor", "rode"],
-  anchor: ["anchor", "rode", "scope", "windlass", "delta"],
+  windlass: ["windlass", "anchor", "rode", "quick", "hrc"],
+  anchor: ["anchor", "rode", "scope", "windlass", "delta", "quick", "hrc"],
+  quick: ["quick", "hrc", "windlass", "remote"],
+  hrc: ["hrc", "quick", "windlass", "remote"],
   rode: ["rode", "anchor", "scope", "chain"],
   scope: ["scope", "rode", "anchor", "depth"],
   deep: ["deep", "depth", "anchor", "rode", "scope", "draft"],
@@ -174,7 +176,7 @@ function scoreChunk(q, raw, topicList, intent, family, c) {
   if (family === "audio" && /fusion|stereo|ra70|ra210|audio/.test(file + title)) s += 22;
   if (family === "fuel" && /fuel|separator|water-in-fuel/.test(file + title)) s += 22;
   if (family === "steer" && /steer|ephs/.test(file + title)) s += 22;
-  if (family === "anchor" && /ground-tackle|anchor|rode|windlass|lewmar/.test(file + title)) s += 22;
+  if (family === "anchor" && /ground-tackle|anchor|rode|windlass|lewmar|quick|hrc/.test(file + title)) s += 22;
   if (family === "garmin" && /garmin|echomap|mfd/.test(file + title)) s += 20;
   if (family === "shore" && /cristec|shore|ypower|charg/.test(file + title)) s += 20;
   if (family === "electrical" && /electrical|battery|wiring|blue.?sea|charg/.test(file + title)) s += 20;
@@ -318,7 +320,7 @@ export function matchFigures(figuresIndex, question, passages, { limit = 6 } = {
     fuel: [/verado|operation-maintenance|fuel/],
     steer: [/steering|ephs|electric-steering/],
     shore: [/cristec|ypower/],
-    anchor: [/lewmar|windlass/],
+    anchor: [/lewmar|windlass|quick|hrc/],
     thruster: [/side-power|sleipner/],
     zipwake: [/zipwake/],
     pump: [/flojet|par-max|washdown/],
@@ -487,7 +489,7 @@ function relatedManuals(bundle, family, passages, q) {
     if (family === "fuel" || family === "start") return /verado|mercury.*operation/.test(n);
     if (family === "steer") return /steering|ephs|electric-steering/.test(n);
     if (family === "shore" || family === "electrical") return /cristec|ypower/.test(n);
-    if (family === "anchor") return /lewmar|windlass/.test(n);
+    if (family === "anchor") return /lewmar|windlass|quick|hrc/.test(n);
     if (family === "zipwake") return /zipwake/.test(n);
     if (family === "thruster") return /side-power|sleipner/.test(n);
     if (family === "pump") return /flojet|jabsco|par-max/.test(n) && !/toilet|quiet-flush|37010|37055/.test(n);

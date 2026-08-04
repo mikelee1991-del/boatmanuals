@@ -102,7 +102,7 @@ Photo previously near MIN — check first.
 4. Contactor click but no motor → motor/brushes/connections.
 5. Motor runs but gypsy slips → clutch adjustment / worn gypsy / wrong chain.
 6. Anchor stuck → motor to rode, don’t stall windlass.
-7. Identify brand plate to use correct Lewmar/other procedure.
+7. Identify brand plate / use Quick HRC remote manual for handheld; winch plate for mechanical procedure.
 
 ---
 

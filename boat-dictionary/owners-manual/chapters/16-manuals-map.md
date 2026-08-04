@@ -48,7 +48,8 @@ Paths relative to `boat-dictionary/`.
 | Jabsco toilet 37010 | `manuals/peripherals/Jabsco-37010-Electric-Toilet-Manual-EN.pdf` | Related family |
 | Jabsco PAR-MAX 2.9 | `manuals/peripherals/Jabsco-PAR-MAX-2.9-Manual-EN.pdf` | **Installed** |
 | Side-Power thruster | `manuals/peripherals/Side-Power-SE-SE-IP-DC-User-Manual-EN.pdf` | Brand confirmed; model open |
-| Lewmar windlass | `manuals/peripherals/Lewmar-Pro-Series-Pro-Fish-Windlass-Manual.pdf` | Candidate |
+| Quick HRC remote | `manuals/peripherals/Quick-HRC-Multipurpose-Control-Panel-EN.pdf` | **Manual onboard** (exact HRC SKU TBD) |
+| Lewmar windlass | `manuals/peripherals/Lewmar-Pro-Series-Pro-Fish-Windlass-Manual.pdf` | Alternate winch candidate |
 | Isotherm fridge | `manuals/peripherals/Isotherm-Cruise-*.pdf` | Candidate (fridge **CONFIRMED**; brand open) |
 | Jabsco Quiet Flush (37055 family) | `manuals/peripherals/Jabsco-Quiet-Flush-Conversion-37055-EN.pdf` | **Panel matches** (SKU TBD) |
 | Jabsco toilet 37010 | `manuals/peripherals/Jabsco-37010-Electric-Toilet-Manual-EN.pdf` | Related family |

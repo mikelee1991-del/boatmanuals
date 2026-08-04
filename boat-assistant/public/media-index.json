@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-08-04T06:10:27.141Z",
+  "builtAt": "2026-08-04T06:14:34.273Z",
   "items": [
     {
       "id": "battery-locker",
@@ -158,6 +158,19 @@
         "hull"
       ],
       "summary": "**Conclusion:** This is a France-built, **US-certified** Flyer 8 SPACEdeck, model year 2023. Use HIN **BEYFT208F223** when requesting the Beneteau CE Owner’s Handbook from the dealer / Helpdesk.",
+      "image": null,
+      "photoStatus": "transcript-only",
+      "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."
+    },
+    {
+      "id": "quick-hrc-manual",
+      "file": "notes/evidence/quick-hrc-manual.md",
+      "title": "Quick HRC control-panel manual evidence",
+      "tags": [
+        "windlass",
+        "hull"
+      ],
+      "summary": "Photo of the physical **Quick** “Multipurpose Control Panel” installation/user manual cover onboard.",
       "image": null,
       "photoStatus": "transcript-only",
       "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."

@@ -114,8 +114,9 @@ playbooks:
       - "Voltage under load; listen for contactor click near the high-current panel / windlass"
       - "If motor runs but no haul: clutch/gypsy/chain match"
       - "Free stuck anchor by motoring up — do not stall windlass"
-    next_photos: ["windlass motor plate", "chain size", "thruster breaker face if separate"]
+    next_photos: ["Quick HRC handheld + deck socket", "windlass motor plate", "chain size", "thruster breaker face if separate"]
     manuals:
+      - manuals/peripherals/Quick-HRC-Multipurpose-Control-Panel-EN.pdf
       - manuals/peripherals/Lewmar-Pro-Series-Pro-Fish-Windlass-Manual.pdf
 
   - id: PB-FRESH-PUMP

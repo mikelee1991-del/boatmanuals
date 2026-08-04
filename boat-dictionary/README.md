@@ -31,7 +31,8 @@ PDF library: [`manuals/`](manuals/) (~100 MB)
 - **Engine model `13000069A`** / designation **300XXL** = Mercury **Verado 300 HP** (221 kW), plate weight 620 lb / 281 kg, **30" XXL**.
 - **ESN `3B371488`** confirmed from the transom data plate photo — use this on the [Mercury Owners Manual portal](https://www.mercurymarine.com/us/en/service-and-support/owners-resources/owners-manual) and for parts.
 - Prefer the **US equipment list** (`Flyer-8-SPACEdeck-Equipment-List-US.pdf`) and ask the dealer for the CE Owner’s Handbook against **HIN BEYFT208F223**.
-- From helm photos: **Zipwake** Series S, **Sleipner** thruster + joystick, **Garmin** MFD (exact model TBD), **Mercury VesselView 403**, **Fusion** stereo, **Mercury DTS** (DOCK/TRANSFER/THROTTLE ONLY), **electric windlass**, **black T-Top**, black pulpits. **LENCO not installed**.
+- From helm photos: **Zipwake** Series S, **Sleipner** thruster + joystick, **Garmin GPSMAP 7x3/9x3/12x3** (exact size TBD), **Mercury VesselView 403**, **Fusion** stereo, **Mercury DTS** (DOCK/TRANSFER/THROTTLE ONLY), **electric windlass**, **black T-Top**, black pulpits. **LENCO not installed**.
+- Garmin docs onboard: **GPSMAP® 7x3/9x3/12x3 Quick Start Manual** cover (ECHOMAP pack guesses discarded).
 - Windlass control docs onboard: **Quick HRC** Multipurpose Control Panel manual **CE REV 005c** (exact HRC SKU + winch motor plate still open).
 - **SmartCraft DTS Quick Reference Guide** cover onboard (Single Handle ERC card **90-8M0208789** in binder).
 
@@ -62,8 +63,9 @@ PDF library: [`manuals/`](manuals/) (~100 MB)
 ### Electronics
 | File | What it is |
 |------|------------|
-| `manuals/electronics/Garmin-ECHOMAP-UHD-Owners-Manual-EN.pdf` | ECHOMAP **UHD** (likely 2023 pack) |
-| `manuals/electronics/Garmin-ECHOMAP-UHD2-62-72-92sv-Owners-Manual-EN.pdf` | ECHOMAP **UHD2** 6/7/9 sv (current list) |
+| `manuals/electronics/Garmin-GPSMAP-7x3-9x3-12x3-16x3-Owners-Manual-EN.pdf` | **Installed** GPSMAP **x3** family ops |
+| `manuals/electronics/Garmin-ECHOMAP-UHD-Owners-Manual-EN.pdf` | ECHOMAP UHD (**not this HIN**) |
+| `manuals/electronics/Garmin-ECHOMAP-UHD2-62-72-92sv-Owners-Manual-EN.pdf` | ECHOMAP UHD2 (**not this HIN**) |
 | `manuals/electronics/Garmin-Transom-Mount-Transducer-Install-EN.pdf` | Transom transducer install (GT23 class) |
 | `manuals/electronics/Fusion-MS-RA70-RA70N-Owners-Manual-EN.pdf` | **Installed** stereo (MS-RA70N) |
 | `manuals/electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf` | Discarded Sound Pack candidate (not this HIN) |
@@ -104,8 +106,8 @@ Useful when debugging “is this even installed?”
 
 **US Trim Package (very common on US boats):** polyester cockpit table, offshore compass, extended swim platforms, **electric windlass**, cockpit LED courtesy lights, **shore power 110 V + charger pre-fit**, **freshwater electric toilet + 88 L holding tank**, horn.
 
-**Electronic Pack:** Garmin ECHOMAP UHD/UHD2 **92sv** + **GT23-TM** transducer.  
-**Upgraded Electronic Pack:** Garmin ECHOMAP Ultra 2 **122sv** + GT23-TM.  
+**Electronic Pack (list wording):** often cites Garmin ECHOMAP — **this HIN has GPSMAP 7x3/9x3/12x3** (QSM cover). Exact 7/9/12 SKU TBD. Transducer still likely **GT23-TM** class.  
+**Upgraded Electronic Pack (list):** Garmin ECHOMAP Ultra 2 **122sv** — **not** confirmed on this HIN.  
 **Sound Pack:** Fusion stereo + speakers — **this HIN has MS-RA70N** (faceplate), not the MS-RA210 often listed on Flyer 8 equipment sheets.
 
 **Other options:** 42 L cabin fridge, bow thruster, **Zipwake** *or* **LENCO** tabs, deck-wash pump, T-Top / Pilot Edition, ski mast, fishing station, Seanapps unit.
@@ -127,7 +129,7 @@ Reply with whatever you know (photos of labels are ideal):
 
 1. ~~**HIN**~~ — **done: `BEYFT208F223`** (US boat). Delivery **dealer** still useful.
 2. ~~**Engine ESN**~~ — **done: `3B371488`**
-3. **Garmin** exact model — Settings → System → About (or bezel close-up).
+3. ~~**Garmin**~~ — **GPSMAP 7x3/9x3/12x3** family confirmed (QSM cover); exact 7/9/12 SKU still open (About/bezel).
 4. ~~**Trim**~~ — **Zipwake confirmed**. Optional: interceptor size on transom.
 5. **Windlass** brand/model on the motor plate.
 6. ~~**Bow thruster**~~ — **Sleipner confirmed**; still need motor-plate model (SE40/SE60/etc.).

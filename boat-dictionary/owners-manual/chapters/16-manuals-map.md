@@ -23,9 +23,10 @@ Paths relative to `boat-dictionary/`.
 ## Electronics
 | Topic | File |
 |-------|------|
-| Garmin UHD | `manuals/electronics/Garmin-ECHOMAP-UHD-Owners-Manual-EN.pdf` |
-| Garmin UHD2 | `manuals/electronics/Garmin-ECHOMAP-UHD2-62-72-92sv-Owners-Manual-EN.pdf` |
+| Garmin **GPSMAP** 7x3/9x3/12x3 (this boat) | `manuals/electronics/Garmin-GPSMAP-7x3-9x3-12x3-16x3-Owners-Manual-EN.pdf` |
 | Transducer | `manuals/electronics/Garmin-Transom-Mount-Transducer-Install-EN.pdf` |
+| Garmin ECHOMAP UHD (not this HIN) | `manuals/electronics/Garmin-ECHOMAP-UHD-Owners-Manual-EN.pdf` |
+| Garmin ECHOMAP UHD2 (not this HIN) | `manuals/electronics/Garmin-ECHOMAP-UHD2-62-72-92sv-Owners-Manual-EN.pdf` |
 | Fusion **MS-RA70N** (this boat) | `manuals/electronics/Fusion-MS-RA70-RA70N-Owners-Manual-EN.pdf` |
 | Fusion RA70 install | `manuals/electronics/Fusion-MS-RA70-RA70N-Installation-EN.pdf` |
 | Fusion RA210 (not this HIN) | `manuals/electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf` |

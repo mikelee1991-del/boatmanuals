@@ -48,7 +48,7 @@ flowchart TB
 | Propulsion | DTS + START/STOP | Outboard bracket; ESN plate stbd |
 | Steering assist | Wheel | EPHS MPU at engine (`8M6005909`) |
 | Engine data | VesselView + Garmin overlays | Helm |
-| Navigation / sonar | Garmin MFD | Helm; transducer typically transom (**LIKELY** GT23 class) |
+| Navigation / sonar | Garmin **GPSMAP** x3 | Helm; transducer typically transom (**LIKELY** GT23 class) |
 | Audio | Fusion | Helm + cockpit speakers |
 | Trim | Zipwake panel + rotary | Helm; interceptors on transom |
 | Thruster | Sleipner panel + joystick | Helm; tunnel thruster forward |

@@ -16,7 +16,9 @@ const EXPAND = {
   fusion: ["fusion", "stereo", "ra70n", "ra70", "ra210", "bluetooth", "an4"],
   bluetooth: ["bluetooth", "fusion", "pairing"],
   sound: ["stereo", "fusion", "audio", "sound"],
-  garmin: ["garmin", "echomap", "mfd", "hds", "chartplotter", "sonar"],
+  garmin: ["garmin", "gpsmap", "echomap", "mfd", "hds", "chartplotter", "sonar", "923", "723", "1223"],
+  gpsmap: ["garmin", "gpsmap", "chartplotter", "sonar", "9x3", "7x3", "12x3"],
+  echomap: ["garmin", "echomap", "gpsmap"],
   thruster: ["thruster", "sleipner", "side-power"],
   windlass: ["windlass", "anchor", "rode", "quick", "hrc"],
   anchor: ["anchor", "rode", "scope", "windlass", "delta", "quick", "hrc"],
@@ -123,7 +125,7 @@ function familyOf(q, raw) {
   if (has("dts", "erc") || /\bthrottle only\b/.test(s) || (has("smartcraft") && has("qrg", "dts", "transfer")))
     return "start";
   if (has("vesselview", "vv403") || /\bvessel\s*view\b/.test(s)) return "vesselview";
-  if (has("garmin", "mfd", "chartplotter", "sonar", "echomap")) return "garmin";
+  if (has("garmin", "gpsmap", "mfd", "chartplotter", "sonar", "echomap")) return "garmin";
   if (has("shore", "charger", "cristec", "charging", "ypower")) return "shore";
   if (has("thruster", "sleipner")) return "thruster";
   if (has("windlass") || (has("anchor", "rode", "scope") && !has("garmin"))) return "anchor";
@@ -187,7 +189,9 @@ function scoreChunk(q, raw, topicList, intent, family, c) {
   if ((family === "start" || /dts|throttle only|transfer|active trim|smartcraft|qrg/.test(q)) && /dts|smartcraft|erc|quick-reference|8m0208789|propulsion/.test(file + title))
     s += 18;
   if (family === "anchor" && /ground-tackle|anchor|rode|windlass|lewmar|quick|hrc/.test(file + title)) s += 22;
-  if (family === "garmin" && /garmin|echomap|mfd/.test(file + title)) s += 20;
+  if (family === "garmin" && /garmin|gpsmap|echomap|mfd/.test(file + title)) s += 22;
+  if (family === "garmin" && /gpsmap|7x3|9x3|12x3/.test(file + title)) s += 12;
+  if (family === "garmin" && /echomap/.test(file + title) && !/gpsmap/.test(file + title)) s -= 25;
   if (family === "shore" && /cristec|shore|ypower|charg/.test(file + title)) s += 20;
   if (family === "electrical" && /electrical|battery|wiring|blue.?sea|charg/.test(file + title)) s += 20;
   if (family === "zipwake" && /zipwake|trim/.test(file + title)) s += 20;
@@ -328,7 +332,7 @@ export function matchFigures(figuresIndex, question, passages, { limit = 6 } = {
 
   const familyManualHints = {
     audio: [/fusion|ra70|ra210/],
-    garmin: [/garmin|echomap/],
+    garmin: [/garmin.*gpsmap|gpsmap|7x3|9x3|12x3/],
     fuel: [/verado|operation-maintenance|fuel/],
     steer: [/steering|ephs|electric-steering/],
     shore: [/cristec|ypower/],
@@ -497,7 +501,7 @@ function relatedManuals(bundle, family, passages, q) {
 
   const familyMatch = (n) => {
     if (family === "audio") return /fusion|ra70|ra210/.test(n);
-    if (family === "garmin") return /garmin/.test(n);
+    if (family === "garmin") return /garmin|gpsmap/.test(n) || (/transducer/.test(n) && /garmin/.test(n));
     if (family === "fuel") return /verado|mercury.*operation/.test(n);
     if (family === "start" || /dts|throttle only|erc|smartcraft|qrg/.test(ql))
       return /dts|smartcraft|8m0208789|quick-reference|electric-steering|verado|operation/.test(n);
@@ -530,6 +534,8 @@ function relatedManuals(bundle, family, passages, q) {
       if (family === "toilet" && /quiet-flush|37055/.test(n)) s += 20;
       if (family === "vesselview" && /403/.test(n)) s += 25;
       if (family === "vesselview" && /502|702|704/.test(n) && !/403/.test(n)) s -= 40;
+      if (family === "garmin" && /gpsmap/.test(n)) s += 25;
+      if (family === "garmin" && /echomap/.test(n) && !/gpsmap/.test(n)) s -= 40;
       // When we know the equipment family, stay on that OEM set
       if (family && !famHit) s = 0;
       return { ...m, score: s };

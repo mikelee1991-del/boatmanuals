@@ -6,7 +6,7 @@ Owner helm photo looking forward over the bow (Garmin chart centered on **Shelte
 | Item | Evidence |
 |------|----------|
 | Zipwake Series S | Vertical panel **left of Garmin** with **AUTO PITCH** / **AUTO ROLL** and Series S circular/rotary controls |
-| Garmin MFD | Center chartplotter; Garmin bezel; chart page live (Shelter Island). Exact SKU still not readable from this distance |
+| Garmin MFD | Center chartplotter; **GPSMAP 7x3/9x3/12x3** family (**CONFIRMED** QSM cover); exact 7/9/12 SKU still open |
 | Live helm data (this photo) | Depth overlay **~3.4 ft**; heading **061° M**; GPS roughly **N 32°42.8′ / W 117°14.0′** (Shelter Island) |
 | Mercury VesselView **403** | Smaller SmartCraft engine display in the helm cluster (**CONFIRMED** — install sheet onboard) |
 | Sleipner thruster | Square control pad with joystick + **ON** / **OFF** below the Zipwake panel |
@@ -33,7 +33,7 @@ Owner helm photo looking forward over the bow (Garmin chart centered on **Shelte
 | Fusion MS-RA210 | Faceplate is **MS-RA70N** |
 
 ## Still needed from close-ups
-- Garmin **About** screen / bezel model string
+- Garmin **About** / bezel — exact GPSMAP 7/9/12 (+ xsv?) string
 - VesselView 403 software version / About screen
 - Windlass motor plate
 - Sleipner thruster motor plate

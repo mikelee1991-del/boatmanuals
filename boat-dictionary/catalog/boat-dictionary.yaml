@@ -285,27 +285,34 @@ hardware:
 
   - id: garmin-echomap
     category: electronics
-    name: Garmin multifunction display / sonar (Electronic Pack)
+    name: Garmin GPSMAP 7x3/9x3/12x3 chartplotter / sonar
     status: confirmed
-    model_status: exact_model_unverified
-    evidence: "Helm photos — Garmin chartplotter with chart+sonar split; Garmin logo on bezel; depth/GPS active"
+    model_status: series_confirmed_size_unverified
+    series: "GPSMAP 7x3 / 9x3 / 12x3"
+    evidence: "Owner photo of GPSMAP 7x3/9x3/12x3 Quick Start Manual cover onboard; helm photos — Garmin chartplotter with chart+sonar split; Blue Sea HDS 5A display circuit"
+    confirmed_family: "GPSMAP x3"
+    not_installed:
+      - "ECHOMAP UHD / UHD2 / Ultra 2 (prior Electronic Pack guesses — discarded for this HIN)"
     likely_models:
-      - "ECHOMAP UHD 92sv (common on 2023 packs)"
-      - "ECHOMAP UHD2 92sv (listed on current US equipment list)"
-      - "ECHOMAP Ultra 2 122sv (Upgraded Electronic Pack)"
-    keywords: [garmin, echomap, chartplotter, sonar, gps, downvu, chirp, transducer, gt23]
+      - "GPSMAP 923 / 923xsv (common 9″ class — confirm bezel/About)"
+      - "GPSMAP 723 / 723xsv"
+      - "GPSMAP 1223 / 1223xsv"
+    keywords: [garmin, gpsmap, 7x3, 9x3, 12x3, 723, 923, 1223, chartplotter, sonar, gps, downvu, chirp, transducer, gt23, echomap, hds]
     manuals:
-      - path: manuals/electronics/Garmin-ECHOMAP-UHD-Owners-Manual-EN.pdf
-        title: ECHOMAP UHD Owner’s Manual
-        language: en
-      - path: manuals/electronics/Garmin-ECHOMAP-UHD2-62-72-92sv-Owners-Manual-EN.pdf
-        title: ECHOMAP UHD2 6/7/9 sv Owner’s Manual
+      - path: manuals/electronics/Garmin-GPSMAP-7x3-9x3-12x3-16x3-Owners-Manual-EN.pdf
+        title: GPSMAP 7x3 / 9x3 / 12x3 / 16x3 Owner’s Manual
         language: en
       - path: manuals/electronics/Garmin-Transom-Mount-Transducer-Install-EN.pdf
         title: Garmin Transom-Mount Transducer Installation Instructions (covers GT23M-TM class)
         language: en
+      - path: manuals/electronics/Garmin-ECHOMAP-UHD-Owners-Manual-EN.pdf
+        title: ECHOMAP UHD Owner’s Manual (not this HIN — reference only)
+        language: en
+      - path: manuals/electronics/Garmin-ECHOMAP-UHD2-62-72-92sv-Owners-Manual-EN.pdf
+        title: ECHOMAP UHD2 6/7/9 sv Owner’s Manual (not this HIN — reference only)
+        language: en
     questions:
-      - "Exact MFD model from Settings → System → About, or a close-up of the bezel model text."
+      - "Exact GPSMAP SKU from Settings → System → About, or bezel model text (7/9/12 + xsv?)."
       - "Is the transducer GT23M-TM (transom) as factory pack, or another GT model?"
     symptoms: [no gps fix, no sonar, depth lost at speed, NMEA missing, software update fail]
 

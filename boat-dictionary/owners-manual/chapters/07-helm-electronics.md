@@ -6,29 +6,29 @@ Layout: [`../diagrams/helm-layout.md`](../diagrams/helm-layout.md)
 
 ## Garmin MFD
 
-**Status:** **CONFIRMED** present · exact model **UNVERIFIED**
+**Status:** **CONFIRMED** · **GPSMAP 7x3 / 9x3 / 12x3** family (Quick Start Manual cover onboard)
 
-Likely factory Electronic Pack candidates:
-- ECHOMAP UHD 92sv (common 2023)
-- ECHOMAP UHD2 92sv (current list)
-- ECHOMAP Ultra 2 122sv (upgraded pack)
+**Evidence:** [`../../notes/evidence/garmin-gpsmap-x3-qsm.md`](../../notes/evidence/garmin-gpsmap-x3-qsm.md)
+
+Exact screen size (**7″ / 9″ / 12″**) and **xsv** sonar SKU still **UNVERIFIED** — photograph bezel or **Settings → System → About**.
+
+**NOT this HIN:** ECHOMAP UHD / UHD2 / Ultra 2 (prior equipment-list guesses — discarded).
 
 **Power:** Blue Sea **HDS 5 A** (factory wire code — not Lowrance).
 
-**Manuals in library:**
-- `manuals/electronics/Garmin-ECHOMAP-UHD-Owners-Manual-EN.pdf`
-- `manuals/electronics/Garmin-ECHOMAP-UHD2-62-72-92sv-Owners-Manual-EN.pdf`
+**Manuals (prefer):**
+- `manuals/electronics/Garmin-GPSMAP-7x3-9x3-12x3-16x3-Owners-Manual-EN.pdf`
 - `manuals/electronics/Garmin-Transom-Mount-Transducer-Install-EN.pdf`
 
 ### Owner tasks
-1. Settings → System → **About** → record model + software; update this manual.
+1. Settings → System → **About** → record exact GPSMAP model + software; update this chapter.
 2. Confirm transducer (likely **GT23M-TM** class).
 3. Keep chart cards / Freezepoint backups as you prefer.
 
 ### Common ops
 - Chart + sonar split (seen in owner photos)
 - Engine data overlay possible via NMEA/SmartCraft gateway
-- Man overboard / track / routes per Garmin manual
+- Man overboard / track / routes per GPSMAP x3 Owner’s Manual
 
 Faults → `OM-TS-MFD`.
 

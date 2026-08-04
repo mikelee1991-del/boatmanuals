@@ -75,6 +75,8 @@ playbooks:
       - manuals/engine/Mercury-DTS-Single-Handle-ERC-Quick-Reference-8m0208789.pdf
       - manuals/engine/Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf
       - manuals/engine/Mercury-SmartCraft-Operation-Overview-8m0071455r.pdf
+
+  - id: PB-ZIPWAKE
     om_section: OM-TS-TRIM
     aliases: [zipwake error, auto pitch fail, listing, porpoising, interceptor stuck, trim tabs]
     hardware_ids: [zipwake]
@@ -226,10 +228,15 @@ playbooks:
     aliases: [blank engine data, no rpm on display, vesselview blank]
     hardware_ids: [vesselview-or-gauges, garmin-echomap, dts-controls]
     steps:
-      - "Does VesselView power on key-on?"
+      - "Does VesselView 403 power on key-on?"
       - "If VesselView OK but Garmin overlay missing: NMEA/gateway settings"
       - "If both blank and no start: follow PB-NOSTART power checks"
-      - "Photograph display bezel for exact VesselView model"
+      - "Check SmartCraft / NMEA power and terminators per VV403 install diagram"
+      - "Photograph VesselView 403 fault text / About software version"
+    manuals:
+      - manuals/electronics/Mercury-VesselView-403-Operation-8m0124182.pdf
+      - manuals/electronics/Mercury-VesselView-403-Quick-Guide.pdf
+      - manuals/electronics/Mercury-VesselView-403-Installation-8m0124488.pdf
 
   - id: PB-TOILET
     om_section: OM-WATER-WASTE

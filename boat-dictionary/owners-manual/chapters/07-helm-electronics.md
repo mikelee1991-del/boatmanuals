@@ -36,13 +36,18 @@ Faults → `OM-TS-MFD`.
 
 ## Mercury VesselView / SmartCraft display
 
-**Status:** **CONFIRMED** dedicated digital engine display · exact model **UNVERIFIED** (502/702/704/403 class candidates)
+**Status:** **CONFIRMED** · **VesselView 403** (install sheet onboard — AUGUST 2017)
 
-**Manuals:**
-- `Mercury-VesselView-704-8m0220645.pdf`
-- `Mercury-VesselView-502-702-8m0109374r.pdf`
+**Evidence:** [`../../notes/evidence/vesselview-403.md`](../../notes/evidence/vesselview-403.md)
 
-Use for: RPM, trim %, temps, fuel, faults, SmartCraft settings. Prefer VesselView fault text when diagnosing engine alarms.
+**Manuals (prefer these):**
+- `Mercury-VesselView-403-Operation-8m0124182.pdf`
+- `Mercury-VesselView-403-Quick-Guide.pdf`
+- `Mercury-VesselView-403-Installation-8m0124488.pdf`
+
+**Not this HIN (kept for reference only):** VesselView 502/702/704 PDFs.
+
+403 is a **5-button, non-touch** SmartCraft engine display (Menu / arrows / Enter / Speed Control) — not a chartplotter. Use for RPM, trim %, temps, fuel, faults, Active Trim / Smart Tow / troll settings. Prefer VesselView fault text when diagnosing engine alarms.
 
 ---
 

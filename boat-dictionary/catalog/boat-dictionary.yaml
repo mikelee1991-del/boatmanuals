@@ -256,22 +256,31 @@ hardware:
 
   - id: vesselview-or-gauges
     category: electronics
-    name: Mercury SmartCraft VesselView / digital engine display
+    name: Mercury SmartCraft VesselView 403 digital engine display
     status: confirmed
-    model_status: exact_model_unverified
-    evidence: "Helm photo — smaller square digital engine display upper-right of Garmin (VesselView / SmartCraft class)"
-    likely_models:
-      - "VesselView 403 / 502 / 703 / 704 class (confirm bezel or About)"
-    keywords: [vesselview, smartcraft, gauges, rpm, trim gauge, fault text, eco mode]
+    model: "403"
+    model_status: confirmed
+    confirmed_model: "VesselView 403"
+    evidence: "Owner photo of VesselView 403 installation instructions (AUGUST 2017) onboard; helm photo — square SmartCraft display upper-right of Garmin"
+    keywords: [vesselview, vesselview 403, vv403, smartcraft, gauges, rpm, trim gauge, fault text, eco mode, 403]
     manuals:
+      - path: manuals/electronics/Mercury-VesselView-403-Operation-8m0124182.pdf
+        title: VesselView 403 Operation Manual (90-8M0124182)
+        language: en
+      - path: manuals/electronics/Mercury-VesselView-403-Quick-Guide.pdf
+        title: VesselView 403 Quick Guide
+        language: en
+      - path: manuals/electronics/Mercury-VesselView-403-Installation-8m0124488.pdf
+        title: VesselView 403 Installation Instructions (90-8M0124488)
+        language: en
       - path: manuals/electronics/Mercury-VesselView-704-8m0220645.pdf
-        title: VesselView 704 Operation Manual
+        title: VesselView 704 Operation Manual (reference only — not this HIN)
         language: en
       - path: manuals/electronics/Mercury-VesselView-502-702-8m0109374r.pdf
-        title: VesselView 502 / 702 Operation Manual
+        title: VesselView 502 / 702 Operation Manual (reference only — not this HIN)
         language: en
     questions:
-      - "Close-up of the Mercury digital display (model on bezel) or its System/About info."
+      - "VesselView 403 About / software version screen."
     symptoms: [blank display, no engine data, wrong trim %, alarm text]
 
   - id: garmin-echomap

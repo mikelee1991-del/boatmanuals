@@ -61,7 +61,7 @@ These are **not** bare-boat stock, but they **are** on Beneteau’s official lis
 | **Stainless ski mast** | Option | Confirmed tow pylon |
 | Cabin fridge 42 L | Option | **CONFIRMED** built-in front-load in cabin/head; brand/model TBD |
 | **Solid wood / teak cockpit** (cockpit + platforms) | Factory option on Flyer 8 family lists (“Solid wood cockpit” / “Teck”) | **Owner confirmed real teak** (not foam carpet / not synthetic) |
-| Mercury Verado DTS pre-rig 250–350 | Option | Confirmed Verado 300 + DTS + VesselView-class display |
+| Mercury Verado DTS pre-rig 250–350 | Option | Confirmed Verado 300 + DTS + **VesselView 403** |
 | Dual batteries | Allowed (max 2, not factory-delivered) | ENGINE + HOUSE IMNASA boxes |
 
 ### OEM brands that still count as factory/dealer fit
@@ -92,7 +92,7 @@ That’s the only **clear** non-factory customization found so far.
 | Item | Why uncertain |
 |------|----------------|
 | **T-Top fabric roof** | Factory describes “white polyester roof + black aluminium frame”; yours is black fabric over black frame. Still matches the factory T-Top *option*, just verify if roof material is OEM soft-top vs later canvas. |
-| Exact **windlass / fridge brand / VesselView / Garmin** model numbers | Almost certainly factory/dealer, but labels still needed |
+| Exact **windlass / fridge brand / Garmin** model numbers | Almost certainly factory/dealer, but labels still needed |
 | Exact **toilet bowl SKU** (Jabsco Quiet Flush family confirmed) | Control panel done; need base/bowl plate |
 
 ---

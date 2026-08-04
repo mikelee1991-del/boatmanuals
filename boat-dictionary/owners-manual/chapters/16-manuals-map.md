@@ -29,8 +29,11 @@ Paths relative to `boat-dictionary/`.
 | Fusion **MS-RA70N** (this boat) | `manuals/electronics/Fusion-MS-RA70-RA70N-Owners-Manual-EN.pdf` |
 | Fusion RA70 install | `manuals/electronics/Fusion-MS-RA70-RA70N-Installation-EN.pdf` |
 | Fusion RA210 (not this HIN) | `manuals/electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf` |
-| VesselView 704 | `manuals/electronics/Mercury-VesselView-704-8m0220645.pdf` |
-| VesselView 502/702 | `manuals/electronics/Mercury-VesselView-502-702-8m0109374r.pdf` |
+| VesselView **403** (this boat) | `manuals/electronics/Mercury-VesselView-403-Operation-8m0124182.pdf` |
+| VesselView 403 Quick Guide | `manuals/electronics/Mercury-VesselView-403-Quick-Guide.pdf` |
+| VesselView 403 install | `manuals/electronics/Mercury-VesselView-403-Installation-8m0124488.pdf` |
+| VesselView 704 (not this HIN) | `manuals/electronics/Mercury-VesselView-704-8m0220645.pdf` |
+| VesselView 502/702 (not this HIN) | `manuals/electronics/Mercury-VesselView-502-702-8m0109374r.pdf` |
 
 ## Systems
 | Topic | File | On this boat? |

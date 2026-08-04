@@ -65,7 +65,7 @@ See [`../diagrams/helm-layout.md`](../diagrams/helm-layout.md).
 
 - Center: **Garmin** chartplotter/sonar
 - Left of Garmin: **Zipwake** Series S (**AUTO PITCH** / **AUTO ROLL**) + **Sleipner** thruster joystick below
-- Mercury digital engine display (VesselView-class) in the helm cluster
+- Mercury **VesselView 403** in the helm cluster
 - Near displays: **Fusion** stereo
 - Single-lever **Mercury DTS** with DOCK / TRANSFER / THROTTLE ONLY + red lanyard
 - Soft black fabric **T-Top** (not a hardtop)

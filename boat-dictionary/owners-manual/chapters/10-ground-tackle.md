@@ -3,6 +3,7 @@
 ## Confirmed
 - Electric **windlass** at bow (**CONFIRMED**)
 - Dedicated breaker: **Blue Sea Systems 187-Series · 80 A** with windlass/anchor label (**CONFIRMED** — cabin/locker panel)
+- Handheld control docs onboard: **Quick HRC** Multipurpose Control Panel manual **CE REV 005c** (HRC 1002/1004/1006/1008 C00 & L D00) — **CONFIRMED**
 - Stainless **plow / Delta-style** anchor on hinged bow roller (**CONFIRMED**)
 - US Trim Package typically includes windlass + roller
 - Hull **draft** (brochure): **0.50–0.90 m** (about **1.6–3.0 ft**) — this is how deep the boat sits, not how deep you can anchor
@@ -25,19 +26,21 @@ What you *can* use today:
 ### What to photograph next (to answer this precisely)
 - Total rode length (chain length + rope length) and chain caliber (e.g. 8 mm / 5/16″)
 - Whether rode is all-chain or chain + nylon
-- Windlass model plate (Lewmar candidate manual in library)
+- Windlass motor plate + Quick HRC handheld (button count / torch)
 - Markings on chain (if any) for meters paid out
 
 ## Unverified (photograph)
-- Windlass brand/model plate (Lewmar Pro-Series / Pro-Fish candidate manual in library)
+- Windlass **motor/gearbox** brand/model plate (Quick winch vs other — control remote is Quick HRC family)
+- Exact HRC SKU (button count / LED torch “L” variant)
 - Gypsy size / chain caliber (e.g. 8 mm / 5/16″)
 - Free-fall feature yes/no
-- Helm vs bow footswitch locations
+- Helm vs bow footswitch locations (in addition to Quick handheld)
 - Windlass contactor / solenoid location (breaker is CONFIRMED 80 A Blue Sea 187-Series)
 - **Rode length onboard** (blocks a numeric “how deep can I anchor” answer)
 
-## Manual (candidate)
-`manuals/peripherals/Lewmar-Pro-Series-Pro-Fish-Windlass-Manual.pdf`
+## Manuals
+- **Primary (control):** `manuals/peripherals/Quick-HRC-Multipurpose-Control-Panel-EN.pdf`
+- **Winch candidate only:** `manuals/peripherals/Lewmar-Pro-Series-Pro-Fish-Windlass-Manual.pdf`
 
 ## Safe operation checklist
 1. Engine in neutral; bow clear of people.

@@ -42,7 +42,7 @@ These are **not** bare-boat stock, but they **are** on Beneteau’s official lis
 | Polyester cockpit table | Confirmed |
 | Offshore compass | Confirmed |
 | Extended swim platforms | Consistent with photos |
-| Electric windlass + hinged bow roller | Confirmed |
+| Electric windlass + hinged bow roller | Confirmed (Quick HRC remote manual onboard; winch plate TBD) |
 | LED courtesy lighting | Expected (fuse map / package) |
 | Shore power 110/115 V + charger pre-fit | Confirmed (115 V panel + **CRISTEC** charger) |
 | Electric toilet + holding tank (~88 L) | Holding tank + **Jabsco** Quiet Flush-style panel confirmed; exact SKU TBD |

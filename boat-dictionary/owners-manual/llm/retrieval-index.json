@@ -246,10 +246,14 @@
         "windlass",
         "anchor",
         "Delta",
-        "plow"
+        "plow",
+        "Quick",
+        "HRC",
+        "remote",
+        "187"
       ],
       "confidence": "confirmed",
-      "text": "Electric windlass confirmed with stainless plow/Delta-style anchor on bow roller.\nBrand/model and chain size unverified (Lewmar candidate manual). Dedicated breaker expected near batteries.",
+      "text": "Electric windlass confirmed with stainless plow/Delta-style anchor on bow roller.\nQuick HRC multipurpose control panel manual CE REV 005c onboard (exact HRC SKU TBD).\nBlue Sea 187-Series 80 A windlass breaker CONFIRMED. Winch motor brand/model and chain size still unverified (Lewmar PDF is alternate winch candidate only).",
       "related": []
     },
     {

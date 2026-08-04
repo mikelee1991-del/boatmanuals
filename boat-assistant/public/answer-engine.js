@@ -149,6 +149,9 @@ function scoreChunk(q, raw, topicList, intent, family, c) {
   if (info && /extracts\//.test(file)) s -= 18;
   if (info && /chapters\//.test(file)) s += 14;
   if (info && /evidence\//.test(file) && family) s += 8;
+  if (/breaker|80\s*a|187/.test(q) && /187|80\s*a|high-current|windlass-breaker|04-electrical/.test(file + title + h.slice(0, 200)))
+    s += 40;
+  if (/breaker|80\s*a|187/.test(q) && /how deep|scope vs rode/.test(title + file)) s -= 35;
 
   if (intent === "troubleshoot" || failSignal(q)) {
     if (/troubleshoot|if it won't|no sound|warning|alarm|fault|replace|check this/.test(title + h.slice(0, 200)))

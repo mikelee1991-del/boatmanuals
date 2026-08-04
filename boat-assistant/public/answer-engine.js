@@ -478,7 +478,7 @@ function relatedManuals(bundle, family, passages, q) {
       }
       if (/mastervolt|lenco/.test(n) && !/mastervolt|lenco/.test(ql + passageBlob)) s -= 50;
       // Prefer the confirmed Fusion model over the discarded RA210 candidate
-      if (family === "audio" && /ra210/.test(n) && !/ra70/.test(n)) s -= 40;
+      if (family === "audio" && /ra210/.test(n) && !/ra70/.test(n)) s = 0;
       // When we know the equipment family, stay on that OEM set
       if (family && !famHit) s = 0;
       return { ...m, score: s };

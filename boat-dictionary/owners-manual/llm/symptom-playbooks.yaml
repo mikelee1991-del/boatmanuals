@@ -148,13 +148,14 @@ playbooks:
     aliases: [fridge warm, refrigerator not cold, isotherm]
     hardware_ids: [cabin-fridge, electrical_baseline]
     steps:
-      - "Confirm unit installed and switched ON"
+      - "Confirm unit installed and switched ON (rockers beside toilet / cabin panel)"
       - "Check main panel heavy feed 1C1A 4mm² path"
       - "Measure voltage at fridge while attempting to run"
-      - "Check compressor ventilation"
-      - "Identify brand label for model-specific manual"
+      - "Check compressor ventilation behind/under the cabinet"
+      - "Photograph brand label for model-specific manual (Isotherm still candidate only)"
     manuals:
       - manuals/peripherals/Isotherm-Cruise-42-130-Install-Operating-EN.pdf
+      - manuals/peripherals/Isotherm-Cruise-Refer-Manual-EN.pdf
 
   - id: PB-GARMIN
     om_section: OM-TS-MFD

@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-08-04T06:08:19.037Z",
+  "builtAt": "2026-08-04T06:10:27.141Z",
   "items": [
     {
       "id": "battery-locker",
@@ -16,6 +16,19 @@
         "engine"
       ],
       "summary": "Deck hatch over teak decking; compartment contains batteries, CRISTEC charger, AC panel, both water pumps, and a large tank.",
+      "image": null,
+      "photoStatus": "transcript-only",
+      "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."
+    },
+    {
+      "id": "cabin-fridge",
+      "file": "notes/evidence/cabin-fridge.md",
+      "title": "Cabin fridge / head area evidence",
+      "tags": [
+        "cristec",
+        "jabsco"
+      ],
+      "summary": "Photo of the cabin head compartment: built-in fridge cabinet on the left, Jabsco toilet on the right, wood-grain laminate throughout.",
       "image": null,
       "photoStatus": "transcript-only",
       "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."

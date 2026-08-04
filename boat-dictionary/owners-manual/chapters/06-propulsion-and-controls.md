@@ -31,16 +31,19 @@ Follow Mercury O&M for any remaining warranty constraints; keep service records 
 
 ## DTS (Digital Throttle & Shift)
 
-**CONFIRMED** helm: single-lever Mercury ERC with **DOCK**, **TRANSFER**, **THROTTLE ONLY**, red lanyard, START/STOP.
+**CONFIRMED** helm: single-lever Mercury ERC with **TRANSFER**, **THROTTLE ONLY**, red lanyard, START/STOP.  
+**CONFIRMED** onboard docs: physical **SmartCraft DTS Quick Reference Guide** cover — binder card `Mercury-DTS-Single-Handle-ERC-Quick-Reference-8m0208789.pdf` (**90-8M0208789**).
 
-| Mode | Function |
+| Mode / control | Function |
 |------|----------|
 | Normal | Electronic throttle & shift |
-| DOCK | Reduced throttle response for close quarters |
-| THROTTLE ONLY | Throttle without engaging gear |
-| TRANSFER | Multi-engine control transfer — rarely used on single engine |
+| THROTTLE ONLY | Throttle without engaging gear (warm-up / wash) |
+| TRANSFER | Helm / station transfer — usually unused on single-helm boats |
+| ACTIVE TRIM | On/off + profiles 1–5 on Next Gen Single Handle pads (see QRG) |
+| QUICK STEER | If equipped — fewer lock-to-lock turns + speed limit for tight quarters |
+| DOCK | Reduced throttle on some older DTS pads — **confirm** vs ACTIVE TRIM / QUICK STEER with a pad close-up |
 
-**OEM PDFs:** `Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf`, `Mercury-SmartCraft-Operation-Overview-8m0071455r.pdf`
+**OEM PDFs:** `Mercury-DTS-Single-Handle-ERC-Quick-Reference-8m0208789.pdf` (short how-to), `Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf`, `Mercury-SmartCraft-Operation-Overview-8m0071455r.pdf`
 
 ### Start interlocks (typical Mercury DTS)
 - Lanyard attached

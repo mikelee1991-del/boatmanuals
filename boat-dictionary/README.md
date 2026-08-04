@@ -33,6 +33,7 @@ PDF library: [`manuals/`](manuals/) (~100 MB)
 - Prefer the **US equipment list** (`Flyer-8-SPACEdeck-Equipment-List-US.pdf`) and ask the dealer for the CE Owner’s Handbook against **HIN BEYFT208F223**.
 - From helm photos: **Zipwake** Series S, **Sleipner** thruster + joystick, **Garmin** MFD (exact model TBD), **Mercury VesselView-class** engine display, **Fusion** stereo, **Mercury DTS** (DOCK/TRANSFER/THROTTLE ONLY), **electric windlass**, **black T-Top**, black pulpits. **LENCO not installed**.
 - Windlass control docs onboard: **Quick HRC** Multipurpose Control Panel manual **CE REV 005c** (exact HRC SKU + winch motor plate still open).
+- **SmartCraft DTS Quick Reference Guide** cover onboard (Single Handle ERC card **90-8M0208789** in binder).
 
 ---
 
@@ -51,6 +52,7 @@ PDF library: [`manuals/`](manuals/) (~100 MB)
 | File | What it is |
 |------|------------|
 | `manuals/engine/Mercury-Verado-V8-SeaPro-V8-Operation-Maintenance-8m0145543.pdf` | Verado V8 O&M (8M0145543) |
+| `manuals/engine/Mercury-DTS-Single-Handle-ERC-Quick-Reference-8m0208789.pdf` | **SmartCraft DTS** Single Handle ERC Quick Reference (**onboard**) |
 | `manuals/engine/Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf` | Electric steering + DTS features + **Active Trim** (EN) |
 | `manuals/engine/Mercury-SmartCraft-Operation-Overview-8m0071455r.pdf` | SmartCraft / DTS overview |
 | `manuals/engine/Mercury-Active-Trim-8m0125432e-German.pdf` | Standalone Active Trim PDF (**German** only found) |

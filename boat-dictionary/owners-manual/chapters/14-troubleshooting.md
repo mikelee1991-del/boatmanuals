@@ -60,9 +60,10 @@ Photo previously near MIN — check first.
 1. Lever calibration / neutral detent — don’t force.
 2. Note beep codes / VesselView messages.
 3. Battery voltage stable?
-4. Check for **THROTTLE ONLY** accidentally engaged.
+4. Check for **THROTTLE ONLY** accidentally engaged (neutral lights blink — see DTS QRG).
 5. Cycle ignition; if still failed → SmartCraft/DTS dealer tools.
 6. Never disconnect shift actuators randomly underway.
+7. Short how-to: `manuals/engine/Mercury-DTS-Single-Handle-ERC-Quick-Reference-8m0208789.pdf` (onboard SmartCraft DTS QRG).
 
 ---
 

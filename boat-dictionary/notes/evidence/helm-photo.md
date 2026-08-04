@@ -22,7 +22,7 @@ Owner helm photo looking forward over the bow (Garmin chart centered on **Shelte
 | Item | Evidence |
 |------|----------|
 | Fusion stereo | **MS-RA70N** (**CONFIRMED** faceplate — see `fusion-faceplate.md`) · Bluetooth + **N2K** |
-| Mercury DTS | Single lever with **DOCK** / **TRANSFER** / **THROTTLE ONLY**; red kill lanyard |
+| Mercury DTS | Single lever with **TRANSFER** / **THROTTLE ONLY** (+ **DOCK** or **ACTIVE TRIM** / **QUICK STEER** — pad close-up still needed); red kill lanyard; **SmartCraft DTS QRG** cover onboard |
 | START/STOP | Mercury ignition + START/STOP at helm |
 
 ## Ruled out

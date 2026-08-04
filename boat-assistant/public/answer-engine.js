@@ -35,6 +35,9 @@ const EXPAND = {
   filter: ["filter", "fuel", "separator"],
   separator: ["separator", "fuel", "filter"],
   start: ["start", "crank", "lanyard", "dts"],
+  dts: ["dts", "throttle", "shift", "erc", "transfer", "dock", "smartcraft", "qrg"],
+  throttle: ["throttle", "dts", "erc"],
+  smartcraft: ["smartcraft", "dts", "vesselview", "erc"],
   pump: ["pump", "flojet", "jabsco", "washdown"],
   toilet: ["toilet", "jabsco", "flush", "holding", "macer", "macerator", "head", "quiet"],
   head: ["toilet", "jabsco", "flush", "holding", "macer", "head"],
@@ -115,6 +118,7 @@ function familyOf(q, raw) {
   if (has("steering", "ephs") || /\bsteer/.test(s)) return "steer";
   if (has("separator") || /\bwater[- ]?in[- ]?fuel\b/.test(s) || (has("fuel") && has("filter"))) return "fuel";
   if ((has("start", "crank") || /\bno start\b/.test(s)) && !has("steering")) return "start";
+  if (has("dts", "throttle", "erc", "smartcraft") && !has("vesselview", "garmin")) return "start";
   if (has("garmin", "mfd", "chartplotter", "sonar", "echomap")) return "garmin";
   if (has("shore", "charger", "cristec", "charging", "ypower")) return "shore";
   if (has("thruster", "sleipner")) return "thruster";
@@ -176,6 +180,8 @@ function scoreChunk(q, raw, topicList, intent, family, c) {
   if (family === "audio" && /fusion|stereo|ra70|ra210|audio/.test(file + title)) s += 22;
   if (family === "fuel" && /fuel|separator|water-in-fuel/.test(file + title)) s += 22;
   if (family === "steer" && /steer|ephs/.test(file + title)) s += 22;
+  if ((family === "start" || /dts|throttle only|transfer|active trim|smartcraft|qrg/.test(q)) && /dts|smartcraft|erc|quick-reference|8m0208789|propulsion/.test(file + title))
+    s += 18;
   if (family === "anchor" && /ground-tackle|anchor|rode|windlass|lewmar|quick|hrc/.test(file + title)) s += 22;
   if (family === "garmin" && /garmin|echomap|mfd/.test(file + title)) s += 20;
   if (family === "shore" && /cristec|shore|ypower|charg/.test(file + title)) s += 20;
@@ -486,7 +492,9 @@ function relatedManuals(bundle, family, passages, q) {
   const familyMatch = (n) => {
     if (family === "audio") return /fusion|ra70|ra210/.test(n);
     if (family === "garmin") return /garmin/.test(n);
-    if (family === "fuel" || family === "start") return /verado|mercury.*operation/.test(n);
+    if (family === "fuel") return /verado|mercury.*operation/.test(n);
+    if (family === "start" || /dts|throttle only|erc|smartcraft|qrg/.test(ql))
+      return /dts|smartcraft|8m0208789|quick-reference|electric-steering|verado|operation/.test(n);
     if (family === "steer") return /steering|ephs|electric-steering/.test(n);
     if (family === "shore" || family === "electrical") return /cristec|ypower/.test(n);
     if (family === "anchor") return /lewmar|windlass|quick|hrc/.test(n);

@@ -30,9 +30,9 @@ Full detail: [`chapters/05-power-sequences.md`](chapters/05-power-sequences.md#c
 
 | Control | Notes |
 |---------|--------|
-| DTS **DOCK** | Low-speed docking response |
 | DTS **THROTTLE ONLY** | Neutral gear, throttle for wash / warming |
-| DTS **TRANSFER** | Multi-engine feature — single engine: leave unused unless prompted |
+| DTS **TRANSFER** | Helm transfer — single station: leave unused unless prompted |
+| DTS **ACTIVE TRIM** / **QUICK STEER** / **DOCK** | Pad-dependent — use onboard SmartCraft DTS QRG; confirm labels with a close-up |
 | Zipwake **AUTO PITCH / AUTO ROLL** | Default automatic interceptors (**CONFIRMED**) |
 | Sleipner thruster | Use in short bursts; watch house/engine voltage |
 

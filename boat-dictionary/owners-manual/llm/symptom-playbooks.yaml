@@ -72,9 +72,9 @@ playbooks:
       - "Cycle ignition in neutral; retry"
       - "Dealer SmartCraft/DTS diagnostics if unresolved"
     manuals:
+      - manuals/engine/Mercury-DTS-Single-Handle-ERC-Quick-Reference-8m0208789.pdf
       - manuals/engine/Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf
-
-  - id: PB-ZIPWAKE
+      - manuals/engine/Mercury-SmartCraft-Operation-Overview-8m0071455r.pdf
     om_section: OM-TS-TRIM
     aliases: [zipwake error, auto pitch fail, listing, porpoising, interceptor stuck, trim tabs]
     hardware_ids: [zipwake]

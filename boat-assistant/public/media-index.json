@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-08-04T06:14:34.273Z",
+  "builtAt": "2026-08-04T06:20:27.375Z",
   "items": [
     {
       "id": "battery-locker",
@@ -171,6 +171,22 @@
         "hull"
       ],
       "summary": "Photo of the physical **Quick** “Multipurpose Control Panel” installation/user manual cover onboard.",
+      "image": null,
+      "photoStatus": "transcript-only",
+      "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."
+    },
+    {
+      "id": "smartcraft-dts-qrg",
+      "file": "notes/evidence/smartcraft-dts-qrg.md",
+      "title": "SmartCraft DTS Quick Reference Guide evidence",
+      "tags": [
+        "helm",
+        "engine",
+        "ephs",
+        "steering",
+        "hull"
+      ],
+      "summary": "Photo of the physical **Mercury SmartCraft DTS Quick Reference Guide** cover onboard.",
       "image": null,
       "photoStatus": "transcript-only",
       "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."

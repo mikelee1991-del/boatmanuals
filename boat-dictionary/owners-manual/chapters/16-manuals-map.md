@@ -14,6 +14,7 @@ Paths relative to `boat-dictionary/`.
 | Topic | File |
 |-------|------|
 | Verado V8 O&M | `manuals/engine/Mercury-Verado-V8-SeaPro-V8-Operation-Maintenance-8m0145543.pdf` |
+| DTS Single Handle QRG (**onboard**) | `manuals/engine/Mercury-DTS-Single-Handle-ERC-Quick-Reference-8m0208789.pdf` |
 | Electric steering / DTS / Active Trim | `manuals/engine/Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf` |
 | SmartCraft overview | `manuals/engine/Mercury-SmartCraft-Operation-Overview-8m0071455r.pdf` |
 | Active Trim (DE) | `manuals/engine/Mercury-Active-Trim-8m0125432e-German.pdf` |

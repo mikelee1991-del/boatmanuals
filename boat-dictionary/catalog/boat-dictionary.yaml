@@ -213,9 +213,12 @@ hardware:
     category: engine_controls
     name: Mercury Digital Throttle & Shift (DTS) electronic remote control
     status: confirmed
-    evidence: "Helm photo — Mercury single-lever DTS with DOCK, TRANSFER, THROTTLE ONLY; red lanyard kill switch"
-    keywords: [dts, throttle, shift, erc, dock mode, throttle only, troll, active trim button, control pad, transfer]
+    evidence: "Helm photo — Mercury single-lever DTS with TRANSFER / THROTTLE ONLY (+ DOCK or ACTIVE TRIM depending on pad gen); red lanyard; owner photo of SmartCraft DTS Quick Reference Guide cover onboard"
+    keywords: [dts, throttle, shift, erc, dock mode, throttle only, troll, active trim button, control pad, transfer, quick steer, smartcraft, qrg]
     manuals:
+      - path: manuals/engine/Mercury-DTS-Single-Handle-ERC-Quick-Reference-8m0208789.pdf
+        title: SmartCraft DTS Single Handle ERC Quick Reference (90-8M0208789)
+        language: en
       - path: manuals/engine/Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf
         title: ERC / DTS features, Active Trim, electric steering (8M0221736)
         language: en
@@ -225,6 +228,8 @@ hardware:
       - path: manuals/engine/Mercury-Verado-V8-SeaPro-V8-Operation-Maintenance-8m0145543.pdf
         title: Verado O&M (controls / features sections)
         language: en
+    questions:
+      - "Close-up of DTS pad labels (DOCK vs ACTIVE TRIM / QUICK STEER)."
     symptoms: [no shift, stuck neutral, throttle only stuck, beep codes, lever unresponsive]
 
   - id: steering-power

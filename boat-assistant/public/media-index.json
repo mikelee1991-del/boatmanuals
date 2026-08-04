@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-08-04T06:25:46.083Z",
+  "builtAt": "2026-08-04T06:34:06.673Z",
   "items": [
     {
       "id": "battery-locker",
@@ -124,6 +124,21 @@
         "hull"
       ],
       "summary": "Close-up of the helm Fusion head unit (wood-grain panel mount).",
+      "image": null,
+      "photoStatus": "transcript-only",
+      "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."
+    },
+    {
+      "id": "garmin-gpsmap-x3-qsm",
+      "file": "notes/evidence/garmin-gpsmap-x3-qsm.md",
+      "title": "Garmin GPSMAP 7x3/9x3/12x3 Quick Start evidence",
+      "tags": [
+        "helm",
+        "garmin",
+        "hin",
+        "hull"
+      ],
+      "summary": "Photo of the physical **Garmin GPSMAP® 7x3/9x3/12x3 Quick Start Manual** cover onboard.",
       "image": null,
       "photoStatus": "transcript-only",
       "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."

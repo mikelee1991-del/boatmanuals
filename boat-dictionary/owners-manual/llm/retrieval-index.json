@@ -3,7 +3,7 @@
   "vessel_hin": "BEYFT208F223",
   "engine_esn": "3B371488",
   "description": "Chunked retrieval index for LLM RAG over the consolidated owner's manual",
-  "chunk_count": 33,
+  "chunk_count": 34,
   "chunks": [
     {
       "id": "RI-ID-001",
@@ -179,10 +179,35 @@
         "ACTIVE TRIM",
         "Quick Steer",
         "403",
-        "VesselView 403"
+        "VesselView 403",
+        "GPSMAP",
+        "7x3",
+        "9x3",
+        "12x3"
       ],
       "confidence": "confirmed",
-      "text": "Helm confirmed: Garmin MFD (model TBD), Mercury VesselView 403 (install sheet CONFIRMED), Fusion MS-RA70N (N2K),\nMercury DTS single lever (TRANSFER / THROTTLE ONLY; DOCK vs ACTIVE TRIM / QUICK STEER TBD) + red lanyard,\nSmartCraft DTS Quick Reference Guide cover onboard (Single Handle ERC 90-8M0208789),\nZipwake AUTO PITCH/AUTO ROLL + rotary, Sleipner thruster panel+joystick,\noffshore compass. No fixed VHF. LENCO not installed. MS-RA210 not installed.",
+      "text": "Helm confirmed: Garmin GPSMAP 7x3/9x3/12x3 family (QSM cover CONFIRMED; exact size TBD), Mercury VesselView 403, Fusion MS-RA70N (N2K),\nMercury DTS single lever (TRANSFER / THROTTLE ONLY; DOCK vs ACTIVE TRIM / QUICK STEER TBD) + red lanyard,\nSmartCraft DTS Quick Reference Guide cover onboard (Single Handle ERC 90-8M0208789),\nZipwake AUTO PITCH/AUTO ROLL + rotary, Sleipner thruster panel+joystick,\noffshore compass. No fixed VHF. LENCO not installed. MS-RA210 not installed. ECHOMAP not installed.",
+      "related": []
+    },
+    {
+      "id": "RI-GPSMAP",
+      "title": "Garmin GPSMAP x3",
+      "section": "OM-HELM-GARMIN",
+      "keywords": [
+        "Garmin",
+        "GPSMAP",
+        "7x3",
+        "9x3",
+        "12x3",
+        "923",
+        "723",
+        "1223",
+        "chartplotter",
+        "sonar",
+        "ECHOMAP"
+      ],
+      "confidence": "confirmed",
+      "text": "Garmin GPSMAP 7x3/9x3/12x3 family CONFIRMED via onboard Quick Start Manual cover. Not ECHOMAP UHD/UHD2. Exact 7/9/12 inch SKU and xsv sonar variant still need About/bezel photo. Prefer GPSMAP x3 Owner's Manual; Blue Sea HDS 5A feeds the display.",
       "related": []
     },
     {

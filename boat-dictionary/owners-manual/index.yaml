@@ -125,8 +125,8 @@ sections:
 
   - id: OM-HELM-GARMIN
     path: chapters/07-helm-electronics.md#garmin-mfd
-    title: Garmin MFD
-    keywords: [ECHOMAP, sonar, GPS, HDS fuse]
+    title: Garmin GPSMAP x3 MFD
+    keywords: [GPSMAP, 7x3, 9x3, 12x3, sonar, GPS, HDS fuse, ECHOMAP]
 
   - id: OM-HELM-VV
     path: chapters/07-helm-electronics.md#mercury-vesselview--smartcraft-display

@@ -51,7 +51,7 @@ These are **not** bare-boat stock, but they **are** on Beneteau’s official lis
 ### Electronics / comfort packs & options
 | Item | Factory list | On your boat |
 |------|--------------|--------------|
-| **Electronic Pack** — Garmin + GT23 | Yes | Garmin MFD confirmed (exact model TBD) |
+| **Electronic Pack** — Garmin + GT23 | Yes | **GPSMAP 7x3/9x3/12x3** CONFIRMED (QSM); exact size TBD; GT23 class still open |
 | **Sound Pack** — Fusion stereo + speakers | Yes (list often cites MS-RA210) | **MS-RA70N** CONFIRMED on faceplate (not RA210) |
 | **Zipwake** auto trim | Option (vs LENCO) | Confirmed Series S |
 | **Bow thruster** | Option | Sleipner confirmed |
@@ -92,7 +92,7 @@ That’s the only **clear** non-factory customization found so far.
 | Item | Why uncertain |
 |------|----------------|
 | **T-Top fabric roof** | Factory describes “white polyester roof + black aluminium frame”; yours is black fabric over black frame. Still matches the factory T-Top *option*, just verify if roof material is OEM soft-top vs later canvas. |
-| Exact **windlass / fridge brand / Garmin** model numbers | Almost certainly factory/dealer, but labels still needed |
+| Exact **windlass / fridge brand / GPSMAP 7·9·12 SKU** | Almost certainly factory/dealer; GPSMAP family confirmed — size/xsv still needed |
 | Exact **toilet bowl SKU** (Jabsco Quiet Flush family confirmed) | Control panel done; need base/bowl plate |
 
 ---

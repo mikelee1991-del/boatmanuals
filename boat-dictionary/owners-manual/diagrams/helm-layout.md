@@ -24,7 +24,7 @@ Approximate layout from owner helm photos (looking forward).
 ```
 
 ## Confirmed devices
-- Garmin MFD (**exact model UNVERIFIED**)
+- Garmin **GPSMAP 7x3/9x3/12x3** (exact size TBD)
 - Mercury VesselView **403** (**CONFIRMED** — install sheet)
 - Fusion stereo (**MS-RA70N** CONFIRMED · N2K)
 - Zipwake Series S (left of Garmin; AUTO modes visible)

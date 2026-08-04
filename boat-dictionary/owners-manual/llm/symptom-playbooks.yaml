@@ -169,10 +169,10 @@ playbooks:
       - "Battery switches ON; hold power button per Garmin manual"
       - "If GPS OK but sonar dead: transducer connector/cable"
       - "Depth lost at speed: aeration/transducer damage"
-      - "Capture Settings → System → About for exact model"
+      - "Capture Settings → System → About for exact GPSMAP 7/9/12 (+ xsv) SKU"
     manuals:
-      - manuals/electronics/Garmin-ECHOMAP-UHD-Owners-Manual-EN.pdf
-      - manuals/electronics/Garmin-ECHOMAP-UHD2-62-72-92sv-Owners-Manual-EN.pdf
+      - manuals/electronics/Garmin-GPSMAP-7x3-9x3-12x3-16x3-Owners-Manual-EN.pdf
+      - manuals/electronics/Garmin-Transom-Mount-Transducer-Install-EN.pdf
 
   - id: PB-STEREO
     om_section: OM-TS-AUDIO

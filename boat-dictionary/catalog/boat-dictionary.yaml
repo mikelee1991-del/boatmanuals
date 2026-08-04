@@ -39,7 +39,7 @@ vessel:
   equipped_confirmed_from_photos:
     - "Zipwake Dynamic Trim Control (Series S panel with rotary control under/near Garmin)"
     - "Sleipner (Side-Power) thruster control + thruster joystick (ON/OFF) at helm"
-    - "Garmin MFD at helm (chart + sonar / engine data overlays; exact model TBD)"
+    - "Garmin GPSMAP 7x3/9x3/12x3 at helm (exact size TBD; QSM cover CONFIRMED; not ECHOMAP)"
     - "Mercury SmartCraft digital engine display (VesselView-class) at helm"
     - "Fusion marine stereo head unit at helm (MS-RA series class)"
     - "Mercury DTS single-lever control (DOCK / TRANSFER / THROTTLE ONLY) + START/STOP"

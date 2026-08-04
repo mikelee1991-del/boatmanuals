@@ -1,6 +1,6 @@
 # OM-WIRE — Electrical system & as-installed wiring
 
-**Short answer:** Dual 12 V banks (**ENGINE** / **HOUSE**) feed the main fuse box and Blue Sea aux strip. Notable Blue Sea IDs: **AN4 · 10 A** = Fusion stereo, **HDS · 5 A** = Garmin MFD, **VHF · 10 A** = spare (handheld VHF only). Shore path is 115 V → RCD → **CRISTEC YPO12-25DE**. Thruster/windlass use high-current protection off the aux strip.
+**Short answer:** Dual 12 V banks (**ENGINE** / **HOUSE**) feed the main fuse box and Blue Sea aux strip. Notable Blue Sea IDs: **AN4 · 10 A** = Fusion stereo, **HDS · 5 A** = Garmin MFD, **VHF · 10 A** = spare (handheld VHF only). Shore path is 115 V → RCD → **CRISTEC YPO12-25DE**. Windlass high-current protection is a dedicated **Blue Sea 187-Series 80 A** breaker (**CONFIRMED**); thruster also uses dedicated high-current protection off the aux strip.
 
 **Source of truth for fuse IDs:** owner photo of printed diagram labeled **FLYER 8 SPACE DECK / 12V**, transcribed in [`../../catalog/fuse-map-12v.md`](../../catalog/fuse-map-12v.md).  
 **Warning on diagram:** TURN OFF POWER BEFORE SERVICING.
@@ -130,17 +130,16 @@ Treat engine-cranking issues as **ENGINE bank / connections / Mercury security l
 
 ---
 
-## High-current accessories (expect dedicated feeds)
+## High-current accessories (dedicated feeds)
 
-These often have breakers/fuses near the battery or under console (**locations UNVERIFIED** — find and label):
+| Load | Protection | Status |
+|------|------------|--------|
+| **Windlass** | **Blue Sea 187-Series · 80 A** (yellow reset lever; windlass/anchor label under breaker) | **CONFIRMED** — see [`../../notes/evidence/windlass-breaker-panel.md`](../../notes/evidence/windlass-breaker-panel.md) |
+| **Bow thruster (Sleipner)** | Dedicated high-current breaker (label present on same panel area) | Label **CONFIRMED**; ampacity / exact breaker face still **UNVERIFIED** |
+| Battery coupling / parallel | Labeled on same panel (two-battery icon) | Label **CONFIRMED**; switch detail **UNVERIFIED** |
+| Battery masters | Two red **T-handle** disconnects in recessed panel behind | **CONFIRMED** present; legends need a clear crop |
 
-| Load | Why |
-|------|-----|
-| Bow thruster (Sleipner) | Very high surge — main panel 3–20 A fuses are not the thruster main |
-| Windlass | High surge — usually dedicated breaker + contactor |
-| Engine main / house main | ANL/MIDI/MRBF class near batteries |
-
-**Action item for owner:** photograph thruster and windlass breakers; they will be added to this chapter as **CONFIRMED**.
+These are **not** the Blue Sea aux strip (AN4 / HDS / VHF …). Dead windlass → check the **80 A 187-Series** first. Dead thruster → find the thruster breaker (same locker/panel area), then voltage under load.
 
 ---
 

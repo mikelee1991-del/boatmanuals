@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-08-04T06:00:02.342Z",
+  "builtAt": "2026-08-04T06:05:09.336Z",
   "items": [
     {
       "id": "battery-locker",
@@ -173,6 +173,24 @@
         "jabsco"
       ],
       "summary": "Two pumps mounted side-by-side on a white bulkhead, each with intake strainer and blue discharge hose.",
+      "image": null,
+      "photoStatus": "transcript-only",
+      "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."
+    },
+    {
+      "id": "windlass-breaker-panel",
+      "file": "notes/evidence/windlass-breaker-panel.md",
+      "title": "High-current breaker / battery-switch panel evidence",
+      "tags": [
+        "thruster",
+        "windlass",
+        "anchor",
+        "battery",
+        "engine",
+        "hin",
+        "hull"
+      ],
+      "summary": "Photo of wood-grain interior panel (cabin / under-seat locker area) with Blue Sea high-current protection and battery-switch recess. Clear Trader Joe’s water bottle in frame for scale.",
       "image": null,
       "photoStatus": "transcript-only",
       "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."

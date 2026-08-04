@@ -2,6 +2,7 @@
 
 ## Confirmed
 - Electric **windlass** at bow (**CONFIRMED**)
+- Dedicated breaker: **Blue Sea Systems 187-Series · 80 A** with windlass/anchor label (**CONFIRMED** — cabin/locker panel)
 - Stainless **plow / Delta-style** anchor on hinged bow roller (**CONFIRMED**)
 - US Trim Package typically includes windlass + roller
 - Hull **draft** (brochure): **0.50–0.90 m** (about **1.6–3.0 ft**) — this is how deep the boat sits, not how deep you can anchor
@@ -32,7 +33,7 @@ What you *can* use today:
 - Gypsy size / chain caliber (e.g. 8 mm / 5/16″)
 - Free-fall feature yes/no
 - Helm vs bow footswitch locations
-- Dedicated breaker / contactor location (expect near batteries — **not** the Blue Sea 5–10 A slots)
+- Windlass contactor / solenoid location (breaker is CONFIRMED 80 A Blue Sea 187-Series)
 - **Rode length onboard** (blocks a numeric “how deep can I anchor” answer)
 
 ## Manual (candidate)

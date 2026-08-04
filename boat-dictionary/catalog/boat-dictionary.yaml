@@ -368,10 +368,11 @@ hardware:
     name: Electric windlass 12 V (US Trim Package / Comfort)
     status: confirmed
     brand_status: exact_model_unverified
-    evidence: "Bow photos — windlass housing + stainless plow/Delta-style anchor on bow roller"
+    evidence: "Bow photos — windlass housing + stainless plow/Delta-style anchor on bow roller; Blue Sea 187-Series 80A breaker with windlass label"
+    breaker: "Blue Sea Systems 187-Series 80 A (CONFIRMED)"
     anchor: "Stainless plow / Delta-style on roller (brand unverified)"
     likely_brand: "Lewmar Pro-Series / Pro-Fish class (verify label on unit)"
-    keywords: [windlass, anchor, rode, gypsy, freefall, contactor, breaker, delta]
+    keywords: [windlass, anchor, rode, gypsy, freefall, contactor, breaker, delta, 80A, 187]
     manuals:
       - path: manuals/peripherals/Lewmar-Pro-Series-Pro-Fish-Windlass-Manual.pdf
         title: Lewmar Pro-Series / Pro-Fish Windlass Product Manual
@@ -380,6 +381,7 @@ hardware:
       - "Close-up of windlass motor/gearbox plate (Lewmar / Quick / other)."
       - "Chain size (e.g. 8 mm / 5/16) and whether freefall is fitted?"
       - "Anchor brand/model stamp if present."
+      - "Clear photo of thruster breaker face if separate from the 80 A windlass breaker."
     symptoms: [won't haul, freewheel, breaker trips, solenoid click]
 
   - id: bow-thruster

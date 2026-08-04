@@ -85,7 +85,7 @@ Photo previously near MIN — check first.
 
 1. Panel ON? Joystick enabled?
 2. Voltage at rest and during command — sag to <10.5 V ≈ weak bank/cables.
-3. Locate **dedicated thruster breaker** (not Blue Sea 3–10 A) — reset once.
+3. Locate **dedicated thruster breaker** near the windlass **Blue Sea 187-Series 80 A** panel (not Blue Sea 3–10 A) — reset once.
 4. Solenoid chatter → low voltage or failing contacts.
 5. Runtime cutout — wait cool-down.
 6. No prop spin but voltage OK → motor/tunnel inspection hauled.
@@ -96,12 +96,13 @@ Photo previously near MIN — check first.
 
 **ID:** `OM-TS-WINDLASS`
 
-1. Power/breakers ON; control switches tested (helm + bow if both).
-2. Voltage under load.
-3. Contactor click but no motor → motor/brushes/connections.
-4. Motor runs but gypsy slips → clutch adjustment / worn gypsy / wrong chain.
-5. Anchor stuck → motor to rode, don’t stall windlass.
-6. Identify brand plate to use correct Lewmar/other procedure.
+1. Battery T-handles ON; **Blue Sea 187-Series 80 A** windlass breaker ON (anchor label).
+2. Control switches tested (helm + bow if both).
+3. Voltage under load; listen for contactor click.
+4. Contactor click but no motor → motor/brushes/connections.
+5. Motor runs but gypsy slips → clutch adjustment / worn gypsy / wrong chain.
+6. Anchor stuck → motor to rode, don’t stall windlass.
+7. Identify brand plate to use correct Lewmar/other procedure.
 
 ---
 

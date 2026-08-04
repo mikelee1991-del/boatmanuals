@@ -231,12 +231,14 @@ playbooks:
 
   - id: PB-TOILET
     om_section: OM-WATER-WASTE
-    aliases: [toilet won't flush, macerator, holding tank, head fail]
+    aliases: [toilet won't flush, macerator, holding tank, head fail, won't empty, no fill]
     hardware_ids: [electric-toilet]
     steps:
-      - "Fresh water available for flush?"
-      - "Check MACER 3P1A circuit if discharge pump inoperative"
-      - "Confirm tank not full; locate pump-out deck fitting"
-      - "Photograph toilet brand/model before applying Jabsco-specific steps"
+      - "Check holding-tank gauge — do not keep flushing into a full tank"
+      - "Fresh water available for rinse/fill? (Quiet Flush uses pressurized fresh or rinse supply)"
+      - "Try FILL alone, then EMPTY alone, then the main flush button"
+      - "Check MACER 3P1A circuit if discharge/empty is dead"
+      - "Locate pump-out deck fitting; photograph bowl/base plate if SKU still unknown"
     manuals:
+      - manuals/peripherals/Jabsco-Quiet-Flush-Conversion-37055-EN.pdf
       - manuals/peripherals/Jabsco-37010-Electric-Toilet-Manual-EN.pdf

@@ -45,7 +45,7 @@ These are **not** bare-boat stock, but they **are** on Beneteau’s official lis
 | Electric windlass + hinged bow roller | Confirmed |
 | LED courtesy lighting | Expected (fuse map / package) |
 | Shore power 110/115 V + charger pre-fit | Confirmed (115 V panel + **CRISTEC** charger) |
-| Electric toilet + holding tank (~88 L) | Holding tank confirmed; toilet model TBD |
+| Electric toilet + holding tank (~88 L) | Holding tank + **Jabsco** Quiet Flush-style panel confirmed; exact SKU TBD |
 | Horn | Expected with package |
 
 ### Electronics / comfort packs & options
@@ -92,7 +92,8 @@ That’s the only **clear** non-factory customization found so far.
 | Item | Why uncertain |
 |------|----------------|
 | **T-Top fabric roof** | Factory describes “white polyester roof + black aluminium frame”; yours is black fabric over black frame. Still matches the factory T-Top *option*, just verify if roof material is OEM soft-top vs later canvas. |
-| Exact **windlass / toilet / fridge / VesselView / Garmin** model numbers | Almost certainly factory/dealer, but labels still needed |
+| Exact **windlass / fridge / VesselView / Garmin** model numbers | Almost certainly factory/dealer, but labels still needed |
+| Exact **toilet bowl SKU** (Jabsco Quiet Flush family confirmed) | Control panel done; need base/bowl plate |
 
 ---
 

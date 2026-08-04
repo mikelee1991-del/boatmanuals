@@ -55,7 +55,7 @@ flowchart TB
 | Windlass | Helm/bow controls | Bow roller + windlass |
 | Fresh water | Tap / shower | Jabsco PAR-MAX in battery locker |
 | Washdown | Deck wash outlet | Flojet R4325 in battery locker |
-| Head / waste | Cabin head | Toilet (**UNVERIFIED** brand); HOLDING tank in locker; MACER circuit |
+| Head / waste | Cabin head | **Jabsco** Quiet Flush-style toilet (**CONFIRMED**); HOLDING tank in locker; MACER circuit |
 | Charging | Shore cord + CRISTEC LEDs | Locker AC panel + YPOWER unit |
 | Fuses | Blue Sea + main box | Follow onboard 12V diagram |
 

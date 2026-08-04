@@ -672,7 +672,7 @@ export function answerStructured(bundle, question, mediaIndex = null, figuresInd
 
   let details = composeDetails(passages, intent, info);
 
-  const primary = pickPrimaryPassage(passages, intent, family);
+  const primary = pickPrimaryPassage(passages, intent, family, q);
 
   let summary = "";
   if (isFault && pb?.steps?.length) {

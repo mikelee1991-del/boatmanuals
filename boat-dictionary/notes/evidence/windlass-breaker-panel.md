@@ -1,5 +1,7 @@
 # High-current breaker / battery-switch panel evidence
 
+**Short answer:** Windlass breaker is **Blue Sea Systems 187-Series · 80 A** (yellow reset lever, waterproof), with an anchor/windlass label under it (**CONFIRMED**). Same panel area has thruster and battery-coupling labels plus dual red **T-handle** battery masters behind.
+
 Photo of wood-grain interior panel (cabin / under-seat locker area) with Blue Sea high-current protection and battery-switch recess. Clear Trader Joe’s water bottle in frame for scale.
 
 ## Confirmed

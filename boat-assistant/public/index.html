@@ -143,6 +143,16 @@
           <code>:free</code> slugs get retired often). Your key stays in this browser only.
         </p>
         <button type="submit" class="btn primary">Save</button>
+
+        <div class="setup-reset">
+          <h3>Hard reset</h3>
+          <p class="hint">
+            Clears this browser’s cached guide files, service worker, and saved Setup (including API key), then reloads a fresh copy.
+            Use after a binder update if answers still look stale.
+          </p>
+          <button type="button" class="btn danger" id="hardResetBtn">Hard reset &amp; reload</button>
+          <p class="hint" id="hardResetStatus" hidden></p>
+        </div>
       </form>
     </dialog>
 

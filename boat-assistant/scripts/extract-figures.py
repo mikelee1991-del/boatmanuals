@@ -24,6 +24,7 @@ TARGETS = [
     "engine/Mercury-Verado-V8-SeaPro-V8-Operation-Maintenance-8m0145543.pdf",
     "engine/Mercury-Electric-Steering-V8-V10-AMS-8m0221736.pdf",
     "engine/Mercury-SmartCraft-Operation-Overview-8m0071455r.pdf",
+    "electronics/Fusion-MS-RA70-RA70N-Owners-Manual-EN.pdf",
     "electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf",
     "electronics/Garmin-ECHOMAP-UHD-Owners-Manual-EN.pdf",
     "electronics/Garmin-ECHOMAP-UHD2-62-72-92sv-Owners-Manual-EN.pdf",

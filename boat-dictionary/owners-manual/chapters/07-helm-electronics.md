@@ -48,13 +48,15 @@ Use for: RPM, trim %, temps, fuel, faults, SmartCraft settings. Prefer VesselVie
 
 ## Fusion stereo
 
-**Status:** **CONFIRMED** · **likely MS-RA210** (Sound Pack)
+**Status:** **CONFIRMED** · **MS-RA70N** (faceplate; NMEA 2000 / **N2K**)
 
 **Power:** Blue Sea **AN4 10 A**, wire 2.5 mm²  
-**Manual:** `Fusion-MS-RA210-Owners-Manual-EN.pdf`  
-**Evidence:** helm head unit + cockpit speaker(s); fuse music icon
+**Manual:** `Fusion-MS-RA70-RA70N-Owners-Manual-EN.pdf`  
+**Evidence:** [`../../notes/evidence/fusion-faceplate.md`](../../notes/evidence/fusion-faceplate.md)
 
-Confirm with faceplate photo. Faults → `OM-TS-AUDIO`.
+**NOT INSTALLED on this HIN:** MS-RA210 (equipment-list Sound Pack guess — superseded).
+
+N2K control from Garmin is possible if the network drop is connected (**wiring UNVERIFIED**). Faults → `OM-TS-AUDIO`.
 
 ---
 

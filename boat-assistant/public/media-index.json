@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-08-03T05:27:55.406Z",
+  "builtAt": "2026-08-04T05:46:16.076Z",
   "items": [
     {
       "id": "battery-locker",
@@ -94,6 +94,23 @@
         "hin"
       ],
       "summary": "- Underwater lights / Pilot Edition graphics / fishing station - Windlass brand plate under bow hatch",
+      "image": null,
+      "photoStatus": "transcript-only",
+      "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."
+    },
+    {
+      "id": "fusion-faceplate",
+      "file": "notes/evidence/fusion-faceplate.md",
+      "title": "Fusion stereo faceplate evidence",
+      "tags": [
+        "helm",
+        "garmin",
+        "fusion",
+        "charger",
+        "hin",
+        "hull"
+      ],
+      "summary": "Close-up of the helm Fusion head unit (wood-grain panel mount).",
       "image": null,
       "photoStatus": "transcript-only",
       "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."

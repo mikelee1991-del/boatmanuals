@@ -21,7 +21,7 @@ Owner helm photo looking forward over the bow (Garmin chart centered on **Shelte
 ## Also on this helm (from matching prior photos)
 | Item | Evidence |
 |------|----------|
-| Fusion stereo | Marine head unit in the helm cluster (likely MS-RA210 Sound Pack) |
+| Fusion stereo | **MS-RA70N** (**CONFIRMED** faceplate — see `fusion-faceplate.md`) · Bluetooth + **N2K** |
 | Mercury DTS | Single lever with **DOCK** / **TRANSFER** / **THROTTLE ONLY**; red kill lanyard |
 | START/STOP | Mercury ignition + START/STOP at helm |
 
@@ -30,10 +30,11 @@ Owner helm photo looking forward over the bow (Garmin chart centered on **Shelte
 |------|--------|
 | LENCO electric trim tabs | Zipwake installed (factory options are mutually exclusive) |
 | Hard T-Top | Fabric roof with snaps / soft top structure visible |
+| Fusion MS-RA210 | Faceplate is **MS-RA70N** |
 
 ## Still needed from close-ups
 - Garmin **About** screen / bezel model string
 - VesselView exact model (502 / 702 / 704 / etc.)
 - Windlass motor plate
 - Sleipner thruster motor plate
-- Fusion faceplate confirmation (MS-RA210)
+- Confirm Fusion NMEA 2000 drop is actually terminated on the network

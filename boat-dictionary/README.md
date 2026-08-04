@@ -62,7 +62,8 @@ PDF library: [`manuals/`](manuals/) (~100 MB)
 | `manuals/electronics/Garmin-ECHOMAP-UHD-Owners-Manual-EN.pdf` | ECHOMAP **UHD** (likely 2023 pack) |
 | `manuals/electronics/Garmin-ECHOMAP-UHD2-62-72-92sv-Owners-Manual-EN.pdf` | ECHOMAP **UHD2** 6/7/9 sv (current list) |
 | `manuals/electronics/Garmin-Transom-Mount-Transducer-Install-EN.pdf` | Transom transducer install (GT23 class) |
-| `manuals/electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf` | Sound Pack stereo |
+| `manuals/electronics/Fusion-MS-RA70-RA70N-Owners-Manual-EN.pdf` | **Installed** stereo (MS-RA70N) |
+| `manuals/electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf` | Discarded Sound Pack candidate (not this HIN) |
 | `manuals/electronics/Mercury-VesselView-704-8m0220645.pdf` | VesselView 704 (if fitted) |
 | `manuals/electronics/Mercury-VesselView-502-702-8m0109374r.pdf` | VesselView 502/702 (if fitted) |
 
@@ -97,7 +98,7 @@ Useful when debugging “is this even installed?”
 
 **Electronic Pack:** Garmin ECHOMAP UHD/UHD2 **92sv** + **GT23-TM** transducer.  
 **Upgraded Electronic Pack:** Garmin ECHOMAP Ultra 2 **122sv** + GT23-TM.  
-**Sound Pack:** Fusion **MS-RA210** + speakers.
+**Sound Pack:** Fusion stereo + speakers — **this HIN has MS-RA70N** (faceplate), not the MS-RA210 often listed on Flyer 8 equipment sheets.
 
 **Other options:** 42 L cabin fridge, bow thruster, **Zipwake** *or* **LENCO** tabs, deck-wash pump, T-Top / Pilot Edition, ski mast, fishing station, Seanapps unit.
 
@@ -127,7 +128,7 @@ Reply with whatever you know (photos of labels are ideal):
 8b. **Battery chemistry** inside ENGINE / HOUSE IMNASA boxes (AGM vs flooded) — important for CRISTEC profile.
 9. ~~**Shore power charger**~~ — **CRISTEC YPOWER YPO12-25DE** confirmed (S/N 2022061017878). Still verify battery chemistry vs “OPENED TYPE” setting.
 10. ~~**VesselView**~~ — **dedicated Mercury digital display confirmed**; close-up for exact model still useful.
-11. ~~**Fusion stereo**~~ — **confirmed**; faceplate close-up to lock MS-RA210 vs other.
+11. ~~**Fusion stereo**~~ — **MS-RA70N** confirmed (faceplate).
 12. ~~**T-Top / ski pylon / teak**~~ — **confirmed** (T-Top + 4 rod holders + ski/tow arch + **real teak deck**). Still open: underwater lights / fishing station?
 13. **Seanapps** unit present and activated?
 14. Propeller brand/pitch/diameter if known?

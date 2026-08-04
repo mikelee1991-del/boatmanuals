@@ -118,7 +118,8 @@ function familyOf(q, raw) {
   if (has("steering", "ephs") || /\bsteer/.test(s)) return "steer";
   if (has("separator") || /\bwater[- ]?in[- ]?fuel\b/.test(s) || (has("fuel") && has("filter"))) return "fuel";
   if ((has("start", "crank") || /\bno start\b/.test(s)) && !has("steering")) return "start";
-  if (has("dts", "throttle", "erc", "smartcraft") && !has("vesselview", "garmin")) return "start";
+  if (has("dts", "erc") || /\bthrottle only\b/.test(s) || (has("smartcraft") && has("qrg", "dts", "transfer")))
+    return "start";
   if (has("garmin", "mfd", "chartplotter", "sonar", "echomap")) return "garmin";
   if (has("shore", "charger", "cristec", "charging", "ypower")) return "shore";
   if (has("thruster", "sleipner")) return "thruster";

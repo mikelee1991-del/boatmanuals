@@ -156,7 +156,7 @@ Photo previously near MIN — check first.
 1. Blue Sea **AN4 10 A**.
 2. Fusion power button / voltage at unit.
 3. Speaker cutouts only → speaker wiring / protection mode.
-4. Bluetooth pairing per MS-RA210 manual.
+4. Bluetooth pairing per **MS-RA70N** manual.
 
 ---
 

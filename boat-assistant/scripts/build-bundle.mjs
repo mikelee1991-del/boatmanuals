@@ -28,6 +28,7 @@ const INCLUDE = [
   "notes/evidence",
   "notes/extracts",
   "notes/mercury-fuel-filter-water-separator-excerpts.md",
+  "notes/fusion-stereo-ms-ra70n.md",
   "notes/fusion-stereo-ms-ra210.md",
 ];
 

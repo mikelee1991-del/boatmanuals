@@ -25,7 +25,9 @@ Paths relative to `boat-dictionary/`.
 | Garmin UHD | `manuals/electronics/Garmin-ECHOMAP-UHD-Owners-Manual-EN.pdf` |
 | Garmin UHD2 | `manuals/electronics/Garmin-ECHOMAP-UHD2-62-72-92sv-Owners-Manual-EN.pdf` |
 | Transducer | `manuals/electronics/Garmin-Transom-Mount-Transducer-Install-EN.pdf` |
-| Fusion RA210 | `manuals/electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf` |
+| Fusion **MS-RA70N** (this boat) | `manuals/electronics/Fusion-MS-RA70-RA70N-Owners-Manual-EN.pdf` |
+| Fusion RA70 install | `manuals/electronics/Fusion-MS-RA70-RA70N-Installation-EN.pdf` |
+| Fusion RA210 (not this HIN) | `manuals/electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf` |
 | VesselView 704 | `manuals/electronics/Mercury-VesselView-704-8m0220645.pdf` |
 | VesselView 502/702 | `manuals/electronics/Mercury-VesselView-502-702-8m0109374r.pdf` |
 

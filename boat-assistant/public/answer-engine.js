@@ -12,8 +12,8 @@ const STOP = new Set(
 const WEAK = new Set(["hard", "soft", "blank", "weak", "dead", "heavy", "stiff"]);
 
 const EXPAND = {
-  stereo: ["stereo", "fusion", "ra210", "audio", "bluetooth", "an4", "sound"],
-  fusion: ["fusion", "stereo", "ra210", "bluetooth", "an4"],
+  stereo: ["stereo", "fusion", "ra70n", "ra70", "ra210", "audio", "bluetooth", "an4", "sound"],
+  fusion: ["fusion", "stereo", "ra70n", "ra70", "ra210", "bluetooth", "an4"],
   bluetooth: ["bluetooth", "fusion", "pairing"],
   sound: ["stereo", "fusion", "audio", "sound"],
   garmin: ["garmin", "echomap", "mfd", "hds", "chartplotter", "sonar"],
@@ -157,7 +157,7 @@ function scoreChunk(q, raw, topicList, intent, family, c) {
   if (intent === "visual" && /evidence\//.test(file)) s += 35;
   if (intent === "visual" && /extracts\//.test(file)) s -= 15;
 
-  if (family === "audio" && /fusion|stereo|ra210|audio/.test(file + title)) s += 22;
+  if (family === "audio" && /fusion|stereo|ra70|ra210|audio/.test(file + title)) s += 22;
   if (family === "fuel" && /fuel|separator|water-in-fuel/.test(file + title)) s += 22;
   if (family === "steer" && /steer|ephs/.test(file + title)) s += 22;
   if (family === "anchor" && /ground-tackle|anchor|rode|windlass|lewmar/.test(file + title)) s += 22;
@@ -293,7 +293,7 @@ export function matchFigures(figuresIndex, question, passages, { limit = 6 } = {
   const passageBlob = passages.map((p) => `${p.title} ${p.text || ""}`.slice(0, 500)).join(" ").toLowerCase();
 
   const familyManualHints = {
-    audio: [/fusion|ra210/],
+    audio: [/fusion|ra70|ra210/],
     garmin: [/garmin|echomap/],
     fuel: [/verado|operation-maintenance|fuel/],
     steer: [/steering|ephs|electric-steering/],
@@ -452,7 +452,7 @@ function relatedManuals(bundle, family, passages, q) {
   const passageBlob = passages.map((p) => `${p.file} ${p.title}`).join(" ").toLowerCase();
 
   const familyMatch = (n) => {
-    if (family === "audio") return /fusion|ra210/.test(n);
+    if (family === "audio") return /fusion|ra70|ra210/.test(n);
     if (family === "garmin") return /garmin/.test(n);
     if (family === "fuel" || family === "start") return /verado|mercury.*operation/.test(n);
     if (family === "steer") return /steering|ephs|electric-steering/.test(n);
@@ -477,6 +477,8 @@ function relatedManuals(bundle, family, passages, q) {
         if (n.includes(tok)) s += 6;
       }
       if (/mastervolt|lenco/.test(n) && !/mastervolt|lenco/.test(ql + passageBlob)) s -= 50;
+      // Prefer the confirmed Fusion model over the discarded RA210 candidate
+      if (family === "audio" && /ra210/.test(n) && !/ra70/.test(n)) s = 0;
       // When we know the equipment family, stay on that OEM set
       if (family && !famHit) s = 0;
       return { ...m, score: s };

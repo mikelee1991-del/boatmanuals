@@ -52,7 +52,7 @@ These are **not** bare-boat stock, but they **are** on Beneteau’s official lis
 | Item | Factory list | On your boat |
 |------|--------------|--------------|
 | **Electronic Pack** — Garmin + GT23 | Yes | Garmin MFD confirmed (exact model TBD) |
-| **Sound Pack** — Fusion MS-RA210 + speakers | Yes | Fusion head unit + cockpit speaker confirmed |
+| **Sound Pack** — Fusion stereo + speakers | Yes (list often cites MS-RA210) | **MS-RA70N** CONFIRMED on faceplate (not RA210) |
 | **Zipwake** auto trim | Option (vs LENCO) | Confirmed Series S |
 | **Bow thruster** | Option | Sleipner confirmed |
 | **Electric deck wash** | Option | Flojet R4325 confirmed |

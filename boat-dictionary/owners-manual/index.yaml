@@ -136,7 +136,7 @@ sections:
   - id: OM-HELM-FUSION
     path: chapters/07-helm-electronics.md#fusion-stereo
     title: Fusion stereo
-    keywords: [MS-RA210, AN4, bluetooth]
+    keywords: [MS-RA70N, RA70N, AN4, bluetooth, N2K]
 
   - id: OM-TRIM
     path: chapters/08-trim-and-stability.md

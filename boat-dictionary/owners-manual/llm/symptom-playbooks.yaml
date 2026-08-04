@@ -182,7 +182,7 @@ playbooks:
       - "If Bluetooth: phone playing, within range; Menu → BLUETOOTH → CONNECTIONS → DISCOVERABLE and re-pair"
       - "Still dead with fuse OK: measure 12V at head unit; then speaker/amp wiring per Fusion manual"
     manuals:
-      - manuals/electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf
+      - manuals/electronics/Fusion-MS-RA70-RA70N-Owners-Manual-EN.pdf
 
   - id: PB-FUEL-FILTER
     om_section: OM-MAINT

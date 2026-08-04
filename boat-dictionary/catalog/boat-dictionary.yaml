@@ -297,21 +297,26 @@ hardware:
 
   - id: fusion-audio
     category: electronics
-    name: Fusion marine stereo (Sound Pack)
+    name: Fusion MS-RA70N marine stereo
     status: confirmed
-    model_status: exact_model_unverified
-    evidence: "Helm photo — Fusion-class marine stereo head unit beside engine display; fuse map 10A AN4 music circuit"
+    model_status: confirmed
+    model: MS-RA70N
+    evidence: "Faceplate close-up — FUSION MS-RA70N with Bluetooth + N2K marks; Blue Sea AN4 10A music circuit"
     fuse: "Blue Sea box 10 A — AN4 r 2.5 mm²"
-    likely_models:
-      - "Fusion MS-RA210 (factory Sound Pack on Flyer 8 equipment list)"
-    keywords: [fusion, stereo, bluetooth, speakers, ra210, audio, AN4]
+    confirmed_model: "Fusion MS-RA70N"
+    not_installed:
+      - "Fusion MS-RA210 (prior Sound Pack guess — discarded)"
+    keywords: [fusion, stereo, bluetooth, speakers, ra70, ra70n, MS-RA70N, N2K, NMEA, audio, AN4]
     manuals:
-      - path: manuals/electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf
-        title: Fusion MS-RA210 Owner’s Manual
+      - path: manuals/electronics/Fusion-MS-RA70-RA70N-Owners-Manual-EN.pdf
+        title: Fusion MS-RA70 / MS-RA70N Owner’s Manual
+        language: en
+      - path: manuals/electronics/Fusion-MS-RA70-RA70N-Installation-EN.pdf
+        title: Fusion MS-RA70 / MS-RA70N Installation Instructions
         language: en
     questions:
-      - "Close-up of stereo faceplate to confirm MS-RA210 vs another Fusion model."
-    symptoms: [no power, no bluetooth, speaker cutout, fusion-link missing]
+      - "Is the NMEA 2000 drop behind the stereo actually connected to the boat network?"
+    symptoms: [no power, no bluetooth, speaker cutout, fusion-link missing, NMEA audio missing]
 
   - id: vhf-radio
     category: electronics

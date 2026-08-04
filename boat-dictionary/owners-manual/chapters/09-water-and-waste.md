@@ -76,8 +76,10 @@ Faults → toilet section in `OM-TS` / `toilet_fail`.
 
 ---
 
-## Cabin fridge (**LIKELY**)
+## Cabin fridge (**CONFIRMED**)
 
-- Heavy feed **1C1A** 4.0 mm² on main fuse diagram.
-- Factory option 42 L cabin fridge (Isotherm manuals in library).
-- Confirm presence/label in cabin; faults → `OM-TS-FRIDGE`.
+**Short answer:** Built-in front-loading cabin fridge is **CONFIRMED** in the head/cabin cabinet (white door, black frame, top latch). Fed by heavy **1C1A · 4.0 mm²** on the main fuse diagram. Exact brand/model still **UNVERIFIED** (Isotherm Cruise manuals remain the best library candidates until a label photo).
+
+- Evidence: [`../../notes/evidence/cabin-fridge.md`](../../notes/evidence/cabin-fridge.md)
+- Same panel: dual USB + covered AC outlet + two rocker switches beside the toilet.
+- Faults → `OM-TS-FRIDGE`.

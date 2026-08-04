@@ -129,12 +129,12 @@ Photo previously near MIN — check first.
 
 **ID:** `OM-TS-FRIDGE`
 
-1. Confirm fridge exists and switch ON.
+1. Confirm fridge switch ON (rockers on the panel beside the toilet).
 2. Check **1C1A** heavy feed / main fuse.
 3. Voltage >12 V while running.
 4. Compressor click/no-start → low V or fault.
-5. Ventilation around compressor.
-6. Identify Isotherm/other label for model-specific faults.
+5. Ventilation around compressor (cabinet left of toilet).
+6. Photograph brand plate before model-specific service (Isotherm manuals are candidates only).
 
 ---
 

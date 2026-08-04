@@ -124,7 +124,7 @@ Reply with whatever you know (photos of labels are ideal):
 4. ~~**Trim**~~ — **Zipwake confirmed**. Optional: interceptor size on transom.
 5. **Windlass** brand/model on the motor plate.
 6. ~~**Bow thruster**~~ — **Sleipner confirmed**; still need motor-plate model (SE40/SE60/etc.).
-7. **Cabin fridge** fitted? Brand/model?
+7. ~~**Cabin fridge**~~ — **confirmed** in cabin/head; brand/model plate still open.
 8. ~~**Electric toilet**~~ — **Jabsco** Quiet Flush-style panel confirmed; bowl SKU still open.
 8b. **Battery chemistry** inside ENGINE / HOUSE IMNASA boxes (AGM vs flooded) — important for CRISTEC profile.
 9. ~~**Shore power charger**~~ — **CRISTEC YPOWER YPO12-25DE** confirmed (S/N 2022061017878). Still verify battery chemistry vs “OPENED TYPE” setting.

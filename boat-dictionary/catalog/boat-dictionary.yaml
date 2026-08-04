@@ -404,12 +404,13 @@ hardware:
 
   - id: cabin-fridge
     category: comfort
-    name: Cabin fridge 42 L
-    status: likely_installed
-    evidence: "Main fuse diagram includes heavy 1C1A r 4 mm² fridge/fan-class circuit; factory option is 42 L cabin fridge"
+    name: Cabin fridge (front-loading built-in)
+    status: confirmed
+    model_status: brand_unverified
+    evidence: "Cabin photo — built-in front-load fridge left of toilet; main fuse diagram 1C1A r 4 mm² fridge/fan-class circuit"
     fuse: "Main fuse box — 1C1A r 4 mm²"
-    likely_brand: "Isotherm Cruise CR 42 / Indel Webasto class"
-    keywords: [fridge, isotherm, compressor, 12v fridge, cabin refrigerator, 1C1A]
+    likely_brand: "Isotherm Cruise CR 42 / Indel Webasto class (candidate — label not yet read)"
+    keywords: [fridge, isotherm, compressor, 12v fridge, cabin refrigerator, 1C1A, cooler]
     manuals:
       - path: manuals/peripherals/Isotherm-Cruise-42-130-Install-Operating-EN.pdf
         title: Isotherm Cruise CR 42–130 Installation & Operating Instructions
@@ -418,7 +419,8 @@ hardware:
         title: Isotherm Cruise Refrigerators Reference Manual
         language: en
     questions:
-      - "Fridge brand/model label inside cabinet or on compressor?"
+      - "Fridge brand/model label inside door, on compressor, or data plate?"
+      - "Which rocker beside the toilet powers the fridge vs cabin light?"
     symptoms: [not cold, compressor click, high current draw, frost]
 
   - id: electric-toilet

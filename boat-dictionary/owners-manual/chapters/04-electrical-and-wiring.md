@@ -88,7 +88,7 @@ Slots **I–XII** on the diagram:
 | Wire ID | Gauge | Likely load |
 |---------|-------|-------------|
 | **1L1A** | 1.0 mm² | Cabin / interior light |
-| **1C1A** | **4.0 mm²** | Fridge / high-draw cabin circuit (fan icon) — **LIKELY** 42 L cabin fridge |
+| **1C1A** | **4.0 mm²** | Fridge / high-draw cabin circuit — **CONFIRMED** built-in cabin fridge (brand TBD) |
 | **1S1A** | 1.5 mm² | Courtesy / deck lighting |
 | **1F1A** | 2.5 mm² | 12 V accessory outlet |
 

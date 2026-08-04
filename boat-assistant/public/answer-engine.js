@@ -36,10 +36,10 @@ const EXPAND = {
   pump: ["pump", "flojet", "jabsco", "washdown"],
   toilet: ["toilet", "jabsco", "flush", "holding", "macer", "macerator", "head", "quiet"],
   head: ["toilet", "jabsco", "flush", "holding", "macer", "head"],
-  flush: ["toilet", "flush", "jabsco", "holding", "macer"],
-  holding: ["holding", "toilet", "macer", "tank", "blackwater"],
-  macerator: ["macer", "macerator", "toilet", "holding"],
-  zipwake: ["zipwake", "interceptor", "trim"],
+  fridge: ["fridge", "refrigerator", "isotherm", "cooler", "1c1a"],
+  refrigerator: ["fridge", "refrigerator", "isotherm", "cooler"],
+  isotherm: ["fridge", "isotherm", "cooler"],
+
   trim: ["zipwake", "interceptor", "trim"],
   fuse: ["fuse", "blue sea", "an4", "hds"],
   battery: ["battery", "engine", "house", "locker"],
@@ -122,6 +122,7 @@ function familyOf(q, raw) {
     return "electrical";
   if (has("pump", "flojet", "jabsco", "washdown") && !has("toilet", "flush", "holding", "macer", "head")) return "pump";
   if (has("toilet", "flush", "holding", "macer", "macerator", "head") || /\bquiet.?flush\b/.test(s)) return "toilet";
+  if (has("fridge", "refrigerator", "isotherm", "cooler")) return "fridge";
   return null;
 }
 
@@ -181,6 +182,7 @@ function scoreChunk(q, raw, topicList, intent, family, c) {
   if (family === "pump" && /flojet|par-max|washdown|fresh/.test(file + title) && !/toilet|quiet.?flush|37010|37055/.test(file + title))
     s += 22;
   if (family === "toilet" && /toilet|holding|quiet.?flush|37010|37055|macer|head|waste/.test(file + title)) s += 22;
+  if (family === "fridge" && /fridge|isotherm|cooler|1c1a|cabin-fridge/.test(file + title)) s += 22;
 
   // Cross-topic blockers
   if (family === "steer" && /fuel-filter|water-separator|when to service/.test(file + title)) s -= 50;
@@ -321,6 +323,7 @@ export function matchFigures(figuresIndex, question, passages, { limit = 6 } = {
     zipwake: [/zipwake/],
     pump: [/flojet|par-max|washdown/],
     toilet: [/toilet|quiet-flush|37010|37055/],
+    fridge: [/isotherm|fridge|cruise|coolmatic|vitrifrigo/],
     start: [/verado|smartcraft|dts/],
     vesselview: [/vesselview|smartcraft/],
     electrical: [/cristec|verado|fusion|ypower/],
@@ -489,6 +492,7 @@ function relatedManuals(bundle, family, passages, q) {
     if (family === "thruster") return /side-power|sleipner/.test(n);
     if (family === "pump") return /flojet|jabsco|par-max/.test(n) && !/toilet|quiet-flush|37010|37055/.test(n);
     if (family === "toilet") return /toilet|quiet-flush|37010|37055|jabsco.*flush/.test(n) || (/jabsco/.test(n) && /toilet|quiet|37010|37055/.test(n));
+    if (family === "fridge") return /isotherm|fridge|cruise|coolmatic|vitrifrigo/.test(n);
     return false;
   };
 

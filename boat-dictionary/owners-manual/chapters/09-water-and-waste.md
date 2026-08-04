@@ -39,6 +39,8 @@ Typically raw-water washdown with strainer — keep strainer clean; winterize if
 
 ## Head & holding tank
 
+**Short answer:** Cabin head has a **Jabsco** Quiet Flush-style panel (**CONFIRMED**): top button = flush, lower left = **fill**, lower right = **empty**. Holding tank has an EMPTY↔FULL gauge at the panel (near empty in the evidence photo). Exact bowl SKU still **UNVERIFIED**; use the Quiet Flush 37055-family manual for panel operation.
+
 | Item | Detail |
 |------|--------|
 | Toilet | **Jabsco** (**CONFIRMED** control panel) — Quiet Flush-style **flush + fill/empty** pad |

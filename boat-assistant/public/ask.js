@@ -12,7 +12,8 @@ import {
   buildLlmMessages,
 } from "./answer-engine.js";
 
-const SETTINGS_KEY = "flyer8-guide-settings-v2";
+export const SETTINGS_KEY = "flyer8-guide-settings-v2";
+const LEGACY_SETTINGS_KEY = "flyer8-llm-settings";
 
 /** Durable free entrypoint — OpenRouter picks whatever :free models are live today. */
 export const FREE_ROUTER = "openrouter/free";
@@ -49,7 +50,7 @@ export function loadSettings() {
   try {
     const raw = localStorage.getItem(SETTINGS_KEY);
     if (!raw) {
-      const legacy = localStorage.getItem("flyer8-llm-settings");
+      const legacy = localStorage.getItem(LEGACY_SETTINGS_KEY);
       if (legacy) {
         const old = JSON.parse(legacy);
         const next = {
@@ -80,6 +81,16 @@ export function saveSettings(partial) {
   if (next.model) next.model = normalizeModel(next.model);
   localStorage.setItem(SETTINGS_KEY, JSON.stringify(next));
   return next;
+}
+
+/** Wipe saved Setup keys from this browser (used by Hard reset). */
+export function clearSettings() {
+  try {
+    localStorage.removeItem(SETTINGS_KEY);
+    localStorage.removeItem(LEGACY_SETTINGS_KEY);
+  } catch {
+    /* ignore quota / private-mode errors */
+  }
 }
 
 function parseJsonAnswer(text) {

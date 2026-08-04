@@ -1,4 +1,4 @@
-import { askQuestion, loadSettings, saveSettings, needsFreeKey, DEFAULT_SETTINGS } from "./ask.js";
+import { askQuestion, loadSettings, saveSettings, clearSettings, needsFreeKey, DEFAULT_SETTINGS } from "./ask.js";
 
 const statusEl = document.getElementById("status");
 const form = document.getElementById("form");
@@ -336,6 +336,45 @@ setupForm.addEventListener("submit", (e) => {
   setup.close();
 });
 
+async function hardResetApp() {
+  const ok = window.confirm(
+    "Hard reset clears cached guide files, the service worker, and saved Setup (including your API key), then reloads.\n\nContinue?"
+  );
+  if (!ok) return;
+
+  const status = document.getElementById("hardResetStatus");
+  const btn = document.getElementById("hardResetBtn");
+  btn.disabled = true;
+  status.hidden = false;
+  status.textContent = "Clearing cache…";
+
+  try {
+    clearSettings();
+
+    if ("serviceWorker" in navigator) {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map((r) => r.unregister()));
+    }
+
+    if ("caches" in window) {
+      const keys = await caches.keys();
+      await Promise.all(keys.map((k) => caches.delete(k)));
+    }
+
+    status.textContent = "Reloading…";
+    const url = new URL(location.href);
+    url.searchParams.set("_reset", String(Date.now()));
+    location.replace(url.toString());
+  } catch (err) {
+    status.textContent = `Reset failed: ${err.message || err}. Try a manual hard refresh.`;
+    btn.disabled = false;
+  }
+}
+
+document.getElementById("hardResetBtn").addEventListener("click", () => {
+  hardResetApp();
+});
+
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register(new URL("./sw.js", import.meta.url)).catch(() => {});
 }
@@ -344,7 +383,13 @@ askBtn.disabled = true;
 load()
   .then(() => {
     askBtn.disabled = false;
-    const q = new URLSearchParams(location.search).get("q");
+    const params = new URLSearchParams(location.search);
+    if (params.has("_reset")) {
+      params.delete("_reset");
+      const clean = `${location.pathname}${params.toString() ? `?${params}` : ""}${location.hash}`;
+      history.replaceState({}, "", clean);
+    }
+    const q = params.get("q");
     if (q) {
       qEl.value = q;
       ask(q);

@@ -44,11 +44,14 @@ Paths relative to `boat-dictionary/`.
 | CRISTEC YPOWER | `manuals/peripherals/CRISTEC-YPOWER-User-Manual-EN.pdf` | **Installed** |
 | CRISTEC datasheet | `manuals/peripherals/CRISTEC-YPOWER-Datasheet-EN.pdf` | **Installed** |
 | Flojet washdown | `manuals/peripherals/Flojet-Washdown-Pump-Manual-EN.pdf` | **Installed** |
+| Jabsco Quiet Flush (37055 family) | `manuals/peripherals/Jabsco-Quiet-Flush-Conversion-37055-EN.pdf` | **Panel matches** (SKU TBD) |
+| Jabsco toilet 37010 | `manuals/peripherals/Jabsco-37010-Electric-Toilet-Manual-EN.pdf` | Related family |
 | Jabsco PAR-MAX 2.9 | `manuals/peripherals/Jabsco-PAR-MAX-2.9-Manual-EN.pdf` | **Installed** |
 | Side-Power thruster | `manuals/peripherals/Side-Power-SE-SE-IP-DC-User-Manual-EN.pdf` | Brand confirmed; model open |
 | Lewmar windlass | `manuals/peripherals/Lewmar-Pro-Series-Pro-Fish-Windlass-Manual.pdf` | Candidate |
 | Isotherm fridge | `manuals/peripherals/Isotherm-Cruise-*.pdf` | Likely |
-| Jabsco toilet | `manuals/peripherals/Jabsco-37010-Electric-Toilet-Manual-EN.pdf` | Candidate |
+| Jabsco Quiet Flush (37055 family) | `manuals/peripherals/Jabsco-Quiet-Flush-Conversion-37055-EN.pdf` | **Panel matches** (SKU TBD) |
+| Jabsco toilet 37010 | `manuals/peripherals/Jabsco-37010-Electric-Toilet-Manual-EN.pdf` | Related family |
 | Mastervolt | `manuals/peripherals/Mastervolt-ChargeMaster-12-25-3-Manual-EN.pdf` | **Not installed** |
 
 ## Machine-readable

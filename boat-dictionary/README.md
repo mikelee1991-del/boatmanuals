@@ -81,7 +81,8 @@ PDF library: [`manuals/`](manuals/) (~100 MB)
 | `manuals/peripherals/Side-Power-SE-SE-IP-DC-User-Manual-EN.pdf` | Side-Power SE thruster user |
 | `manuals/peripherals/Isotherm-Cruise-42-130-Install-Operating-EN.pdf` | Isotherm Cruise 42 L fridge |
 | `manuals/peripherals/Isotherm-Cruise-Refer-Manual-EN.pdf` | Isotherm Cruise reference |
-| `manuals/peripherals/Jabsco-37010-Electric-Toilet-Manual-EN.pdf` | Jabsco electric toilet (candidate — toilet brand not yet confirmed) |
+| `manuals/peripherals/Jabsco-Quiet-Flush-Conversion-37055-EN.pdf` | **Jabsco Quiet Flush** control family (panel CONFIRMED) |
+| `manuals/peripherals/Jabsco-37010-Electric-Toilet-Manual-EN.pdf` | Related Jabsco electric toilet family |
 | `manuals/peripherals/Flojet-Washdown-Pump-Manual-EN.pdf` | **Flojet R4325** washdown pump (installed **R4325143F**) |
 | `manuals/peripherals/Jabsco-PAR-MAX-2.9-Manual-EN.pdf` | **Jabsco PAR-MAX 2.9** freshwater pump (installed **31395-7008**) |
 | `manuals/peripherals/CRISTEC-YPOWER-User-Manual-EN.pdf` | **CRISTEC YPOWER** charger manual (installed: **YPO12-25DE**) |
@@ -124,7 +125,7 @@ Reply with whatever you know (photos of labels are ideal):
 5. **Windlass** brand/model on the motor plate.
 6. ~~**Bow thruster**~~ — **Sleipner confirmed**; still need motor-plate model (SE40/SE60/etc.).
 7. **Cabin fridge** fitted? Brand/model?
-8. **Electric toilet** brand/model in the head? (Holding tank confirmed present in battery locker.)
+8. ~~**Electric toilet**~~ — **Jabsco** Quiet Flush-style panel confirmed; bowl SKU still open.
 8b. **Battery chemistry** inside ENGINE / HOUSE IMNASA boxes (AGM vs flooded) — important for CRISTEC profile.
 9. ~~**Shore power charger**~~ — **CRISTEC YPOWER YPO12-25DE** confirmed (S/N 2022061017878). Still verify battery chemistry vs “OPENED TYPE” setting.
 10. ~~**VesselView**~~ — **dedicated Mercury digital display confirmed**; close-up for exact model still useful.

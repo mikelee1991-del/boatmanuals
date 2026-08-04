@@ -421,22 +421,30 @@ hardware:
 
   - id: electric-toilet
     category: plumbing
-    name: Freshwater electric toilet + holding tank (US Trim Package)
-    status: partially_confirmed
+    name: Jabsco Quiet Flush-style electric toilet + holding tank
+    status: confirmed
+    model_status: brand_confirmed_sku_unverified
+    brand: Jabsco
+    evidence: "Head panel photo — Jabsco logo, one-touch flush + fill/empty controls, EMPTY↔FULL holding-tank gauge"
     tank_status: confirmed_present
     macerator_circuit: "Fuse diagram 3P1A — MACER"
     tank_notes: "Turquoise polyethylene tank molded HOLDING in pump/battery locker; handwritten 80 L EF (US equipment list: 88 L blackwater / 80 L fresh water — verify which and exact capacity)"
     tank_l: 88
-    likely_brand: "Jabsco / Tecma class (verify)"
-    keywords: [toilet, head, holding tank, macerator, flush, blackwater, MACER, 3P1A]
+    likely_models:
+      - "Jabsco Quiet Flush / Quiet Flush conversion (37055-series control panel family)"
+    keywords: [toilet, head, holding tank, macerator, flush, blackwater, MACER, 3P1A, jabsco, quiet flush, fill, empty]
     manuals:
+      - path: manuals/peripherals/Jabsco-Quiet-Flush-Conversion-37055-EN.pdf
+        title: Jabsco Quiet-Flush Electric Toilet Conversion (37055-Series)
+        language: en
       - path: manuals/peripherals/Jabsco-37010-Electric-Toilet-Manual-EN.pdf
-        title: Jabsco 37010-series Electric Marine Toilet Manual
+        title: Jabsco 37010-series Electric Marine Toilet Manual (related family)
         language: en
     questions:
-      - "Toilet brand/model in the cabin head (Jabsco Quiet Flush, Tecma, other)?"
+      - "Photograph bowl/base model plate for exact Jabsco SKU."
       - "Confirm holding-tank capacity label vs handwritten 80 L EF."
-    symptoms: [won't flush, weak flush, pump noise, tank full alarm, odor]
+      - "Is rinse via fresh-water solenoid or a dedicated rinse pump?"
+    symptoms: [won't flush, weak flush, no fill, won't empty, pump noise, tank full alarm, odor]
 
   - id: fuel-filter-water-separator
     category: fuel

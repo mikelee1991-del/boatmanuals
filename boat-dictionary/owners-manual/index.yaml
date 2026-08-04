@@ -146,7 +146,7 @@ sections:
   - id: OM-WATER
     path: chapters/09-water-and-waste.md
     title: Water & waste systems
-    keywords: [fresh water, washdown, toilet, holding]
+    keywords: [fresh water, washdown, toilet, holding, jabsco, quiet flush]
 
   - id: OM-WATER-FRESH
     path: chapters/09-water-and-waste.md#fresh-water-system

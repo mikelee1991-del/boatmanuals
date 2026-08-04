@@ -41,17 +41,26 @@ Typically raw-water washdown with strainer — keep strainer clean; winterize if
 
 | Item | Detail |
 |------|--------|
-| Toilet | US Trim Package electric freshwater toilet — **brand/model UNVERIFIED** (Jabsco candidate manual in library) |
-| Holding tank | **CONFIRMED** polyethylene tank molded **HOLDING** in battery locker |
+| Toilet | **Jabsco** (**CONFIRMED** control panel) — Quiet Flush-style **flush + fill/empty** pad |
+| Exact SKU | Bowl/base plate still **UNVERIFIED** (Quiet Flush / 37055-family **LIKELY**) |
+| Holding tank | **CONFIRMED** polyethylene **HOLDING** tank in battery locker |
+| Tank level gauge | **CONFIRMED** EMPTY↔FULL meter at the head panel |
 | Capacity | List **88 L** blackwater; handwritten **80 L EF** — treat capacity as **UNVERIFIED** |
 | Macerator circuit | Diagram **3P1A MACER** 2.5 mm² |
+
+### How to use (Quiet Flush-style panel)
+1. Top **toilet** button: one-touch flush (rinse + discharge together).
+2. Lower **fill**: add rinse water only.
+3. Lower **empty**: run discharge/macerator only (useful underway to leave the bowl dry).
+4. Do not flush rags, wipes, or hard objects.
 
 ### Legal / ops
 - Know Y-valve / discharge configuration before pumping overboard (**UNVERIFIED** exact plumbing — photograph valves).
 - In US waters, observe No-Discharge Zones; use pump-out.
 - Odor issues: tank vent, hose permeation, treatment products — do not dump chemicals incompatible with treatment systems.
 
-Candidate manual: `Jabsco-37010-Electric-Toilet-Manual-EN.pdf` until brand confirmed.
+**Primary manual:** `Jabsco-Quiet-Flush-Conversion-37055-EN.pdf`  
+**Related:** `Jabsco-37010-Electric-Toilet-Manual-EN.pdf` (simpler push-button family — panel on this boat is Quiet Flush-style).
 
 Faults → toilet section in `OM-TS` / `toilet_fail`.
 

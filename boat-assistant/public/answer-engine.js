@@ -34,6 +34,11 @@ const EXPAND = {
   separator: ["separator", "fuel", "filter"],
   start: ["start", "crank", "lanyard", "dts"],
   pump: ["pump", "flojet", "jabsco", "washdown"],
+  toilet: ["toilet", "jabsco", "flush", "holding", "macer", "macerator", "head", "quiet"],
+  head: ["toilet", "jabsco", "flush", "holding", "macer", "head"],
+  flush: ["toilet", "flush", "jabsco", "holding", "macer"],
+  holding: ["holding", "toilet", "macer", "tank", "blackwater"],
+  macerator: ["macer", "macerator", "toilet", "holding"],
   zipwake: ["zipwake", "interceptor", "trim"],
   trim: ["zipwake", "interceptor", "trim"],
   fuse: ["fuse", "blue sea", "an4", "hds"],
@@ -115,7 +120,8 @@ function familyOf(q, raw) {
   if (has("zipwake", "interceptor", "trim")) return "zipwake";
   if (has("battery", "batteries", "locker", "electrical", "house") && !has("shore", "charger", "cristec"))
     return "electrical";
-  if (has("pump", "flojet", "jabsco", "washdown")) return "pump";
+  if (has("pump", "flojet", "jabsco", "washdown") && !has("toilet", "flush", "holding", "macer", "head")) return "pump";
+  if (has("toilet", "flush", "holding", "macer", "macerator", "head") || /\bquiet.?flush\b/.test(s)) return "toilet";
   return null;
 }
 
@@ -165,11 +171,16 @@ function scoreChunk(q, raw, topicList, intent, family, c) {
   if (family === "shore" && /cristec|shore|ypower|charg/.test(file + title)) s += 20;
   if (family === "electrical" && /electrical|battery|wiring|blue.?sea|charg/.test(file + title)) s += 20;
   if (family === "zipwake" && /zipwake|trim/.test(file + title)) s += 20;
+  if (family === "pump" && /flojet|par-max|washdown|fresh/.test(file + title) && !/toilet|quiet.?flush|37010|37055/.test(file + title))
+    s += 22;
+  if (family === "toilet" && /toilet|holding|quiet.?flush|37010|37055|macer|head|waste/.test(file + title)) s += 22;
 
   // Cross-topic blockers
   if (family === "steer" && /fuel-filter|water-separator|when to service/.test(file + title)) s -= 50;
   if (family === "anchor" && !failSignal(q) && /pb-windlass|om-ts-windlass/.test(file + title)) s -= 30;
   if (family === "audio" && /fuel-filter/.test(file)) s -= 40;
+  if (family === "toilet" && /par-max|flojet|washdown/.test(file + title)) s -= 30;
+  if (family === "pump" && /toilet|quiet.?flush|37010|37055/.test(file + title)) s -= 30;
 
   return s;
 }
@@ -302,6 +313,7 @@ export function matchFigures(figuresIndex, question, passages, { limit = 6 } = {
     thruster: [/side-power|sleipner/],
     zipwake: [/zipwake/],
     pump: [/flojet|jabsco|par-max/],
+    toilet: [/toilet|quiet-flush|37010|37055|jabsco/],
     start: [/verado|smartcraft|dts/],
     vesselview: [/vesselview|smartcraft/],
     electrical: [/cristec|verado|fusion|ypower/],
@@ -460,7 +472,8 @@ function relatedManuals(bundle, family, passages, q) {
     if (family === "anchor") return /lewmar|windlass/.test(n);
     if (family === "zipwake") return /zipwake/.test(n);
     if (family === "thruster") return /side-power|sleipner/.test(n);
-    if (family === "pump") return /flojet|jabsco|par-max/.test(n);
+    if (family === "pump") return /flojet|jabsco|par-max/.test(n) && !/toilet|quiet-flush|37010|37055/.test(n);
+    if (family === "toilet") return /toilet|quiet-flush|37010|37055|jabsco.*flush/.test(n) || (/jabsco/.test(n) && /toilet|quiet|37010|37055/.test(n));
     return false;
   };
 

@@ -145,6 +145,10 @@ function scoreChunk(q, raw, topicList, intent, family, c) {
   if (c.kind === "note") s += info ? 10 : 6;
   if (/symptom-playbooks|retrieval-index|boat-dictionary\.yaml/.test(file)) s -= 20;
   if (/^keywords$/i.test(c.title || "")) s -= 40;
+  // Informational asks: prefer vessel chapters/evidence over raw OEM page dumps
+  if (info && /extracts\//.test(file)) s -= 18;
+  if (info && /chapters\//.test(file)) s += 14;
+  if (info && /evidence\//.test(file) && family) s += 8;
 
   if (intent === "troubleshoot" || failSignal(q)) {
     if (/troubleshoot|if it won't|no sound|warning|alarm|fault|replace|check this/.test(title + h.slice(0, 200)))

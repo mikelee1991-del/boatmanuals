@@ -132,6 +132,8 @@ Treat engine-cranking issues as **ENGINE bank / connections / Mercury security l
 
 ## High-current accessories (dedicated feeds)
 
+**Short answer:** Windlass protection is a dedicated **Blue Sea Systems 187-Series · 80 A** breaker with an anchor/windlass label (**CONFIRMED**). It is **not** on the Blue Sea aux strip. Thruster has a label on the same panel area; its breaker ampacity is still **UNVERIFIED**. Dual red **T-handle** battery masters are in the recessed panel behind.
+
 | Load | Protection | Status |
 |------|------------|--------|
 | **Windlass** | **Blue Sea 187-Series · 80 A** (yellow reset lever; windlass/anchor label under breaker) | **CONFIRMED** — see [`../../notes/evidence/windlass-breaker-panel.md`](../../notes/evidence/windlass-breaker-panel.md) |

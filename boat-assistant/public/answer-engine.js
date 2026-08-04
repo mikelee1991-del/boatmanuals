@@ -425,7 +425,9 @@ function firstUsefulParagraph(text) {
   return isJunkSummaryText(fallback) ? "" : fallback;
 }
 
-function pickPrimaryPassage(passages, intent, family) {
+function pickPrimaryPassage(passages, intent, family, q = "") {
+  const ql = (q || "").toLowerCase();
+  const breakerAsk = /breaker|80\s*a|187|fuse for windlass|windlass fuse/.test(ql);
   const ranked = [...passages].sort((a, b) => {
     const score = (p) => {
       let s = p.score || 0;
@@ -446,6 +448,9 @@ function pickPrimaryPassage(passages, intent, family) {
         s += 30;
       if (family === "zipwake" && /trim|zipwake/.test(file + title)) s += 25;
       if (family === "anchor" && /ground-tackle|anchor|rode/.test(file + title)) s += 25;
+      if (breakerAsk && /high-current|187|80\s*a|windlass-breaker|04-electrical/.test(file + title + body.slice(0, 240)))
+        s += 70;
+      if (breakerAsk && /how deep|scope vs rode/.test(title + body.slice(0, 120))) s -= 80;
       if (isJunkSummaryText(firstUsefulParagraph(body) || body.slice(0, 80))) s -= 30;
       return s;
     };
@@ -667,7 +672,7 @@ export function answerStructured(bundle, question, mediaIndex = null, figuresInd
 
   let details = composeDetails(passages, intent, info);
 
-  const primary = pickPrimaryPassage(passages, intent, family);
+  const primary = pickPrimaryPassage(passages, intent, family, q);
 
   let summary = "";
   if (isFault && pb?.steps?.length) {

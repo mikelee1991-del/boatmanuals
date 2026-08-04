@@ -7,7 +7,7 @@
 
 ## Unverified
 - Exact motor model (SE40 / SE60 / etc.) — need tunnel/motor plate photo
-- Main fuse/breaker rating and location
+- Main fuse/breaker **ampacity** (thruster label present near windlass **80 A** panel — clear breaker face still needed)
 - Joystick vs panel software version
 
 ## Manual
@@ -21,6 +21,6 @@
 5. Disarm when underway at speed.
 
 ## Electrical reality
-Thruster current is far above Blue Sea aux fuses. Troubleshooting “dead thruster” starts at **dedicated breaker**, main battery connections, and voltage under load — not the 3 A JF fuse.
+Thruster current is far above Blue Sea aux fuses. Troubleshooting “dead thruster” starts at the **dedicated thruster breaker** (label is on the same high-current panel as the windlass **80 A** Blue Sea 187-Series), main battery connections, and voltage under load — not the 3 A JF fuse.
 
 Faults → `OM-TS-THRUSTER`.

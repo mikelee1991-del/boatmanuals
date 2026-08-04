@@ -97,10 +97,10 @@ playbooks:
     steps:
       - "Arm Sleipner panel; test joystick short burst"
       - "Measure battery voltage at rest and during command"
-      - "Find and check dedicated thruster breaker (not Blue Sea aux 3-10A)"
+      - "Find and check dedicated thruster breaker near the windlass Blue Sea 187-Series 80 A panel (not Blue Sea aux 3-10A)"
       - "If thermal cutout: wait and retry with shorter bursts"
       - "Haul inspection if mechanical noise or no rotation with voltage OK"
-    next_photos: ["thruster main breaker", "motor plate SE model"]
+    next_photos: ["thruster breaker face/rating", "motor plate SE model"]
     manuals:
       - manuals/peripherals/Side-Power-SE-SE-IP-DC-User-Manual-EN.pdf
 
@@ -109,12 +109,12 @@ playbooks:
     aliases: [windlass dead, won't haul, anchor winch, breaker trips windlass]
     hardware_ids: [windlass, electrical_baseline]
     steps:
-      - "Confirm HOUSE/ENGINE power and windlass breaker ON"
+      - "Confirm HOUSE/ENGINE T-handles ON and Blue Sea 187-Series 80 A windlass breaker ON (anchor label)"
       - "Test helm and bow controls if both exist"
-      - "Voltage under load; listen for contactor click"
+      - "Voltage under load; listen for contactor click near the high-current panel / windlass"
       - "If motor runs but no haul: clutch/gypsy/chain match"
       - "Free stuck anchor by motoring up — do not stall windlass"
-    next_photos: ["windlass motor plate", "chain size", "breaker location"]
+    next_photos: ["windlass motor plate", "chain size", "thruster breaker face if separate"]
     manuals:
       - manuals/peripherals/Lewmar-Pro-Series-Pro-Fish-Windlass-Manual.pdf
 

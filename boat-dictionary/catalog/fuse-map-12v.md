@@ -63,3 +63,14 @@ Wire codes appear as `ID r <mm²>` where `r` ≈ red (positive) and the number i
 - Diagram includes **stereo**, **macerator**, **fresh water**, **shower**, **bilge**, and a **fridge-class** heavy feed — treat those as expected/present unless proven absent.
 - **VHF 10 A** fuse/wire is on the Blue Sea box, but owner confirms **no fixed VHF** — **handheld only** (treat as spare/pre-wire).
 - Code **HDS** on the Blue Sea box is the factory wire ID for the display circuit; do **not** assume a Lowrance HDS unit is installed (helm photos show **Garmin**).
+
+---
+
+## High-current (not on aux strip) — photo-confirmed
+
+| Load | Device | Notes |
+|------|--------|-------|
+| **Windlass** | **Blue Sea 187-Series · 80 A** | Yellow reset lever; anchor/windlass label under breaker (**CONFIRMED**) |
+| **Bow thruster** | Dedicated breaker (label on same panel) | Ampacity still **UNVERIFIED** |
+| Battery masters | Dual red **T-handle** switches | Recessed panel behind breakers |
+| Battery coupling | Labeled (parallel/two-battery icon) | Switch detail **UNVERIFIED** |

@@ -528,6 +528,8 @@ function relatedManuals(bundle, family, passages, q) {
       if (/mastervolt|lenco/.test(n) && !/mastervolt|lenco/.test(ql + passageBlob)) s -= 50;
       if (family === "toilet" && /37010/.test(n) && !/quiet-flush|37055/.test(n)) s -= 15;
       if (family === "toilet" && /quiet-flush|37055/.test(n)) s += 20;
+      if (family === "vesselview" && /403/.test(n)) s += 25;
+      if (family === "vesselview" && /502|702|704/.test(n) && !/403/.test(n)) s -= 40;
       // When we know the equipment family, stay on that OEM set
       if (family && !famHit) s = 0;
       return { ...m, score: s };

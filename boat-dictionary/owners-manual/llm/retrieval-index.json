@@ -3,7 +3,7 @@
   "vessel_hin": "BEYFT208F223",
   "engine_esn": "3B371488",
   "description": "Chunked retrieval index for LLM RAG over the consolidated owner's manual",
-  "chunk_count": 32,
+  "chunk_count": 33,
   "chunks": [
     {
       "id": "RI-ID-001",
@@ -177,10 +177,30 @@
         "Sleipner",
         "QRG",
         "ACTIVE TRIM",
-        "Quick Steer"
+        "Quick Steer",
+        "403",
+        "VesselView 403"
       ],
       "confidence": "confirmed",
-      "text": "Helm confirmed: Garmin MFD (model TBD), Mercury VesselView-class display (model TBD), Fusion MS-RA70N (N2K),\nMercury DTS single lever (TRANSFER / THROTTLE ONLY; DOCK vs ACTIVE TRIM / QUICK STEER TBD) + red lanyard,\nSmartCraft DTS Quick Reference Guide cover onboard (Single Handle ERC 90-8M0208789),\nZipwake AUTO PITCH/AUTO ROLL + rotary, Sleipner thruster panel+joystick,\noffshore compass. No fixed VHF. LENCO not installed. MS-RA210 not installed.",
+      "text": "Helm confirmed: Garmin MFD (model TBD), Mercury VesselView 403 (install sheet CONFIRMED), Fusion MS-RA70N (N2K),\nMercury DTS single lever (TRANSFER / THROTTLE ONLY; DOCK vs ACTIVE TRIM / QUICK STEER TBD) + red lanyard,\nSmartCraft DTS Quick Reference Guide cover onboard (Single Handle ERC 90-8M0208789),\nZipwake AUTO PITCH/AUTO ROLL + rotary, Sleipner thruster panel+joystick,\noffshore compass. No fixed VHF. LENCO not installed. MS-RA210 not installed.",
+      "related": []
+    },
+    {
+      "id": "RI-VV403",
+      "title": "VesselView 403",
+      "section": "OM-HELM-VV",
+      "keywords": [
+        "VesselView",
+        "403",
+        "VV403",
+        "SmartCraft",
+        "RPM",
+        "fault",
+        "Active Trim",
+        "USB"
+      ],
+      "confidence": "confirmed",
+      "text": "Mercury VesselView 403 CONFIRMED via onboard installation sheet (AUGUST 2017 / 90-8M0124488 family). Non-touch 5-button SmartCraft engine display \u2014 not a chartplotter. Prefer VV403 Operation Manual 90-8M0124182 and Quick Guide for screens, setup wizard, alarms, and USB software update. 502/704 manuals are reference-only for this HIN.",
       "related": []
     },
     {

@@ -25,7 +25,7 @@ Approximate layout from owner helm photos (looking forward).
 
 ## Confirmed devices
 - Garmin MFD (**exact model UNVERIFIED**)
-- Mercury VesselView-class display (**exact model UNVERIFIED**)
+- Mercury VesselView **403** (**CONFIRMED** — install sheet)
 - Fusion stereo (**MS-RA70N** CONFIRMED · N2K)
 - Zipwake Series S (left of Garmin; AUTO modes visible)
 - Sleipner thruster controls (below Zipwake)

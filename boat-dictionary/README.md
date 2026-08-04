@@ -31,7 +31,7 @@ PDF library: [`manuals/`](manuals/) (~100 MB)
 - **Engine model `13000069A`** / designation **300XXL** = Mercury **Verado 300 HP** (221 kW), plate weight 620 lb / 281 kg, **30" XXL**.
 - **ESN `3B371488`** confirmed from the transom data plate photo — use this on the [Mercury Owners Manual portal](https://www.mercurymarine.com/us/en/service-and-support/owners-resources/owners-manual) and for parts.
 - Prefer the **US equipment list** (`Flyer-8-SPACEdeck-Equipment-List-US.pdf`) and ask the dealer for the CE Owner’s Handbook against **HIN BEYFT208F223**.
-- From helm photos: **Zipwake** Series S, **Sleipner** thruster + joystick, **Garmin** MFD (exact model TBD), **Mercury VesselView-class** engine display, **Fusion** stereo, **Mercury DTS** (DOCK/TRANSFER/THROTTLE ONLY), **electric windlass**, **black T-Top**, black pulpits. **LENCO not installed**.
+- From helm photos: **Zipwake** Series S, **Sleipner** thruster + joystick, **Garmin** MFD (exact model TBD), **Mercury VesselView 403**, **Fusion** stereo, **Mercury DTS** (DOCK/TRANSFER/THROTTLE ONLY), **electric windlass**, **black T-Top**, black pulpits. **LENCO not installed**.
 - Windlass control docs onboard: **Quick HRC** Multipurpose Control Panel manual **CE REV 005c** (exact HRC SKU + winch motor plate still open).
 - **SmartCraft DTS Quick Reference Guide** cover onboard (Single Handle ERC card **90-8M0208789** in binder).
 
@@ -67,8 +67,11 @@ PDF library: [`manuals/`](manuals/) (~100 MB)
 | `manuals/electronics/Garmin-Transom-Mount-Transducer-Install-EN.pdf` | Transom transducer install (GT23 class) |
 | `manuals/electronics/Fusion-MS-RA70-RA70N-Owners-Manual-EN.pdf` | **Installed** stereo (MS-RA70N) |
 | `manuals/electronics/Fusion-MS-RA210-Owners-Manual-EN.pdf` | Discarded Sound Pack candidate (not this HIN) |
-| `manuals/electronics/Mercury-VesselView-704-8m0220645.pdf` | VesselView 704 (if fitted) |
-| `manuals/electronics/Mercury-VesselView-502-702-8m0109374r.pdf` | VesselView 502/702 (if fitted) |
+| `manuals/electronics/Mercury-VesselView-403-Operation-8m0124182.pdf` | **Installed** VesselView **403** ops |
+| `manuals/electronics/Mercury-VesselView-403-Quick-Guide.pdf` | VesselView 403 quick guide |
+| `manuals/electronics/Mercury-VesselView-403-Installation-8m0124488.pdf` | VesselView 403 install (**sheet onboard**) |
+| `manuals/electronics/Mercury-VesselView-704-8m0220645.pdf` | VesselView 704 (not this HIN) |
+| `manuals/electronics/Mercury-VesselView-502-702-8m0109374r.pdf` | VesselView 502/702 (not this HIN) |
 
 ### Trim systems (mutually exclusive options)
 | File | What it is |
@@ -132,7 +135,7 @@ Reply with whatever you know (photos of labels are ideal):
 8. ~~**Electric toilet**~~ — **Jabsco** Quiet Flush-style panel confirmed; bowl SKU still open.
 8b. **Battery chemistry** inside ENGINE / HOUSE IMNASA boxes (AGM vs flooded) — important for CRISTEC profile.
 9. ~~**Shore power charger**~~ — **CRISTEC YPOWER YPO12-25DE** confirmed (S/N 2022061017878). Still verify battery chemistry vs “OPENED TYPE” setting.
-10. ~~**VesselView**~~ — **dedicated Mercury digital display confirmed**; close-up for exact model still useful.
+10. ~~**VesselView**~~ — **VesselView 403** confirmed (install sheet onboard).
 11. ~~**Fusion stereo**~~ — **MS-RA70N** confirmed (faceplate).
 12. ~~**T-Top / ski pylon / teak**~~ — **confirmed** (T-Top + 4 rod holders + ski/tow arch + **real teak deck**). Still open: underwater lights / fishing station?
 13. **Seanapps** unit present and activated?

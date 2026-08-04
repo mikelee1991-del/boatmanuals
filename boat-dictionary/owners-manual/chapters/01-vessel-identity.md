@@ -61,13 +61,13 @@ US-market Flyer 8 SPACEdeck with **US Trim Package** cues + electronics/sound + 
 Provenance detail: [`../../catalog/equipment-provenance.md`](../../catalog/equipment-provenance.md)
 
 ### Confirmed present
-Zipwake Series S · Sleipner thruster · Garmin MFD · Mercury VesselView-class display · Fusion stereo · Mercury DTS · EPHS · electric windlass · plow/Delta-style anchor · CRISTEC YPO12-25DE · Flojet R4325143F · Jabsco PAR-MAX 2.9 · ENGINE + HOUSE batteries · holding tank · Blue Sea fuse box · black T-Top (4 rod holders) · black pulpits · elegance upholstery · cockpit table · ski/tow pylon · real teak · offshore compass · handheld VHF only
+Zipwake Series S · Sleipner thruster · Garmin MFD · Mercury **VesselView 403** · Fusion stereo · Mercury DTS · EPHS · electric windlass · plow/Delta-style anchor · CRISTEC YPO12-25DE · Flojet R4325143F · Jabsco PAR-MAX 2.9 · ENGINE + HOUSE batteries · holding tank · Blue Sea fuse box · black T-Top (4 rod holders) · black pulpits · elegance upholstery · cockpit table · ski/tow pylon · real teak · offshore compass · handheld VHF only
 
 ### Confirmed absent / ruled out
 LENCO tabs · Mastervolt charger · fixed VHF
 
 ### Still need labels
-Garmin exact model · VesselView exact model · Fusion faceplate · windlass brand/model · Sleipner motor plate · battery chemistry · toilet brand · fridge brand · prop pitch/diameter · dealer build sheet
+Garmin exact model · Fusion faceplate · windlass brand/model · Sleipner motor plate · battery chemistry · toilet brand · fridge brand · prop pitch/diameter · dealer build sheet
 
 ## Official portals
 

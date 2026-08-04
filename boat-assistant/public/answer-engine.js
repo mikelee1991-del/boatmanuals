@@ -145,6 +145,10 @@ function scoreChunk(q, raw, topicList, intent, family, c) {
   if (c.kind === "note") s += info ? 10 : 6;
   if (/symptom-playbooks|retrieval-index|boat-dictionary\.yaml/.test(file)) s -= 20;
   if (/^keywords$/i.test(c.title || "")) s -= 40;
+  // Informational asks: prefer vessel chapters/evidence over raw OEM page dumps
+  if (info && /extracts\//.test(file)) s -= 18;
+  if (info && /chapters\//.test(file)) s += 14;
+  if (info && /evidence\//.test(file) && family) s += 8;
 
   if (intent === "troubleshoot" || failSignal(q)) {
     if (/troubleshoot|if it won't|no sound|warning|alarm|fault|replace|check this/.test(title + h.slice(0, 200)))
@@ -312,8 +316,8 @@ export function matchFigures(figuresIndex, question, passages, { limit = 6 } = {
     anchor: [/lewmar|windlass/],
     thruster: [/side-power|sleipner/],
     zipwake: [/zipwake/],
-    pump: [/flojet|jabsco|par-max/],
-    toilet: [/toilet|quiet-flush|37010|37055|jabsco/],
+    pump: [/flojet|par-max|washdown/],
+    toilet: [/toilet|quiet-flush|37010|37055/],
     start: [/verado|smartcraft|dts/],
     vesselview: [/vesselview|smartcraft/],
     electrical: [/cristec|verado|fusion|ypower/],
@@ -433,7 +437,10 @@ function pickPrimaryPassage(passages, intent, family) {
       if (/diagrams\//.test(file)) s -= 40;
       if (/evidence\//.test(file) && intent !== "visual") s -= 20;
       if (/retrieval-index|symptom-playbooks|keywords/.test(file + title)) s -= 40;
+      if (/^PDF page\b/i.test(title) || /extracts\//.test(file)) s -= 25;
       if (/^banks\b|^chemistry\b|^charger\b|^shore ac\b|^usage tips\b/i.test(title)) s -= 10;
+      if (family === "toilet" && /09-water|toilet|holding|quiet.?flush/.test(file + title)) s += 40;
+      if (family === "toilet" && /37010/.test(file + title) && !/quiet/.test(file + title)) s -= 20;
       if (family === "shore" && /13-charging|charg|battery|cristec|electrical|shore/.test(file + title)) s += 30;
       if (family === "electrical" && /04-electrical|13-charging|battery|electrical|charg|wiring/.test(file + title))
         s += 30;
@@ -490,8 +497,8 @@ function relatedManuals(bundle, family, passages, q) {
         if (n.includes(tok)) s += 6;
       }
       if (/mastervolt|lenco/.test(n) && !/mastervolt|lenco/.test(ql + passageBlob)) s -= 50;
-      // Prefer the confirmed Fusion model over the discarded RA210 candidate
-      if (family === "audio" && /ra210/.test(n) && !/ra70/.test(n)) s = 0;
+      if (family === "toilet" && /37010/.test(n) && !/quiet-flush|37055/.test(n)) s -= 15;
+      if (family === "toilet" && /quiet-flush|37055/.test(n)) s += 20;
       // When we know the equipment family, stay on that OEM set
       if (family && !famHit) s = 0;
       return { ...m, score: s };

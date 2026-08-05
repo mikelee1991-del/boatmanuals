@@ -110,7 +110,8 @@ Useful when debugging “is this even installed?”
 **Upgraded Electronic Pack (list):** Garmin ECHOMAP Ultra 2 **122sv** — **not** confirmed on this HIN.  
 **Sound Pack:** Fusion stereo + speakers — **this HIN has MS-RA70N** (faceplate), not the MS-RA210 often listed on Flyer 8 equipment sheets.
 
-**Other options:** 42 L cabin fridge, bow thruster, **Zipwake** *or* **LENCO** tabs, deck-wash pump, T-Top / Pilot Edition, ski mast, fishing station, Seanapps unit.
+**Other options:** 42 L cabin fridge, bow thruster, **Zipwake** *or* **LENCO** tabs, deck-wash pump, T-Top / Pilot Edition, ski mast, fishing station, Seanapps unit.  
+**This HIN:** underwater lights and fishing station are **NOT INSTALLED** (owner).
 
 ---
 
@@ -139,7 +140,7 @@ Reply with whatever you know (photos of labels are ideal):
 9. ~~**Shore power charger**~~ — **CRISTEC YPOWER YPO12-25DE** confirmed (S/N 2022061017878). Still verify battery chemistry vs “OPENED TYPE” setting.
 10. ~~**VesselView**~~ — **VesselView 403** confirmed (install sheet onboard).
 11. ~~**Fusion stereo**~~ — **MS-RA70N** confirmed (faceplate).
-12. ~~**T-Top / ski pylon / teak**~~ — **confirmed** (T-Top + 4 rod holders + ski/tow arch + **real teak deck**). Still open: underwater lights / fishing station?
+12. ~~**T-Top / ski pylon / teak**~~ — **confirmed** (T-Top + 4 rod holders + ski/tow arch + **real teak deck**). ~~Underwater lights / fishing station~~ — **NOT INSTALLED** (owner).
 13. **Seanapps** unit present and activated?
 14. Propeller brand/pitch/diameter if known?
 15. ~~**VHF**~~ — **no fixed set**; handheld only (Blue Sea VHF fuse is spare/pre-wire).

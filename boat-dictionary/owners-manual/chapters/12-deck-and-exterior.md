@@ -32,7 +32,9 @@ Evidence: [`../../notes/evidence/deck-and-canvas-photo-evidence.md`](../../notes
 - See ground-tackle chapter
 
 ## Still open
-- Underwater lights?
-- Fishing station?
 - Seanapps unit?
 - Exact Pilot Edition graphics — currently **not indicated** (white hull)
+
+## Not installed (owner confirmed)
+- **Blue underwater lights** — **NOT INSTALLED**
+- **Fishing station** (aft-bench replacement option) — **NOT INSTALLED**; aft bench remains

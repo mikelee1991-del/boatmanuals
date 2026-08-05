@@ -594,13 +594,17 @@ hardware:
       - "Cockpit table"
       - "Elegance-style grey/cognac upholstery"
       - "Stainless ski / wakeboard tow pylon (U-arch over engine)"
+    not_installed:
+      - "Blue underwater lights (owner confirmed)"
+      - "Fishing station / aft-bench replacement (owner confirmed — aft bench remains)"
     keywords: [t-top, pilot edition, underwater lights, cockpit led, ski mast, fishing station, black pulpits, bimini, rod holders, teak, solid wood, elegance, ski pylon, tow point]
     manuals:
       - path: manuals/boat/Flyer-8-SPACEdeck-Equipment-List-US.pdf
         title: Equipment list (Pilot Edition / options)
         language: en
     questions:
-      - "Underwater lights / fishing station also fitted?"
+      - "Seanapps unit present and activated?"
+      - "Cockpit LED courtesy lights still fitted (expected with US Trim)?"
 
 # ---------------------------------------------------------------------------
 # SYMPTOM → HARDWARE INDEX (for debugging search)

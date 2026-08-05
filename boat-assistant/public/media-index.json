@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-08-04T06:34:06.673Z",
+  "builtAt": "2026-08-05T06:36:50.986Z",
   "items": [
     {
       "id": "battery-locker",
@@ -104,9 +104,10 @@
         "teak",
         "cockpit",
         "engine",
-        "hin"
+        "hin",
+        "hull"
       ],
-      "summary": "- Underwater lights / Pilot Edition graphics / fishing station - Windlass brand plate under bow hatch",
+      "summary": "- Pilot Edition graphics (currently **not indicated** — white hull) - Windlass brand plate under bow hatch",
       "image": null,
       "photoStatus": "transcript-only",
       "hint": "Photo transcribed in binder; add the original under boat-dictionary/photos/ to display it here."

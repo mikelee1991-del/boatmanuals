@@ -59,6 +59,8 @@ These are **not** bare-boat stock, but they **are** on Beneteau’s official lis
 | **T-Top** (black frame) | Option / Pilot Edition | Confirmed |
 | **Rod holders on T-Top** | Option (list says x5) | **4** visible aft — factory option class |
 | **Stainless ski mast** | Option | Confirmed tow pylon |
+| Blue underwater lights | Option / Pilot Edition | **NOT INSTALLED** (owner) |
+| Fishing station (replaces aft bench) | Option | **NOT INSTALLED** (owner — aft bench remains) |
 | Cabin fridge 42 L | Option | **CONFIRMED** built-in front-load in cabin/head; brand/model TBD |
 | **Solid wood / teak cockpit** (cockpit + platforms) | Factory option on Flyer 8 family lists (“Solid wood cockpit” / “Teck”) | **Owner confirmed real teak** (not foam carpet / not synthetic) |
 | Mercury Verado DTS pre-rig 250–350 | Option | Confirmed Verado 300 + DTS + **VesselView 403** |

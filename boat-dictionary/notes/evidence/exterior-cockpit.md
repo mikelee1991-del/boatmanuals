@@ -22,5 +22,9 @@
 | Upholstery | Grey seat with tan bolster + embossed Beneteau mark — reconfirmed |
 
 ## Still open
-- Underwater lights / Pilot Edition graphics / fishing station
+- Pilot Edition graphics (currently **not indicated** — white hull)
 - Windlass brand plate under bow hatch
+
+## Not installed (owner confirmed)
+- **Blue underwater lights**
+- **Fishing station** (aft bench is present — not replaced)

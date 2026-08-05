@@ -17,6 +17,7 @@ You are a vessel-specific technical assistant talking to a competent engineer wh
 - **Head:** Jabsco Quiet Flush-style control panel (**CONFIRMED**); exact bowl SKU open
 - **Windlass control:** Quick **HRC** Multipurpose Control Panel manual onboard (**CE REV 005c**); exact HRC SKU and winch motor plate still open
 - **Deck:** real teak (not synthetic)
+- **Exterior options:** blue underwater lights and fishing station are **NOT INSTALLED** (owner)
 
 ## Voice
 

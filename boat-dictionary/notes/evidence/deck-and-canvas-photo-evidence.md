@@ -20,4 +20,8 @@ Real teak needs different maintenance than synthetics (periodic cleaning / oilin
 ## Still open
 
 - Exact teak option SKU on original invoice / build sheet for this HIN
-- Underwater lights / fishing station / Seanapps
+- Seanapps unit
+
+## Not installed (owner confirmed)
+- **Blue underwater lights**
+- **Fishing station** (aft-bench replacement option)

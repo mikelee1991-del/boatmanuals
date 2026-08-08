@@ -16,9 +16,13 @@ const EXPAND = {
   fusion: ["fusion", "stereo", "ra70n", "ra70", "ra210", "bluetooth", "an4"],
   bluetooth: ["bluetooth", "fusion", "pairing"],
   sound: ["stereo", "fusion", "audio", "sound"],
-  garmin: ["garmin", "gpsmap", "echomap", "mfd", "hds", "chartplotter", "sonar", "923", "723", "1223"],
-  gpsmap: ["garmin", "gpsmap", "chartplotter", "sonar", "9x3", "7x3", "12x3"],
+  garmin: ["garmin", "gpsmap", "echomap", "mfd", "hds", "chartplotter", "sonar", "fishfinder", "923", "723", "1223"],
+  gpsmap: ["garmin", "gpsmap", "chartplotter", "sonar", "fishfinder", "9x3", "7x3", "12x3"],
   echomap: ["garmin", "echomap", "gpsmap"],
+  sonar: ["sonar", "fishfinder", "fish", "finder", "clearvu", "clearvü", "chirp", "transducer", "garmin", "gpsmap", "arches", "bottom"],
+  fishfinder: ["fishfinder", "fish", "finder", "sonar", "clearvu", "chirp", "garmin", "gpsmap", "arches", "bottom", "palette"],
+  fish: ["fish", "fishfinder", "sonar", "arches", "bait", "clearvu"],
+  clearvu: ["clearvu", "clearvü", "sonar", "garmin", "sidevu"],
   thruster: ["thruster", "sleipner", "side-power"],
   windlass: ["windlass", "anchor", "rode", "quick", "hrc"],
   anchor: ["anchor", "rode", "scope", "windlass", "delta", "quick", "hrc"],
@@ -125,7 +129,8 @@ function familyOf(q, raw) {
   if (has("dts", "erc") || /\bthrottle only\b/.test(s) || (has("smartcraft") && has("qrg", "dts", "transfer")))
     return "start";
   if (has("vesselview", "vv403") || /\bvessel\s*view\b/.test(s)) return "vesselview";
-  if (has("garmin", "gpsmap", "mfd", "chartplotter", "sonar", "echomap")) return "garmin";
+  if (has("garmin", "gpsmap", "mfd", "chartplotter", "sonar", "echomap", "fishfinder", "clearvu", "clearvü"))
+    return "garmin";
   if (has("shore", "charger", "cristec", "charging", "ypower")) return "shore";
   if (has("thruster", "sleipner")) return "thruster";
   if (has("windlass") || (has("anchor", "rode", "scope") && !has("garmin"))) return "anchor";

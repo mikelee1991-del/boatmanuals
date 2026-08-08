@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#10243a" />
+    <meta
+      name="description"
+      content="How to read the Garmin fish finder on the Flyer 8 — color bands, bottom type, and fishing marks."
+    />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Flyer 8 — How to read the fish finder</title>
+  </head>
+  <body>
+    <div class="shell guide">
+      <header class="top">
+        <div>
+          <p class="kicker">2023 Flyer 8 SPACEdeck · Garmin GPSMAP sonar</p>
+          <h1>How to read the fish finder</h1>
+          <p class="lede">
+            Color bands, bottom type, and what the marks mean when you are fishing — written for the helm Garmin on this boat.
+          </p>
+        </div>
+        <a class="btn ghost" href="./index.html">Ask the boat</a>
+      </header>
+
+      <nav class="guide-toc" aria-label="On this page">
+        <a href="#screen">Screen layout</a>
+        <a href="#spectrum">Blue &amp; black bands</a>
+        <a href="#bottom">Bottom type</a>
+        <a href="#fish">Fish &amp; bait</a>
+        <a href="#views">Traditional vs ClearVü</a>
+        <a href="#tips">On-the-water tips</a>
+      </nav>
+
+      <article class="guide-article">
+        <section class="guide-section" id="screen">
+          <h2>What you are looking at</h2>
+          <p>
+            Traditional / CHIRP sonar scrolls <strong>newest data on the right</strong>, history to the left. Depth is usually a large
+            number at the top. Between the surface and the bottom you see the water column — clutter, bait, game fish, and structure.
+          </p>
+          <ul>
+            <li><strong>Top band</strong> — surface clutter from waves, bubbles, and prop wash. Ignore most of it; turn gain down if it eats the screen.</li>
+            <li><strong>Middle</strong> — suspended targets (fish, bait) and thermoclines (often a faint horizontal band).</li>
+            <li><strong>Bottom line</strong> — the strongest continuous return. Thickness and color tell you hardness and cover.</li>
+          </ul>
+          <figure class="sonar-demo" aria-hidden="true">
+            <svg viewBox="0 0 360 200" role="img">
+              <defs>
+                <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#1a3a52" />
+                  <stop offset="70%" stop-color="#0c1a28" />
+                  <stop offset="100%" stop-color="#061018" />
+                </linearGradient>
+              </defs>
+              <rect width="360" height="200" fill="url(#water)" rx="12" />
+              <text x="12" y="22" fill="#9eb0bf" font-size="11" font-family="Source Sans 3, sans-serif">42.6 ft</text>
+              <rect x="0" y="28" width="360" height="18" fill="rgba(58,168,137,0.25)" />
+              <text x="12" y="41" fill="#9fe0cf" font-size="9" font-family="Source Sans 3, sans-serif">surface clutter</text>
+              <path d="M220 70 Q240 58 260 70" stroke="#e2b15a" stroke-width="2.5" fill="none" />
+              <path d="M280 95 Q295 86 310 95" stroke="#3aa889" stroke-width="2" fill="none" />
+              <ellipse cx="160" cy="110" rx="28" ry="10" fill="rgba(62,120,160,0.55)" />
+              <text x="142" y="114" fill="#c5e0ff" font-size="8" font-family="Source Sans 3, sans-serif">bait</text>
+              <path d="M0 155 C40 148,80 162,120 150 S200 140,240 148 S300 160,360 152 L360 200 L0 200 Z" fill="#1a1208" />
+              <path d="M0 155 C40 148,80 162,120 150 S200 140,240 148 S300 160,360 152" stroke="#f0d5a2" stroke-width="3" fill="none" />
+              <text x="12" y="178" fill="#f0d5a2" font-size="9" font-family="Source Sans 3, sans-serif">hard bottom (thick + bright)</text>
+              <line x1="348" y1="20" x2="348" y2="190" stroke="rgba(244,239,228,0.2)" stroke-dasharray="3 3" />
+              <text x="318" y="14" fill="#9eb0bf" font-size="8" font-family="Source Sans 3, sans-serif">now →</text>
+            </svg>
+            <figcaption>Traditional view: newest column on the right; arches = fish; thick bright bottom = hard ground.</figcaption>
+          </figure>
+        </section>
+
+        <section class="guide-section" id="spectrum">
+          <h2>Multi-spectrum bands — blue and black</h2>
+          <p>
+            Colors are not “fish species.” They map <strong>return strength</strong> — how hard the echo bounced back to the transducer.
+            On Garmin-style traditional palettes (and many “blue” schemes), think of a spectrum from weak to strong:
+          </p>
+
+          <div class="spectrum" role="img" aria-label="Sonar color spectrum from blue weak to black strong">
+            <div class="spectrum-bar"></div>
+            <div class="spectrum-labels">
+              <span>Blue / dark cool<br /><em>weak return</em></span>
+              <span>Mid tones<br /><em>moderate</em></span>
+              <span>Black / hot bright<br /><em>strong return</em></span>
+            </div>
+          </div>
+
+          <div class="band-grid">
+            <div class="band">
+              <span class="swatch blue" aria-hidden="true"></span>
+              <div>
+                <h3>Blue band</h3>
+                <p>
+                  Weak echo. Open water, soft mud/silt edges, light weed, small bait, or a fish off to the side of the cone.
+                  Blue filling most of the column usually means “not much solid down there.”
+                </p>
+                <p class="band-fish"><strong>Fishing:</strong> soft bottom + scattered blue flecks → search for bait clouds or move until you find a harder edge where fish stage.</p>
+              </div>
+            </div>
+            <div class="band">
+              <span class="swatch black" aria-hidden="true"></span>
+              <div>
+                <h3>Black / strongest band</h3>
+                <p>
+                  Dense, hard echo. Rock, compacted sand/gravel, wrecks, thick shell, and solid fish marks near the center of the beam.
+                  On some Garmin views the strongest bottom paint is black (or bright white/yellow/red depending on palette) — treat it as “maximum intensity,” not a literal color of the seabed.
+                </p>
+                <p class="band-fish"><strong>Fishing:</strong> black/hard transitions next to softer blue/green ground are prime. Predators sit on the hard edge and feed into the soft.</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="hint-inline">
+            Palette names differ (“Garmin,” “Blue,” “Amber,” etc.). Always read the unit’s color legend: cool/dark = weak, hot/bright or solid black = strong. If you change palette, the fishing logic stays the same; only the paint changes.
+          </p>
+        </section>
+
+        <section class="guide-section" id="bottom">
+          <h2>Reading bottom type</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>What you see</th>
+                <th>Likely bottom</th>
+                <th>Fishing note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Thin, faint, soft-edged line (often blue/cool)</td>
+                <td>Mud, silt, soft sand</td>
+                <td>Flats and soft basins; look for bait clouds above, not hard cover</td>
+              </tr>
+              <tr>
+                <td>Thick, sharp, intense line (black / yellow / red / white)</td>
+                <td>Rock, gravel, hard sand, shell</td>
+                <td>Structure holds; cast or drop along the hard edge</td>
+              </tr>
+              <tr>
+                <td>Fuzzy “hair” or fuzzy rise off the bottom</td>
+                <td>Weed / grass / soft cover</td>
+                <td>Weed edges and holes in the grass hold fish</td>
+              </tr>
+              <tr>
+                <td>Sudden spike or step in the bottom contour</td>
+                <td>Ledge, reef, wreck, rock pile</td>
+                <td>Mark a waypoint; work the up-current or shady side</td>
+              </tr>
+              <tr>
+                <td>Second echo (ghost bottom below the first)</td>
+                <td>Very hard bottom (signal bounced twice)</td>
+                <td>Useful hardness clue in shallow hard ground</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            <strong>Whiteline / bottom fill</strong> (if your GPSMAP sonar menu offers it) paints the strongest part of the bottom return so thickness is easier to read: thick highlight = harder; thin = softer.
+          </p>
+        </section>
+
+        <section class="guide-section" id="fish">
+          <h2>Fish, bait, and false marks</h2>
+          <ul>
+            <li><strong>Arches</strong> — classic traditional mark. A fish swimming through the cone: weak on the edge, strong in the middle, weak again. Full thick arches are centered under the boat; hooks and dashes are edge-of-cone or fast boat speed.</li>
+            <li><strong>Color of the arch</strong> — stronger (black / hot) usually means denser target or better beam center, not automatically a bigger species. Blue/cool arches are often small bait, soft returns, or fish on the cone edge.</li>
+            <li><strong>Bait</strong> — clouds, smears, or speckled patches mid-column. Dense packs paint hotter; loose shiners look blue/gray and airy.</li>
+            <li><strong>Thermocline</strong> — a faint horizontal band across the column. Game fish often sit just above or below it; bait stacks there too.</li>
+            <li><strong>Fish symbols</strong> — optional icons. Handy for beginners, but they guess. Learn arches and clouds; turn symbols off once you are comfortable.</li>
+          </ul>
+        </section>
+
+        <section class="guide-section" id="views">
+          <h2>Traditional vs ClearVü on this Garmin</h2>
+          <p>
+            This Flyer 8 helm runs a <strong>Garmin GPSMAP x3</strong> chartplotter/sonar (exact 7″ / 9″ / 12″ and xsv SKU still verify under Settings → System → About). With a compatible transducer (likely GT23-class), you typically get:
+          </p>
+          <ul>
+            <li><strong>Traditional / CHIRP</strong> — conical beam, arches, best for depth, hardness, and fish in the water column while you idle or troll.</li>
+            <li><strong>ClearVü</strong> — narrow downward scan, more photo-like. Fish look like dots or dashes, not arches. Structure, brush, and bottom texture are clearer. Use it to confirm what traditional found.</li>
+          </ul>
+          <p>
+            Split the screen (chart + sonar, or traditional + ClearVü) the way the owner photos show. Idle under ~5–6 kn for readable ClearVü detail; traditional stays usable a bit faster.
+          </p>
+        </section>
+
+        <section class="guide-section" id="tips">
+          <h2>On-the-water settings that help</h2>
+          <ol>
+            <li>Start with <strong>Auto Gain</strong>, then bump gain until you see light speckles in open water — then back off one notch.</li>
+            <li>Use <strong>Color Gain / Contrast</strong> after gain: higher makes small targets pop; too high washes out bottom hardness.</li>
+            <li>Pick a palette you can read in sun (often a blue or high-contrast scheme), then stick with it so your brain learns the spectrum.</li>
+            <li>When you find a hard edge next to soft blue ground with bait above it — mark the waypoint and fish that transition.</li>
+            <li>No depth / flashing depth digits → boat may be too fast, transducer kicked up, or sonar source wrong. See Ask the boat / troubleshooting for MFD faults.</li>
+          </ol>
+          <p class="cta-row">
+            <a class="btn primary" href="./index.html?q=How%20do%20I%20read%20the%20fish%20finder%3F">Ask about sonar on this boat</a>
+            <a class="btn ghost" href="./index.html">Back to Ask the boat</a>
+          </p>
+          <p class="hint">
+            Sources: Garmin traditional / ClearVü sonar concepts from the GPSMAP x3 and related Garmin fishfinder manuals in the boat binder; fishing interpretation is practical sonar literacy, not a species guarantee.
+          </p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

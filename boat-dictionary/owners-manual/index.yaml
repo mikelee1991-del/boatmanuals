@@ -128,6 +128,11 @@ sections:
     title: Garmin GPSMAP x3 MFD
     keywords: [GPSMAP, 7x3, 9x3, 12x3, sonar, GPS, HDS fuse, ECHOMAP]
 
+  - id: OM-SONAR
+    path: chapters/17-how-to-read-fish-finder.md
+    title: How to read the fish finder
+    keywords: [fish finder, sonar, ClearVü, ClearVu, arches, bottom hardness, blue, black, color palette, CHIRP, whiteline, bait, thermocline]
+
   - id: OM-HELM-VV
     path: chapters/07-helm-electronics.md#mercury-vesselview--smartcraft-display
     title: VesselView / SmartCraft display

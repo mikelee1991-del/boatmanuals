@@ -29,6 +29,7 @@ Exact screen size (**7″ / 9″ / 12″**) and **xsv** sonar SKU still **UNVERI
 - Chart + sonar split (seen in owner photos)
 - Engine data overlay possible via NMEA/SmartCraft gateway
 - Man overboard / track / routes per GPSMAP x3 Owner’s Manual
+- How to read sonar colors / bottom / fish marks → `OM-SONAR` and the Ask UI guide `how-to-read-fish-finder.html`
 
 Faults → `OM-TS-MFD`.
 

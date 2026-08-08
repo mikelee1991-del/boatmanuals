@@ -252,6 +252,7 @@ const bundle = {
     "Stereo has no sound — what should I check?",
     "Where is the fuel filter and how do I service it?",
     "Hard steering — walk me through it",
+    "How do I read the fish finder?",
     "What does the battery locker look like?",
   ],
 };
